@@ -1,0 +1,382 @@
+/* 프린트 */
+.print_ordersheet_page {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+.print_ordersheet_page .print_ordersheet_page_head {
+    padding: 15px 20px;
+    width: 100%;
+    background-color: #0855f9;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 24px;
+    position: relative;
+}
+@media screen and (max-width: 600px) {
+    .print_ordersheet_page .print_ordersheet_page_head {
+        font-size: 16px;
+    }
+}
+
+.print_ordersheet_page .print_ordersheet_page_head .print_button {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    border: 1px solid #ffffff;
+    background-color: #0855f9;
+    color: #ffffff;
+    padding: 6px 10px;
+    line-height: 1.5;
+}
+
+.print_ordersheet_page .print_ordersheet_page_head .print_button i {
+    margin-right: 5px;
+    font-size: 20px;
+}
+
+.print_ordersheet_page .Deviver {
+    margin: 30px 20px;
+    background-color: #f6f9ff;
+    border: 1px solid #0a40ff;
+    padding: 0;
+}
+.print_ordersheet_page .Deviver .padding_none {
+    padding: 0;
+}
+.print_ordersheet_page .Deviver .padding_none .image {
+    padding: 20px 0 20px 20px;
+    text-align: center;
+}
+
+.print_ordersheet_page .Deviver .padding_none .image img {
+    max-width: 100%;
+}
+
+.print_ordersheet_page .Deviver .description {
+    padding: 10px 0;
+}
+
+.print_ordersheet_page .Deviver .description span {
+    font-size: 14px;
+    margin-bottom: 15px;
+    color: #000000;
+    font-weight: 500;
+}
+
+.print_ordersheet_page .Deviver .description p {
+    padding: 0;
+    margin: 0;
+    color: #000000;
+    font-weight: 500;
+}
+
+.print_ordersheet_page .order_number {
+    background-color: #717171;
+    padding: 15px;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+.print_ordersheet_page .order_number h6 {
+    color: #ffffff;
+    font-weight: 600;
+    padding: 0;
+    margin: 0;
+}
+
+.print_ordersheet_page .order_table {
+    padding-left: 20px;
+    margin-bottom: 30px;
+}
+
+.print_ordersheet_page .order_table p {
+    color: #000000;
+    font-weight: 600;
+    padding: 0;
+    margin: 0 0 5px 0;
+}
+
+.print_ordersheet_page .order_table table {
+    border: 1px solid #cccccc;
+}
+
+.print_ordersheet_page .order_table table thead {
+    border: none !important;
+    text-align: left;
+}
+
+.print_ordersheet_page .order_table table thead tr th {
+    font-weight: 400;
+    font-size: 14px;
+    vertical-align: bottom;
+    border: 1px solid #cccccc;
+    color: #000000;
+}
+
+.print_ordersheet_page .order_table tbody tr td {
+    font-size: 14px;
+    border: 1px solid #cccccc;
+    color: #000000;
+}
+.print_ordersheet_page .order_table .one_talbe {
+    margin-bottom: 20px;
+    margin-top: 46px;
+}
+.print_ordersheet_page .order_table .one_talbe tbody tr td {
+    font-size: 14px;
+    border: 1px solid #cccccc;
+    color: #000000;
+}
+.print_ordersheet_page .order_table .one_talbe tbody tr td:first-child {
+    background-color: #f5f5f5;
+    width: 126px;
+    color: #000000;
+}
+.print_ordersheet_page .order_table_right {
+    padding-right: 20px;
+    margin-bottom: 30px;
+}
+.print_ordersheet_page .order_table_right p {
+    color: #000000;
+    font-weight: 600;
+    padding: 0;
+    margin: 0 0 5px 0;
+}
+.print_ordersheet_page .order_table_right table {
+    border: 1px solid #cccccc;
+}
+.print_ordersheet_page .order_table_right table thead {
+    border: none !important;
+    text-align: left;
+}
+.print_ordersheet_page .order_table_right table thead tr th {
+    font-weight: 400;
+    font-size: 14px;
+    vertical-align: bottom;
+    border: 1px solid #cccccc;
+    color: #000000;
+}
+.print_ordersheet_page .order_table_right tbody tr td {
+    font-size: 14px;
+    border: 1px solid #cccccc;
+    color: #000000;
+}
+.print_ordersheet_page .full_table {
+    padding-right: 20px;
+    padding-left: 20px;
+    margin-bottom: 30px;
+}
+.print_ordersheet_page .full_table table {
+    border: 1px solid #cccccc;
+}
+.print_ordersheet_page .full_table table thead {
+    border: none !important;
+    text-align: left;
+}
+.print_ordersheet_page .full_table table thead tr th {
+    font-weight: 400;
+    font-size: 14px;
+    vertical-align: bottom;
+    border: 1px solid #cccccc;
+    color: #000000;
+    text-align: center;
+}
+.print_ordersheet_page .full_table tbody tr td:first-child {
+    font-size: 14px;
+    border: 1px solid #cccccc;
+    color: #000000;
+    text-align: left;
+}
+.print_ordersheet_page .full_table tbody tr td {
+    font-size: 14px;
+    border: 1px solid #cccccc;
+    color: #000000;
+    text-align: center;
+}
+.print_ordersheet_page .full_table .list p {
+    margin: 0;
+}
+.print_ordersheet_page .full_table1 {
+    padding-right: 20px;
+    padding-left: 20px;
+}
+.print_ordersheet_page .full_table1 table {
+    border: 1px solid #cccccc;
+}
+.print_ordersheet_page .full_table1 table thead {
+    border: none !important;
+    text-align: left;
+}
+.print_ordersheet_page .full_table1 table thead tr th {
+    font-weight: 400;
+    font-size: 14px;
+    vertical-align: bottom;
+    border: 1px solid #cccccc;
+    color: #000000;
+    text-align: center;
+}
+.print_ordersheet_page .full_table1 tbody tr:nth-child(2) {
+    background-color: #f5f5f5 !important;
+}
+.print_ordersheet_page .full_table1 tbody tr td {
+    font-size: 14px;
+    border: 1px solid #cccccc;
+    color: #000000;
+    text-align: center;
+}
+
+/* order sheet list new */
+.userInformation p,
+.userInformation h3,
+.orderInformation p,
+.orderInformation h5 {
+    margin-top: 0;
+    margin-bottom: 0;
+    letter-spacing: -0.5px;
+}
+.userInformation {
+    padding: 0 0 50px 0;
+}
+.userInformation h3 {
+    font-size: 1.5rem;
+    line-height: 1.5;
+}
+.orderDetail {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    border: 1px solid #000;
+    margin: 30px 0;
+    padding: 15px 0;
+}
+.orderDetail > div {
+    width: 33%;
+    text-align: center;
+}
+.orderDetail > div:nth-child(2),
+.orderDetail > div:nth-child(3) {
+    /* width:100%; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.orderDetail > div > p {
+    width: 100%;
+}
+.productsInfo {
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+.productsInfo > table {
+    width: 100%;
+    text-align: center;
+    /* min-width:670px; */
+    border-collapse: collapse;
+}
+.productsInfo > table th {
+    width: 12.5%;
+}
+.productsInfo > table > thead {
+    border-top: 2px solid black;
+    background-color: #f5f5f5;
+    text-align: center;
+}
+.productsInfo > table > thead > tr {
+    height: 40px;
+}
+.productsInfo > table > tbody > tr {
+    height: 200px;
+    border-bottom: 1px solid #cccccc;
+}
+.productsInfo > table > tbody > tr > td > strong.totalOrder {
+    width: 118.7px;
+    display: inline-block;
+    margin-right: 5px;
+    text-align: right;
+    font-size: 15px;
+}
+.productsInfo > table > tbody > tr > td > span {
+    width: 40px;
+    display: inline-block;
+    text-align: left;
+    font-size: 15px;
+}
+.productsInfo > table th:first-child {
+    width: 45%;
+}
+.productsInfo > table th:last-child {
+    width: 20%;
+}
+.total {
+    text-align: right;
+    margin: 10px 0;
+}
+.total > p > strong {
+    width: 118.75px;
+    display: inline-block;
+}
+.total > p > span {
+    width: 60px;
+    display: inline-block;
+    text-align: left;
+}
+.printBtn a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.printBtn button {
+    float: right;
+}
+.head {
+    display: flex;
+    justify-content: space-between;
+}
+.btnWrap {
+    width: 128px;
+}
+.btnWrap button {
+    width: 128px;
+}
+.page {
+    width: 21cm;
+    min-height: 29.7cm;
+    padding: 1cm;
+    margin: 0 auto;
+    margin-bottom: 50px;
+    /* margin: 1cm auto; */
+    box-sizing: border-box;
+    border-radius: 5px;
+    background: white;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+.subpage {
+    /* padding: 1cm; */
+    // height: 256mm;
+}
+@page {
+    size: A4;
+    margin: 0;
+    /*size: landscape;*/
+}
+@media print {
+    html,
+    body {
+        width: 210mm;
+        height: 297mm;
+    }
+    .page {
+        margin: 0;
+        border: initial;
+        border-radius: initial;
+        width: initial;
+        min-height: initial;
+        box-shadow: initial;
+        background: initial;
+        page-break-after: always;
+    }
+}

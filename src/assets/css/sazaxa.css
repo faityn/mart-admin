@@ -1,0 +1,1437 @@
+@charset "UTF-8";
+/* line 5, ../../../assets/stylesheets/src/product/_list.scss */
+.product-list .product-name {
+  max-width: 300px;
+  white-space: nowrap;
+  overflow: hidden;
+  -ms-text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+
+/* line 1, ../../../assets/stylesheets/src/consult/_consult.scss */
+.consult-container {
+  height: 632px;
+  margin: 50px 0;
+  border: 1px solid #cbcbcb;
+}
+/* line 6, ../../../assets/stylesheets/src/consult/_consult.scss */
+.consult-container .chatLeftSide {
+  background-color: #f5f5f5;
+  border-right: 1px solid #cbcbcb;
+  border-right: 1px solid #cbcbcb;
+  height: 630px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+/* line 14, ../../../assets/stylesheets/src/consult/_consult.scss */
+.consult-container .chatLeftSide .chat-header {
+  margin: 0;
+  padding: 20px;
+  border-bottom: 1px solid #cbcbcb;
+  text-align: left;
+}
+/* line 21, ../../../assets/stylesheets/src/consult/_consult.scss */
+.consult-container .chatLeftSide .chat-content {
+  border-top: 1px solid #f5f5f5;
+  border-bottom: 1px solid #f5f5f5;
+  padding: 10px 20px;
+  text-align: left;
+  cursor: pointer;
+}
+/* line 28, ../../../assets/stylesheets/src/consult/_consult.scss */
+.consult-container .chatLeftSide .chat-content span {
+  padding: 1px 8px 1px 8px;
+  background-color: #585858;
+  color: white;
+  border-radius: 24px;
+  text-transform: capitalize;
+  font-size: 12px;
+}
+/* line 37, ../../../assets/stylesheets/src/consult/_consult.scss */
+.consult-container .chatLeftSide .chat-content h6 {
+  margin: 5px 0 0 0;
+}
+/* line 41, ../../../assets/stylesheets/src/consult/_consult.scss */
+.consult-container .chatLeftSide .chat-content p {
+  margin: 0;
+  font-size: 12px;
+  color: #9f9f9f;
+}
+/* line 48, ../../../assets/stylesheets/src/consult/_consult.scss */
+.consult-container .chatLeftSide .chatActive {
+  background-color: #ffffff;
+  border-top: 1px solid #cbcbcb;
+  border-bottom: 1px solid #cbcbcb;
+  margin-right: -1px;
+}
+/* line 56, ../../../assets/stylesheets/src/consult/_consult.scss */
+.consult-container .chatRightSide {
+  height: 580px;
+  padding: 0 20px;
+  overflow-y: auto;
+  position: relative;
+  background-color: #ffffff;
+}
+/* line 63, ../../../assets/stylesheets/src/consult/_consult.scss */
+.consult-container .chatRightSide .text-header {
+  margin: 0;
+  padding: 17px 0;
+  text-align: left;
+  border-bottom: 1px solid #cbcbcb;
+}
+/* line 69, ../../../assets/stylesheets/src/consult/_consult.scss */
+.consult-container .chatRightSide .text-header h6 {
+  margin: 0;
+}
+/* line 73, ../../../assets/stylesheets/src/consult/_consult.scss */
+.consult-container .chatRightSide .text-header p {
+  margin: 0;
+  color: #007bff;
+}
+/* line 79, ../../../assets/stylesheets/src/consult/_consult.scss */
+.consult-container .chatRightSide .text-content {
+  text-align: left;
+}
+/* line 82, ../../../assets/stylesheets/src/consult/_consult.scss */
+.consult-container .chatRightSide .text-content span {
+  background-color: #585858;
+  color: white;
+  border-radius: 24px;
+}
+/* line 88, ../../../assets/stylesheets/src/consult/_consult.scss */
+.consult-container .chatRightSide .text-content h6 {
+  margin: 0;
+}
+/* line 92, ../../../assets/stylesheets/src/consult/_consult.scss */
+.consult-container .chatRightSide .text-content p {
+  margin: 0;
+}
+/* line 98, ../../../assets/stylesheets/src/consult/_consult.scss */
+.consult-container .chatRightSide .text-contentRight {
+  width: 50%;
+  background-color: #2cabe2;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  color: white;
+  padding: 20px;
+  margin-left: auto;
+  margin-right: 0;
+}
+/* line 108, ../../../assets/stylesheets/src/consult/_consult.scss */
+.consult-container .chatRightSide .text-contentLeft {
+  width: 50%;
+  background-color: #a37fbc;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  color: white;
+  padding: 20px;
+}
+/* line 116, ../../../assets/stylesheets/src/consult/_consult.scss */
+.consult-container .chatRightSide .chatDate {
+  margin-top: 20px;
+  text-align: center;
+}
+/* line 121, ../../../assets/stylesheets/src/consult/_consult.scss */
+.consult-container .chatRightSide .containerChat {
+  margin-top: 20px;
+}
+/* line 126, ../../../assets/stylesheets/src/consult/_consult.scss */
+.consult-container .chatReplyContainer {
+  background: #ffffff;
+  padding: 0 20px;
+  text-align: right;
+  height: 50px;
+  line-height: 60px;
+}
+/* line 133, ../../../assets/stylesheets/src/consult/_consult.scss */
+.consult-container .chatReplyContainer svg {
+  cursor: pointer;
+}
+
+/* 프린트 */
+/* line 2, ../../../assets/stylesheets/src/print/_print.scss */
+.print_ordersheet_page {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+/* line 7, ../../../assets/stylesheets/src/print/_print.scss */
+.print_ordersheet_page .print_ordersheet_page_head {
+  padding: 15px 20px;
+  width: 100%;
+  background-color: #0855f9;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 24px;
+  position: relative;
+}
+
+@media screen and (max-width: 600px) {
+  /* line 17, ../../../assets/stylesheets/src/print/_print.scss */
+  .print_ordersheet_page .print_ordersheet_page_head {
+    font-size: 16px;
+  }
+}
+/* line 22, ../../../assets/stylesheets/src/print/_print.scss */
+.print_ordersheet_page .print_ordersheet_page_head .print_button {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  border: 1px solid #ffffff;
+  background-color: #0855f9;
+  color: #ffffff;
+  padding: 6px 10px;
+  line-height: 1.5;
+}
+
+/* line 34, ../../../assets/stylesheets/src/print/_print.scss */
+.print_ordersheet_page .print_ordersheet_page_head .print_button i {
+  margin-right: 5px;
+  font-size: 20px;
+}
+
+/* line 39, ../../../assets/stylesheets/src/print/_print.scss */
+.print_ordersheet_page .Deviver {
+  margin: 30px 20px;
+  background-color: #f6f9ff;
+  border: 1px solid #0a40ff;
+  padding: 0;
+}
+
+/* line 45, ../../../assets/stylesheets/src/print/_print.scss */
+.print_ordersheet_page .Deviver .padding_none {
+  padding: 0;
+}
+
+/* line 48, ../../../assets/stylesheets/src/print/_print.scss */
+.print_ordersheet_page .Deviver .padding_none .image {
+  padding: 20px 0 20px 20px;
+  text-align: center;
+}
+
+/* line 53, ../../../assets/stylesheets/src/print/_print.scss */
+.print_ordersheet_page .Deviver .padding_none .image img {
+  max-width: 100%;
+}
+
+/* line 57, ../../../assets/stylesheets/src/print/_print.scss */
+.print_ordersheet_page .Deviver .description {
+  padding: 10px 0;
+}
+
+/* line 61, ../../../assets/stylesheets/src/print/_print.scss */
+.print_ordersheet_page .Deviver .description span {
+  font-size: 14px;
+  margin-bottom: 15px;
+  color: #000000;
+  font-weight: 500;
+}
+
+/* line 68, ../../../assets/stylesheets/src/print/_print.scss */
+.print_ordersheet_page .Deviver .description p {
+  padding: 0;
+  margin: 0;
+  color: #000000;
+  font-weight: 500;
+}
+
+/* line 75, ../../../assets/stylesheets/src/print/_print.scss */
+.print_ordersheet_page .order_number {
+  background-color: #717171;
+  padding: 15px;
+  margin-bottom: 20px;
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+/* line 83, ../../../assets/stylesheets/src/print/_print.scss */
+.print_ordersheet_page .order_number h6 {
+  color: #ffffff;
+  font-weight: 600;
+  padding: 0;
+  margin: 0;
+}
+
+/* line 90, ../../../assets/stylesheets/src/print/_print.scss */
+.print_ordersheet_page .order_table {
+  padding-left: 20px;
+  margin-bottom: 30px;
+}
+
+/* line 95, ../../../assets/stylesheets/src/print/_print.scss */
+.print_ordersheet_page .order_table p {
+  color: #000000;
+  font-weight: 600;
+  padding: 0;
+  margin: 0 0 5px 0;
+}
+
+/* line 102, ../../../assets/stylesheets/src/print/_print.scss */
+.print_ordersheet_page .order_table table {
+  border: 1px solid #cccccc;
+}
+
+/* line 106, ../../../assets/stylesheets/src/print/_print.scss */
+.print_ordersheet_page .order_table table thead {
+  border: none !important;
+  text-align: left;
+}
+
+/* line 111, ../../../assets/stylesheets/src/print/_print.scss */
+.print_ordersheet_page .order_table table thead tr th {
+  font-weight: 400;
+  font-size: 14px;
+  vertical-align: bottom;
+  border: 1px solid #cccccc;
+  color: #000000;
+}
+
+/* line 119, ../../../assets/stylesheets/src/print/_print.scss */
+.print_ordersheet_page .order_table tbody tr td {
+  font-size: 14px;
+  border: 1px solid #cccccc;
+  color: #000000;
+}
+
+/* line 124, ../../../assets/stylesheets/src/print/_print.scss */
+.print_ordersheet_page .order_table .one_talbe {
+  margin-bottom: 20px;
+  margin-top: 46px;
+}
+
+/* line 128, ../../../assets/stylesheets/src/print/_print.scss */
+.print_ordersheet_page .order_table .one_talbe tbody tr td {
+  font-size: 14px;
+  border: 1px solid #cccccc;
+  color: #000000;
+}
+
+/* line 133, ../../../assets/stylesheets/src/print/_print.scss */
+.print_ordersheet_page .order_table .one_talbe tbody tr td:first-child {
+  background-color: #f5f5f5;
+  width: 126px;
+  color: #000000;
+}
+
+/* line 138, ../../../assets/stylesheets/src/print/_print.scss */
+.print_ordersheet_page .order_table_right {
+  padding-right: 20px;
+  margin-bottom: 30px;
+}
+
+/* line 142, ../../../assets/stylesheets/src/print/_print.scss */
+.print_ordersheet_page .order_table_right p {
+  color: #000000;
+  font-weight: 600;
+  padding: 0;
+  margin: 0 0 5px 0;
+}
+
+/* line 148, ../../../assets/stylesheets/src/print/_print.scss */
+.print_ordersheet_page .order_table_right table {
+  border: 1px solid #cccccc;
+}
+
+/* line 151, ../../../assets/stylesheets/src/print/_print.scss */
+.print_ordersheet_page .order_table_right table thead {
+  border: none !important;
+  text-align: left;
+}
+
+/* line 155, ../../../assets/stylesheets/src/print/_print.scss */
+.print_ordersheet_page .order_table_right table thead tr th {
+  font-weight: 400;
+  font-size: 14px;
+  vertical-align: bottom;
+  border: 1px solid #cccccc;
+  color: #000000;
+}
+
+/* line 162, ../../../assets/stylesheets/src/print/_print.scss */
+.print_ordersheet_page .order_table_right tbody tr td {
+  font-size: 14px;
+  border: 1px solid #cccccc;
+  color: #000000;
+}
+
+/* line 167, ../../../assets/stylesheets/src/print/_print.scss */
+.print_ordersheet_page .full_table {
+  padding-right: 20px;
+  padding-left: 20px;
+  margin-bottom: 30px;
+}
+
+/* line 172, ../../../assets/stylesheets/src/print/_print.scss */
+.print_ordersheet_page .full_table table {
+  border: 1px solid #cccccc;
+}
+
+/* line 175, ../../../assets/stylesheets/src/print/_print.scss */
+.print_ordersheet_page .full_table table thead {
+  border: none !important;
+  text-align: left;
+}
+
+/* line 179, ../../../assets/stylesheets/src/print/_print.scss */
+.print_ordersheet_page .full_table table thead tr th {
+  font-weight: 400;
+  font-size: 14px;
+  vertical-align: bottom;
+  border: 1px solid #cccccc;
+  color: #000000;
+  text-align: center;
+}
+
+/* line 187, ../../../assets/stylesheets/src/print/_print.scss */
+.print_ordersheet_page .full_table tbody tr td:first-child {
+  font-size: 14px;
+  border: 1px solid #cccccc;
+  color: #000000;
+  text-align: left;
+}
+
+/* line 193, ../../../assets/stylesheets/src/print/_print.scss */
+.print_ordersheet_page .full_table tbody tr td {
+  font-size: 14px;
+  border: 1px solid #cccccc;
+  color: #000000;
+  text-align: center;
+}
+
+/* line 199, ../../../assets/stylesheets/src/print/_print.scss */
+.print_ordersheet_page .full_table .list p {
+  margin: 0;
+}
+
+/* line 202, ../../../assets/stylesheets/src/print/_print.scss */
+.print_ordersheet_page .full_table1 {
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+/* line 206, ../../../assets/stylesheets/src/print/_print.scss */
+.print_ordersheet_page .full_table1 table {
+  border: 1px solid #cccccc;
+}
+
+/* line 209, ../../../assets/stylesheets/src/print/_print.scss */
+.print_ordersheet_page .full_table1 table thead {
+  border: none !important;
+  text-align: left;
+}
+
+/* line 213, ../../../assets/stylesheets/src/print/_print.scss */
+.print_ordersheet_page .full_table1 table thead tr th {
+  font-weight: 400;
+  font-size: 14px;
+  vertical-align: bottom;
+  border: 1px solid #cccccc;
+  color: #000000;
+  text-align: center;
+}
+
+/* line 221, ../../../assets/stylesheets/src/print/_print.scss */
+.print_ordersheet_page .full_table1 tbody tr:nth-child(2) {
+  background-color: #f5f5f5 !important;
+}
+
+/* line 224, ../../../assets/stylesheets/src/print/_print.scss */
+.print_ordersheet_page .full_table1 tbody tr td {
+  font-size: 14px;
+  border: 1px solid #cccccc;
+  color: #000000;
+  text-align: center;
+}
+
+/* order sheet list new */
+/* line 232, ../../../assets/stylesheets/src/print/_print.scss */
+.userInformation p,
+.userInformation h3,
+.orderInformation p,
+.orderInformation h5 {
+  margin-top: 0;
+  margin-bottom: 0;
+  letter-spacing: -0.5px;
+}
+
+/* line 240, ../../../assets/stylesheets/src/print/_print.scss */
+.userInformation {
+  padding: 0 0 50px 0;
+}
+
+/* line 243, ../../../assets/stylesheets/src/print/_print.scss */
+.userInformation h3 {
+  font-size: 1.5rem;
+  line-height: 1.5;
+}
+
+/* line 247, ../../../assets/stylesheets/src/print/_print.scss */
+.orderDetail {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  border: 1px solid #000;
+  margin: 30px 0;
+  padding: 15px 0;
+}
+
+/* line 255, ../../../assets/stylesheets/src/print/_print.scss */
+.orderDetail > div {
+  width: 33%;
+  text-align: center;
+}
+
+/* line 259, ../../../assets/stylesheets/src/print/_print.scss */
+.orderDetail > div:nth-child(2),
+.orderDetail > div:nth-child(3) {
+  /* width:100%; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* line 267, ../../../assets/stylesheets/src/print/_print.scss */
+.orderDetail > div > p {
+  width: 100%;
+}
+
+/* line 270, ../../../assets/stylesheets/src/print/_print.scss */
+.productsInfo {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+/* line 274, ../../../assets/stylesheets/src/print/_print.scss */
+.productsInfo > table {
+  width: 100%;
+  text-align: center;
+  /* min-width:670px; */
+  border-collapse: collapse;
+}
+
+/* line 280, ../../../assets/stylesheets/src/print/_print.scss */
+.productsInfo > table th {
+  width: 12.5%;
+}
+
+/* line 283, ../../../assets/stylesheets/src/print/_print.scss */
+.productsInfo > table > thead {
+  border-top: 2px solid black;
+  background-color: #f5f5f5;
+  text-align: center;
+}
+
+/* line 288, ../../../assets/stylesheets/src/print/_print.scss */
+.productsInfo > table > thead > tr {
+  height: 40px;
+}
+
+/* line 291, ../../../assets/stylesheets/src/print/_print.scss */
+.productsInfo > table > tbody > tr {
+  height: 200px;
+  border-bottom: 1px solid #cccccc;
+}
+
+/* line 295, ../../../assets/stylesheets/src/print/_print.scss */
+.productsInfo > table > tbody > tr > td > strong.totalOrder {
+  width: 118.7px;
+  display: inline-block;
+  margin-right: 5px;
+  text-align: right;
+  font-size: 15px;
+}
+
+/* line 302, ../../../assets/stylesheets/src/print/_print.scss */
+.productsInfo > table > tbody > tr > td > span {
+  width: 40px;
+  display: inline-block;
+  text-align: left;
+  font-size: 15px;
+}
+
+/* line 308, ../../../assets/stylesheets/src/print/_print.scss */
+.productsInfo > table th:first-child {
+  width: 45%;
+}
+
+/* line 311, ../../../assets/stylesheets/src/print/_print.scss */
+.productsInfo > table th:last-child {
+  width: 20%;
+}
+
+/* line 314, ../../../assets/stylesheets/src/print/_print.scss */
+.total {
+  text-align: right;
+  margin: 10px 0;
+}
+
+/* line 318, ../../../assets/stylesheets/src/print/_print.scss */
+.total > p > strong {
+  width: 118.75px;
+  display: inline-block;
+}
+
+/* line 322, ../../../assets/stylesheets/src/print/_print.scss */
+.total > p > span {
+  width: 60px;
+  display: inline-block;
+  text-align: left;
+}
+
+/* line 327, ../../../assets/stylesheets/src/print/_print.scss */
+.printBtn a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* line 332, ../../../assets/stylesheets/src/print/_print.scss */
+.printBtn button {
+  float: right;
+}
+
+/* line 335, ../../../assets/stylesheets/src/print/_print.scss */
+.head {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* line 339, ../../../assets/stylesheets/src/print/_print.scss */
+.btnWrap {
+  width: 128px;
+}
+
+/* line 342, ../../../assets/stylesheets/src/print/_print.scss */
+.btnWrap button {
+  width: 128px;
+}
+
+/* line 345, ../../../assets/stylesheets/src/print/_print.scss */
+.page {
+  width: 21cm;
+  min-height: 29.7cm;
+  padding: 1cm;
+  margin: 0 auto;
+  margin-bottom: 50px;
+  /* margin: 1cm auto; */
+  box-sizing: border-box;
+  border-radius: 5px;
+  background: white;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/* line 357, ../../../assets/stylesheets/src/print/_print.scss */
+.subpage {
+  /* padding: 1cm; */
+}
+
+@page {
+  size: A4;
+  margin: 0;
+  /*size: landscape;*/
+}
+@media print {
+  /* line 367, ../../../assets/stylesheets/src/print/_print.scss */
+  html,
+  body {
+    width: 210mm;
+    height: 297mm;
+  }
+
+  /* line 372, ../../../assets/stylesheets/src/print/_print.scss */
+  .page {
+    margin: 0;
+    border: initial;
+    border-radius: initial;
+    width: initial;
+    min-height: initial;
+    box-shadow: initial;
+    background: initial;
+    page-break-after: always;
+  }
+}
+/* line 1, ../../../assets/stylesheets/src/affiliate/_policy.scss */
+.affiliatePolicyWrap {
+  display: flex;
+  flex-wrap: wrap;
+  background: #fff;
+  padding: 1rem;
+  border-radius: 5px;
+}
+/* line 7, ../../../assets/stylesheets/src/affiliate/_policy.scss */
+.affiliatePolicyWrap h2 {
+  width: 100%;
+  font-size: 20px;
+  letter-spacing: -1px;
+}
+/* line 12, ../../../assets/stylesheets/src/affiliate/_policy.scss */
+.affiliatePolicyWrap .head,
+.affiliatePolicyWrap .body {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  border-bottom: 1px solid #ccc;
+  padding: 1rem 0;
+}
+/* line 20, ../../../assets/stylesheets/src/affiliate/_policy.scss */
+.affiliatePolicyWrap .head span,
+.affiliatePolicyWrap .body span {
+  width: 33%;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -1.5px;
+}
+/* line 26, ../../../assets/stylesheets/src/affiliate/_policy.scss */
+.affiliatePolicyWrap .head .data,
+.affiliatePolicyWrap .body .data {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+/* line 31, ../../../assets/stylesheets/src/affiliate/_policy.scss */
+.affiliatePolicyWrap .head .data p,
+.affiliatePolicyWrap .body .data p {
+  width: 33%;
+}
+/* line 34, ../../../assets/stylesheets/src/affiliate/_policy.scss */
+.affiliatePolicyWrap .head .data input,
+.affiliatePolicyWrap .body .data input {
+  width: 33%;
+  text-align: center;
+  text-align-last: center;
+  border: none;
+  border-bottom: 1px solid #ccc;
+}
+/* line 41, ../../../assets/stylesheets/src/affiliate/_policy.scss */
+.affiliatePolicyWrap .head .data .btn,
+.affiliatePolicyWrap .body .data .btn {
+  width: 33%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* line 46, ../../../assets/stylesheets/src/affiliate/_policy.scss */
+.affiliatePolicyWrap .head .data .btn button span,
+.affiliatePolicyWrap .body .data .btn button span {
+  font-size: 16px;
+}
+
+/* line 8, ../../../assets/stylesheets/src/sazaxa.scss */
+html {
+  height: 100%;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* line 16, ../../../assets/stylesheets/src/sazaxa.scss */
+body {
+  background-color: #f4f6f8;
+  height: 100%;
+}
+
+/* line 21, ../../../assets/stylesheets/src/sazaxa.scss */
+a {
+  text-decoration: none;
+}
+
+/* line 25, ../../../assets/stylesheets/src/sazaxa.scss */
+#root {
+  height: 100%;
+}
+
+/* line 29, ../../../assets/stylesheets/src/sazaxa.scss */
+.content {
+  padding: 20px;
+}
+
+/* line 34, ../../../assets/stylesheets/src/sazaxa.scss */
+.text-right {
+  text-align: right;
+}
+
+/* line 38, ../../../assets/stylesheets/src/sazaxa.scss */
+.text-left {
+  text-align: left;
+}
+
+/* line 42, ../../../assets/stylesheets/src/sazaxa.scss */
+.text-center {
+  text-align: center !important;
+}
+
+/* line 46, ../../../assets/stylesheets/src/sazaxa.scss */
+.list-button {
+  margin-top: 20px;
+}
+/* line 49, ../../../assets/stylesheets/src/sazaxa.scss */
+.list-button .MuiButtonBase-root {
+  margin: 0 0 0 5px;
+}
+
+/* line 54, ../../../assets/stylesheets/src/sazaxa.scss */
+.displayNone {
+  display: none;
+}
+
+/* line 58, ../../../assets/stylesheets/src/sazaxa.scss */
+.MuiButton-contained,
+.MuiButton-contained:hover {
+  box-shadow: none !important;
+}
+
+/* line 63, ../../../assets/stylesheets/src/sazaxa.scss */
+.grid-lineHeight {
+  line-height: 58px;
+}
+
+/* line 67, ../../../assets/stylesheets/src/sazaxa.scss */
+.py-5 {
+  padding: 5px 5px 5px 5px;
+}
+
+/* line 71, ../../../assets/stylesheets/src/sazaxa.scss */
+.py-10 {
+  padding: 10px 10px 10px 10px;
+}
+
+/* line 75, ../../../assets/stylesheets/src/sazaxa.scss */
+.align-items-center {
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
+}
+
+/* line 80, ../../../assets/stylesheets/src/sazaxa.scss */
+.flexNoWrap {
+  flex-wrap: nowrap !important;
+}
+
+/* line 84, ../../../assets/stylesheets/src/sazaxa.scss */
+.makeStyles-content-3 {
+  padding: 24px;
+}
+
+/* line 88, ../../../assets/stylesheets/src/sazaxa.scss */
+.MuiGrid-spacing-xs-3 > .MuiGrid-item {
+  padding: 5px !important;
+}
+
+/* line 93, ../../../assets/stylesheets/src/sazaxa.scss */
+.mt-20 {
+  margin-top: 20px !important;
+}
+
+/* line 97, ../../../assets/stylesheets/src/sazaxa.scss */
+.mt-12 {
+  margin-top: 12px;
+}
+
+/* line 101, ../../../assets/stylesheets/src/sazaxa.scss */
+.mt-17 {
+  margin-top: 17px;
+}
+
+/* line 105, ../../../assets/stylesheets/src/sazaxa.scss */
+.mt-16 {
+  margin-top: 16px;
+}
+/* line 108, ../../../assets/stylesheets/src/sazaxa.scss */
+.mt-16 span {
+  font-size: 14px;
+}
+
+/* line 113, ../../../assets/stylesheets/src/sazaxa.scss */
+.ml-20 {
+  margin-left: 20px !important;
+}
+
+/* line 118, ../../../assets/stylesheets/src/sazaxa.scss */
+.productPrice .MuiOutlinedInput-input {
+  padding: 10.5px 14px !important;
+}
+
+/* line 123, ../../../assets/stylesheets/src/sazaxa.scss */
+.text-bold {
+  font-weight: bold;
+}
+
+/* line 127, ../../../assets/stylesheets/src/sazaxa.scss */
+.text-red {
+  color: red !important;
+}
+
+/* line 131, ../../../assets/stylesheets/src/sazaxa.scss */
+.customCell {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* line 136, ../../../assets/stylesheets/src/sazaxa.scss */
+.table-text {
+  padding: 100px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+  color: #263238;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+}
+
+/* line 147, ../../../assets/stylesheets/src/sazaxa.scss */
+.custom-avatar {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* line 154, ../../../assets/stylesheets/src/sazaxa.scss */
+.MuiTab-root {
+  padding: 5px !important;
+  font-size: 14px !important;
+  text-transform: capitalize !important;
+}
+
+/* line 163, ../../../assets/stylesheets/src/sazaxa.scss */
+.small-btn .MuiButton-containedSizeSmall {
+  font-size: 8px;
+}
+
+/* line 170, ../../../assets/stylesheets/src/sazaxa.scss */
+.custom-svgIcon .MuiSvgIcon-root {
+  width: 18px !important;
+  height: 18px !important;
+}
+
+/*  */
+/* line 177, ../../../assets/stylesheets/src/sazaxa.scss */
+.MuiTreeItem-group {
+  margin-left: 17px !important;
+}
+
+/* line 181, ../../../assets/stylesheets/src/sazaxa.scss */
+.MuiTreeItem-content {
+  font-weight: 300 !important;
+}
+
+/* line 186, ../../../assets/stylesheets/src/sazaxa.scss */
+.Mui-selected .MuiTypography-root {
+  font-weight: 500 !important;
+}
+/* line 191, ../../../assets/stylesheets/src/sazaxa.scss */
+.Mui-selected .MuiCollapse-container .MuiTypography-root {
+  font-weight: 300 !important;
+}
+
+/* line 197, ../../../assets/stylesheets/src/sazaxa.scss */
+.MuiListItem-container {
+  border-bottom: 1px solid #dddddd;
+}
+
+/* line 201, ../../../assets/stylesheets/src/sazaxa.scss */
+.MuiAvatar-root.MuiAvatar-rounded.custom-avatar {
+  width: 120px !important;
+}
+
+/* line 205, ../../../assets/stylesheets/src/sazaxa.scss */
+.bordered {
+  box-sizing: border-box !important;
+  border: #cecece 1px solid !important;
+}
+
+/* line 210, ../../../assets/stylesheets/src/sazaxa.scss */
+.menu-svgIcon {
+  padding: 5px 5px 5px 5px !important;
+  margin-left: -18px !important;
+}
+/* line 215, ../../../assets/stylesheets/src/sazaxa.scss */
+.menu-svgIcon .MuiTypography-body2 {
+  font-size: 14px !important;
+}
+/* line 219, ../../../assets/stylesheets/src/sazaxa.scss */
+.menu-svgIcon .makeStyles-labelRoot-17 {
+  margin: 2px !important;
+}
+/* line 223, ../../../assets/stylesheets/src/sazaxa.scss */
+.menu-svgIcon .MuiSvgIcon-root {
+  width: 20px !important;
+  height: 20px !important;
+}
+
+/* line 230, ../../../assets/stylesheets/src/sazaxa.scss */
+.small-Btn .MuiButton-outlinedSizeSmall {
+  font-size: 12px !important;
+}
+
+/* line 240, ../../../assets/stylesheets/src/sazaxa.scss */
+.popup-width {
+  min-width: 1000px;
+}
+
+/* line 244, ../../../assets/stylesheets/src/sazaxa.scss */
+.table-fixed {
+  width: 100px;
+  position: absolute;
+  margin-left: -124px;
+  background-color: white;
+}
+
+/* line 251, ../../../assets/stylesheets/src/sazaxa.scss */
+.header-heigth-1 {
+  height: 104px;
+  border: 1px solid #eeeeee;
+}
+
+/* line 256, ../../../assets/stylesheets/src/sazaxa.scss */
+.header-heigth-2 {
+  height: 69px;
+  border: 1px solid #eeeeee;
+}
+
+/* line 261, ../../../assets/stylesheets/src/sazaxa.scss */
+.marginLeft-100 {
+  margin-left: 100px;
+}
+
+/* line 265, ../../../assets/stylesheets/src/sazaxa.scss */
+.border-fixed-table {
+  border: 1px solid #eeeeee;
+}
+
+/* line 269, ../../../assets/stylesheets/src/sazaxa.scss */
+.customTable {
+  border: 1px solid #eeeeee;
+}
+/* line 272, ../../../assets/stylesheets/src/sazaxa.scss */
+.customTable thead tr th {
+  border: 1px solid #eeeeee;
+}
+/* line 276, ../../../assets/stylesheets/src/sazaxa.scss */
+.customTable tbody tr td {
+  border: 1px solid #eeeeee;
+}
+
+/* line 281, ../../../assets/stylesheets/src/sazaxa.scss */
+.table-print-color {
+  background-color: #fafafa;
+}
+
+/* line 285, ../../../assets/stylesheets/src/sazaxa.scss */
+.customTableQrTable {
+  border: 1px solid grey;
+}
+/* line 288, ../../../assets/stylesheets/src/sazaxa.scss */
+.customTableQrTable thead tr th {
+  border: 1px solid grey;
+}
+/* line 292, ../../../assets/stylesheets/src/sazaxa.scss */
+.customTableQrTable tbody tr td {
+  border: 1px solid grey;
+}
+
+@media screen and (min-width: 960px) {
+  /* line 298, ../../../assets/stylesheets/src/sazaxa.scss */
+  .customPopup {
+    width: 100%;
+  }
+}
+/* line 303, ../../../assets/stylesheets/src/sazaxa.scss */
+h5 {
+  color: #263238;
+  letter-spacing: -0.05px;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  line-height: 20px;
+  font-size: 14px;
+}
+
+/* line 312, ../../../assets/stylesheets/src/sazaxa.scss */
+.card {
+  margin-bottom: 20px;
+  padding: 24px;
+  background-color: white;
+  box-shadow: 0 0 0 1px rgba(63, 63, 68, 0.05), 0 1px 3px 0 rgba(63, 63, 68, 0.15);
+}
+/* line 319, ../../../assets/stylesheets/src/sazaxa.scss */
+.card h1 {
+  color: #263238;
+  letter-spacing: -0.05px;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+}
+/* line 325, ../../../assets/stylesheets/src/sazaxa.scss */
+.card h2 {
+  color: #263238;
+  letter-spacing: -0.05px;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+}
+/* line 331, ../../../assets/stylesheets/src/sazaxa.scss */
+.card h3 {
+  color: #263238;
+  letter-spacing: -0.05px;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+}
+/* line 337, ../../../assets/stylesheets/src/sazaxa.scss */
+.card h4 {
+  color: #263238;
+  letter-spacing: -0.05px;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+}
+/* line 343, ../../../assets/stylesheets/src/sazaxa.scss */
+.card h5 {
+  color: #263238;
+  letter-spacing: -0.05px;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  line-height: 20px;
+  font-size: 14px;
+}
+/* line 351, ../../../assets/stylesheets/src/sazaxa.scss */
+.card h6 {
+  color: #263238;
+  letter-spacing: -0.05px;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+}
+
+/* line 359, ../../../assets/stylesheets/src/sazaxa.scss */
+.height-700 {
+  height: 700px !important;
+}
+
+/* line 365, ../../../assets/stylesheets/src/sazaxa.scss */
+.customListTable .MuiIconButton-root {
+  padding: 5px !important;
+}
+/* line 368, ../../../assets/stylesheets/src/sazaxa.scss */
+.customListTable .MuiIconButton-root .MuiSvgIcon-root {
+  width: 16px;
+  height: 16px;
+}
+/* line 374, ../../../assets/stylesheets/src/sazaxa.scss */
+.customListTable .MuiOutlinedInput-inputMarginDense {
+  padding-top: 5.5px !important;
+  padding-bottom: 5.5px !important;
+}
+/* line 379, ../../../assets/stylesheets/src/sazaxa.scss */
+.customListTable .MuiButton-root {
+  min-width: 35px !important;
+}
+/* line 384, ../../../assets/stylesheets/src/sazaxa.scss */
+.customListTable .MuiTableCell-body .MuiOutlinedInput-input {
+  width: 30px !important;
+  padding: 2px 8px !important;
+}
+/* line 390, ../../../assets/stylesheets/src/sazaxa.scss */
+.customListTable .rows-per-page {
+  margin-left: 12px;
+  color: #546e7a;
+  font-size: 12px;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 400;
+  line-height: 29px;
+  letter-spacing: -0.04px;
+  margin-right: 5px;
+}
+/* line 401, ../../../assets/stylesheets/src/sazaxa.scss */
+.customListTable .sort-by-product {
+  color: #546e7a;
+  font-size: 12px;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 400;
+  line-height: 29px;
+  letter-spacing: -0.04px;
+  margin-right: 5px;
+}
+/* line 411, ../../../assets/stylesheets/src/sazaxa.scss */
+.customListTable .th-primary {
+  background-color: #3f51b5;
+}
+/* line 415, ../../../assets/stylesheets/src/sazaxa.scss */
+.customListTable .table-loading {
+  line-height: 350px;
+  text-align: center;
+}
+/* line 420, ../../../assets/stylesheets/src/sazaxa.scss */
+.customListTable .table-error {
+  line-height: 350px;
+  text-align: center;
+}
+/* line 424, ../../../assets/stylesheets/src/sazaxa.scss */
+.customListTable .table-error h3 {
+  color: red;
+}
+/* line 429, ../../../assets/stylesheets/src/sazaxa.scss */
+.customListTable .MuiTypography-body1 {
+  font-size: 12px !important;
+}
+/* line 433, ../../../assets/stylesheets/src/sazaxa.scss */
+.customListTable .MuiButton-containedSizeSmall {
+  font-size: 12px;
+}
+/* line 437, ../../../assets/stylesheets/src/sazaxa.scss */
+.customListTable .MuiTableCell-root {
+  padding: 5px !important;
+}
+/* line 441, ../../../assets/stylesheets/src/sazaxa.scss */
+.customListTable .MuiFormLabel-root {
+  font-size: 12px !important;
+}
+/* line 445, ../../../assets/stylesheets/src/sazaxa.scss */
+.customListTable .w20 {
+  width: 20%;
+}
+/* line 449, ../../../assets/stylesheets/src/sazaxa.scss */
+.customListTable .w5 {
+  width: 5%;
+}
+/* line 453, ../../../assets/stylesheets/src/sazaxa.scss */
+.customListTable .w10 {
+  width: 10%;
+}
+/* line 457, ../../../assets/stylesheets/src/sazaxa.scss */
+.customListTable .item-title {
+  margin-left: 5px;
+}
+/* line 459, ../../../assets/stylesheets/src/sazaxa.scss */
+.customListTable .item-title span {
+  white-space: pre;
+  display: block;
+  font-size: 14px;
+  font-weight: bold;
+}
+/* line 468, ../../../assets/stylesheets/src/sazaxa.scss */
+.customListTable .btn-check-receipt span {
+  font-size: 8px;
+}
+/* line 473, ../../../assets/stylesheets/src/sazaxa.scss */
+.customListTable .MuiAvatar-root {
+  width: 80px !important;
+  height: 80px !important;
+}
+/* line 478, ../../../assets/stylesheets/src/sazaxa.scss */
+.customListTable .action-cell {
+  width: 90px;
+}
+
+/* line 484, ../../../assets/stylesheets/src/sazaxa.scss */
+.view-more {
+  color: #2196f3;
+}
+
+/* line 488, ../../../assets/stylesheets/src/sazaxa.scss */
+.view-more:hover {
+  text-decoration: underline;
+}
+
+/* line 492, ../../../assets/stylesheets/src/sazaxa.scss */
+.color-green {
+  color: green;
+}
+
+/* line 496, ../../../assets/stylesheets/src/sazaxa.scss */
+.color-red {
+  color: red;
+}
+
+/* line 500, ../../../assets/stylesheets/src/sazaxa.scss */
+.desc {
+  margin-top: 20px !important;
+  margin-bottom: 20px !important;
+}
+
+/* line 504, ../../../assets/stylesheets/src/sazaxa.scss */
+.statistic_table {
+  width: 100%;
+}
+/* line 506, ../../../assets/stylesheets/src/sazaxa.scss */
+.statistic_table tr th {
+  background-color: #2196f3;
+  border: 1px solid #cccccc;
+  color: #000000;
+  text-align: center;
+}
+/* line 512, ../../../assets/stylesheets/src/sazaxa.scss */
+.statistic_table tr td {
+  border: 1px solid #cccccc;
+  text-align: center;
+}
+
+/* line 517, ../../../assets/stylesheets/src/sazaxa.scss */
+.country_table {
+  width: 100%;
+}
+/* line 519, ../../../assets/stylesheets/src/sazaxa.scss */
+.country_table tr th {
+  background-color: #2196f3;
+  border: 1px solid #cccccc;
+  color: #ffffff;
+  text-align: center;
+}
+/* line 525, ../../../assets/stylesheets/src/sazaxa.scss */
+.country_table tr td {
+  border: 1px solid #cccccc;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* line 531, ../../../assets/stylesheets/src/sazaxa.scss */
+.analiz {
+  width: 100%;
+}
+/* line 533, ../../../assets/stylesheets/src/sazaxa.scss */
+.analiz tr th {
+  background-color: #000000;
+  border: 1px solid #cccccc;
+  color: #ffffff;
+  text-align: center;
+  font-weight: 600;
+}
+/* line 540, ../../../assets/stylesheets/src/sazaxa.scss */
+.analiz tr td {
+  border: 1px solid #cccccc;
+  text-align: left;
+  font-weight: 600;
+  color: #000000;
+}
+
+/* line 547, ../../../assets/stylesheets/src/sazaxa.scss */
+.mail_history_table {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 100%;
+}
+/* line 551, ../../../assets/stylesheets/src/sazaxa.scss */
+.mail_history_table tr th {
+  background-color: #000000;
+  border: 1px solid #cccccc;
+  color: #ffffff;
+  text-align: center;
+}
+/* line 557, ../../../assets/stylesheets/src/sazaxa.scss */
+.mail_history_table tr td {
+  border: 1px solid #cccccc;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* line 563, ../../../assets/stylesheets/src/sazaxa.scss */
+.mail_history_table_1 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 100%;
+}
+/* line 567, ../../../assets/stylesheets/src/sazaxa.scss */
+.mail_history_table_1 tr th {
+  background-color: #000000;
+  border: 1px solid #cccccc;
+  color: #ffffff;
+  text-align: center;
+}
+/* line 573, ../../../assets/stylesheets/src/sazaxa.scss */
+.mail_history_table_1 tr th:first-child {
+  width: 20px;
+}
+/* line 576, ../../../assets/stylesheets/src/sazaxa.scss */
+.mail_history_table_1 tr td {
+  border: 1px solid #cccccc;
+  text-align: center;
+  font-weight: 600;
+}
+/* line 581, ../../../assets/stylesheets/src/sazaxa.scss */
+.mail_history_table_1 tr td:first-child {
+  width: 20px;
+}
+
+/* line 585, ../../../assets/stylesheets/src/sazaxa.scss */
+.marketing_mail_template {
+  width: 100%;
+}
+/* line 587, ../../../assets/stylesheets/src/sazaxa.scss */
+.marketing_mail_template tr th {
+  background-color: #000000;
+  border: 1px solid #cccccc;
+  color: #ffffff;
+  text-align: center;
+}
+/* line 593, ../../../assets/stylesheets/src/sazaxa.scss */
+.marketing_mail_template tr td {
+  border: 1px solid #cccccc;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* line 599, ../../../assets/stylesheets/src/sazaxa.scss */
+.order_table {
+  width: 100%;
+}
+/* line 601, ../../../assets/stylesheets/src/sazaxa.scss */
+.order_table tr th,
+.order_table td {
+  border: 1px solid #cccccc !important;
+  text-align: center;
+}
+
+/* line 607, ../../../assets/stylesheets/src/sazaxa.scss */
+.mail_table {
+  width: 100%;
+}
+/* line 609, ../../../assets/stylesheets/src/sazaxa.scss */
+.mail_table tr td {
+  border: 1px solid #cccccc !important;
+}
+/* line 612, ../../../assets/stylesheets/src/sazaxa.scss */
+.mail_table td:first-child {
+  background-color: #f2f2f2 !important;
+  width: 220px !important;
+}
+
+/* line 617, ../../../assets/stylesheets/src/sazaxa.scss */
+.member_table {
+  width: 100%;
+}
+/* line 619, ../../../assets/stylesheets/src/sazaxa.scss */
+.member_table tr td {
+  border: 1px solid #cccccc !important;
+}
+/* line 622, ../../../assets/stylesheets/src/sazaxa.scss */
+.member_table td:first-child {
+  background-color: #f2f2f2 !important;
+  width: 220px !important;
+}
+/* line 626, ../../../assets/stylesheets/src/sazaxa.scss */
+.member_table td:nth-child(3) {
+  background-color: #f2f2f2 !important;
+}
+
+/* line 630, ../../../assets/stylesheets/src/sazaxa.scss */
+.align-right {
+  float: right !important;
+  text-align: right;
+}
+
+/* line 634, ../../../assets/stylesheets/src/sazaxa.scss */
+.center {
+  width: 100% !important;
+  text-align: center !important;
+  margin-top: 20px;
+}
+
+/* line 639, ../../../assets/stylesheets/src/sazaxa.scss */
+._center {
+  width: 100% !important;
+  text-align: center !important;
+}
+
+/* line 643, ../../../assets/stylesheets/src/sazaxa.scss */
+.but-right {
+  width: 100% !important;
+  text-align: right !important;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}

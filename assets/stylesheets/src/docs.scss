@@ -1,0 +1,58 @@
+/* docs styles */
+.docsDetail table {
+    margin-bottom: 50px;
+    border-top: 2px solid #000;
+}
+.docsDetail table,
+.docsDetail td,
+.docsDetail th {
+    height: 50px;
+    border-collapse: collapse;
+    text-align: center;
+    padding: 0.5vw;
+    box-sizing: border-box;
+    word-break: break-all;
+    letter-spacing: -1px;
+}
+.docsDetail th {
+    width: 100%;
+    background-color: #eee;
+    color: #263238;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.docsDetail tr {
+    width: 100%;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    justify-items: center;
+}
+.docsDetail td {
+    width: 100%;
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.docsDetail button {
+    width: 120px;
+    height: 50px;
+    background: #007bff;
+    outline: none;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+}
+.docsDetail textarea {
+    resize: none;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    font-size: 16px;
+}

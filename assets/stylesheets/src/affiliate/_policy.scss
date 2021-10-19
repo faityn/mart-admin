@@ -1,0 +1,52 @@
+.affiliatePolicyWrap {
+    display: flex;
+    flex-wrap: wrap;
+    background: #fff;
+    padding: 1rem;
+    border-radius: 5px;
+    h2 {
+        width: 100%;
+        font-size: 20px;
+        letter-spacing: -1px;
+    }
+    .head,
+    .body {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        text-align: center;
+        border-bottom: 1px solid #ccc;
+        padding: 1rem 0;
+        span {
+            width: 33%;
+            font-size: 20px;
+            font-weight: 600;
+            letter-spacing: -1.5px;
+        }
+        .data {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+            p {
+                width: 33%;
+            }
+            input {
+                width: 33%;
+                text-align: center;
+                text-align-last: center;
+                border: none;
+                border-bottom: 1px solid #ccc;
+            }
+            .btn {
+                width: 33%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                button span {
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,648 @@
+@import "compass/css3";
+@import "compass/typography/text/ellipsis";
+@import "product/list";
+@import "consult/consult";
+@import "print/print";
+@import "affiliate/policy";
+
+html {
+    height: 100%;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-size: 14px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    background-color: #f4f6f8;
+    height: 100%;
+}
+
+a {
+    text-decoration: none;
+}
+
+#root {
+    height: 100%;
+}
+
+.content {
+    padding: 20px;
+}
+
+// Main
+.text-right {
+    text-align: right;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-center {
+    text-align: center !important;
+}
+
+.list-button {
+    margin-top: 20px;
+
+    .MuiButtonBase-root {
+        margin: 0 0 0 5px;
+    }
+}
+
+.displayNone {
+    display: none;
+}
+
+.MuiButton-contained,
+.MuiButton-contained:hover {
+    box-shadow: none !important;
+}
+
+.grid-lineHeight {
+    line-height: 58px;
+}
+
+.py-5 {
+    padding: 5px 5px 5px 5px;
+}
+
+.py-10 {
+    padding: 10px 10px 10px 10px;
+}
+
+.align-items-center {
+    display: inline-flex;
+    align-items: center;
+    vertical-align: middle;
+}
+.flexNoWrap {
+    flex-wrap: nowrap !important;
+}
+
+.makeStyles-content-3 {
+    padding: 24px;
+}
+
+.MuiGrid-spacing-xs-3 > .MuiGrid-item {
+    padding: 5px !important;
+}
+
+// All margin
+.mt-20 {
+    margin-top: 20px !important;
+}
+
+.mt-12 {
+    margin-top: 12px;
+}
+
+.mt-17 {
+    margin-top: 17px;
+}
+
+.mt-16 {
+    margin-top: 16px;
+
+    span {
+        font-size: 14px;
+    }
+}
+
+.ml-20 {
+    margin-left: 20px !important;
+}
+// END margin
+.productPrice {
+    .MuiOutlinedInput-input {
+        padding: 10.5px 14px !important;
+    }
+}
+
+.text-bold {
+    font-weight: bold;
+}
+
+.text-red {
+    color: red !important;
+}
+
+.customCell {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+.table-text {
+    padding: 100px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0;
+    text-transform: none;
+    color: #263238;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+}
+// Custom avatar
+.custom-avatar {
+    width: 100% !important;
+    height: 100% !important;
+}
+//
+
+// Main > Multi tab
+.MuiTab-root {
+    padding: 5px !important;
+    font-size: 14px !important;
+    text-transform: capitalize !important;
+}
+// End Main > Multi tab
+
+// Small btn
+.small-btn {
+    .MuiButton-containedSizeSmall {
+        font-size: 8px;
+    }
+}
+// End Main
+
+.custom-svgIcon {
+    .MuiSvgIcon-root {
+        width: 18px !important;
+        height: 18px !important;
+    }
+}
+
+/*  */
+.MuiTreeItem-group {
+    margin-left: 17px !important;
+}
+
+.MuiTreeItem-content {
+    font-weight: 300 !important;
+}
+
+.Mui-selected {
+    .MuiTypography-root {
+        font-weight: 500 !important;
+    }
+
+    .MuiCollapse-container {
+        .MuiTypography-root {
+            font-weight: 300 !important;
+        }
+    }
+}
+
+.MuiListItem-container {
+    border-bottom: 1px solid #dddddd;
+}
+
+.MuiAvatar-root.MuiAvatar-rounded.custom-avatar {
+    width: 120px !important;
+}
+
+.bordered {
+    box-sizing: border-box !important;
+    border: #cecece 1px solid !important;
+}
+
+.menu-svgIcon {
+    padding: 5px 5px 5px 5px !important;
+
+    margin-left: -18px !important;
+
+    .MuiTypography-body2 {
+        font-size: 14px !important;
+    }
+
+    .makeStyles-labelRoot-17 {
+        margin: 2px !important;
+    }
+
+    .MuiSvgIcon-root {
+        width: 20px !important;
+        height: 20px !important;
+    }
+}
+
+.small-Btn {
+    .MuiButton-outlinedSizeSmall {
+        font-size: 12px !important;
+    }
+}
+
+// customPopup
+// .customPopup {
+//   width: 100%;
+// }
+
+.popup-width {
+    min-width: 1000px;
+}
+
+.table-fixed {
+    width: 100px;
+    position: absolute;
+    margin-left: -124px;
+    background-color: white;
+}
+
+.header-heigth-1 {
+    height: 104px;
+    border: 1px solid #eeeeee;
+}
+
+.header-heigth-2 {
+    height: 69px;
+    border: 1px solid #eeeeee;
+}
+
+.marginLeft-100 {
+    margin-left: 100px;
+}
+
+.border-fixed-table {
+    border: 1px solid #eeeeee;
+}
+
+.customTable {
+    border: 1px solid #eeeeee;
+
+    thead tr th {
+        border: 1px solid #eeeeee;
+    }
+
+    tbody tr td {
+        border: 1px solid #eeeeee;
+    }
+}
+
+.table-print-color {
+    background-color: #fafafa;
+}
+
+.customTableQrTable {
+    border: 1px solid grey;
+
+    thead tr th {
+        border: 1px solid grey;
+    }
+
+    tbody tr td {
+        border: 1px solid grey;
+    }
+}
+
+@media screen and (min-width: 960px) {
+    .customPopup {
+        width: 100%;
+    }
+}
+
+h5 {
+    color: #263238;
+    letter-spacing: -0.05px;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    line-height: 20px;
+    font-size: 14px;
+}
+
+// Card
+.card {
+    margin-bottom: 20px;
+    padding: 24px;
+    background-color: white;
+    box-shadow: 0 0 0 1px rgba(63, 63, 68, 0.05),
+        0 1px 3px 0 rgba(63, 63, 68, 0.15);
+
+    h1 {
+        color: #263238;
+        letter-spacing: -0.05px;
+        font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    }
+
+    h2 {
+        color: #263238;
+        letter-spacing: -0.05px;
+        font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    }
+
+    h3 {
+        color: #263238;
+        letter-spacing: -0.05px;
+        font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    }
+
+    h4 {
+        color: #263238;
+        letter-spacing: -0.05px;
+        font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    }
+
+    h5 {
+        color: #263238;
+        letter-spacing: -0.05px;
+        font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+        line-height: 20px;
+        font-size: 14px;
+    }
+
+    h6 {
+        color: #263238;
+        letter-spacing: -0.05px;
+        font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    }
+}
+// End Card
+
+.height-700 {
+    height: 700px !important;
+}
+
+// List Table
+.customListTable {
+    .MuiIconButton-root {
+        padding: 5px !important;
+
+        .MuiSvgIcon-root {
+            width: 16px;
+            height: 16px;
+        }
+    }
+
+    .MuiOutlinedInput-inputMarginDense {
+        padding-top: 5.5px !important;
+        padding-bottom: 5.5px !important;
+    }
+
+    .MuiButton-root {
+        min-width: 35px !important;
+    }
+
+    .MuiTableCell-body {
+        .MuiOutlinedInput-input {
+            width: 30px !important;
+            padding: 2px 8px !important;
+        }
+    }
+
+    .rows-per-page {
+        margin-left: 12px;
+        color: #546e7a;
+        font-size: 12px;
+        font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+        font-weight: 400;
+        line-height: 29px;
+        letter-spacing: -0.04px;
+        margin-right: 5px;
+    }
+
+    .sort-by-product {
+        color: #546e7a;
+        font-size: 12px;
+        font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+        font-weight: 400;
+        line-height: 29px;
+        letter-spacing: -0.04px;
+        margin-right: 5px;
+    }
+
+    .th-primary {
+        background-color: #3f51b5;
+    }
+
+    .table-loading {
+        line-height: 350px;
+        text-align: center;
+    }
+
+    .table-error {
+        line-height: 350px;
+        text-align: center;
+
+        h3 {
+            color: red;
+        }
+    }
+
+    .MuiTypography-body1 {
+        font-size: 12px !important;
+    }
+
+    .MuiButton-containedSizeSmall {
+        font-size: 12px;
+    }
+
+    .MuiTableCell-root {
+        padding: 5px !important;
+    }
+
+    .MuiFormLabel-root {
+        font-size: 12px !important;
+    }
+
+    .w20 {
+        width: 20%;
+    }
+
+    .w5 {
+        width: 5%;
+    }
+
+    .w10 {
+        width: 10%;
+    }
+
+    .item-title {
+        margin-left: 5px;
+        span {
+            white-space: pre;
+            display: block;
+            font-size: 14px;
+            font-weight: bold;
+        }
+    }
+
+    .btn-check-receipt {
+        span {
+            font-size: 8px;
+        }
+    }
+
+    .MuiAvatar-root {
+        width: 80px !important;
+        height: 80px !important;
+    }
+
+    .action-cell {
+        width: 90px;
+    }
+}
+// End List Table
+
+.view-more {
+    color: #2196f3;
+}
+
+.view-more:hover {
+    text-decoration: underline;
+}
+
+.color-green {
+    color: green;
+}
+
+.color-red {
+    color: red;
+}
+
+.desc {
+    margin-top: 20px !important;
+    margin-bottom: 20px !important;
+}
+.statistic_table {
+    width: 100%;
+    tr th {
+        background-color: #2196f3;
+        border: 1px solid #cccccc;
+        color: #000000;
+        text-align: center;
+    }
+    tr td {
+        border: 1px solid #cccccc;
+        text-align: center;
+    }
+}
+.country_table {
+    width: 100%;
+    tr th {
+        background-color: #2196f3;
+        border: 1px solid #cccccc;
+        color: #ffffff;
+        text-align: center;
+    }
+    tr td {
+        border: 1px solid #cccccc;
+        text-align: center;
+        font-weight: 600;
+    }
+}
+.analiz {
+    width: 100%;
+    tr th {
+        background-color: #000000;
+        border: 1px solid #cccccc;
+        color: #ffffff;
+        text-align: center;
+        font-weight: 600;
+    }
+    tr td {
+        border: 1px solid #cccccc;
+        text-align: left;
+        font-weight: 600;
+        color: #000000;
+    }
+}
+.mail_history_table {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+    tr th {
+        background-color: #000000;
+        border: 1px solid #cccccc;
+        color: #ffffff;
+        text-align: center;
+    }
+    tr td {
+        border: 1px solid #cccccc;
+        text-align: center;
+        font-weight: 600;
+    }
+}
+.mail_history_table_1 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+    tr th {
+        background-color: #000000;
+        border: 1px solid #cccccc;
+        color: #ffffff;
+        text-align: center;
+    }
+    tr th:first-child {
+        width: 20px;
+    }
+    tr td {
+        border: 1px solid #cccccc;
+        text-align: center;
+        font-weight: 600;
+    }
+    tr td:first-child {
+        width: 20px;
+    }
+}
+.marketing_mail_template {
+    width: 100%;
+    tr th {
+        background-color: #000000;
+        border: 1px solid #cccccc;
+        color: #ffffff;
+        text-align: center;
+    }
+    tr td {
+        border: 1px solid #cccccc;
+        text-align: center;
+        font-weight: 600;
+    }
+}
+.order_table {
+    width: 100%;
+    tr th,
+    td {
+        border: 1px solid #cccccc !important;
+        text-align: center;
+    }
+}
+.mail_table {
+    width: 100%;
+    tr td {
+        border: 1px solid #cccccc !important;
+    }
+    td:first-child {
+        background-color: #f2f2f2 !important;
+        width: 220px !important;
+    }
+}
+.member_table {
+    width: 100%;
+    tr td {
+        border: 1px solid #cccccc !important;
+    }
+    td:first-child {
+        background-color: #f2f2f2 !important;
+        width: 220px !important;
+    }
+    td:nth-child(3) {
+        background-color: #f2f2f2 !important;
+    }
+}
+.align-right {
+    float: right !important;
+    text-align: right;
+}
+.center {
+    width: 100% !important;
+    text-align: center !important;
+    margin-top: 20px;
+}
+._center {
+    width: 100% !important;
+    text-align: center !important;
+}
+.but-right {
+    width: 100% !important;
+    text-align: right !important;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}

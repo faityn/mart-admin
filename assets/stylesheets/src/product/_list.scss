@@ -1,0 +1,9 @@
+@import "compass/typography/text/ellipsis"; 
+
+.product-list {
+
+  .product-name {
+    max-width: 300px;
+    @include ellipsis();
+  }
+}

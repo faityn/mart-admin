@@ -1,0 +1,137 @@
+.consult-container {
+  height: 632px;
+  margin: 50px 0;
+  border: 1px solid #cbcbcb;
+
+  .chatLeftSide {
+    background-color: #f5f5f5;
+    border-right: 1px solid #cbcbcb;
+    border-right: 1px solid #cbcbcb;
+    height: 630px;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    .chat-header {
+      margin: 0;
+      padding: 20px;
+      border-bottom: 1px solid #cbcbcb;
+      text-align: left;
+    }
+
+    .chat-content {
+      border-top: 1px solid #f5f5f5;
+      border-bottom: 1px solid #f5f5f5;
+      padding: 10px 20px;
+      text-align: left;
+      cursor: pointer;
+
+      span {
+        padding: 1px 8px 1px 8px;
+        background-color: #585858;
+        color: white;
+        border-radius: 24px;
+        text-transform: capitalize;
+        font-size: 12px;
+      }
+
+      h6 {
+        margin: 5px 0 0 0;
+      }
+
+      p {
+        margin: 0;
+        font-size: 12px;
+        color: #9f9f9f;
+      }
+    }
+
+    .chatActive {
+      background-color: #ffffff;
+      border-top: 1px solid #cbcbcb;
+      border-bottom: 1px solid #cbcbcb;
+      margin-right: -1px;
+    }
+  }
+
+  .chatRightSide {
+    height: 580px;
+    padding: 0 20px;
+    overflow-y: auto;
+    position: relative;
+    background-color: #ffffff;
+
+    .text-header {
+      margin: 0;
+      padding: 17px 0;
+      text-align: left;
+      border-bottom: 1px solid #cbcbcb;
+
+      h6 {
+        margin: 0;
+      }
+
+      p {
+        margin: 0;
+        color: #007bff;
+      }
+    }
+
+    .text-content {
+      text-align: left;
+
+      span {
+        background-color: #585858;
+        color: white;
+        border-radius: 24px;
+      }
+
+      h6 {
+        margin: 0;
+      }
+
+      p {
+        margin: 0;
+      }
+    }
+
+
+    .text-contentRight {
+      width: 50%;
+      background-color: #2cabe2;
+      @include border-radius(10px);
+      color: white;
+      padding: 20px;
+      margin-left: auto;
+      margin-right: 0;
+    }
+
+    .text-contentLeft {
+      width: 50%;
+      background-color: #a37fbc;
+      @include border-radius(10px);
+      color: white;
+      padding: 20px;
+    }
+
+    .chatDate {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .containerChat {
+      margin-top: 20px;
+    }
+  }
+
+  .chatReplyContainer{
+    background: #ffffff;
+    padding: 0 20px;
+    text-align: right;
+    height: 50px;
+    line-height: 60px;
+
+    svg {
+      cursor: pointer;
+    }
+  }
+}
