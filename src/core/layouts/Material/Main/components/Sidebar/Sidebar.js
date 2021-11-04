@@ -53,6 +53,7 @@ import AppsIcon from "@material-ui/icons/Apps";
 import AvTimerIcon from "@material-ui/icons/AvTimer";
 import RefreshIcon from "@material-ui/icons/Refresh";
 import SearchIcon from "@material-ui/icons/Search";
+import PasswordIcon from "@material-ui/icons/Security";
 import {
     CompareTwoTone,
     Equalizer,
@@ -580,7 +581,51 @@ const Sidebar = (props) => {
                                         color="#1a73e8"
                                         bgColor="#e8f0fe"
                                     />
-                                </Link>                                
+                                </Link>                 
+
+                                {/* Operator role basic settings */}
+                                <Link to="/settings-operator-role">
+                                    <StyledTreeItem
+                                        nodeId="719"
+                                        labelText="운영자 권한 설정"
+                                        labelIcon={RecentActorsIcon}
+                                        color="#1a73e8"
+                                        bgColor="#e8f0fe"
+                                    />
+                                </Link>               
+
+                                {/* Password search basic settings */}
+                                <Link to="/settings-password-search">
+                                    <StyledTreeItem
+                                        nodeId="7120"
+                                        labelText="비밀번호 찾기 설정"
+                                        labelIcon={SearchIcon}
+                                        color="#1a73e8"
+                                        bgColor="#e8f0fe"
+                                    />
+                                </Link>         
+
+                                {/* Password reset basic settings */}
+                                <Link to="/settings-password-reset">
+                                    <StyledTreeItem
+                                        nodeId="7121"
+                                        labelText="비밀번호 변경안내 설정"
+                                        labelIcon={PasswordIcon}
+                                        color="#1a73e8"
+                                        bgColor="#e8f0fe"
+                                    />
+                                </Link> 
+
+                                {/* Login history list */}
+                                <Link to="/login-history">
+                                    <StyledTreeItem
+                                        nodeId="7122"
+                                        labelText="개인정보접속기록 조회"
+                                        labelIcon={SubjectIcon}
+                                        color="#1a73e8"
+                                        bgColor="#e8f0fe"
+                                    />
+                                </Link>  
                             </StyledTreeItem>
 
                             <StyledTreeItem

@@ -1,5 +1,4 @@
 import React from "react";
-import { GET_PRIVACY, SAVE_PRIVACY } from "../../Queries/Queries";
 import PageTitle from "../../../core/common/Partials/PageTitle";
 import { withSnackbar } from "notistack";
 import { connect } from "react-redux";
@@ -7,7 +6,7 @@ import SaveIcon from "@material-ui/icons/Save";
 import SubjectIcon from '@material-ui/icons/Subject';
 import { CircularProgress, Grid, Button, Table, TableBody, TableRow, TableCell, TextField, FormControlLabel, Checkbox} from "@material-ui/core";
 
-class Privacy extends React.Component {
+class PassSearch extends React.Component {
   /**
    * @constructor
    */
@@ -24,7 +23,7 @@ class Privacy extends React.Component {
     this.onHandleSubmit = this.onHandleSubmit.bind(this);
 
     this._isMounted = false;
-  }
+  } 
 
   /**
    * @override
@@ -116,8 +115,8 @@ class Privacy extends React.Component {
           <Grid item>
             {/* Title */}
             <PageTitle
-              menuName="부가세율 설정"
-              title="부가세율 설정"
+              menuName="비밀번호 찾기 설정"
+              title="비밀번호 찾기 설정"
               icon={<SubjectIcon />}
             />
           </Grid>
@@ -128,16 +127,16 @@ class Privacy extends React.Component {
             <div className="card mt-20">
               <form id="form-submit" onSubmit={this.onHandleSubmit}>
               
-                <Grid container spacing={2} className="mt-20" md={12} xs={12}>
+                <Grid container spacing={2} md={12} xs={12}>
                     <Grid item md={12} xs={12}>
-                      <h5>상품 부가세 설정</h5>
+                      <h5>이메일 인증</h5>
                     </Grid>
                     <Grid container spacing={3}>
                       <Grid item md={12} xs={12}>
-                        <Table aria-label="상품 부가세 설정" className="mail_table">
+                        <Table className="mail_table">
                           <TableBody>
                             <TableRow>
-                                <TableCell>부가세 세율</TableCell>
+                                <TableCell>사용설정</TableCell>
                                 <TableCell>
                                   <Grid item md={12} xs={12}>
                                     <FormControlLabel
@@ -145,10 +144,11 @@ class Privacy extends React.Component {
                                         <Checkbox
                                           name="active"
                                           color="primary"
-                                          value={false}
+                                          value={true}
+                                          defaultChecked={true}
                                         />
                                       }
-                                      label="10%"
+                                      label="사용함"
                                     />
                                   </Grid>
                                   <Grid item md={12} xs={12}>
@@ -160,18 +160,12 @@ class Privacy extends React.Component {
                                           value={false}
                                         />
                                       }
-                                      label="0%(면세)"
+                                      label="사용 안함"
                                     />
                                   </Grid>
                                   <Grid spacing={2} item md={12} xs={12} className="mt-20">
                                     <Grid item md={12} xs={12}>
-                                      <h5>+ 선택된 세율은 상품-상품관리-상품등록 에서 상품 등록 시 기본 세율로 적용.</h5>
-                                    </Grid>
-                                    <Grid item md={12} xs={12} className="mt-20">
-                                      <h5>+ 세금계산서는 부가가치세율이 10% 또는 0%인 경우에만 발급할 수 있으며, 그 외 세율로 설정된 상품이 포함된 주문은 세금계산서가 발급되지 않으므로 유의.</h5>
-                                    </Grid>
-                                    <Grid item md={12} xs={12} className="mt-20">
-                                      <h5>+ 신선식품의 경우 상품 등록 시 면세(0%) 별도 설정함.</h5>
+                                      <h5>+ 회원정보에 등록된 이메일 주소로 비밀번호 찾기 인증번호를 발송.</h5>
                                     </Grid>
                                   </Grid>
                                 </TableCell>
@@ -184,14 +178,14 @@ class Privacy extends React.Component {
               
               <Grid container spacing={2} className="mt-20" md={12} xs={12}>
                   <Grid item md={12} xs={12}>
-                    <h5>배송비 부가세 설정</h5>
+                    <h5>휴대폰 인증</h5>
                   </Grid>
                   <Grid container spacing={3}>
                     <Grid item md={12} xs={12}>
-                      <Table aria-label="배송비 부가세 설정" className="mail_table">
+                      <Table className="mail_table">
                         <TableBody>
                           <TableRow>
-                              <TableCell>부가세 설정</TableCell>
+                              <TableCell>사용설정</TableCell>
                               <TableCell>
                                 <Grid item md={12} xs={12}>
                                   <FormControlLabel
@@ -199,10 +193,11 @@ class Privacy extends React.Component {
                                       <Checkbox
                                         name="active"
                                         color="primary"
-                                        value={false}
+                                        value={true}
+                                        defaultChecked={true}
                                       />
                                     }
-                                    label="10%"
+                                    label="사용함"
                                   />
                                 </Grid>
                                 <Grid item md={12} xs={12}>
@@ -214,15 +209,18 @@ class Privacy extends React.Component {
                                         value={false}
                                       />
                                     }
-                                    label="0%(면세)"
+                                    label="사용 안함"
                                   />
                                 </Grid>
                                 <Grid spacing={2} item md={12} xs={12} className="mt-20">
                                   <Grid item md={12} xs={12}>
-                                    <h5>+ 선택된 세율은 기본설정-배송정책-배송비 조건 등록 에서 배송비 조건 등록 시 기본 세율로 적용.</h5>
+                                    <h5>+ 회원정보에 등록된 휴대폰 번호로 비밀번호 찾기 인증번호를 발송.</h5>
                                   </Grid>
                                   <Grid item md={12} xs={12} className="mt-20">
-                                    <h5>+ 세금계산서는 부가가치세율이 10% 또는 0%인 경우에만 발급할 수 있으며, 그 외 세율로 설정된 상품이 포함된 주문은 세금계산서가 발급되지 않으므로 유의.</h5>
+                                    <h5>+ 자동 SMS 설정 또는 카카오 알림 톡 설정에서 ‘비밀번호 찾기 인증번호’ 항목을 자동발송으로 설정해야 인증번호가 발송.</h5>
+                                  </Grid>
+                                  <Grid item md={12} xs={12} className="mt-20">
+                                    <h5>+ 회원정보에 휴대폰 정보가 등록되지 않은 회원에게는 노출되지 않음.</h5>
                                   </Grid>
                                 </Grid>
                               </TableCell>
@@ -271,4 +269,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default withSnackbar(connect(mapStateToProps, null)(Privacy));
+export default withSnackbar(connect(mapStateToProps, null)(PassSearch));

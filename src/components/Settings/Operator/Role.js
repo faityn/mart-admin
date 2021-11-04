@@ -9,7 +9,7 @@ import EditIcon from '@material-ui/icons/Edit';
 import { CircularProgress, Grid, Button, Table, TableBody, TableRow, TableCell, FormControl, TextField, Select, MenuItem, InputLabel, FormControlLabel, Checkbox, Switch,
   Dialog, DialogTitle, DialogContent, DialogActions, Divider} from "@material-ui/core";
 
-class Operator extends React.Component {
+class OperatorRole extends React.Component {
   /**
    * @constructor
    */
@@ -456,4 +456,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default withSnackbar(connect(mapStateToProps, null)(Operator));
+export default withSnackbar(connect(mapStateToProps, null)(OperatorRole));

@@ -53,6 +53,10 @@ import SettingsPrivacyListView from "../../components/Settings/Privacy/Index";
 import SettingsSEOListView from "../../components/Settings/Seo/Index";
 import SettingsUserListView from "../../components/Settings/User/Index";
 import SettingsOperatorListView from "../../components/Settings/Operator/Index";
+import SettingsOperatorRoleListView from "../../components/Settings/Operator/Role";
+import SettingsPasswordSearchView from "../../components/Settings/Password/Search";
+import SettingsPasswordResetView from "../../components/Settings/Password/Reset";
+import LoginListView from "../../components/Settings/Login/History";
 import SettingsMemberPointsListView from "../../components/Settings/Member/Points/Index";
 import SettingsProductListView from "../../components/Settings/Product/Index";
 import SettingsCategoryListView from "../../components/Settings/Category/Index";
@@ -552,6 +556,34 @@ class Routes extends React.Component {
                         exact
                         layout={MainLayout}
                         path="/settings-operator"
+                    />
+
+                    <RouteWithLayout
+                        component={SettingsOperatorRoleListView}
+                        exact
+                        layout={MainLayout}
+                        path="/settings-operator-role"
+                    />
+
+                    <RouteWithLayout
+                        component={SettingsPasswordSearchView}
+                        exact
+                        layout={MainLayout}
+                        path="/settings-password-search"
+                    />
+
+                    <RouteWithLayout
+                        component={SettingsPasswordResetView}
+                        exact
+                        layout={MainLayout}
+                        path="/settings-password-reset"
+                    />
+
+                    <RouteWithLayout
+                        component={LoginListView}
+                        exact
+                        layout={MainLayout}
+                        path="/login-history"
                     />
 
                     <RouteWithLayout
