@@ -52,6 +52,7 @@ import TimelineIcon from "@material-ui/icons/Timeline";
 import AppsIcon from "@material-ui/icons/Apps";
 import AvTimerIcon from "@material-ui/icons/AvTimer";
 import RefreshIcon from "@material-ui/icons/Refresh";
+import SearchIcon from "@material-ui/icons/Search";
 import {
     CompareTwoTone,
     Equalizer,
@@ -520,28 +521,8 @@ const Sidebar = (props) => {
                                 <Link to="/settings-business">
                                     <StyledTreeItem
                                         nodeId="711"
-                                        labelText="Business information"
+                                        labelText="아니벌써 기본정보"
                                         labelIcon={BusinessIcon}
-                                        color="#1a73e8"
-                                        bgColor="#e8f0fe"
-                                    />
-                                </Link>
-                                {/* Notice  */}
-                                <Link to="/settings-notice">
-                                    <StyledTreeItem
-                                        nodeId="712"
-                                        labelText="Notice"
-                                        labelIcon={NotificationsIcon}
-                                        color="#1a73e8"
-                                        bgColor="#e8f0fe"
-                                    />
-                                </Link>
-                                {/* About us basic settings */}
-                                <Link to="/settings-aboutus">
-                                    <StyledTreeItem
-                                        nodeId="713"
-                                        labelText="About us"
-                                        labelIcon={InfoIcon}
                                         color="#1a73e8"
                                         bgColor="#e8f0fe"
                                     />
@@ -550,7 +531,7 @@ const Sidebar = (props) => {
                                 <Link to="/settings-term">
                                     <StyledTreeItem
                                         nodeId="714"
-                                        labelText="Terms and Conditions"
+                                        labelText="환경설정"
                                         labelIcon={SubjectIcon}
                                         color="#1a73e8"
                                         bgColor="#e8f0fe"
@@ -561,12 +542,45 @@ const Sidebar = (props) => {
                                 <Link to="/settings-privacy">
                                     <StyledTreeItem
                                         nodeId="715"
-                                        labelText="Privacy Policy"
+                                        labelText="부가세율 설정"
                                         labelIcon={SubjectIcon}
                                         color="#1a73e8"
                                         bgColor="#e8f0fe"
                                     />
                                 </Link>
+
+                                {/* User  basic settings */}
+                                <Link to="/settings-user">
+                                    <StyledTreeItem
+                                        nodeId="716"
+                                        labelText="이용/탈퇴 안내"
+                                        labelIcon={SubjectIcon}
+                                        color="#1a73e8"
+                                        bgColor="#e8f0fe"
+                                    />
+                                </Link>
+
+                                {/* SEO  basic settings */}
+                                <Link to="/settings-seo">
+                                    <StyledTreeItem
+                                        nodeId="717"
+                                        labelText="검색엔진 최적화(SEO) 설정"
+                                        labelIcon={SearchIcon}
+                                        color="#1a73e8"
+                                        bgColor="#e8f0fe"
+                                    />
+                                </Link>
+
+                                {/* Operator management basic settings */}
+                                <Link to="/settings-operator">
+                                    <StyledTreeItem
+                                        nodeId="718"
+                                        labelText="운영자 관리"
+                                        labelIcon={RecentActorsIcon}
+                                        color="#1a73e8"
+                                        bgColor="#e8f0fe"
+                                    />
+                                </Link>                                
                             </StyledTreeItem>
 
                             <StyledTreeItem

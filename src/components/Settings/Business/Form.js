@@ -2,19 +2,22 @@ import React from "react";
 import PageTitle from "../../../core/common/Partials/PageTitle";
 import BusinessIcon from "@material-ui/icons/Business";
 import SaveIcon from "@material-ui/icons/Save";
+import SearchIcon from "@material-ui/icons/Search";
+import PhotoLibraryIcon from "@material-ui/icons/PhotoLibrary";
 import {
   Grid,
   Button,
   TextField,
-  FormControlLabel,
-  Checkbox,
   CircularProgress,
   Divider,
+  IconButton,
+  FormControlLabel,
+  Checkbox
 } from "@material-ui/core";
 import { withSnackbar } from "notistack";
 import validate from "validate.js";
 import { connect } from "react-redux";
-import { GET_COMPANY, SAVE_COMPANY } from "../../Queries/Queries";
+import { GET_COMPANY, SAVE_COMPANY } from "../../Queries/Queries";  
 
 /**
  * @summary Form
@@ -230,334 +233,404 @@ class Form extends React.Component {
           <Grid item>
             {/* Title */}
             <PageTitle
-              menuName="Business information"
-              title="Business information setting"
+              menuName="아니벌써 기본정보"
+              title="아니벌써 기본정보"
               icon={<BusinessIcon />}
             />
           </Grid>
         </Grid>
 
         <Grid container>
-          <Grid item md={8} xs={12}>
+          <Grid item md={12} xs={12}>
             <div className="card mt-20">
               <form
                 id="my-form-managemnt"
                 onSubmit={this.onHandleSubmit.bind(this)}
               >
-                {/* Company registration */}
                 <Grid
                   container
                   spacing={2}
                   className="align-items-center"
-                  key={data.id}
                 >
                   <input type="hidden" name="id" value={data.id} />
                   <Grid item md={2} xs={12}>
-                    <h5>Registration No.</h5>
+                    <h5>상호(회사명)</h5>
                   </Grid>
-                  <Grid item md={10} xs={12}>
+                  <Grid item md={8} xs={12}>
                     <TextField
                       fullWidth
-                      label="Enter business number"
+                      label="회사명"
                       size="small"
                       variant="outlined"
-                      name="registrationNumber"
-                      defaultValue={data.registrationNumber}
-                      error={this.hasError("registrationNumber")}
-                      helperText={
-                        this.hasError("registrationNumber")
-                          ? this.state.errors["registrationNumber"][0]
-                          : null
-                      }
+                      name="businessName"
                     />
                   </Grid>
                 </Grid>
-
-                {/* Company name */}
-                <Grid container spacing={2} className="align-items-center">
+                
+                <Grid container spacing={2} className="align-items-center">                
                   <Grid item md={2} xs={12}>
-                    <h5>Company name</h5>
+                    <h5>사업자등록번호</h5>
                   </Grid>
-                  <Grid item md={10} xs={12}>
-                    <TextField
-                      fullWidth
-                      label="Enter your business name (corporation)"
-                      size="small"
-                      variant="outlined"
-                      name="name"
-                      defaultValue={data.name}
-                      error={this.hasError("name")}
-                      helperText={
-                        this.hasError("name")
-                          ? this.state.errors["name"][0]
-                          : null
-                      }
-                    />
-                  </Grid>
-                </Grid>
-
-                {/* Representative */}
-                <Grid container spacing={2} className="align-items-center">
-                  <Grid item md={2} xs={12}>
-                    <h5>Representative</h5>
-                  </Grid>
-                  <Grid item md={10} xs={12}>
-                    <TextField
-                      fullWidth
-                      label="Enter the representative's name"
-                      size="small"
-                      variant="outlined"
-                      name="representativeName"
-                      defaultValue={data.representativeName}
-                      error={this.hasError("representativeName")}
-                      helperText={
-                        this.hasError("representativeName")
-                          ? this.state.errors["representativeName"][0]
-                          : null
-                      }
-                    />
-                  </Grid>
-                </Grid>
-
-                {/* Business address */}
-                <Grid container spacing={2} className="align-items-center">
-                  <Grid item md={2} xs={12}>
-                    <h5>Address</h5>
-                  </Grid>
-                  <Grid item md={10} xs={12}>
-                    <Grid container spacing={2} className="align-items-center">
-                      {/* <Grid item md={4} xs={12}>
-                        <TextField
-                          fullWidth
-                          label="Enter postal code"
-                          size="small"
-                          variant="outlined"
-                          name="postalCode"
-                          defaultValue={data.postalCode}
-                          error={this.hasError("postalCode")}
-                          helperText={
-                            this.hasError("postalCode")
-                              ? this.state.errors["postalCode"][0]
-                              : null
-                          }
-                        />
-                      </Grid> */}
-                      <Grid item md={12} xs={12}>
-                        <TextField
-                          fullWidth
-                          label="Enter zip code"
-                          size="small"
-                          variant="outlined"
-                          name="zipCode"
-                          defaultValue={data.zipCode}
-                          error={this.hasError("zipCode")}
-                          helperText={
-                            this.hasError("zipCode")
-                              ? this.state.errors["zipCode"][0]
-                              : null
-                          }
-                        />
-                      </Grid>
+                  <Grid container md={5} xs={12} spacing={2} style={{paddingLeft: "8px"}}>
+                    <Grid item md={2} xs={12}>
+                      <TextField
+                        fullWidth
+                        label="등록번호"
+                        size="small"
+                        variant="outlined"
+                        name="registrationNumber1"
+                      />
                     </Grid>
-                    <Grid container spacing={2} className="align-items-center">
-                      <Grid item md={12} xs={12}>
-                        <TextField
-                          fullWidth
-                          label="Enter detailed address"
-                          size="small"
-                          variant="outlined"
-                          name="detailedAddress"
-                          defaultValue={data.detailedAddress}
-                          error={this.hasError("detailedAddress")}
-                          helperText={
-                            this.hasError("detailedAddress")
-                              ? this.state.errors["detailedAddress"][0]
-                              : null
-                          }
-                        />
-                      </Grid>
+                    <Grid item md={1} xs={12} className="text-center"><h4>-</h4></Grid>
+                    <Grid item md={2} xs={12}>
+                      <TextField
+                        fullWidth
+                        label="등록번호"
+                        size="small"
+                        variant="outlined"
+                        name="registrationNumber2"
+                      />
+                    </Grid>
+                    <Grid item md={1} xs={12} className="text-center"><h4>-</h4></Grid>
+                    <Grid item md={2} xs={12}>
+                      <TextField
+                        fullWidth
+                        label="등록번호"
+                        size="small"
+                        variant="outlined"
+                        name="registrationNumber3"
+                      />
                     </Grid>
                   </Grid>
                 </Grid>
-
-                {/* Business condition */}
-                {/* <Grid container spacing={2} className="align-items-center">
-                  <Grid item md={2} xs={12}>
-                    <h5>Business condition</h5>
-                  </Grid>
-                  <Grid item md={10} xs={12}>
-                    <TextField
-                      fullWidth
-                      label="Enter business type"
-                      size="small"
-                      variant="outlined"
-                      name="businessType"
-                      defaultValue={data.businessType}
-                      error={this.hasError("businessType")}
-                      helperText={
-                        this.hasError("businessType")
-                          ? this.state.errors["businessType"][0]
-                          : null
-                      }
-                    />
-                  </Grid>
-                </Grid> */}
-
-                {/* Event */}
+                
                 <Grid container spacing={2} className="align-items-center">
                   <Grid item md={2} xs={12}>
-                    <h5>Email</h5>
+                    <h5>대표자명</h5>
                   </Grid>
-                  <Grid item md={10} xs={12}>
+                  <Grid item md={8} xs={12}>
                     <TextField
                       fullWidth
-                      label="Enter email"
+                      label="대표자명"
                       size="small"
                       variant="outlined"
-                      name="event"
-                      defaultValue={data.event}
-                      error={this.hasError("event")}
-                      helperText={
-                        this.hasError("event")
-                          ? this.state.errors["event"][0]
-                          : null
-                      }
+                      name="ceoName"
                     />
                   </Grid>
                 </Grid>
 
-                {/* Instagram link */}
                 <Grid container spacing={2} className="align-items-center">
                   <Grid item md={2} xs={12}>
-                    <h5>Instagram link</h5>
+                    <h5>업태</h5>
                   </Grid>
-                  <Grid item md={6} xs={9}>
+                  <Grid item md={8} xs={12}>
                     <TextField
                       fullWidth
-                      label="URL"
+                      label="업태"
                       size="small"
                       variant="outlined"
-                      name="instagramLink"
-                      defaultValue={data.instagramLink}
+                      name="businessStatus"
                     />
                   </Grid>
+                </Grid>
 
-                  <Grid item md={3} xs={3}>
-                    {/* Hide */}
+                <Grid container spacing={2} className="align-items-center">
+                  <Grid item md={2} xs={12}>
+                    <h5>종목</h5>
+                  </Grid>
+                  <Grid item md={8} xs={12}>
+                    <TextField
+                      fullWidth
+                      label="종목"
+                      size="small"
+                      variant="outlined"
+                      name="businessType"                    
+                    />
+                  </Grid>
+                </Grid>
+
+                <Grid container spacing={2} className="align-items-center">
+                  <Grid item md={2} xs={12}>
+                    <h5>대표 이메일</h5>
+                  </Grid>
+
+                  <Grid container spacing={2} md={8} xs={12} style={{paddingLeft: "8px"}}>
+                    <Grid item md={5} xs={12}>
+                      <TextField
+                        fullWidth
+                        label="이메일"
+                        size="small"
+                        variant="outlined"
+                        name="representativeEmail1"
+                      />
+                    </Grid>
+                    <Grid item md={1} xs={12} className="text-center"><h4>@</h4></Grid>
+                    <Grid item md={3} xs={12}>
+                      <TextField
+                        fullWidth
+                        size="small"s
+                        variant="outlined"
+                        name="representativeEmail2"
+                      />
+                    </Grid>
+                    {/*<Grid item md={3} xs={12}><h5>대표 이메일은 쇼핑몰에서 메일 발송 시 기본 발송자 이메일 정보로 사용.</h5></Grid>*/}
+                  </Grid>
+                </Grid>
+               
+                <Grid container spacing={2} className="align-items-center">
+                  <Grid item md={2} xs={12}>
+                    <h5>사업장 주소</h5>
+                  </Grid>
+
+                  <Grid container spacing={2} md={8} xs={12} style={{paddingLeft: "8px"}}>
+                    <Grid item md={8} xs={12}>
+                      <Grid>
+                        <TextField
+                          fullWidth
+                          label="우편 번호"
+                          size="small"
+                          variant="outlined"
+                          name="zipCode"                    
+                        />
+                        <TextField
+                          fullWidth
+                          label="주소"
+                          size="small"
+                          variant="outlined"
+                          name="address1"      
+                        />
+                      </Grid>
+                    </Grid>                    
+                    <Grid item md={4} xs={12}>
+                      <Button
+                        variant="contained"
+                        size="medium"
+                        color="primary"
+                        startIcon={<SearchIcon/>}
+                      >
+                        우편번호 찾기
+                      </Button>
+                      <TextField
+                        fullWidth
+                        label="주소우편 번호"
+                        size="small"
+                        variant="outlined"
+                        name="address2"     
+                      />
+                    </Grid>
+                  </Grid>
+                </Grid>
+
+                <Grid container spacing={2} className="align-items-center">
+                  <Grid item md={2} xs={12}>
+                    <h5>대표전화</h5>
+                  </Grid>
+                  <Grid item md={6} xs={12}>
+                    <TextField
+                      fullWidth
+                      label="대표전화"
+                      size="small"
+                      variant="outlined"
+                      name="representativeNumber"                    
+                    />
+                  </Grid>
+                </Grid>
+
+                <Grid container spacing={2} className="align-items-center">
+                  <Grid item md={2} xs={12}>
+                    <h5>팩스번호</h5>
+                  </Grid>
+                  <Grid item md={6} xs={12}>
+                    <TextField
+                      fullWidth
+                      label="팩스번호"
+                      size="small"
+                      variant="outlined"
+                      name="representativeFaxNumber"                    
+                    />
+                  </Grid>
+                </Grid>
+
+                <Grid container spacing={2} className="align-items-center">
+                  <Grid item md={2} xs={12}>
+                    <h5>통신판매신고번호</h5>
+                  </Grid>
+                  <Grid item md={6} xs={12}>
+                    <TextField
+                      fullWidth
+                      label="번호"
+                      size="small"
+                      variant="outlined"
+                      name="salesNumber"                    
+                    />
+                  </Grid>
+                </Grid>
+                
+                <Grid container spacing={2} className="align-items-center">
+                  <Grid item md={2} xs={12}>
+                    <h5>인감 이미지 등록</h5>
+                  </Grid>
+                  
+                  <Grid container spacing={2} md={10} xs={12} style={{paddingLeft: "8px"}}>
+                    <Grid item md={2} xs={12} >      
+                      <input
+                        type="file"
+                        accept="image/*"
+                        id="icon-button-file"
+                        className="displayNone"
+                      />
+                      <label htmlFor="icon-button-file">
+                        <IconButton
+                          color="primary"
+                          aria-label="upload picture"
+                          component="span"
+                        >
+                          <PhotoLibraryIcon />
+                        </IconButton>
+                      </label>
+                    </Grid>
+                    <Grid item md={8} xs={12}>
+                      <h5>가로x세로 74픽셀, jpg/png/gif만 가능  등록된 인감 이미지는 "일반 세금계산서, 간이영수증, 거래명세서" 등에 사용.</h5>
+                    </Grid>
+                  </Grid>
+                </Grid>
+                
+                <Grid container spacing={2} className="align-items-center">
+                  <Grid item md={2} xs={12}>
+                    <h5>현금영수증 가맹점로고 하단 footer노출여부</h5>
+                  </Grid>
+                  
+                  <Grid container spacing={2} md={10} xs={12} style={{paddingLeft: "8px"}}>
                     <FormControlLabel
                       control={
                         <Checkbox
-                          name="instagramLinkIsHidden"
+                          name="active"
                           color="primary"
-                          value={true}
-                          defaultChecked={data.instagramLinkIsHidden}
+                          value={false}
                         />
                       }
-                      label="Hidden"
+                      label="현금영수증 가맹점"
                     />
-                    {/* End Hide */}
-                  </Grid>
-                </Grid>
-
-                {/* Facebook link */}
-                <Grid container spacing={2} className="align-items-center">
-                  <Grid item md={2} xs={12}>
-                    <h5>Facebook link</h5>
-                  </Grid>
-                  <Grid item md={6} xs={9}>
-                    <TextField
-                      fullWidth
-                      label="URL"
-                      size="small"
-                      variant="outlined"
-                      name="facebookLink"
-                      defaultValue={data.facebookLink}
-                    />
-                  </Grid>
-
-                  <Grid item md={3} xs={3}>
-                    {/* Hide */}
                     <FormControlLabel
                       control={
                         <Checkbox
-                          name="facebookLinkIsHidden"
+                          name="active"
                           color="primary"
-                          value={true}
-                          defaultChecked={data.facebookLinkIsHidden}
+                          value={false}
                         />
                       }
-                      label="Hidden"
+                      label="현금영수증 의무발행 가맹점 노출"
                     />
-                    {/* End Hide */}
-                  </Grid>
-                </Grid>
-
-                {/* Twitter link */}
-                <Grid container spacing={2} className="align-items-center">
-                  <Grid item md={2} xs={12}>
-                    <h5>Twitter link</h5>
-                  </Grid>
-                  <Grid item md={6} xs={9}>
-                    <TextField
-                      fullWidth
-                      label="URL"
-                      size="small"
-                      variant="outlined"
-                      name="twitterLink"
-                      defaultValue={data.twitterLink}
-                    />
-                  </Grid>
-
-                  <Grid item md={3} xs={3}>
-                    {/* Hide */}
                     <FormControlLabel
                       control={
                         <Checkbox
-                          name="twitterLinkIsHidden"
+                          name="active"
                           color="primary"
-                          value={true}
-                          defaultChecked={data.twitterLinkIsHidden}
+                          value={false}
                         />
                       }
-                      label="Hidden"
+                      label="이미지 직접등록"
                     />
-                    {/* End Hide */}
-                  </Grid>
-                </Grid>
-
-                {/* Youtube link */}
-                <Grid container spacing={2} className="align-items-center">
-                  <Grid item md={2} xs={12}>
-                    <h5>Youtube link</h5>
-                  </Grid>
-                  <Grid item md={6} xs={9}>
-                    <TextField
-                      fullWidth
-                      label="URL"
-                      size="small"
-                      variant="outlined"
-                      name="youtubeLink"
-                      defaultValue={data.youtubeLink}
-                    />
-                  </Grid>
-
-                  <Grid item md={3} xs={3}>
-                    {/* Hide */}
                     <FormControlLabel
                       control={
                         <Checkbox
-                          name="youtubeLinkIsHidden"
+                          name="active"
                           color="primary"
-                          value={true}
-                          defaultChecked={data.youtubeLinkIsHidden}
+                          value={false}
+                          defaultChecked={true}
                         />
                       }
-                      label="Hidden"
+                      label="노출 안함"
                     />
-                    {/* End Hide */}
                   </Grid>
                 </Grid>
+                
+                <Grid container spacing={2} className="align-items-center">
+                  <Grid item md={2} xs={12}>
+                    <h5>전화번호</h5>
+                  </Grid>
+                  
+                  <Grid container spacing={2} md={6} xs={12} style={{paddingLeft: "8px"}}>
+                    <Grid item md={6} xs={12}>
+                      <TextField
+                        fullWidth
+                        label="번호"
+                        size="small"
+                        variant="outlined"
+                        name="phoneNumber1"                    
+                      />
+                    </Grid>
+                    <Grid item md={6} xs={12}>
+                      <TextField
+                        fullWidth
+                        label="번호"
+                        size="small"
+                        variant="outlined"
+                        name="phoneNumber2"                    
+                      />
+                    </Grid>
+                  </Grid>
+                </Grid>
+
+                <Grid container spacing={2} className="align-items-center">
+                  <Grid item md={2} xs={12}>
+                    <h5>팩스번호</h5>
+                  </Grid>
+                  <Grid item md={6} xs={12}>
+                    <TextField
+                      fullWidth
+                      label="팩스번호"
+                      size="small"
+                      variant="outlined"
+                      name="faxNumber"                    
+                    />
+                  </Grid>
+                </Grid>                
+
+                <Grid container spacing={2} className="align-items-center">
+                  <Grid item md={2} xs={12}>
+                    <h5>이메일</h5>
+                  </Grid>
+
+                  <Grid container spacing={2} md={8} xs={12} style={{paddingLeft: "8px"}}>
+                    <Grid item md={5} xs={12}>
+                      <TextField
+                        fullWidth
+                        label="이메일"
+                        size="small"
+                        variant="outlined"
+                        name="email1"
+                      />
+                    </Grid>
+                    <Grid item md={1} xs={12} className="text-center"><h4>@</h4></Grid>
+                    <Grid item md={3} xs={12}>
+                      <TextField
+                        fullWidth
+                        size="small"
+                        variant="outlined"
+                        name="email2"
+                      />
+                    </Grid>
+                    {/*<Grid item md={3} xs={12}><h5>대표 이메일은 쇼핑몰에서 메일 발송 시 기본 발송자 이메일 정보로 사용.</h5></Grid>*/}
+                  </Grid>
+                </Grid>
+
+                <Grid container spacing={2} className="align-items-center">
+                  <Grid item md={2} xs={12}>
+                    <h5>운영시간</h5>
+                  </Grid>
+                  <Grid item md={6} xs={12}>
+                    <TextField
+                      fullWidth
+                      label="운영시간"
+                      size="small"
+                      variant="outlined"
+                      name="timeTable"                    
+                    />
+                  </Grid>
+                </Grid>    
               </form>
+              
 
               <Divider className="mt-20" />
 
@@ -578,7 +651,7 @@ class Form extends React.Component {
                       )
                     }
                   >
-                    SAVE
+                    저장
                   </Button>
                 </Grid>
               </Grid>

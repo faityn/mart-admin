@@ -50,6 +50,9 @@ import AutoCouponView from "../../components/Settings/AutoCoupon/Form";
 import SettingsAboutUsListView from "../../components/Settings/AboutUs/Index";
 import SettingsTermListView from "../../components/Settings/Term/Index";
 import SettingsPrivacyListView from "../../components/Settings/Privacy/Index";
+import SettingsSEOListView from "../../components/Settings/Seo/Index";
+import SettingsUserListView from "../../components/Settings/User/Index";
+import SettingsOperatorListView from "../../components/Settings/Operator/Index";
 import SettingsMemberPointsListView from "../../components/Settings/Member/Points/Index";
 import SettingsProductListView from "../../components/Settings/Product/Index";
 import SettingsCategoryListView from "../../components/Settings/Category/Index";
@@ -535,6 +538,27 @@ class Routes extends React.Component {
                         exact
                         layout={MainLayout}
                         path="/settings-privacy"
+                    />
+
+                    <RouteWithLayout
+                        component={SettingsUserListView}
+                        exact
+                        layout={MainLayout}
+                        path="/settings-user"
+                    />
+
+                    <RouteWithLayout
+                        component={SettingsOperatorListView}
+                        exact
+                        layout={MainLayout}
+                        path="/settings-operator"
+                    />
+
+                    <RouteWithLayout
+                        component={SettingsSEOListView}
+                        exact
+                        layout={MainLayout}
+                        path="/settings-seo"
                     />
 
                     <RouteWithLayout

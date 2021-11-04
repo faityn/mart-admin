@@ -94,7 +94,7 @@ export default class List extends React.Component {
         <SwipeableViews
           index={this.state.value}
         > 
-          {/* Basic content */}
+          {/* Basic content */} 
           <div value={this.state.value} index={0} className="mt-20">
             <Member />
           </div>
