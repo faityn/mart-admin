@@ -175,7 +175,7 @@ class LoginHistory extends React.Component {
                       fullWidth
                       size="small"  
                       variant="outlined"
-                      type="date"
+                      type="datetime-local"
                       name="startDate"
                     />
                   </Grid>
@@ -187,7 +187,7 @@ class LoginHistory extends React.Component {
                       fullWidth
                       size="small"
                       variant="outlined"
-                      type="date"
+                      type="datetime-local"
                       name="endDate"
                     />
                   </Grid>

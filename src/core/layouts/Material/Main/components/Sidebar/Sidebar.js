@@ -626,6 +626,50 @@ const Sidebar = (props) => {
                                         bgColor="#e8f0fe"
                                     />
                                 </Link>  
+
+                                {/* Product usage guide */}
+                                <Link to="/product-usage-guide">
+                                    <StyledTreeItem
+                                        nodeId="7123"
+                                        labelText="상품 상세 이용안내 관리"
+                                        labelIcon={SubjectIcon}
+                                        color="#1a73e8"
+                                        bgColor="#e8f0fe"
+                                    />
+                                </Link>    
+
+                                {/* Order configuration */}
+                                <Link to="/order-config">
+                                    <StyledTreeItem
+                                        nodeId="7124"
+                                        labelText="주문 기본 설정"
+                                        labelIcon={SettingsIcon}
+                                        color="#1a73e8"
+                                        bgColor="#e8f0fe"
+                                    />
+                                </Link>  
+
+                                {/* SMS configuration */}
+                                <Link to="/sms-config">
+                                    <StyledTreeItem
+                                        nodeId="7125"
+                                        labelText="SMS 설정"
+                                        labelIcon={SettingsIcon}
+                                        color="#1a73e8"
+                                        bgColor="#e8f0fe"
+                                    />
+                                </Link>  
+
+                                {/* 080 unsubcribe list */}
+                                <Link to="/unsubscribe-list">
+                                    <StyledTreeItem
+                                        nodeId="7126"
+                                        labelText="080 수신거부 리스트"
+                                        labelIcon={SubjectIcon}
+                                        color="#1a73e8"
+                                        bgColor="#e8f0fe"
+                                    />
+                                </Link>  
                             </StyledTreeItem>
 
                             <StyledTreeItem

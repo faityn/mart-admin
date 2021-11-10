@@ -57,6 +57,10 @@ import SettingsOperatorRoleListView from "../../components/Settings/Operator/Rol
 import SettingsPasswordSearchView from "../../components/Settings/Password/Search";
 import SettingsPasswordResetView from "../../components/Settings/Password/Reset";
 import LoginListView from "../../components/Settings/Login/History";
+import ProductGuideView from "../../components/Settings/Product/Guide";
+import OrderConfigView from "../../components/Settings/Order/Index";
+import SMSConfigView from "../../components/Settings/SMS/Index";
+import UnsubscribeListView from "../../components/Settings/SMS/Unsubscribe"
 import SettingsMemberPointsListView from "../../components/Settings/Member/Points/Index";
 import SettingsProductListView from "../../components/Settings/Product/Index";
 import SettingsCategoryListView from "../../components/Settings/Category/Index";
@@ -584,6 +588,34 @@ class Routes extends React.Component {
                         exact
                         layout={MainLayout}
                         path="/login-history"
+                    />
+
+                    <RouteWithLayout
+                        component={ProductGuideView}
+                        exact
+                        layout={MainLayout}
+                        path="/product-usage-guide"
+                    />
+
+                    <RouteWithLayout
+                        component={OrderConfigView}
+                        exact
+                        layout={MainLayout}
+                        path="/order-config"
+                    />
+
+                    <RouteWithLayout
+                        component={SMSConfigView}
+                        exact
+                        layout={MainLayout}
+                        path="/sms-config"
+                    />
+
+                    <RouteWithLayout
+                        component={UnsubscribeListView}
+                        exact
+                        layout={MainLayout}
+                        path="/unsubscribe-list"
                     />
 
                     <RouteWithLayout

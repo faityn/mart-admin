@@ -3,6 +3,9 @@ import Tree from "./Tree";
 import Form from "../Form/Form";
 import PageTitle from "../../../core/common/Partials/PageTitle";
 import MenuIcon from '@material-ui/icons/Menu';
+import UpIcon from '@material-ui/icons/ArrowUpward';
+import DownIcon from '@material-ui/icons/ArrowDownward';
+import DeleteIcon from '@material-ui/icons/Delete'
 import { connect } from "react-redux";
 import { withSnackbar } from "notistack";
 import { Grid, Button, CircularProgress, Divider } from "@material-ui/core";
@@ -357,17 +360,38 @@ class Index extends React.Component {
                 </Grid>
               </Grid>
 
-              <Grid container>
-                <Grid item md={12} xs={12}>
+              <Grid container md={12} xs={12}>
+                <Grid item md={4} xs={12}>
                   <Button
                     size="small"
                     variant="contained"
                     color="primary"
                     className="mt-20"
-                  >
-                    Category order
-                  </Button>
+                    startIcon={<UpIcon/>}
+                    style={{textAlign: "center"}}
+                  ></Button>
                 </Grid>
+                <Grid item md={4} xs={12}>
+                  <Button
+                    size="small"
+                    variant="contained"
+                    color="primary"
+                    className="mt-20"
+                    style={{textAlign: "center"}}
+                    startIcon={<DownIcon/>}
+                  ></Button>
+                </Grid>
+                <Grid item md={4} xs={12}>
+                  <Button
+                    size="small"
+                    variant="contained"
+                    className="mt-20"
+                    style={{backgroundColor: "#ff0000", color: "#fff", textAlign: "center"}}
+                    startIcon={<DeleteIcon/>}
+                  ></Button>
+                </Grid>
+                <Grid item md={4} xs={12}></Grid>
+                <Grid item md={4} xs={12}></Grid>
               </Grid>
             </Grid>
 

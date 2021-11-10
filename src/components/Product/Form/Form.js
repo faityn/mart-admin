@@ -2,9 +2,10 @@ import React from "react";
 import SwipeableViews from "react-swipeable-views";
 import Basic from "./Basic";
 import Detail from "./Detail";
-import Image from "./Image";
-import Attachments from "./Attachments";
-import External from "./External";
+import Option from "./Option";
+import Condition from "./Condition";
+import Search from "./Search";
+import Confirmation from "./Confirmation";
 import PageTitle from "../../../core/common/Partials/PageTitle";
 import StorefrontIcon from "@material-ui/icons/Storefront";
 import SaveIcon from "@material-ui/icons/Save";
@@ -18,6 +19,10 @@ import {
     Tabs,
     Tab,
     CircularProgress,
+    InputLabel,
+    FormControl,
+    Select,
+    MenuItem
 } from "@material-ui/core";
 import Fade from "@material-ui/core/Fade";
 import { withSnackbar } from "notistack";
@@ -692,6 +697,29 @@ class Form extends React.Component {
                                 name="id"
                                 value={this.state.id}
                             />
+                            <Grid container md={12} xs={12}>
+                                <Grid item md={2} xs={12}>
+                                    <InputLabel>기존 상품정보 불러오기</InputLabel>
+                                </Grid>
+                                <Grid item md={3} xs={12}>
+                                    <FormControl
+                                        size="small"
+                                        fullWidth
+                                        variant="outlined"
+                                    >   
+                                        <InputLabel>최근 등록한 상품을 선택하세요</InputLabel>
+                                      <Select>
+                                        <MenuItem value="1">1일</MenuItem>
+                                        <MenuItem value="2">2일</MenuItem>
+                                        <MenuItem value="3">3일</MenuItem>
+                                        <MenuItem value="4">4일</MenuItem>
+                                        <MenuItem value="5">5일</MenuItem>
+                                        <MenuItem value="6">6일</MenuItem>
+                                        <MenuItem value="7">7일</MenuItem>
+                                      </Select>
+                                    </FormControl>
+                                </Grid>
+                            </Grid>
 
                             {/* Tabs */}
                             <Tabs
@@ -701,20 +729,14 @@ class Form extends React.Component {
                                 variant="scrollable"
                                 indicatorColor="primary"
                                 scrollButtons="auto"
+                                className="mt-20"
                             >
-                                <Tab label="기본정보" {...this.tabProps(0)} />
-                                {/* <Tab label="Price &amp; Inventory" {...this.tabProps(1)} /> */}
-                                {/* <Tab label="Option" {...this.tabProps(2)} /> */}
-                                <Tab label="상세정보" {...this.tabProps(3)} />
-                                <Tab label="이미지" {...this.tabProps(4)} />
-                                <Tab label="첨부" {...this.tabProps(5)} />
-                                {this.props.match.url === "/product/create" &&
-                                user.roleName === "ROLE_SELLER" ? null : (
-                                    <Tab
-                                        label="외부링크"
-                                        {...this.tabProps(6)}
-                                    />
-                                )}
+                                <Tab label="상품기본정보" {...this.tabProps(0)} />
+                                <Tab label="옵션 정보" {...this.tabProps(1)} />
+                                <Tab label="상품 부가정보" {...this.tabProps(2)} />
+                                <Tab label="구매/혜택 조건" {...this.tabProps(3)} />
+                                <Tab label="검색설정" {...this.tabProps(4)} />
+                                <Tab label="품목/인증 정보" {...this.tabProps(5)} />
                             </Tabs>
 
                             <Divider />
@@ -747,23 +769,22 @@ class Form extends React.Component {
                                     />
                                 </div>
 
-                                {/* Price Reserve information content */}
-                                {/* <div index={1} className="mt-20">
-                <PriceReserve 
-                  isShowForm={isShowForm}
-                  product={this.state.product}
-                  hasError={this.hasError}
-                  errors={this.state.errors}
-                />
-              </div> */}
-
                                 {/* Option content */}
-                                {/* <div index={2} className="mt-20">
-                <Option isShowForm={isShowForm} />
-              </div> */}
+                                <div index={1} className="mt-20">
+                                    <Option
+                                        isShowForm={isShowForm}
+                                        url={this.props.match.url}
+                                        product={this.state.product}
+                                        hasError={this.hasError}
+                                        errors={this.state.errors}
+                                        enqueueSnackbar={
+                                            this.props.enqueueSnackbar
+                                        }
+                                    />
+                                </div>
 
                                 {/* Detail content */}
-                                <div index={3} className="mt-20">
+                                <div index={2} className="mt-20">
                                     <Detail
                                         isShowForm={isShowForm}
                                         url={this.props.match.url}
@@ -776,9 +797,23 @@ class Form extends React.Component {
                                     />
                                 </div>
 
-                                {/* Image content */}
+                                {/* Condition content */}
+                                <div index={3} className="mt-20">
+                                    <Condition
+                                        isShowForm={isShowForm}
+                                        url={this.props.match.url}
+                                        product={this.state.product}
+                                        hasError={this.hasError}
+                                        errors={this.state.errors}
+                                        enqueueSnackbar={
+                                            this.props.enqueueSnackbar
+                                        }
+                                    />
+                                </div>
+
+                                {/* Search config content */}
                                 <div index={4} className="mt-20">
-                                    <Image
+                                    <Search
                                         isShowForm={isShowForm}
                                         product={this.state.product}
                                         onProcessStart={this.onProcessStart}
@@ -789,13 +824,13 @@ class Form extends React.Component {
                                     />
                                 </div>
 
-                                {/* Attachments content */}
+                                {/* Confirmation content */}
                                 <div
                                     value={this.state.tabIndex}
                                     index={5}
                                     className="mt-20"
                                 >
-                                    <Attachments
+                                    <Confirmation
                                         isShowForm={isShowForm}
                                         product={this.state.product}
                                         onProcessStart={this.onProcessStart}
@@ -808,22 +843,7 @@ class Form extends React.Component {
                                         }
                                     />
                                 </div>
-
-                                {/* External content */}
-                                <div
-                                    value={this.state.tabIndex}
-                                    index={6}
-                                    className="mt-20"
-                                >
-                                    <External
-                                        isShowForm={isShowForm}
-                                        product={this.state.product}
-                                    />
-                                </div>
                             </SwipeableViews>
-
-                            {/* Button section */}
-                            <Divider />
 
                             <Grid container wrap="wrap" className="mt-20">
                                 <Grid item md={4}>
@@ -846,10 +866,8 @@ class Form extends React.Component {
                                                 />
                                             )
                                         }
-                                    >
-                                        {this.state.id ? "UPDATE" : "CREATE"}
-                                    </Button>
-
+                                    >저장</Button>
+                                    {/*}
                                     {user.roleName === "ROLE_SELLER" ? null : (
                                         <Link to="/products">
                                             <Button
@@ -861,7 +879,7 @@ class Form extends React.Component {
                                                 LIST
                                             </Button>
                                         </Link>
-                                    )}
+                                    )} */}
                                 </Grid>
                             </Grid>
                         </form>
