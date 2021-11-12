@@ -265,6 +265,33 @@ const Sidebar = (props) => {
                                     bgColor="#e8f0fe"
                                 />
                             </Link>
+                            <Link to="/product-order">
+                                <StyledTreeItem
+                                    nodeId="10"
+                                    labelText="주문/배송현황"
+                                    labelIcon={MenuIcon}
+                                    color="#1a73e8"
+                                    bgColor="#e8f0fe"
+                                />
+                            </Link>
+                            <Link to="/product-refund">
+                                <StyledTreeItem
+                                    nodeId="11"
+                                    labelText="취소/반품/교환/환불 관리"
+                                    labelIcon={MenuIcon}
+                                    color="#1a73e8"
+                                    bgColor="#e8f0fe"
+                                />
+                            </Link>
+                            <Link to="/supply-management">
+                                <StyledTreeItem
+                                    nodeId="12"
+                                    labelText="공급사(마트) 관리"
+                                    labelIcon={MenuIcon}
+                                    color="#1a73e8"
+                                    bgColor="#e8f0fe"
+                                />
+                            </Link>
                         </StyledTreeItem>
                         <StyledTreeItem
                             nodeId="789"

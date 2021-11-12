@@ -22,6 +22,9 @@ import TimeDealCreateView from "../../components/TimeDeal/Form/Form";
 import DownloadProductListView from "../../components/DownloadProduct/Index/List";
 import ProductForm from "../../components/Product/Form/Form";
 import EditProductView from "../../components/Product/Form/Edit";
+import ProductOrderView from "../../components/Product/Form/Order";
+import ProductRefundView from "../../components/Product/Form/Refund";
+import SupplyManagementView from "../../components/Product/Supply/Management";
 import SetProductListView from "../../components/SetProduct/Index/List";
 import SetProductFormView from "../../components/SetProduct/Form/Form";
 import CategoryView from "../../components/Category/Index/Index";
@@ -701,6 +704,27 @@ class Routes extends React.Component {
                         exact
                         layout={MainLayout}
                         path="/edit-product"
+                    />
+
+                    <RouteWithLayout
+                        component={ProductOrderView}
+                        exact
+                        layout={MainLayout}
+                        path="/product-order"
+                    />
+
+                    <RouteWithLayout
+                        component={ProductRefundView}
+                        exact
+                        layout={MainLayout}
+                        path="/product-refund"
+                    />
+
+                    <RouteWithLayout
+                        component={SupplyManagementView}
+                        exact
+                        layout={MainLayout}
+                        path="/supply-management"
                     />
 
                     <RouteWithLayout
