@@ -128,7 +128,7 @@ class Option extends React.Component {
                     <TableRow>
                       <TableCell className="text-center" width="33%">
                         <Grid container md={12} xs={12}>
-                          <Grid item md={2} xs={12}>
+                          <Grid item md={2} xs={12} style={{paddingTop: "15px"}}>
                             <InputLabel>추가가격</InputLabel>
                           </Grid>
                           <Grid item md={6} xs={12}>
@@ -140,17 +140,17 @@ class Option extends React.Component {
                                 placeholder="1000"
                             />
                           </Grid>
-                          <Grid item md={1} xs={12}>
+                          <Grid item md={1} xs={12} style={{paddingTop: "15px"}}>
                             <InputLabel>원</InputLabel>
                           </Grid>
                           <Grid item md={2} xs={12}>
-                            <Button size="small" variant="contained" color="primary">입력</Button>
+                            <Button size="medium" variant="contained" color="primary">입력</Button>
                           </Grid>
                         </Grid>
                       </TableCell>
                       <TableCell className="text-center" width="33%">
                         <Grid container md={12} xs={12}>
-                          <Grid item md={2} xs={12}>
+                          <Grid item md={2} xs={12} style={{paddingTop: "15px"}}>
                             <InputLabel>공급가</InputLabel>
                           </Grid>
                           <Grid item md={6} xs={12}>
@@ -162,17 +162,17 @@ class Option extends React.Component {
                                 placeholder="800"
                             />
                           </Grid>
-                          <Grid item md={1} xs={12}>
+                          <Grid item md={1} xs={12} style={{paddingTop: "15px"}}>
                             <InputLabel>원</InputLabel>
                           </Grid>
                           <Grid item md={2} xs={12}>
-                            <Button size="small" variant="contained" color="primary">입력</Button>
+                            <Button size="medium" variant="contained" color="primary">입력</Button>
                           </Grid>
                         </Grid>
                       </TableCell>
                       <TableCell className="text-center" width="33%">
                         <Grid container md={12} xs={12}>
-                          <Grid item md={2} xs={12}>
+                          <Grid item md={2} xs={12} style={{paddingTop: "15px"}}>
                             <InputLabel>수량</InputLabel>
                           </Grid>
                           <Grid item md={6} xs={12}>
@@ -184,11 +184,11 @@ class Option extends React.Component {
                                 placeholder="100"
                             />
                           </Grid>
-                          <Grid item md={1} xs={12}>
+                          <Grid item md={1} xs={12} style={{paddingTop: "15px"}}>
                             <InputLabel>개</InputLabel>
                           </Grid>
                           <Grid item md={2} xs={12}>
-                            <Button size="small" variant="contained" color="primary">입력</Button>
+                            <Button size="medium" variant="contained" color="primary">입력</Button>
                           </Grid>
                         </Grid>
                       </TableCell>

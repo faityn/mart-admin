@@ -21,6 +21,7 @@ import MDPickCreateView from "../../components/MDPick/Form/Form";
 import TimeDealCreateView from "../../components/TimeDeal/Form/Form";
 import DownloadProductListView from "../../components/DownloadProduct/Index/List";
 import ProductForm from "../../components/Product/Form/Form";
+import EditProductView from "../../components/Product/Form/Edit";
 import SetProductListView from "../../components/SetProduct/Index/List";
 import SetProductFormView from "../../components/SetProduct/Form/Form";
 import CategoryView from "../../components/Category/Index/Index";
@@ -693,6 +694,13 @@ class Routes extends React.Component {
                         exact
                         layout={MainLayout}
                         path="/settings/product"
+                    />
+
+                    <RouteWithLayout
+                        component={EditProductView}
+                        exact
+                        layout={MainLayout}
+                        path="/edit-product"
                     />
 
                     <RouteWithLayout

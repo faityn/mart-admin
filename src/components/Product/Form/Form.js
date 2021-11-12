@@ -21,8 +21,11 @@ import {
     CircularProgress,
     InputLabel,
     FormControl,
+    FormControlLabel,
     Select,
-    MenuItem
+    MenuItem,
+    Radio,
+    RadioGroup
 } from "@material-ui/core";
 import Fade from "@material-ui/core/Fade";
 import { withSnackbar } from "notistack";
@@ -52,6 +55,8 @@ class Form extends React.Component {
             errors: null,
             sellerPolicyMessage: "",
             description: null,
+            isSingleProduct: true,
+            isMultipleProduct: false,
         };
 
         // Events
@@ -62,6 +67,8 @@ class Form extends React.Component {
         this.hasError = this.hasError.bind(this);
         this.onChangeQuillDescription =
             this.onChangeQuillDescription.bind(this);
+        this.onChangeToSingleProduct = this.onChangeToSingleProduct.bind(this);    
+        this.onChangeToMultipleProduct = this.onChangeToMultipleProduct.bind(this);    
 
         this._isMounted = false;
     }
@@ -161,6 +168,16 @@ class Form extends React.Component {
         this.setState({
             isProcessing: false,
         });
+    }
+
+    onChangeToSingleProduct() {
+        this.setState({isSingleProduct: true});
+        this.setState({isMultipleProduct: false});
+    }
+
+    onChangeToMultipleProduct() {
+        this.setState({isMultipleProduct: true});
+        this.setState({isSingleProduct: false});
     }
 
     /**
@@ -698,153 +715,185 @@ class Form extends React.Component {
                                 value={this.state.id}
                             />
                             <Grid container md={12} xs={12}>
-                                <Grid item md={2} xs={12}>
+                                <Grid item md={2} xs={12} style={{paddingTop: "10px"}}>
                                     <InputLabel>기존 상품정보 불러오기</InputLabel>
                                 </Grid>
-                                <Grid item md={3} xs={12}>
-                                    <FormControl
-                                        size="small"
-                                        fullWidth
-                                        variant="outlined"
-                                    >   
-                                        <InputLabel>최근 등록한 상품을 선택하세요</InputLabel>
-                                      <Select>
-                                        <MenuItem value="1">1일</MenuItem>
-                                        <MenuItem value="2">2일</MenuItem>
-                                        <MenuItem value="3">3일</MenuItem>
-                                        <MenuItem value="4">4일</MenuItem>
-                                        <MenuItem value="5">5일</MenuItem>
-                                        <MenuItem value="6">6일</MenuItem>
-                                        <MenuItem value="7">7일</MenuItem>
-                                      </Select>
-                                    </FormControl>
+                                <Grid item md={1} xs={12}>
+                                    <RadioGroup aria-label="file" name="file">
+                                        <FormControlLabel
+                                            value="true"
+                                            control={<Radio />}
+                                            label="개별"
+                                            checked={this.state.isSingleProduct === true}
+                                            onChange={this.onChangeToSingleProduct.bind(this)}
+                                        />
+                                    </RadioGroup>
+                                </Grid>
+                                <Grid item md={1} xs={12}>
+                                    <RadioGroup aria-label="file" name="file">
+                                        <FormControlLabel
+                                            value="false"
+                                            control={<Radio />}
+                                            label="대량"
+                                            checked={this.state.isMultipleProduct === true}
+                                            onChange={this.onChangeToMultipleProduct.bind(this)}
+                                        />
+                                    </RadioGroup>
                                 </Grid>
                             </Grid>
-
-                            {/* Tabs */}
-                            <Tabs
-                                textColor="primary"
-                                value={this.state.tabIndex}
-                                onChange={this.onChangeTab}
-                                variant="scrollable"
-                                indicatorColor="primary"
-                                scrollButtons="auto"
-                                className="mt-20"
-                            >
-                                <Tab label="상품기본정보" {...this.tabProps(0)} />
-                                <Tab label="옵션 정보" {...this.tabProps(1)} />
-                                <Tab label="상품 부가정보" {...this.tabProps(2)} />
-                                <Tab label="구매/혜택 조건" {...this.tabProps(3)} />
-                                <Tab label="검색설정" {...this.tabProps(4)} />
-                                <Tab label="품목/인증 정보" {...this.tabProps(5)} />
-                            </Tabs>
-
-                            <Divider />
-
-                            {/* SwipeableViews */}
-                            <SwipeableViews index={this.state.tabIndex}>
-                                {/* Basic content */}
-                                <div index={0} className="mt-20">
-                                    <Basic
-                                        isShowForm={isShowForm}
-                                        product={this.state.product}
-                                        hasError={this.hasError}
-                                        errors={this.state.errors}
-                                        checkPremiumService={
-                                            this.checkPremiumService
-                                        }
-                                        premiumServiceRef={
-                                            this.premiumServiceRef
-                                        }
-                                        sellerPolicyMessage={
-                                            this.state.sellerPolicyMessage
-                                        }
-                                        enqueueSnackbar={
-                                            this.props.enqueueSnackbar
-                                        }
-                                        onChangeQuillDescription={
-                                            this.onChangeQuillDescription
-                                        }
-                                        description={this.state.description}
-                                    />
-                                </div>
-
-                                {/* Option content */}
-                                <div index={1} className="mt-20">
-                                    <Option
-                                        isShowForm={isShowForm}
-                                        url={this.props.match.url}
-                                        product={this.state.product}
-                                        hasError={this.hasError}
-                                        errors={this.state.errors}
-                                        enqueueSnackbar={
-                                            this.props.enqueueSnackbar
-                                        }
-                                    />
-                                </div>
-
-                                {/* Detail content */}
-                                <div index={2} className="mt-20">
-                                    <Detail
-                                        isShowForm={isShowForm}
-                                        url={this.props.match.url}
-                                        product={this.state.product}
-                                        hasError={this.hasError}
-                                        errors={this.state.errors}
-                                        enqueueSnackbar={
-                                            this.props.enqueueSnackbar
-                                        }
-                                    />
-                                </div>
-
-                                {/* Condition content */}
-                                <div index={3} className="mt-20">
-                                    <Condition
-                                        isShowForm={isShowForm}
-                                        url={this.props.match.url}
-                                        product={this.state.product}
-                                        hasError={this.hasError}
-                                        errors={this.state.errors}
-                                        enqueueSnackbar={
-                                            this.props.enqueueSnackbar
-                                        }
-                                    />
-                                </div>
-
-                                {/* Search config content */}
-                                <div index={4} className="mt-20">
-                                    <Search
-                                        isShowForm={isShowForm}
-                                        product={this.state.product}
-                                        onProcessStart={this.onProcessStart}
-                                        onProcessEnd={this.onProcessEnd}
-                                        enqueueSnackbar={
-                                            this.props.enqueueSnackbar
-                                        }
-                                    />
-                                </div>
-
-                                {/* Confirmation content */}
-                                <div
+                            {this.state.isSingleProduct === true ? (
+                                <React.Fragment>
+                                <Grid container md={12} xs={12} className="mt-20">
+                                    <Grid item md={2} xs={12}>
+                                        <InputLabel>상품등록</InputLabel>
+                                    </Grid>
+                                    <Grid item md={3} xs={12}>
+                                        <FormControl
+                                            size="small"
+                                            fullWidth
+                                            variant="outlined"
+                                        >   
+                                            <InputLabel>최근 등록한 상품을 선택하세요</InputLabel>
+                                            <Select>
+                                                <MenuItem value="1">1일</MenuItem>
+                                                <MenuItem value="2">2일</MenuItem>
+                                                <MenuItem value="3">3일</MenuItem>
+                                                <MenuItem value="4">4일</MenuItem>
+                                                <MenuItem value="5">5일</MenuItem>
+                                                <MenuItem value="6">6일</MenuItem>
+                                                <MenuItem value="7">7일</MenuItem>
+                                            </Select>
+                                        </FormControl>
+                                    </Grid>
+                                </Grid>
+                                
+                                <Tabs
+                                    textColor="primary"
                                     value={this.state.tabIndex}
-                                    index={5}
+                                    onChange={this.onChangeTab}
+                                    variant="scrollable"
+                                    indicatorColor="primary"
+                                    scrollButtons="auto"
                                     className="mt-20"
                                 >
-                                    <Confirmation
-                                        isShowForm={isShowForm}
-                                        product={this.state.product}
-                                        onProcessStart={this.onProcessStart}
-                                        onProcessEnd={this.onProcessEnd}
-                                        enqueueSnackbar={
-                                            this.props.enqueueSnackbar
-                                        }
-                                        sellerPolicyMessage={
-                                            this.state.sellerPolicyMessage
-                                        }
-                                    />
-                                </div>
-                            </SwipeableViews>
+                                    <Tab label="상품기본정보" {...this.tabProps(0)} />
+                                    <Tab label="옵션 정보" {...this.tabProps(1)} />
+                                    <Tab label="상품 부가정보" {...this.tabProps(2)} />
+                                    <Tab label="구매/혜택 조건" {...this.tabProps(3)} />
+                                    <Tab label="검색설정" {...this.tabProps(4)} />
+                                    <Tab label="품목/인증 정보" {...this.tabProps(5)} />
+                                </Tabs>
+                                <Divider />
 
+                                {/* SwipeableViews */}
+                                <SwipeableViews index={this.state.tabIndex}>
+                                    {/* Basic content */}
+                                    <div index={0} className="mt-20">
+                                        <Basic
+                                            isShowForm={isShowForm}
+                                            product={this.state.product}
+                                            hasError={this.hasError}
+                                            errors={this.state.errors}
+                                            checkPremiumService={
+                                                this.checkPremiumService
+                                            }
+                                            premiumServiceRef={
+                                                this.premiumServiceRef
+                                            }
+                                            sellerPolicyMessage={
+                                                this.state.sellerPolicyMessage
+                                            }
+                                            enqueueSnackbar={
+                                                this.props.enqueueSnackbar
+                                            }
+                                            onChangeQuillDescription={
+                                                this.onChangeQuillDescription
+                                            }
+                                            description={this.state.description}
+                                        />
+                                    </div>
+
+                                    {/* Option content */}
+                                    <div index={1} className="mt-20">
+                                        <Option
+                                            isShowForm={isShowForm}
+                                            url={this.props.match.url}
+                                            product={this.state.product}
+                                            hasError={this.hasError}
+                                            errors={this.state.errors}
+                                            enqueueSnackbar={
+                                                this.props.enqueueSnackbar
+                                            }
+                                        />
+                                    </div>
+
+                                    {/* Detail content */}
+                                    <div index={2} className="mt-20">
+                                        <Detail
+                                            isShowForm={isShowForm}
+                                            url={this.props.match.url}
+                                            product={this.state.product}
+                                            hasError={this.hasError}
+                                            errors={this.state.errors}
+                                            enqueueSnackbar={
+                                                this.props.enqueueSnackbar
+                                            }
+                                        />
+                                    </div>
+
+                                    {/* Condition content */}
+                                    <div index={3} className="mt-20">
+                                        <Condition
+                                            isShowForm={isShowForm}
+                                            url={this.props.match.url}
+                                            product={this.state.product}
+                                            hasError={this.hasError}
+                                            errors={this.state.errors}
+                                            enqueueSnackbar={
+                                                this.props.enqueueSnackbar
+                                            }
+                                        />
+                                    </div>
+
+                                    {/* Search config content */}
+                                    <div index={4} className="mt-20">
+                                        <Search
+                                            isShowForm={isShowForm}
+                                            product={this.state.product}
+                                            onProcessStart={this.onProcessStart}
+                                            onProcessEnd={this.onProcessEnd}
+                                            enqueueSnackbar={
+                                                this.props.enqueueSnackbar
+                                            }
+                                        />
+                                    </div>
+
+                                    {/* Confirmation content */}
+                                    <div
+                                        value={this.state.tabIndex}
+                                        index={5}
+                                        className="mt-20"
+                                    >
+                                        <Confirmation
+                                            isShowForm={isShowForm}
+                                            product={this.state.product}
+                                            onProcessStart={this.onProcessStart}
+                                            onProcessEnd={this.onProcessEnd}
+                                            enqueueSnackbar={
+                                                this.props.enqueueSnackbar
+                                            }
+                                            sellerPolicyMessage={
+                                                this.state.sellerPolicyMessage
+                                            }
+                                        />
+                                    </div>
+                                </SwipeableViews>
+                            </React.Fragment>) : (
+                            <React.Fragment>
+                                
+                            </React.Fragment>
+                            )} 
+                                             
                             <Grid container wrap="wrap" className="mt-20">
                                 <Grid item md={4}>
                                     <Button

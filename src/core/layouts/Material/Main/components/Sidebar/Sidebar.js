@@ -243,6 +243,8 @@ const Sidebar = (props) => {
                                     nodeId="2"
                                     labelText="Category"
                                     labelIcon={MenuIcon}
+                                    color="#1a73e8"
+                                    bgColor="#e8f0fe"
                                 />
                             </Link>
                             <Link to="/excel-product">
@@ -250,6 +252,15 @@ const Sidebar = (props) => {
                                     nodeId="8"
                                     labelText="Product batch"
                                     labelIcon={PublishIcon}
+                                    color="#1a73e8"
+                                    bgColor="#e8f0fe"
+                                />
+                            </Link>
+                            <Link to="/edit-product">
+                                <StyledTreeItem
+                                    nodeId="9"
+                                    labelText="마스터 상품(조회/수정"
+                                    labelIcon={MenuIcon}
                                     color="#1a73e8"
                                     bgColor="#e8f0fe"
                                 />
