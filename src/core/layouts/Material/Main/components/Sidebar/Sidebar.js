@@ -292,6 +292,42 @@ const Sidebar = (props) => {
                                     bgColor="#e8f0fe"
                                 />
                             </Link>
+                            <Link to="/product-management">
+                                <StyledTreeItem
+                                    nodeId="13"
+                                    labelText="상품관리"
+                                    labelIcon={MenuIcon}
+                                    color="#1a73e8"
+                                    bgColor="#e8f0fe"
+                                />
+                            </Link>
+                            <Link to="/product-notice">
+                                <StyledTreeItem
+                                    nodeId="14"
+                                    labelText="상품문의"
+                                    labelIcon={MenuIcon}
+                                    color="#1a73e8"
+                                    bgColor="#e8f0fe"
+                                />
+                            </Link>
+                            <Link to="/payment-management-all">
+                                <StyledTreeItem
+                                    nodeId="15"
+                                    labelText="통합정산관리"
+                                    labelIcon={MenuIcon}
+                                    color="#1a73e8"
+                                    bgColor="#e8f0fe"
+                                />
+                            </Link>
+                            <Link to="/payment-management">
+                                <StyledTreeItem
+                                    nodeId="16"
+                                    labelText="정산관리"
+                                    labelIcon={MenuIcon}
+                                    color="#1a73e8"
+                                    bgColor="#e8f0fe"
+                                />
+                            </Link>
                         </StyledTreeItem>
                         <StyledTreeItem
                             nodeId="789"

@@ -25,6 +25,10 @@ import EditProductView from "../../components/Product/Form/Edit";
 import ProductOrderView from "../../components/Product/Form/Order";
 import ProductRefundView from "../../components/Product/Form/Refund";
 import SupplyManagementView from "../../components/Product/Supply/Management";
+import ProductManagementView from "../../components/Product/Form/Management";
+import ProductNoticeView from "../../components/Product/Form/Notice";
+import AllPaymentManagementView from "../../components/Product/Payment/AllManagement";
+import PaymentManagementView from "../../components/Product/Payment/Management";
 import SetProductListView from "../../components/SetProduct/Index/List";
 import SetProductFormView from "../../components/SetProduct/Form/Form";
 import CategoryView from "../../components/Category/Index/Index";
@@ -725,6 +729,34 @@ class Routes extends React.Component {
                         exact
                         layout={MainLayout}
                         path="/supply-management"
+                    />
+
+                    <RouteWithLayout
+                        component={ProductManagementView}
+                        exact
+                        layout={MainLayout}
+                        path="/product-management"
+                    />
+
+                    <RouteWithLayout
+                        component={ProductNoticeView}
+                        exact
+                        layout={MainLayout}
+                        path="/product-notice"
+                    />
+
+                    <RouteWithLayout
+                        component={AllPaymentManagementView}
+                        exact
+                        layout={MainLayout}
+                        path="/payment-management-all"
+                    />
+
+                    <RouteWithLayout
+                        component={PaymentManagementView}
+                        exact
+                        layout={MainLayout}
+                        path="/payment-management"
                     />
 
                     <RouteWithLayout

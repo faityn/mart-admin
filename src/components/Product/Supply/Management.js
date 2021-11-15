@@ -142,36 +142,36 @@ class Management extends React.Component {
                     </Grid>
 
                     <Grid container spacing={3} md={12} xs={12} style={{ marginTop: "10px" }}>
-                        <Grid item md={12} xs={12}>
-                            <Table className="order_table" style={{width: "100%", overflowX: "auto"}}>
+                        <Grid item md={12} xs={12} style={{maxWidth: "100%", overflowX: "auto"}}>
+                            <Table className="order_table">
                                 <TableBody>
                                     <TableRow>
                                         <TableCell className="text-center"><strong>선택</strong></TableCell>
-                                        <TableCell className="text-center"><strong>아이디</strong></TableCell>
-                                        <TableCell className="text-center"><strong>상호명</strong></TableCell>
-                                        <TableCell className="text-center"><strong>수수료(%)</strong></TableCell>
-                                        <TableCell className="text-center"><strong>사업자등록번호</strong></TableCell>
-                                        <TableCell className="text-center"><strong>법인번호</strong></TableCell>
-                                        <TableCell className="text-center"><strong>업태</strong></TableCell>
-                                        <TableCell className="text-center"><strong>업종</strong></TableCell>
-                                        <TableCell className="text-center"><strong>주소</strong></TableCell>
-                                        <TableCell className="text-center"><strong>대표</strong></TableCell>
-                                        <TableCell className="text-center"><strong>대표 연락처</strong></TableCell>
-                                        <TableCell className="text-center"><strong>대표 휴대폰</strong></TableCell>
-                                        <TableCell className="text-center"><strong>담당자</strong></TableCell>
-                                        <TableCell className="text-center"><strong>담당자 휴대폰</strong></TableCell>
-                                        <TableCell className="text-center"><strong>이메일<br/>(세금계산서)</strong></TableCell>
+                                        <TableCell className="text-center" width="8%"><strong>아이디</strong></TableCell>
+                                        <TableCell className="text-center" width="8%"><strong>상호명</strong></TableCell>
+                                        <TableCell className="text-center" width="8%"><strong>수수료(%)</strong></TableCell>
+                                        <TableCell className="text-center" width="8%"><strong>사업자등록번호</strong></TableCell>
+                                        <TableCell className="text-center" width="8%"><strong>법인번호</strong></TableCell>
+                                        <TableCell className="text-center" width="8%"><strong>업태</strong></TableCell>
+                                        <TableCell className="text-center" width="8%"><strong>업종</strong></TableCell>
+                                        <TableCell className="text-center" width="8%"><strong>주소</strong></TableCell>
+                                        <TableCell className="text-center" width="8%"><strong>대표</strong></TableCell>
+                                        <TableCell className="text-center" width="8%"><strong>대표 연락처</strong></TableCell>
+                                        <TableCell className="text-center" width="8%"><strong>대표 휴대폰</strong></TableCell>
+                                        <TableCell className="text-center" width="8%"><strong>담당자</strong></TableCell>
+                                        <TableCell className="text-center" width="8%"><strong>담당자 휴대폰</strong></TableCell>
+                                        <TableCell className="text-center" width="8%"><strong>이메일<br/>(세금계산서)</strong></TableCell>
                                         <TableCell className="text-center"><strong>통장사본</strong></TableCell>
                                         <TableCell className="text-center"><strong>계좌번호</strong></TableCell>
-                                        <TableCell className="text-center"><strong>계좌구분</strong></TableCell>
-                                        <TableCell className="text-center"><strong>예금주명</strong></TableCell>
-                                        <TableCell className="text-center"><strong>은행</strong></TableCell>
-                                        <TableCell className="text-center"><strong>유효성 여부</strong></TableCell>
-                                        <TableCell className="text-center"><strong>운영시간</strong></TableCell>
+                                        <TableCell className="text-center" width="8%"><strong>계좌구분</strong></TableCell>
+                                        <TableCell className="text-center" width="8%"><strong>예금주명</strong></TableCell>
+                                        <TableCell className="text-center" width="8%"><strong>은행</strong></TableCell>
+                                        <TableCell className="text-center" width="8%"><strong>유효성 여부</strong></TableCell>
+                                        <TableCell className="text-center" width="8%"><strong>운영시간</strong></TableCell>
                                         <TableCell className="text-center"><strong>배송 시작/마감 시간</strong></TableCell>
                                         <TableCell className="text-center"><strong>전화문의 시간</strong></TableCell>
                                         <TableCell className="text-center"><strong>정산유형</strong></TableCell>
-                                        <TableCell className="text-center"><strong>정산 담당자</strong></TableCell>
+                                        <TableCell className="text-center" width="8%"><strong>정산 담당자</strong></TableCell>
                                         <TableCell className="text-center"><strong>정산 담당 연락처</strong></TableCell>
                                     </TableRow>
 
