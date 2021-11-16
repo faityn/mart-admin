@@ -330,750 +330,194 @@ const Sidebar = (props) => {
                             </Link>
                         </StyledTreeItem>
                         <StyledTreeItem
-                            nodeId="789"
-                            labelText="Promotion management"
-                            labelIcon={RedeemIcon}
-                        >
-                            <StyledTreeItem
-                                nodeId="41"
-                                labelText="Main page"
-                                labelIcon={SubjectIcon}
-                            >
-                                <Link to="/settings-main-banner">
-                                    <StyledTreeItem
-                                        nodeId="411"
-                                        labelText="Main banner"
-                                        labelIcon={ViewCarouselIcon}
-                                        color="#1a73e8"
-                                        bgColor="#e8f0fe"
-                                    />
-                                </Link>
-                                <Link to="/settings-middle-banner">
-                                    <StyledTreeItem
-                                        nodeId="412"
-                                        labelText="Middle banner"
-                                        labelIcon={ViewCarouselIcon}
-                                        color="#1a73e8"
-                                        bgColor="#e8f0fe"
-                                    />
-                                </Link>
-                                <Link to="/settings-peekom-banner">
-                                    <StyledTreeItem
-                                        nodeId="413"
-                                        labelText="Peeking banner"
-                                        labelIcon={ViewCarouselIcon}
-                                        color="#1a73e8"
-                                        bgColor="#e8f0fe"
-                                    />
-                                </Link>
-                                <Link to="/product-mdpick">
-                                    <StyledTreeItem
-                                        nodeId="414"
-                                        labelText="MD's Pick"
-                                        labelIcon={TouchAppIcon}
-                                        color="#1a73e8"
-                                        bgColor="#e8f0fe"
-                                    />
-                                </Link>
-                                <Link to="/event-pick-one">
-                                    <StyledTreeItem
-                                        nodeId="415"
-                                        labelText="Event pick one"
-                                        labelIcon={EventIcon}
-                                        color="#1a73e8"
-                                        bgColor="#e8f0fe"
-                                    />
-                                </Link>
-                                <Link to="/event-pick-two">
-                                    <StyledTreeItem
-                                        nodeId="416"
-                                        labelText="Event pick two"
-                                        labelIcon={EventIcon}
-                                        color="#1a73e8"
-                                        bgColor="#e8f0fe"
-                                    />
-                                </Link>
-                                <Link to="/product-timedeal">
-                                    <StyledTreeItem
-                                        nodeId="417"
-                                        labelText="Time deal"
-                                        labelIcon={AlarmIcon}
-                                        color="#1a73e8"
-                                        bgColor="#e8f0fe"
-                                    />
-                                </Link>
-                            </StyledTreeItem>
-                            <StyledTreeItem
-                                nodeId="42"
-                                labelText="Promotion type"
-                                labelIcon={EmojiSymbolsIcon}
-                            >
-                                <Link to="/n-plus-one">
-                                    <StyledTreeItem
-                                        nodeId="421"
-                                        labelText="N+1"
-                                        labelIcon={RedeemIcon}
-                                    />
-                                </Link>
-                                <Link to="/promotion/discount">
-                                    <StyledTreeItem
-                                        nodeId="422"
-                                        labelText="Discount"
-                                        labelIcon={ReceiptIcon}
-                                        color="#1a73e8"
-                                        bgColor="#e8f0fe"
-                                    />
-                                </Link>
-                                <Link to="/settings-free-shipping">
-                                    <StyledTreeItem
-                                        nodeId="423"
-                                        labelText="Free shipping"
-                                        labelIcon={LocalShippingIcon}
-                                    />
-                                </Link>
-                            </StyledTreeItem>
-                            <Link to="/stickers">
-                                <StyledTreeItem
-                                    nodeId="43"
-                                    labelText="Stickers"
-                                    labelIcon={LoyaltyIcon}
-                                />
-                            </Link>
-                            <Link to="/promotion/popup">
-                                <StyledTreeItem
-                                    nodeId="44"
-                                    labelText="Popup"
-                                    labelIcon={VideoLabelIcon}
-                                />
-                            </Link>
-                            <Link to="/exhibition">
-                                <StyledTreeItem
-                                    nodeId="45"
-                                    labelText="Exhibition"
-                                    labelIcon={PhotoAlbumIcon}
-                                    color="#1a73e8"
-                                    bgColor="#e8f0fe"
-                                />
-                            </Link>
-                            <Link to="/marketing-mail-templates">
-                                <StyledTreeItem
-                                    nodeId="46"
-                                    labelText="Marketing mail template"
-                                    labelIcon={MailIcon}
-                                />
-                            </Link>
-                            <Link to="/marketing-mail">
-                                <StyledTreeItem
-                                    nodeId="47"
-                                    labelText="Marketing mail"
-                                    labelIcon={MailIcon}
-                                />
-                            </Link>
-                            <Link to="/settings/operation/coupon">
-                                <StyledTreeItem
-                                    nodeId="48"
-                                    labelText="Coupon"
-                                    labelIcon={ConfirmationNumberIcon}
-                                    color="#1a73e8"
-                                    bgColor="#e8f0fe"
-                                />
-                            </Link>
-                            <Link to="/settings/operation/auto-coupon">
-                                <StyledTreeItem
-                                    nodeId="49"
-                                    labelText="Auto Coupon"
-                                    labelIcon={ConfirmationNumberIcon}
-                                    color="#1a73e8"
-                                    bgColor="#e8f0fe"
-                                />
-                            </Link>
-                        </StyledTreeItem>
-                        <StyledTreeItem
-                            nodeId="5"
-                            labelText="Membership management"
-                            labelIcon={FastfoodIcon}
-                        >
-                            <Link to="/member-management">
-                                <StyledTreeItem
-                                    nodeId="51"
-                                    labelText="Member management"
-                                    labelIcon={GroupIcon}
-                                />
-                            </Link>
-                            <Link to="/consult-management">
-                                <StyledTreeItem
-                                    nodeId="52"
-                                    labelText="1:1"
-                                    labelIcon={ForumIcon}
-                                />
-                            </Link>
-                            <StyledTreeItem
-                                nodeId="723"
-                                labelText="Affiliate"
-                                labelIcon={RecentActorsIcon}
-                                color="#1a73e8"
-                                bgColor="#e8f0fe"
-                            >
-                                <Link to="/settings/operation/affiliate">
-                                    <StyledTreeItem
-                                        nodeId="723_1"
-                                        labelText="Affiliate list"
-                                        labelIcon={SettingsIcon}
-                                    ></StyledTreeItem>
-                                </Link>
-                                <Link to="/settings/operation/affiliate/payment">
-                                    <StyledTreeItem
-                                        nodeId="723_2"
-                                        labelText="Payment"
-                                        labelIcon={SettingsIcon}
-                                    ></StyledTreeItem>
-                                </Link>
-                                <Link to="/settings/operation/affiliate-policy/create">
-                                    <StyledTreeItem
-                                        nodeId="723_3"
-                                        labelText="Settlement policy"
-                                        labelIcon={SettingsIcon}
-                                    ></StyledTreeItem>
-                                </Link>
-                                <Link to="/settings/operation/affiliate/faq">
-                                    <StyledTreeItem
-                                        nodeId="723_4"
-                                        labelText="FAQ"
-                                        labelIcon={SettingsIcon}
-                                    ></StyledTreeItem>
-                                </Link>
-                                <Link to="/settings/operation/affiliate/term">
-                                    <StyledTreeItem
-                                        nodeId="723_5"
-                                        labelText="Terms and conditions"
-                                        labelIcon={SettingsIcon}
-                                    ></StyledTreeItem>
-                                </Link>
-                                <Link to="/settings/operation/affiliate/maintenance">
-                                    <StyledTreeItem
-                                        nodeId="723_6"
-                                        labelText="Maintenance mode"
-                                        labelIcon={SettingsIcon}
-                                    ></StyledTreeItem>
-                                </Link>
-                            </StyledTreeItem>
-                        </StyledTreeItem>
-                        <StyledTreeItem
-                            nodeId="6"
-                            labelText="Order management"
-                            labelIcon={MonetizationOnIcon}
-                        >
-                            <Link to="/orders">
-                                <StyledTreeItem
-                                    nodeId="61"
-                                    labelText="Orders list"
-                                    labelIcon={MonetizationOnIcon}
-                                    color="#1a73e8"
-                                    bgColor="#e8f0fe"
-                                />
-                            </Link>
-                            <Link to="/order/refund">
-                                <StyledTreeItem
-                                    nodeId="63"
-                                    labelText="Refund"
-                                    labelIcon={ArrowBackIcon}
-                                    color="#1a73e8"
-                                    bgColor="#e8f0fe"
-                                />
-                            </Link>
-                        </StyledTreeItem>
-                        <StyledTreeItem
                             nodeId="7"
                             labelText="Main settings"
                             labelIcon={SettingsIcon}
                         >
-                            <StyledTreeItem
-                                nodeId="71"
-                                labelText="Page management"
-                                labelIcon={SubjectIcon}
-                            >
-                                {/* Business  */}
-                                <Link to="/settings-business">
-                                    <StyledTreeItem
-                                        nodeId="711"
-                                        labelText="아니벌써 기본정보"
-                                        labelIcon={BusinessIcon}
-                                        color="#1a73e8"
-                                        bgColor="#e8f0fe"
-                                    />
-                                </Link>
-                                {/* Term basic settings */}
-                                <Link to="/settings-term">
-                                    <StyledTreeItem
-                                        nodeId="714"
-                                        labelText="환경설정"
-                                        labelIcon={SubjectIcon}
-                                        color="#1a73e8"
-                                        bgColor="#e8f0fe"
-                                    />
-                                </Link>
-
-                                {/* Privacy basic settings */}
-                                <Link to="/settings-privacy">
-                                    <StyledTreeItem
-                                        nodeId="715"
-                                        labelText="부가세율 설정"
-                                        labelIcon={SubjectIcon}
-                                        color="#1a73e8"
-                                        bgColor="#e8f0fe"
-                                    />
-                                </Link>
-
-                                {/* User  basic settings */}
-                                <Link to="/settings-user">
-                                    <StyledTreeItem
-                                        nodeId="716"
-                                        labelText="이용/탈퇴 안내"
-                                        labelIcon={SubjectIcon}
-                                        color="#1a73e8"
-                                        bgColor="#e8f0fe"
-                                    />
-                                </Link>
-
-                                {/* SEO  basic settings */}
-                                <Link to="/settings-seo">
-                                    <StyledTreeItem
-                                        nodeId="717"
-                                        labelText="검색엔진 최적화(SEO) 설정"
-                                        labelIcon={SearchIcon}
-                                        color="#1a73e8"
-                                        bgColor="#e8f0fe"
-                                    />
-                                </Link>
-
-                                {/* Operator management basic settings */}
-                                <Link to="/settings-operator">
-                                    <StyledTreeItem
-                                        nodeId="718"
-                                        labelText="운영자 관리"
-                                        labelIcon={RecentActorsIcon}
-                                        color="#1a73e8"
-                                        bgColor="#e8f0fe"
-                                    />
-                                </Link>                 
-
-                                {/* Operator role basic settings */}
-                                <Link to="/settings-operator-role">
-                                    <StyledTreeItem
-                                        nodeId="719"
-                                        labelText="운영자 권한 설정"
-                                        labelIcon={RecentActorsIcon}
-                                        color="#1a73e8"
-                                        bgColor="#e8f0fe"
-                                    />
-                                </Link>               
-
-                                {/* Password search basic settings */}
-                                <Link to="/settings-password-search">
-                                    <StyledTreeItem
-                                        nodeId="7120"
-                                        labelText="비밀번호 찾기 설정"
-                                        labelIcon={SearchIcon}
-                                        color="#1a73e8"
-                                        bgColor="#e8f0fe"
-                                    />
-                                </Link>         
-
-                                {/* Password reset basic settings */}
-                                <Link to="/settings-password-reset">
-                                    <StyledTreeItem
-                                        nodeId="7121"
-                                        labelText="비밀번호 변경안내 설정"
-                                        labelIcon={PasswordIcon}
-                                        color="#1a73e8"
-                                        bgColor="#e8f0fe"
-                                    />
-                                </Link> 
-
-                                {/* Login history list */}
-                                <Link to="/login-history">
-                                    <StyledTreeItem
-                                        nodeId="7122"
-                                        labelText="개인정보접속기록 조회"
-                                        labelIcon={SubjectIcon}
-                                        color="#1a73e8"
-                                        bgColor="#e8f0fe"
-                                    />
-                                </Link>  
-
-                                {/* Product usage guide */}
-                                <Link to="/product-usage-guide">
-                                    <StyledTreeItem
-                                        nodeId="7123"
-                                        labelText="상품 상세 이용안내 관리"
-                                        labelIcon={SubjectIcon}
-                                        color="#1a73e8"
-                                        bgColor="#e8f0fe"
-                                    />
-                                </Link>    
-
-                                {/* Order configuration */}
-                                <Link to="/order-config">
-                                    <StyledTreeItem
-                                        nodeId="7124"
-                                        labelText="주문 기본 설정"
-                                        labelIcon={SettingsIcon}
-                                        color="#1a73e8"
-                                        bgColor="#e8f0fe"
-                                    />
-                                </Link>  
-
-                                {/* SMS configuration */}
-                                <Link to="/sms-config">
-                                    <StyledTreeItem
-                                        nodeId="7125"
-                                        labelText="SMS 설정"
-                                        labelIcon={SettingsIcon}
-                                        color="#1a73e8"
-                                        bgColor="#e8f0fe"
-                                    />
-                                </Link>  
-
-                                {/* 080 unsubcribe list */}
-                                <Link to="/unsubscribe-list">
-                                    <StyledTreeItem
-                                        nodeId="7126"
-                                        labelText="080 수신거부 리스트"
-                                        labelIcon={SubjectIcon}
-                                        color="#1a73e8"
-                                        bgColor="#e8f0fe"
-                                    />
-                                </Link>  
-                            </StyledTreeItem>
-
-                            <StyledTreeItem
-                                nodeId="72"
-                                labelText="Operation"
-                                labelIcon={LowPriorityIcon}
-                            >
-                                <Link to="/operators">
-                                    <StyledTreeItem
-                                        nodeId="721"
-                                        labelText="Operator"
-                                        labelIcon={RecentActorsIcon}
-                                        color="#1a73e8"
-                                        bgColor="#e8f0fe"
-                                    />
-                                </Link>
+                            {/* Business  */}
+                            <Link to="/settings-business">
                                 <StyledTreeItem
-                                    nodeId="722"
-                                    labelText="Partner"
-                                    labelIcon={RecentActorsIcon}
-                                >
-                                    <Link to="/partners">
-                                        <StyledTreeItem
-                                            nodeId="7221"
-                                            labelText="Partner"
-                                            labelIcon={RecentActorsIcon}
-                                            color="#1a73e8"
-                                            bgColor="#e8f0fe"
-                                        />
-                                    </Link>
-                                    <Link to="/partner/history">
-                                        <StyledTreeItem
-                                            nodeId="7222"
-                                            labelText="History"
-                                            labelIcon={HistoryIcon}
-                                            color="#1a73e8"
-                                            bgColor="#e8f0fe"
-                                        />
-                                    </Link>
-                                </StyledTreeItem>
-                                <Link to="/settings/operation/affiliate">
-                                    <StyledTreeItem
-                                        nodeId="723"
-                                        labelText="Affiliate"
-                                        labelIcon={RecentActorsIcon}
-                                        color="#1a73e8"
-                                        bgColor="#e8f0fe"
-                                    />
-                                </Link>
-
-                                {/* Setting shipping */}
-                                <Link to="/settings/operation/shipping">
-                                    <StyledTreeItem
-                                        nodeId="724"
-                                        labelText="Shipping fare"
-                                        labelIcon={LocalShippingIcon}
-                                        color="#1a73e8"
-                                        bgColor="#e8f0fe"
-                                    />
-                                </Link>
-
-                                {/* Setting delivery */}
-                                <Link to="/settings/operation/delivery">
-                                    <StyledTreeItem
-                                        nodeId="725"
-                                        labelText="Delivery status"
-                                        labelIcon={PublicIcon}
-                                        color="#1a73e8"
-                                        bgColor="#e8f0fe"
-                                    />
-                                </Link>
-
-                                {/* Tax */}
-                                <Link to="/settings/operation/tax">
-                                    <StyledTreeItem
-                                        nodeId="726"
-                                        labelText="Tax"
-                                        labelIcon={LocalAtmIcon}
-                                        color="#1a73e8"
-                                        bgColor="#e8f0fe"
-                                    />
-                                </Link>
-
-                                {/* Member */}
-                                <Link to="/settings/operation/member">
-                                    <StyledTreeItem
-                                        nodeId="727"
-                                        labelText="Membership"
-                                        labelIcon={RecentActorsIcon}
-                                        color="#1a73e8"
-                                        bgColor="#e8f0fe"
-                                    />
-                                </Link>
-
-                                <Link to="/settings/operation/points">
-                                    <StyledTreeItem
-                                        nodeId="728"
-                                        labelText="Points"
-                                        labelIcon={MoneyIcon}
-                                        color="#1a73e8"
-                                        bgColor="#e8f0fe"
-                                    />
-                                </Link>
-                                {/* <Link to="/settings/operation/coupon">
-                  <StyledTreeItem
-                    nodeId="729"
-                    labelText="Coupon"
-                    labelIcon={ConfirmationNumberIcon}
-                    color="#1a73e8"
-                    bgColor="#e8f0fe"
-                  />
-                </Link>
-                <Link to="/settings/operation/auto-coupon">
-                  <StyledTreeItem
-                    nodeId="730"
-                    labelText="Auto Coupon"
-                    labelIcon={ConfirmationNumberIcon}
-                    color="#1a73e8"
-                    bgColor="#e8f0fe"
-                  />
-    </Link> */}
-                            </StyledTreeItem>
-
-                            {/* Product basic settings */}
-                            <Link to="/settings/product">
+                                    nodeId="711"
+                                    labelText="아니벌써 기본정보"
+                                    labelIcon={BusinessIcon}
+                                    color="#1a73e8"
+                                    bgColor="#e8f0fe"
+                                />
+                            </Link>
+                            {/* Term basic settings */}
+                            <Link to="/settings-term">
                                 <StyledTreeItem
-                                    nodeId="73"
-                                    labelText="Product"
-                                    labelIcon={FastfoodIcon}
+                                    nodeId="714"
+                                    labelText="환경설정"
+                                    labelIcon={SubjectIcon}
                                     color="#1a73e8"
                                     bgColor="#e8f0fe"
                                 />
                             </Link>
 
-                            {/* Category basic settings */}
-                            <Link to="/settings-category">
+                            {/* Privacy basic settings */}
+                            <Link to="/settings-privacy">
                                 <StyledTreeItem
-                                    nodeId="74"
-                                    labelText="Category"
-                                    labelIcon={MenuIcon}
+                                    nodeId="715"
+                                    labelText="부가세율 설정"
+                                    labelIcon={SubjectIcon}
                                     color="#1a73e8"
                                     bgColor="#e8f0fe"
                                 />
                             </Link>
 
-                            <Link to="/settings-membership-management">
+                            {/* User  basic settings */}
+                            <Link to="/settings-user">
                                 <StyledTreeItem
-                                    nodeId="75"
-                                    labelText="Membership management"
+                                    nodeId="716"
+                                    labelText="이용/탈퇴 안내"
+                                    labelIcon={SubjectIcon}
+                                    color="#1a73e8"
+                                    bgColor="#e8f0fe"
+                                />
+                            </Link>
+
+                            {/* SEO  basic settings */}
+                            <Link to="/settings-seo">
+                                <StyledTreeItem
+                                    nodeId="717"
+                                    labelText="검색엔진 최적화(SEO) 설정"
+                                    labelIcon={SearchIcon}
+                                    color="#1a73e8"
+                                    bgColor="#e8f0fe"
+                                />
+                            </Link>
+
+                            {/* Operator management basic settings */}
+                            <Link to="/settings-operator">
+                                <StyledTreeItem
+                                    nodeId="718"
+                                    labelText="운영자 관리"
                                     labelIcon={RecentActorsIcon}
                                     color="#1a73e8"
                                     bgColor="#e8f0fe"
                                 />
-                            </Link>
-                            <StyledTreeItem
-                                nodeId="76"
-                                labelText="Mail"
-                                labelIcon={MailIcon}
-                            >
-                                <Link to="/settings-mail-auto">
-                                    <StyledTreeItem
-                                        nodeId="761"
-                                        labelText="Auto Mail"
-                                        labelIcon={MailIcon}
-                                        color="#1a73e8"
-                                        bgColor="#e8f0fe"
-                                    />
-                                </Link>
-                                <Link to="/settings-mail-templates">
-                                    <StyledTreeItem
-                                        nodeId="762"
-                                        labelText="Mail templates"
-                                        labelIcon={MailIcon}
-                                        color="#1a73e8"
-                                        bgColor="#e8f0fe"
-                                    />
-                                </Link>
-                                <Link to="/settings-history">
-                                    <StyledTreeItem
-                                        nodeId="763"
-                                        labelText="Mail history"
-                                        labelIcon={MailIcon}
-                                        color="#1a73e8"
-                                        bgColor="#e8f0fe"
-                                    />
-                                </Link>
-                            </StyledTreeItem>
-                        </StyledTreeItem>
-                        <StyledTreeItem
-                            nodeId="800"
-                            labelText="통계관리"
-                            labelIcon={ShowChart}
-                        >
-                            <StyledTreeItem
-                                nodeId="810"
-                                labelText="방문자 통계"
-                                labelIcon={PublicIcon}
-                            >
-                                {/* <Link to="/google-analytics">
-                                    <StyledTreeItem
-                                        nodeId="8111"
-                                        labelText="방문자 통계 GA"
-                                        labelIcon={PublicIcon}
-                                    />
-                                </Link> */}
-                                <Link to="/visits-analysis">
-                                    <StyledTreeItem
-                                        nodeId="811"
-                                        labelText="방문자 통계"
-                                        labelIcon={PublicIcon}
-                                    />
-                                </Link>
-                                <Link to="/visits-configuration">
-                                    <StyledTreeItem
-                                        nodeId="812"
-                                        labelText="configuration"
-                                        labelIcon={SettingsIcon}
-                                    />
-                                </Link>
-                            </StyledTreeItem>
-                            {/* 2021-05-31 일시적인 주석처리 */}
-                            <StyledTreeItem
-                                nodeId="820"
-                                labelText="매출 통계 관리"
-                                labelIcon={MoneyIcon}
-                            >
-                                <Link to="/sales-statistic">
-                                    <StyledTreeItem
-                                        nodeId="821"
-                                        labelText="매출 통계"
-                                        labelIcon={MoneyIcon}
-                                        color="#1a73e8"
-                                        bgColor="#e8f0fe"
-                                    />
-                                </Link>
-                                <Link to="/sales-statistic-by-product">
-                                    <StyledTreeItem
-                                        nodeId="822"
-                                        labelText="상품별 매출 통계"
-                                        labelIcon={MoneyIcon}
-                                        color="#1a73e8"
-                                        bgColor="#e8f0fe"
-                                    />
-                                </Link>
-                                <Link to="/product-analytics">
-                                    <StyledTreeItem
-                                        nodeId="823"
-                                        labelText="상품 분석"
-                                        labelIcon={PieChart}
-                                        color="#1a73e8"
-                                        bgColor="#e8f0fe"
-                                    />
-                                </Link>
-                            </StyledTreeItem>
-                            <StyledTreeItem
-                                nodeId="830"
-                                labelText="회원 통계"
-                                labelIcon={GroupIcon}
-                            >
-                                <Link to="/new-members-statistic">
-                                    <StyledTreeItem
-                                        nodeId="831"
-                                        labelText="신규가입 통계"
-                                        labelIcon={GroupIcon}
-                                        color="#1a73e8"
-                                        bgColor="#e8f0fe"
-                                    />
-                                </Link>
-                                <Link to="/country-statistic">
-                                    <StyledTreeItem
-                                        nodeId="832"
-                                        labelText="지역별 통계"
-                                        labelIcon={PublicIcon}
-                                        color="#1a73e8"
-                                        bgColor="#e8f0fe"
-                                    />
-                                </Link>
-                                <Link to="/age-statistic">
-                                    <StyledTreeItem
-                                        nodeId="834"
-                                        labelText="연령별 통계"
-                                        labelIcon={GroupIcon}
-                                        color="#1a73e8"
-                                        bgColor="#e8f0fe"
-                                    />
-                                </Link>
-                            </StyledTreeItem>
+                            </Link>                 
 
-                            <StyledTreeItem
-                                nodeId="840"
-                                labelText="기타 통계"
-                                labelIcon={PieChart}
-                            >
-                                <Link to="/device-statistic">
-                                    <StyledTreeItem
-                                        nodeId="841"
-                                        labelText="방문자 환경 통계"
-                                        labelIcon={PieChart}
-                                        color="#1a73e8"
-                                        bgColor="#e8f0fe"
-                                    />
-                                </Link>
-                                <Link to="/ranking">
-                                    <StyledTreeItem
-                                        nodeId="842"
-                                        labelText="상품&검색어 순위"
-                                        labelIcon={CompareTwoTone}
-                                        color="#1a73e8"
-                                        bgColor="#e8f0fe"
-                                    />
-                                </Link>
-                            </StyledTreeItem>
+                            {/* Operator role basic settings */}
+                            <Link to="/settings-operator-role">
+                                <StyledTreeItem
+                                    nodeId="719"
+                                    labelText="운영자 권한 설정"
+                                    labelIcon={RecentActorsIcon}
+                                    color="#1a73e8"
+                                    bgColor="#e8f0fe"
+                                />
+                            </Link>               
+
+                            {/* Password search basic settings */}
+                            <Link to="/settings-password-search">
+                                <StyledTreeItem
+                                    nodeId="7120"
+                                    labelText="비밀번호 찾기 설정"
+                                    labelIcon={SearchIcon}
+                                    color="#1a73e8"
+                                    bgColor="#e8f0fe"
+                                />
+                            </Link>         
+
+                            {/* Password reset basic settings */}
+                            <Link to="/settings-password-reset">
+                                <StyledTreeItem
+                                    nodeId="7121"
+                                    labelText="비밀번호 변경안내 설정"
+                                    labelIcon={PasswordIcon}
+                                    color="#1a73e8"
+                                    bgColor="#e8f0fe"
+                                />
+                            </Link> 
+
+                            {/* Login history list */}
+                            <Link to="/login-history">
+                                <StyledTreeItem
+                                    nodeId="7122"
+                                    labelText="개인정보접속기록 조회"
+                                    labelIcon={SubjectIcon}
+                                    color="#1a73e8"
+                                    bgColor="#e8f0fe"
+                                />
+                            </Link>  
+
+                            {/* Product usage guide */}
+                            <Link to="/product-usage-guide">
+                                <StyledTreeItem
+                                    nodeId="7123"
+                                    labelText="상품 상세 이용안내 관리"
+                                    labelIcon={SubjectIcon}
+                                    color="#1a73e8"
+                                    bgColor="#e8f0fe"
+                                />
+                            </Link>    
+
+                            {/* Order configuration */}
+                            <Link to="/order-config">
+                                <StyledTreeItem
+                                    nodeId="7124"
+                                    labelText="주문 기본 설정"
+                                    labelIcon={SettingsIcon}
+                                    color="#1a73e8"
+                                    bgColor="#e8f0fe"
+                                />
+                            </Link>  
+
+                            {/* SMS configuration */}
+                            <Link to="/sms-config">
+                                <StyledTreeItem
+                                    nodeId="7125"
+                                    labelText="SMS 설정"
+                                    labelIcon={SettingsIcon}
+                                    color="#1a73e8"
+                                    bgColor="#e8f0fe"
+                                />
+                            </Link>  
+
+                            {/* 080 unsubcribe list */}
+                            <Link to="/unsubscribe-list">
+                                <StyledTreeItem
+                                    nodeId="7126"
+                                    labelText="080 수신거부 리스트"
+                                    labelIcon={SubjectIcon}
+                                    color="#1a73e8"
+                                    bgColor="#e8f0fe"
+                                />
+                            </Link>  
                         </StyledTreeItem>
                         <StyledTreeItem
-                            nodeId="900"
-                            labelText="DOCS"
-                            labelIcon={PublicIcon}
+                            nodeId="1000"
+                            labelText="회원관리"
+                            labelIcon={GroupIcon}
                         >
-                            <Link to="/docs">
+                            <Link to="/user-notice">
                                 <StyledTreeItem
-                                    nodeId="910"
-                                    labelText="DOCS"
-                                    labelIcon={PublicIcon}
+                                    nodeId="1010"
+                                    labelText="게시판 리스트"
+                                    labelIcon={GroupIcon}
                                 />
                             </Link>
-                            <Link to="/survey">
+                            <Link to="/user-question">
                                 <StyledTreeItem
-                                    nodeId="920"
-                                    labelText="Survey"
-                                    labelIcon={PublicIcon}
+                                    nodeId="1020"
+                                    labelText="상품문의"
+                                    labelIcon={GroupIcon}
+                                />
+                            </Link>
+                            <Link to="/user-faq">
+                                <StyledTreeItem
+                                    nodeId="1030"
+                                    labelText="게시판 FAQ 관리"
+                                    labelIcon={GroupIcon}
+                                />
+                            </Link>
+                            <Link to="/user-review">
+                                <StyledTreeItem
+                                    nodeId="1040"
+                                    labelText="리뷰관리"
+                                    labelIcon={GroupIcon}
                                 />
                             </Link>
                         </StyledTreeItem>

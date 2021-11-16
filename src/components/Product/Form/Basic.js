@@ -1,22 +1,5 @@
 import React from "react";
-import {
-Button,
-Grid,
-TextField,
-FormControlLabel,
-Checkbox,
-FormControl,
-InputLabel,
-Select,
-MenuItem,
-CardContent,
-Radio,
-RadioGroup,
-FormHelperText, 
-Table, 
-TableBody,
-TableRow,
-TableCell
+import { Button, Grid, TextField, FormControlLabel, Checkbox, FormControl, InputLabel, Select, MenuItem, CardContent, Radio, RadioGroup, FormHelperText, Table,  TableBody, TableRow, TableCell, InputAdornment
 } from "@material-ui/core";
 import MuiAlert from "@material-ui/lab/Alert";
 import { DropzoneArea } from "material-ui-dropzone";
@@ -533,10 +516,8 @@ render() {
                         variant="outlined"
                         name="delivery_price"
                         placeholder="0"
+                        InputProps={{ endAdornment: (<InputAdornment position="end">원</InputAdornment>),}}
                     />
-                </Grid>
-                <Grid item md={2} xs={12} style={{textAlign: "left"}}>
-                    <h5>원</h5>
                 </Grid>
             </Grid>
             <Grid container spacing={3} className="align-items-center">
@@ -551,10 +532,11 @@ render() {
                         variant="outlined"
                         name="delivery_price_term"
                         placeholder="0"
+                        InputProps={{ endAdornment: (<InputAdornment position="end">원</InputAdornment>),}}
                     />
                 </Grid>
                 <Grid item md={2} xs={12} style={{textAlign: "left"}}>
-                    <h5>원 이상 무료</h5>
+                    <h5>이상 무료</h5>
                 </Grid>
             </Grid>
             
@@ -594,10 +576,8 @@ render() {
                                 variant="outlined"
                                 name="refund_delivery_price"
                                 placeholder="0"
+                                InputProps={{ endAdornment: (<InputAdornment position="end">원</InputAdornment>),}}
                             />
-                        </Grid>
-                        <Grid item md={2} xs={12} style={{paddingLeft: "5px"}}>
-                            <h5>원</h5>
                         </Grid>
                     </Grid>
                     <Grid container md={12} xs={12}>
@@ -611,10 +591,8 @@ render() {
                                 variant="outlined"
                                 name="exchange_delivery_price"
                                 placeholder="0"
+                                InputProps={{ endAdornment: (<InputAdornment position="end">원</InputAdornment>),}}
                             />
-                        </Grid>
-                        <Grid item md={2} xs={12} style={{paddingLeft: "5px"}}>  
-                            <h5>원</h5>
                         </Grid>
                     </Grid>
                 </Grid>
@@ -1035,10 +1013,8 @@ render() {
                                                 name="market_price"
                                                 size="small"
                                                 variant="outlined"
+                                                InputProps={{ endAdornment: (<InputAdornment position="end">원</InputAdornment>),}}
                                             />
-                                        </Grid>
-                                        <Grid item md={1} xs={12}>
-                                            <InputLabel>원</InputLabel>
                                         </Grid>
                                     </Grid>
                                 </TableCell>
@@ -1052,10 +1028,8 @@ render() {
                                                 name="supply_price"
                                                 size="small"
                                                 variant="outlined"
+                                                InputProps={{ endAdornment: (<InputAdornment position="end">원</InputAdornment>),}}
                                             />
-                                        </Grid>
-                                        <Grid item md={1} xs={12}>
-                                            <InputLabel>원</InputLabel>
                                         </Grid>
                                     </Grid>
                                 </TableCell>
@@ -1069,10 +1043,8 @@ render() {
                                                 name="sale_price"
                                                 size="small"
                                                 variant="outlined"
+                                                InputProps={{ endAdornment: (<InputAdornment position="end">원</InputAdornment>),}}
                                             />
-                                        </Grid>
-                                        <Grid item md={1} xs={12}>
-                                            <InputLabel>원</InputLabel>
                                         </Grid>
                                     </Grid>
                                 </TableCell>
@@ -1086,10 +1058,8 @@ render() {
                                                 name="profit_price"
                                                 size="small"
                                                 variant="outlined"
+                                                InputProps={{ endAdornment: (<InputAdornment position="end">%</InputAdornment>),}}
                                             />
-                                        </Grid>
-                                        <Grid item md={1} xs={12}>
-                                            <InputLabel>%</InputLabel>
                                         </Grid>
                                     </Grid>
                                 </TableCell>
@@ -1106,10 +1076,8 @@ render() {
                                                 name="profit_price"
                                                 size="small"
                                                 variant="outlined"
+                                                InputProps={{ endAdornment: (<InputAdornment position="end">개</InputAdornment>),}}
                                             />
-                                        </Grid>
-                                        <Grid item md={1} xs={12}>
-                                            <InputLabel>개</InputLabel>
                                         </Grid>
                                     </Grid>
                                 </TableCell>

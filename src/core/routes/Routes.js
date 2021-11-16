@@ -29,6 +29,10 @@ import ProductManagementView from "../../components/Product/Form/Management";
 import ProductNoticeView from "../../components/Product/Form/Notice";
 import AllPaymentManagementView from "../../components/Product/Payment/AllManagement";
 import PaymentManagementView from "../../components/Product/Payment/Management";
+import UserNoticeView from "../../components/Users/Notice/List";
+import UserQuestionView from "../../components/Users/Question/List";
+import UserFAQView from "../../components/Users/Question/FAQ";
+import UserReviewView from "../../components/Users/Review/List";
 import SetProductListView from "../../components/SetProduct/Index/List";
 import SetProductFormView from "../../components/SetProduct/Form/Form";
 import CategoryView from "../../components/Category/Index/Index";
@@ -759,6 +763,33 @@ class Routes extends React.Component {
                         path="/payment-management"
                     />
 
+                    <RouteWithLayout
+                        component={UserNoticeView}
+                        exact
+                        layout={MainLayout}
+                        path="/user-notice"
+                    />
+
+                    <RouteWithLayout
+                        component={UserQuestionView}
+                        exact
+                        layout={MainLayout}
+                        path="/user-question"
+                    />
+
+                    <RouteWithLayout
+                        component={UserFAQView}
+                        exact
+                        layout={MainLayout}
+                        path="/user-faq"
+                    />
+
+                    <RouteWithLayout
+                        component={UserReviewView}
+                        exact
+                        layout={MainLayout}
+                        path="/user-review"
+                    />
                     <RouteWithLayout
                         component={SettingsCategoryListView}
                         exact

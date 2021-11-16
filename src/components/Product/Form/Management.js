@@ -391,12 +391,12 @@ class ProductManagement extends React.Component {
                         </React.Fragment>) : null}
 
                     <Grid container spacing={3} md={10} xs={12}>
-                        <Grid item md={12} xs={12} className="text-left" style={{paddingTop: "1vh", paddingBottom: "1vh"}}><InputLabel>전체 자료 : <i style={{color: "#ff0000"}}><strong>2,000</strong></i> 건 | 판매 가능 상품 : <i style={{color: "#ff0000"}}><strong>1,500</strong></i> 건</InputLabel></Grid>
+                        <Grid item md={12} xs={12} className="text-left" style={{paddingTop: "1vh", paddingBottom: "1vh"}}><InputLabel>전체 자료 : <i style={{color: "#ff0000", fontStyle: "normal"}}><strong>2,000</strong></i> 건 | 판매 가능 상품 : <i style={{color: "#ff0000", fontStyle: "normal"}}><strong>1,500</strong></i> 건</InputLabel></Grid>
                     </Grid>
 
                     <Grid container spacing={3} md={12} xs={12}>
                         <Grid item md={2} xs={12} className="align-items-center">
-                            <h5>자료 수 : 총<i style={{color: "#ff0000"}}><strong> 3 </strong></i>건</h5>
+                            <h5>자료 수 : 총<i style={{color: "#ff0000", fontStyle: "normal"}}><strong> 3 </strong></i>건</h5>
                         </Grid>
                             
                         <Grid item md={10} xs={12} className="align-items-center">

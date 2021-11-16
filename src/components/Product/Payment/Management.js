@@ -82,7 +82,7 @@ class PaymentManagement extends React.Component {
                                         name="startDate"
                                     />
                                 </Grid>
-                                <Grid item md={1} xs={12} className="text-center" className="align-items-center" style={{paddingTop: "8px", paddingLeft: "1rem"}}>
+                                <Grid item md={1} xs={12} className="text-center" className="align-items-center" style={{paddingTop: "6px", paddingLeft: "1rem"}}>
                                     <h5>~</h5>
                                 </Grid>
                                 <Grid item md={5} xs={12} className="align-items-center">
@@ -324,7 +324,7 @@ class PaymentManagement extends React.Component {
                                                             name="startDate"
                                                         />
                                                     </Grid>
-                                                    <Grid item md={1} xs={12} className="text-center" className="align-items-center" style={{paddingTop: "8px", paddingLeft: "1rem"}}>
+                                                    <Grid item md={1} xs={12} className="text-center" className="align-items-center" style={{paddingTop: "5px", paddingLeft: "1.3rem"}}>
                                                         <h5>~</h5>
                                                     </Grid>
                                                     <Grid item md={5} xs={12} className="align-items-center">

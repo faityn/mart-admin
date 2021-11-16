@@ -287,7 +287,7 @@ class ProductNotice extends React.Component {
                                                 </TableCell>
                                                 <TableCell className="text-center">0000000000</TableCell>
                                                 <TableCell className="text-center">배송지연</TableCell>
-                                                <TableCell className="text-center"><i style={{color: "#09c6dd"}}><strong>전시중</strong></i></TableCell>
+                                                <TableCell className="text-center"><InputLabel style={{color: "#09c6dd"}}><strong>전시중</strong></InputLabel></TableCell>
                                                 <TableCell className="text-center">정시배송에 주의 바랍니다...</TableCell>
                                                 <TableCell className="text-center">2021.05.05 10:00:00</TableCell>
                                                 <TableCell className="text-center">2021.05.05 10:00:00</TableCell>
@@ -316,7 +316,7 @@ class ProductNotice extends React.Component {
                                                 </TableCell>
                                                 <TableCell className="text-center">0000000000</TableCell>
                                                 <TableCell className="text-center">이벤트</TableCell>
-                                                <TableCell className="text-center"><i style={{color: "#ff0000"}}><strong>전시중지</strong></i></TableCell>
+                                                <TableCell className="text-center"><InputLabel style={{color: "#ff0000"}}><strong>전시중지</strong></InputLabel></TableCell>
                                                 <TableCell className="text-center">신규회원가입 포인트 이벤트...</TableCell>
                                                 <TableCell className="text-center">2021.05.05 10:00:00</TableCell>
                                                 <TableCell className="text-center">2021.05.05 10:00:00</TableCell>
@@ -345,7 +345,7 @@ class ProductNotice extends React.Component {
                                                 </TableCell>
                                                 <TableCell className="text-center">0000000000</TableCell>
                                                 <TableCell className="text-center">일반</TableCell>
-                                                <TableCell className="text-center"><i><strong>전시대기</strong></i></TableCell>
+                                                <TableCell className="text-center"><InputLabel><strong>전시대기</strong></InputLabel></TableCell>
                                                 <TableCell className="text-center">시스템 업데이트를 위한 서버점검...</TableCell>
                                                 <TableCell className="text-center">2021.05.05 10:00:00</TableCell>
                                                 <TableCell className="text-center">2021.05.05 10:00:00</TableCell>

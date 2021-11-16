@@ -617,11 +617,11 @@ const SignUp = (props) => {
         aria-describedby="alert-dialog-description"
       >
         <DialogTitle id="alert-dialog-title">
-          {"Thank you for choosing Khandid."}
+          {"Thank you for choosing Aniborsso."}
         </DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
-          Khandid 세계를 만나세요!
+          Aniborsso 세계를 만나세요!
           </DialogContentText>
         </DialogContent>
         <DialogActions>

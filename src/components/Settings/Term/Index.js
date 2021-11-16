@@ -7,10 +7,9 @@ import { GET_TERM, SAVE_TERM } from "../../Queries/Queries";
 import { withSnackbar } from "notistack";
 import PageTitle from "../../../core/common/Partials/PageTitle";
 import { connect } from "react-redux";
-import TermForm from "./Form";
 import SubjectIcon from '@material-ui/icons/Subject';
 import SaveIcon from "@material-ui/icons/Save";
-import { FormControlLabel, CircularProgress, Grid, Button, Divider, TextField, FormControl, Checkbox } from "@material-ui/core";
+import { FormControlLabel, CircularProgress, Grid, Button, TextField, FormControl, Checkbox, InputAdornment, CardContent} from "@material-ui/core";
 import CKEditor from "ckeditor4-react";
 
 class Term extends React.Component {
@@ -174,559 +173,252 @@ class Term extends React.Component {
                 index={this.state.value}
               > 
                 <div value={this.state.value} index={0} className="mt-20">
-                  <form id="form-submit" onSubmit={this.onHandleSubmit}>
-                    <Grid container md={12} xs={12}> 
-                      <Grid container spacing={2} className="mt-20">
-                          <Grid item md={2} xs={12}>
-                            <h5>약관내용</h5>
-                          </Grid>
-                          <Grid item md={10} xs={12}>
-                            <FormControl fullWidth>
-                              <CKEditor
-                                type="classic"
-                                name="term"
-                              />
-                              <textarea
-                                name="term"
-                                style={{ display: "none" }}
-                              />
-                            </FormControl>
-                          </Grid>  
-                      </Grid>
-
-                      <Grid container spacing={2} className="mt-20">
-                          <Grid item md={2} xs={12}>
-                            <h5>약관적용일</h5>
-                          </Grid>
-                          <Grid item md={6} xs={12}>
-                            <Grid container spacing={2}>
-                              <Grid item md={2} xs={6}>
-                                <TextField
-                                  fullWidths
-                                  label="년"
-                                  size="small"
-                                  variant="outlined"
-                                  name="year"
-                                />
-                              </Grid>
-                              <Grid item md={1} xs={6} className="mt-20">
-                                  <div className="text-center">년</div>
-                              </Grid>
-                              <Grid item md={2} xs={6}>
-                                <TextField
-                                  fullWidth
-                                  label="월"
-                                  size="small"
-                                  variant="outlined"
-                                  name="month"
-                                />
-                              </Grid>
-                              <Grid item md={1} xs={6} className="mt-20">
-                                  <div className="text-center">월</div>
-                              </Grid>
-                              <Grid item md={2} xs={6}>
-                                <TextField
-                                  fullWidth
-                                  label="일"
-                                  size="small"
-                                  variant="outlined"
-                                  name="day"
-                                />
-                              </Grid>
-                              <Grid item md={1} xs={6} className="mt-20">
-                                  <div className="text-center">일</div>
-                              </Grid>
+                  <CardContent>
+                    <form id="form-submit" onSubmit={this.onHandleSubmit}>
+                      <Grid container md={12} xs={12}> 
+                        <Grid container spacing={2} className="align-items-center mt-20">
+                            <Grid item md={2} xs={12}>
+                              <h5>약관내용</h5>
                             </Grid>
+                            <Grid item md={10} xs={12}>
+                              <FormControl fullWidth>
+                                <CKEditor
+                                  type="classic"
+                                  name="term"
+                                />
+                                <textarea
+                                  name="term"
+                                  style={{ display: "none" }}
+                                />
+                              </FormControl>
+                            </Grid>  
+                        </Grid>
+
+                        <Grid container spacing={2} className="align-items-center mt-20">
+                            <Grid item md={2} xs={12}>
+                              <h5>약관적용일</h5>
+                            </Grid>
+                            <Grid item md={6} xs={12}>
+                              <Grid container spacing={2}>
+                                <Grid item md={3} xs={6}>
+                                  <TextField
+                                    fullWidth
+                                    size="small"
+                                    variant="outlined"
+                                    name="year"
+                                    placeholder="0"
+                                    InputProps={{ endAdornment: (<InputAdornment position="end">년</InputAdornment>),}}
+                                  />
+                                </Grid>
+                                <Grid item md={3} xs={6} style={{marginLeft: "10px"}}>
+                                  <TextField
+                                    fullWidth
+                                    size="small"
+                                    variant="outlined"
+                                    name="month"
+                                    placeholder="0"
+                                    InputProps={{ endAdornment: (<InputAdornment position="end">원</InputAdornment>),}}
+                                  />
+                                </Grid>
+                                <Grid item md={3} xs={6} style={{marginLeft: "10px"}}>
+                                  <TextField
+                                    fullWidth
+                                    size="small"
+                                    variant="outlined"
+                                    name="day"
+                                    placeholder="0"
+                                    InputProps={{ endAdornment: (<InputAdornment position="end">원</InputAdornment>),}}
+                                  />
+                                </Grid>
+                              </Grid>
+                          </Grid>
+                        </Grid>
+                                          
+                        <Grid container spacing={3} className="align-items-center mt-20">
+                          <Grid item md={12} xs={12}>
+                            <Button
+                              form="form-submit"
+                              variant="contained"
+                              size="small"
+                              color="primary"
+                              type="submit"
+                              disabled={this.state.isProcessing}
+                              startIcon={
+                                this.state.isProcessing ? (
+                                  <CircularProgress color="white" size="1rem" />
+                                ) : (
+                                  <SaveIcon fontSize="small" className="mr-10" />
+                                )
+                              }
+                            >
+                              저장
+                            </Button>
+                          </Grid>
                         </Grid>
                       </Grid>
-                                        
-                      <Grid container spacing={3} className="mt-20">
-                        <Grid item md={12} xs={12}>
-                          <Button
-                            form="form-submit"
-                            variant="contained"
-                            size="small"
-                            color="primary"
-                            type="submit"
-                            disabled={this.state.isProcessing}
-                            startIcon={
-                              this.state.isProcessing ? (
-                                <CircularProgress color="white" size="1rem" />
-                              ) : (
-                                <SaveIcon fontSize="small" className="mr-10" />
-                              )
-                            }
-                          >
-                            저장
-                          </Button>
-                        </Grid>
-                      </Grid>
-                    </Grid>
-                  </form>
+                    </form>
+                  </CardContent>
                 </div>
                 <div value={this.state.value} index={1} className="mt-20">
-                  <form id="form-submit" onSubmit={this.onHandleSubmit}>
-                    <Grid container md={12} xs={12}> 
-                      <Grid container spacing={2} className="mt-20">
-                          <Grid item md={2} xs={12}>
-                            <h5>개인정보처리방침</h5>
-                          </Grid>
-                          <Grid item md={10} xs={12}>
-                            <FormControl fullWidth>
-                              <CKEditor
-                                type="classic"
-                                name="privacy_term"
-                              />
-                              <textarea
-                                name="privacy_term"
-                                style={{ display: "none" }}
-                              />
-                            </FormControl>
-                          </Grid>  
-                      </Grid>
-
-                      <Grid container spacing={2} className="mt-20">
-                          <Grid item md={2} xs={12}>
-                            <h5>보호 책임자 이름</h5>
-                          </Grid>
-                          <Grid item md={4} xs={12}>
-                            <TextField
-                              fullWidth
-                              label="이름"
-                              size="small"
-                              variant="outlined"
-                              name="privacy_user_name"
-                            />
-                          </Grid>
-                      </Grid>
-
-                      <Grid container spacing={2} className="mt-10">
-                          <Grid item md={2} xs={12}>
-                            <h5>보호 책임자 직책</h5>
-                          </Grid>
-                          <Grid item md={4} xs={12}>
-                            <TextField
-                              fullWidth
-                              label="직책"
-                              size="small"
-                              variant="outlined"
-                              name="privacy_user_role"
-                            />
-                          </Grid>
-                      </Grid>
-
-                      <Grid container spacing={2} className="mt-10">
-                          <Grid item md={2} xs={12}>
-                            <h5>보호 책임자 부서</h5>
-                          </Grid>
-                          <Grid item md={4} xs={12}>
-                            <TextField
-                              fullWidth
-                              label="부서"
-                              size="small"
-                              variant="outlined"
-                              name="privacy_user_department"
-                            />
-                          </Grid>
-                      </Grid>
-
-                      <Grid container spacing={2} className="mt-10">
-                          <Grid item md={2} xs={12}>
-                            <h5>보호 책임자 전화번호</h5>
-                          </Grid>
-                          <Grid item md={4} xs={12}>
-                            <TextField
-                              fullWidth
-                              label="전화번호"
-                              size="small"
-                              variant="outlined"
-                              name="privacy_user_phone"
-                            />
-                          </Grid>
-                      </Grid>
-
-                      <Grid container spacing={2} className="mt-10">
-                          <Grid item md={2} xs={12}>
-                            <h5>보호 책임자 이메일</h5>
-                          </Grid>
-                          <Grid item md={8} xs={12}>
-                            <Grid container spacing={2}>
-                              <Grid item md={5} xs={6}>
-                                <TextField
-                                  fullWidth
-                                  label="이메일"
-                                  size="small"
-                                  variant="outlined"
-                                  name="privacy_user_mail_1"
+                  <CardContent>
+                    <form id="form-submit" onSubmit={this.onHandleSubmit}>
+                      <Grid container md={12} xs={12}> 
+                        <Grid container spacing={2} className="align-items-center mt-20">
+                            <Grid item md={2} xs={12}>
+                              <h5>개인정보처리방침</h5>
+                            </Grid>
+                            <Grid item md={10} xs={12}>
+                              <FormControl fullWidth>
+                                <CKEditor
+                                  type="classic"
+                                  name="privacy_term"
                                 />
-                              </Grid>
-                              <Grid item md={1} xs={6} className="mt-20">
-                                  <div className="text-center">@</div>
-                              </Grid>
-                              <Grid item md={4} xs={6}>
-                                <TextField
-                                  fullWidth
-                                  label="이메일"
-                                  size="small"
-                                  variant="outlined"
-                                  name="privacy_user_mail_2"
+                                <textarea
+                                  name="privacy_term"
+                                  style={{ display: "none" }}
                                 />
-                              </Grid>
+                              </FormControl>
+                            </Grid>  
+                        </Grid>
+
+                        <Grid container spacing={2} className="align-items-center mt-20">
+                            <Grid item md={2} xs={12}>
+                              <h5>보호 책임자 이름</h5>
+                            </Grid>
+                            <Grid item md={4} xs={12}>
+                              <TextField
+                                fullWidth
+                                label="이름"
+                                size="small"
+                                variant="outlined"
+                                name="privacy_user_name"
+                              />
                             </Grid>
                         </Grid>
-                      </Grid>
-                                        
-                      <Grid container spacing={3} className="mt-20">
-                        <Grid item md={12} xs={12}>
-                          <Button
-                            form="form-submit"
-                            variant="contained"
-                            size="small"
-                            color="primary"
-                            type="submit"
-                            disabled={this.state.isProcessing}
-                            startIcon={
-                              this.state.isProcessing ? (
-                                <CircularProgress color="white" size="1rem" />
-                              ) : (
-                                <SaveIcon fontSize="small" className="mr-10" />
-                              )
-                            }
-                          >
-                            저장
-                          </Button>
+
+                        <Grid container spacing={2} className="align-items-center mt-10">
+                            <Grid item md={2} xs={12}>
+                              <h5>보호 책임자 직책</h5>
+                            </Grid>
+                            <Grid item md={4} xs={12}>
+                              <TextField
+                                fullWidth
+                                label="직책"
+                                size="small"
+                                variant="outlined"
+                                name="privacy_user_role"
+                              />
+                            </Grid>
+                        </Grid>
+
+                        <Grid container spacing={2} className="align-items-center mt-10">
+                            <Grid item md={2} xs={12}>
+                              <h5>보호 책임자 부서</h5>
+                            </Grid>
+                            <Grid item md={4} xs={12}>
+                              <TextField
+                                fullWidth
+                                label="부서"
+                                size="small"
+                                variant="outlined"
+                                name="privacy_user_department"
+                              />
+                            </Grid>
+                        </Grid>
+
+                        <Grid container spacing={2} className="align-items-center mt-10">
+                            <Grid item md={2} xs={12}>
+                              <h5>보호 책임자 전화번호</h5>
+                            </Grid>
+                            <Grid item md={4} xs={12}>
+                              <TextField
+                                fullWidth
+                                label="전화번호"
+                                size="small"
+                                variant="outlined"
+                                name="privacy_user_phone"
+                              />
+                            </Grid>
+                        </Grid>
+
+                        <Grid container spacing={2} className="align-items-center mt-10">
+                            <Grid item md={2} xs={12}>
+                              <h5>보호 책임자 이메일</h5>
+                            </Grid>
+                            <Grid item md={6} xs={12}>
+                              <Grid container spacing={2}>
+                                <Grid item md={7} xs={6}>
+                                  <TextField
+                                    fullWidth
+                                    label="이메일"
+                                    size="small"
+                                    variant="outlined"
+                                    name="privacy_user_mail_1"
+                                  />
+                                </Grid>
+                                <Grid item md={1} xs={6} className="align-items-center mt-20">
+                                    <div className="text-center">@</div>
+                                </Grid>
+                                <Grid item md={4} xs={6}>
+                                  <TextField
+                                    fullWidth
+                                    label="이메일"
+                                    size="small"
+                                    variant="outlined"
+                                    name="privacy_user_mail_2"
+                                  />
+                                </Grid>
+                              </Grid>
+                          </Grid>
+                        </Grid>
+                                          
+                        <Grid container spacing={3} className="align-items-center mt-20">
+                          <Grid item md={12} xs={12}>
+                            <Button
+                              form="form-submit"
+                              variant="contained"
+                              size="small"
+                              color="primary"
+                              type="submit"
+                              disabled={this.state.isProcessing}
+                              startIcon={
+                                this.state.isProcessing ? (
+                                  <CircularProgress color="white" size="1rem" />
+                                ) : (
+                                  <SaveIcon fontSize="small" className="mr-10" />
+                                )
+                              }
+                            >
+                              저장
+                            </Button>
+                          </Grid>
                         </Grid>
                       </Grid>
-                    </Grid>
-                  </form>
+                    </form>
+                  </CardContent>
                 </div>  
                 <div value={this.state.value} index={2} className="mt-20">
-                  <form id="form-submit" onSubmit={this.onHandleSubmit}>
-                    <Grid container spacing={3} className="mt-20">
-                      <Grid item md={2} xs={12}>
-                        <h5>약관내용</h5>
-                      </Grid>
-                      <Grid item md={10} xs={12}>
-                        <FormControl fullWidth>
-                          <CKEditor
-                            type="classic"
-                            name="priavacy_third_term"
-                          />
-                          <textarea
-                            name="priavacy_third_term "
-                            style={{ display: "none" }}
-                          />
-                        </FormControl>
-                      </Grid>
-                    </Grid>
-
-                    <Grid container spacing={3} className="mt-20">
-                      <Grid item md={12} xs={12}>
-                        <Button
-                          form="form-submit"
-                          variant="contained"
-                          size="small"
-                          color="primary"
-                          type="submit"
-                          disabled={this.state.isProcessing}
-                          startIcon={
-                            this.state.isProcessing ? (
-                              <CircularProgress color="white" size="1rem" />
-                            ) : (
-                              <SaveIcon fontSize="small" className="mr-10" />
-                            )
-                          }
-                        >
-                          저장
-                        </Button>
-                      </Grid>
-                    </Grid>
-                  </form>
-                </div>
-                <div value={this.state.value} index={3} className="mt-20">
-                  <form id="form-submit" onSubmit={this.onHandleSubmit}>
-                    <Grid container spacing={3} className="mt-20">
-                      <Grid item md={2} xs={12}>
-                        <h5>약관내용</h5>
-                      </Grid>
-                      <Grid item md={10} xs={12}>
-                        <FormControl fullWidth>
-                          <CKEditor
-                            type="classic"
-                            name="location_term"
-                          />
-                          <textarea
-                            name="location_term"
-                            style={{ display: "none" }}
-                          />
-                        </FormControl>
-                      </Grid>
-                    </Grid>
-
-                    <Grid container spacing={3} className="mt-20">
-                      <Grid item md={12} xs={12}>
-                        <Button
-                          form="form-submit"
-                          variant="contained"
-                          size="small"
-                          color="primary"
-                          type="submit"
-                          disabled={this.state.isProcessing}
-                          startIcon={
-                            this.state.isProcessing ? (
-                              <CircularProgress color="white" size="1rem" />
-                            ) : (
-                              <SaveIcon fontSize="small" className="mr-10" />
-                            )
-                          }
-                        >
-                          저장
-                        </Button>
-                      </Grid>
-                    </Grid>
-                  </form>
-                </div>
-                <div value={this.state.value} index={4} className="mt-20">
-                  <form id="form-submit" onSubmit={this.onHandleSubmit}>
-                    <Grid container spacing={3} className="mt-20">
-                      <Grid item md={2} xs={12}>
-                        <h5>약관내용</h5>
-                      </Grid>
-                      <Grid item md={10} xs={12}>
-                        <FormControl fullWidth>
-                          <CKEditor
-                            type="classic"
-                            name="financial_term"
-                          />
-                          <textarea
-                            name="financial_term"
-                            style={{ display: "none" }}
-                          />
-                        </FormControl>
-                      </Grid>
-                    </Grid>
-
-                    <Grid container spacing={3} className="mt-20">
-                      <Grid item md={12} xs={12}>
-                        <Button
-                          form="form-submit"
-                          variant="contained"
-                          size="small"
-                          color="primary"
-                          type="submit"
-                          disabled={this.state.isProcessing}
-                          startIcon={
-                            this.state.isProcessing ? (
-                              <CircularProgress color="white" size="1rem" />
-                            ) : (
-                              <SaveIcon fontSize="small" className="mr-10" />
-                            )
-                          }
-                        >
-                          저장
-                        </Button>
-                      </Grid>
-                    </Grid>
-                  </form>
-                </div>
-                <div value={this.state.value} index={5} className="mt-20">
-                  <Grid container spacing={2}>
-                    <Grid container spacing={2} className="mt-20" md={6} xs={12}>
-                      <form id="form-submit" onSubmit={this.onHandleSubmit}>
-                        <Grid item md={12} xs={12}>
-                          <h5>[필수] 개인정보 수집, 이용 동의</h5>
+                  <CardContent>
+                    <form id="form-submit" onSubmit={this.onHandleSubmit}>
+                      <Grid container spacing={3} className="align-items-center mt-20">
+                        <Grid item md={2} xs={12}>
+                          <h5>약관내용</h5>
                         </Grid>
-                        <Grid container spacing={3} className="mt-20">
-                          <Grid item md={2} xs={12}>
-                            <h5>약관내용</h5>
-                          </Grid>
-                          <Grid item md={10} xs={12}>
-                            <FormControl fullWidth>
-                              <CKEditor
-                                type="classic"
-                                name="location_term"
-                              />
-                              <textarea
-                                name="location_term"
-                                style={{ display: "none" }}
-                              />
-                            </FormControl>
-                          </Grid>
+                        <Grid item md={10} xs={12}>
+                          <FormControl fullWidth>
+                            <CKEditor
+                              type="classic"
+                              name="priavacy_third_term"
+                            />
+                            <textarea
+                              name="priavacy_third_term "
+                              style={{ display: "none" }}
+                            />
+                          </FormControl>
                         </Grid>
-
-                        <Grid container spacing={3} className="mt-20">
-                          <Grid item md={12} xs={12}>
-                            <Button
-                              form="form-submit"
-                              variant="contained"
-                              size="small"
-                              color="primary"
-                              type="submit"
-                              disabled={this.state.isProcessing}
-                              startIcon={
-                                this.state.isProcessing ? (
-                                  <CircularProgress color="white" size="1rem" />
-                                ) : (
-                                  <SaveIcon fontSize="small" className="mr-10" />
-                                )
-                              }
-                            >
-                              저장
-                            </Button>
-                          </Grid>
-                        </Grid>
-                      </form>
-                    </Grid>
-
-                    <Grid container spacing={2} className="mt-20" md={6} xs={12}>
-                      <form id="form-submit" onSubmit={this.onHandleSubmit}>
-                        <Grid item md={12} xs={12}>
-                          <h5>[필수] 개인정보 수집, 이용 동의</h5>
-                        </Grid>
-                        <Grid container spacing={3} className="mt-20">
-                          <Grid item md={2} xs={12}>
-                            <h5>사용여부</h5>
-                          </Grid>
-                          <Grid item md={10} xs={12}>
-                            <Grid container spacing={2} className="mt-20">
-                              <Grid item md={6} xs={12}>
-                                <FormControlLabel
-                                  control={
-                                    <Checkbox
-                                      name="active"
-                                      color="primary"
-                                      value={false}
-                                    />
-                                  }
-                                  label="사용"
-                                />
-                              </Grid>
-                              <Grid item md={6} xs={12}>
-                                <FormControlLabel
-                                  control={
-                                    <Checkbox
-                                      name="active"
-                                      color="primary"
-                                      value={true}
-                                    />
-                                  }
-                                  label="사용하지 않음"
-                                />
-                              </Grid>
-                            </Grid>
-                          </Grid>
-                        </Grid>
-                        <Grid container spacing={3} className="mt-20">
-                          <Grid item md={2} xs={12}>
-                            <h5>약관내용</h5>
-                          </Grid>
-                          <Grid item md={10} xs={12}>
-                            <FormControl fullWidth>
-                              <CKEditor
-                                type="classic"
-                                name="location_term"
-                              />
-                              <textarea
-                                name="location_term"
-                                style={{ display: "none" }}
-                              />
-                            </FormControl>
-                          </Grid>
-                        </Grid>
-
-                        <Grid container spacing={3} className="mt-20">
-                          <Grid item md={12} xs={12}>
-                            <Button
-                              form="form-submit"
-                              variant="contained"
-                              size="small"
-                              color="primary"
-                              type="submit"
-                              disabled={this.state.isProcessing}
-                              startIcon={
-                                this.state.isProcessing ? (
-                                  <CircularProgress color="white" size="1rem" />
-                                ) : (
-                                  <SaveIcon fontSize="small" className="mr-10" />
-                                )
-                              }
-                            >
-                              저장
-                            </Button>
-                          </Grid>
-                        </Grid>
-                      </form>
-                    </Grid>
-                  </Grid>
-                </div>
-                <div value={this.state.value} index={6} className="mt-20">
-                  <form id="form-submit" onSubmit={this.onHandleSubmit}>
-                    <Grid container md={12} xs={12}> 
-                      <Grid container spacing={2} className="mt-20">
-                          <Grid item md={2} xs={12}>
-                            <h5>약관내용</h5>
-                          </Grid>
-                          <Grid item md={10} xs={12}>
-                            <FormControl fullWidth>
-                              <CKEditor
-                                type="classic"
-                                name="supply_term"
-                              />
-                              <textarea
-                                name="supply_term"
-                                style={{ display: "none" }}
-                              />
-                            </FormControl>
-                          </Grid>  
                       </Grid>
 
-                      <Grid container spacing={2} className="mt-20">
-                          <Grid item md={2} xs={12}>
-                            <h5>약관적용일</h5>
-                          </Grid>
-                          <Grid item md={6} xs={12}>
-                            <Grid container spacing={2}>
-                              <Grid item md={2} xs={6}>
-                                <TextField
-                                  fullWidths
-                                  label="년"
-                                  size="small"
-                                  variant="outlined"
-                                  name="supply_year"
-                                />
-                              </Grid>
-                              <Grid item md={1} xs={6} className="mt-20">
-                                  <div className="text-center">년</div>
-                              </Grid>
-                              <Grid item md={2} xs={6}>
-                                <TextField
-                                  fullWidth
-                                  label="월"
-                                  size="small"
-                                  variant="outlined"
-                                  name="supply_month"
-                                />
-                              </Grid>
-                              <Grid item md={1} xs={6} className="mt-20">
-                                  <div className="text-center">월</div>
-                              </Grid>
-                              <Grid item md={2} xs={6}>
-                                <TextField
-                                  fullWidth
-                                  label="일"
-                                  size="small"
-                                  variant="outlined"
-                                  name="supply_day"
-                                />
-                              </Grid>
-                              <Grid item md={1} xs={6} className="mt-20">
-                                  <div className="text-center">일</div>
-                              </Grid>
-                            </Grid>
-                        </Grid>
-                      </Grid>
-                                        
-                      <Grid container spacing={3} className="mt-20">
+                      <Grid container spacing={3} className="align-items-center mt-20">
                         <Grid item md={12} xs={12}>
                           <Button
                             form="form-submit"
@@ -747,8 +439,317 @@ class Term extends React.Component {
                           </Button>
                         </Grid>
                       </Grid>
+                    </form>
+                  </CardContent>
+                </div>
+                <div value={this.state.value} index={3} className="align-items-center mt-20">
+                  <CardContent>
+                    <form id="form-submit" onSubmit={this.onHandleSubmit}>
+                      <Grid container spacing={3} className="align-items-center mt-20">
+                        <Grid item md={2} xs={12}>
+                          <h5>약관내용</h5>
+                        </Grid>
+                        <Grid item md={10} xs={12}>
+                          <FormControl fullWidth>
+                            <CKEditor
+                              type="classic"
+                              name="location_term"
+                            />
+                            <textarea
+                              name="location_term"
+                              style={{ display: "none" }}
+                            />
+                          </FormControl>
+                        </Grid>
+                      </Grid>
+
+                      <Grid container spacing={3} className="align-items-center mt-20">
+                        <Grid item md={12} xs={12}>
+                          <Button
+                            form="form-submit"
+                            variant="contained"
+                            size="small"
+                            color="primary"
+                            type="submit"
+                            disabled={this.state.isProcessing}
+                            startIcon={
+                              this.state.isProcessing ? (
+                                <CircularProgress color="white" size="1rem" />
+                              ) : (
+                                <SaveIcon fontSize="small" className="mr-10" />
+                              )
+                            }
+                          >
+                            저장
+                          </Button>
+                        </Grid>
+                      </Grid>
+                    </form>
+                  </CardContent>
+                </div>
+                <div value={this.state.value} index={4} className="mt-20">
+                  <CardContent>
+                    <form id="form-submit" onSubmit={this.onHandleSubmit}>
+                      <Grid container spacing={3} className="align-items-center mt-20">
+                        <Grid item md={2} xs={12}>
+                          <h5>약관내용</h5>
+                        </Grid>
+                        <Grid item md={10} xs={12}>
+                          <FormControl fullWidth>
+                            <CKEditor
+                              type="classic"
+                              name="financial_term"
+                            />
+                            <textarea
+                              name="financial_term"
+                              style={{ display: "none" }}
+                            />
+                          </FormControl>
+                        </Grid>
+                      </Grid>
+
+                      <Grid container spacing={3} className="align-items-center mt-20">
+                        <Grid item md={12} xs={12}>
+                          <Button
+                            form="form-submit"
+                            variant="contained"
+                            size="small"
+                            color="primary"
+                            type="submit"
+                            disabled={this.state.isProcessing}
+                            startIcon={
+                              this.state.isProcessing ? (
+                                <CircularProgress color="white" size="1rem" />
+                              ) : (
+                                <SaveIcon fontSize="small" className="mr-10" />
+                              )
+                            }
+                          >
+                            저장
+                          </Button>
+                        </Grid>
+                      </Grid>
+                    </form>
+                  </CardContent>
+                </div>
+                <div value={this.state.value} index={5} className="mt-20">
+                  <CardContent>
+                    <Grid container spacing={2}>
+                      <Grid container spacing={2} className="align-items-center mt-20" md={6} xs={12}>
+                        <form id="form-submit" onSubmit={this.onHandleSubmit}>
+                          <Grid item md={12} xs={12}>
+                            <h5>[필수] 개인정보 수집, 이용 동의</h5>
+                          </Grid>
+                          <Grid container spacing={3} className="mt-20">
+                            <Grid item md={2} xs={12}>
+                              <h5>약관내용</h5>
+                            </Grid>
+                            <Grid item md={10} xs={12}>
+                              <FormControl fullWidth>
+                                <CKEditor
+                                  type="classic"
+                                  name="location_term"
+                                />
+                                <textarea
+                                  name="location_term"
+                                  style={{ display: "none" }}
+                                />
+                              </FormControl>
+                            </Grid>
+                          </Grid>
+
+                          <Grid container spacing={3} className="align-items-center mt-20">
+                            <Grid item md={12} xs={12}>
+                              <Button
+                                form="form-submit"
+                                variant="contained"
+                                size="small"
+                                color="primary"
+                                type="submit"
+                                disabled={this.state.isProcessing}
+                                startIcon={
+                                  this.state.isProcessing ? (
+                                    <CircularProgress color="white" size="1rem" />
+                                  ) : (
+                                    <SaveIcon fontSize="small" className="mr-10" />
+                                  )
+                                }
+                              >
+                                저장
+                              </Button>
+                            </Grid>
+                          </Grid>
+                        </form>
+                      </Grid>
+
+                      <Grid container spacing={2} className="align-items-center mt-20" md={6} xs={12}>
+                        <form id="form-submit" onSubmit={this.onHandleSubmit}>
+                          <Grid item md={12} xs={12}>
+                            <h5>[필수] 개인정보 수집, 이용 동의</h5>
+                          </Grid>
+                          <Grid container spacing={3} className="mt-20">
+                            <Grid item md={2} xs={12}>
+                              <h5>사용여부</h5>
+                            </Grid>
+                            <Grid item md={10} xs={12}>
+                              <Grid container spacing={2} className="mt-20">
+                                <Grid item md={2} xs={12}>
+                                  <FormControlLabel
+                                    control={
+                                      <Checkbox
+                                        name="active"
+                                        color="primary"
+                                        value={false}
+                                      />
+                                    }
+                                    label="사용"
+                                  />
+                                </Grid>
+                                <Grid item md={4} xs={12}>
+                                  <FormControlLabel
+                                    control={
+                                      <Checkbox
+                                        name="active"
+                                        color="primary"
+                                        value={true}
+                                      />
+                                    }
+                                    label="사용하지 않음"
+                                  />
+                                </Grid>
+                              </Grid>
+                            </Grid>
+                          </Grid>
+                          <Grid container spacing={3} className="align-items-center mt-20">
+                            <Grid item md={2} xs={12}>
+                              <h5>약관내용</h5>
+                            </Grid>
+                            <Grid item md={10} xs={12}>
+                              <FormControl fullWidth>
+                                <CKEditor
+                                  type="classic"
+                                  name="location_term"
+                                />
+                                <textarea
+                                  name="location_term"
+                                  style={{ display: "none" }}
+                                />
+                              </FormControl>
+                            </Grid>
+                          </Grid>
+
+                          <Grid container spacing={3} className="align-items-center mt-20">
+                            <Grid item md={12} xs={12}>
+                              <Button
+                                form="form-submit"
+                                variant="contained"
+                                size="small"
+                                color="primary"
+                                type="submit"
+                                disabled={this.state.isProcessing}
+                                startIcon={
+                                  this.state.isProcessing ? (
+                                    <CircularProgress color="white" size="1rem" />
+                                  ) : (
+                                    <SaveIcon fontSize="small" className="mr-10" />
+                                  )
+                                }
+                              >
+                                저장
+                              </Button>
+                            </Grid>
+                          </Grid>
+                        </form>
+                      </Grid>
                     </Grid>
-                  </form>
+                  </CardContent>
+                </div>
+                <div value={this.state.value} index={6} className="align-items-center mt-20">
+                  <CardContent>
+                    <form id="form-submit" onSubmit={this.onHandleSubmit}>
+                      <Grid container md={12} xs={12}> 
+                        <Grid container spacing={2} className="mt-20">
+                            <Grid item md={2} xs={12}>
+                              <h5>약관내용</h5>
+                            </Grid>
+                            <Grid item md={10} xs={12}>
+                              <FormControl fullWidth>
+                                <CKEditor
+                                  type="classic"
+                                  name="supply_term"
+                                />
+                                <textarea
+                                  name="supply_term"
+                                  style={{ display: "none" }}
+                                />
+                              </FormControl>
+                            </Grid>  
+                        </Grid>
+
+                        <Grid container spacing={2} className="align-items-center mt-20">
+                            <Grid item md={2} xs={12}>
+                              <h5>약관적용일</h5>
+                            </Grid>
+                            <Grid item md={6} xs={12}>
+                              <Grid container spacing={2}>
+                                <Grid item md={3} xs={6}>
+                                  <TextField
+                                    fullWidth
+                                    size="small"
+                                    variant="outlined"
+                                    name="supply_year"
+                                    placeholder="0"
+                                    InputProps={{ endAdornment: (<InputAdornment position="end">년</InputAdornment>),}}
+                                  />
+                                </Grid>
+                                <Grid item md={3} xs={6} style={{marginLeft: "10px"}}>
+                                  <TextField
+                                    fullWidth
+                                    size="small"
+                                    variant="outlined"
+                                    name="supply_month"
+                                    placeholder="0"
+                                    InputProps={{ endAdornment: (<InputAdornment position="end">월</InputAdornment>),}}
+                                  />
+                                </Grid>
+                                <Grid item md={3} xs={6} style={{marginLeft: "10px"}}>
+                                  <TextField
+                                    fullWidth
+                                    size="small"
+                                    variant="outlined"
+                                    name="supply_day"
+                                    placeholder="0"
+                                    InputProps={{ endAdornment: (<InputAdornment position="end">일</InputAdornment>),}}
+                                  />
+                                </Grid>
+                              </Grid>
+                          </Grid>
+                        </Grid>
+                                          
+                        <Grid container spacing={3} className="align-items-center mt-20">
+                          <Grid item md={12} xs={12}>
+                            <Button
+                              form="form-submit"
+                              variant="contained"
+                              size="small"
+                              color="primary"
+                              type="submit"
+                              disabled={this.state.isProcessing}
+                              startIcon={
+                                this.state.isProcessing ? (
+                                  <CircularProgress color="white" size="1rem" />
+                                ) : (
+                                  <SaveIcon fontSize="small" className="mr-10" />
+                                )
+                              }
+                            >
+                              저장
+                            </Button>
+                          </Grid>
+                        </Grid>
+                      </Grid>
+                    </form>
+                  </CardContent>
                 </div>
               </SwipeableViews> 
             </div>

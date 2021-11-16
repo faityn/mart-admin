@@ -132,7 +132,7 @@ class Edit extends React.Component {
                                         name="startDate"
                                     />
                                 </Grid>
-                                <Grid item md={1} xs={12} className="text-center" className="align-items-center">
+                                <Grid item md={1} xs={12} className="text-center" className="align-items-center" style={{paddingLeft: "1.2rem"}}>
                                     <h5>~</h5>
                                 </Grid>
                                 <Grid item md={5} xs={12} className="align-items-center">
@@ -412,7 +412,7 @@ class Edit extends React.Component {
                                                             <InputAdornment position="end">원</InputAdornment>,
                                                         }}/>
                                                 </Grid>
-                                                <Grid item md={1} xs={12} className="align-items-center" style={{paddingTop: "10px"}}><h5>~</h5></Grid>
+                                                <Grid item md={1} xs={12} className="align-items-center" style={{paddingTop: "10px", paddingLeft: "1rem"}}><h5>~</h5></Grid>
                                                 <Grid item md={5} xs={12} className="align-items-center text-center">
                                                     <TextField
                                                         fullWidth
@@ -453,12 +453,12 @@ class Edit extends React.Component {
                         </React.Fragment>) : null}
 
                     <Grid container spacing={3} md={10} xs={12}>
-                        <Grid item md={12} xs={12} className="text-left"><h5>전체 자료<i style={{color: "#ff0000"}}><strong>000 </strong></i>건</h5></Grid>
+                        <Grid item md={12} xs={12} className="text-left"><h5>전체 자료<i style={{color: "#ff0000", fontStyle: "normal"}}><strong> 000 </strong></i>건</h5></Grid>
                     </Grid>
 
                     <Grid container spacing={3} md={12} xs={12}>
                         <Grid item md={1} xs={12} className="align-items-center">
-                            <h5>자료 수 : 총<i style={{color: "#ff0000"}}><strong>0 </strong></i>건</h5>
+                            <h5>자료 수 : 총<i style={{color: "#ff0000", fontStyle: "normal"}}><strong> 0 </strong></i>건</h5>
                         </Grid>
                             
                         <Grid item md={11} xs={12} className="align-items-center">
@@ -575,6 +575,7 @@ class Edit extends React.Component {
                                                         value={true}
                                                     />
                                                 }
+                                                style={{marginLeft: "18%"}}
                                             />
                                         </TableCell>
                                         <TableCell className="text-center">
@@ -615,6 +616,7 @@ class Edit extends React.Component {
                                                         value={true}
                                                     />
                                                 }
+                                                style={{marginLeft: "18%"}}
                                             />
                                         </TableCell>
                                         <TableCell className="text-center">

@@ -89,7 +89,7 @@ class AllPaymentManagement extends React.Component {
 
                     <Grid container spacing={3} md={10} xs={12} className="mt-12">
                         <Grid item md={12} xs={12} className="text-left" style={{paddingTop: "1vh", paddingBottom: "1vh"}}>
-                            <InputLabel>금일 공급자(마트)에 입금해야 할 정산 예정금액 : 총 <i style={{color: "#ff0000"}}><strong>1,576,000</strong></i> 원 | 금일 정산할 마트 : <i style={{color: "#ff0000"}}><strong>2</strong></i> 개 업체</InputLabel></Grid>
+                            <InputLabel>금일 공급자(마트)에 입금해야 할 정산 예정금액 : 총 <i style={{color: "#ff0000", fontStyle: "normal"}}><strong>1,576,000</strong></i> 원 | 금일 정산할 마트 : <i style={{color: "#ff0000", fontStyle: "normal"}}><strong>2</strong></i> 개 업체</InputLabel></Grid>
                     </Grid>
 
                     <Grid container spacing={3} md={10} xs={12}>

@@ -41,7 +41,7 @@ const Topbar = props => {
       <Toolbar>
         <RouterLink to="/">
           <Typography variant="h3" component="h2" className={classes.white}>
-            Khandid
+            Aniborsso
           </Typography>
         </RouterLink>
       </Toolbar>

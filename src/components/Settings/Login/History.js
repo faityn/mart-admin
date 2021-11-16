@@ -4,11 +4,12 @@ import { withSnackbar } from "notistack";
 import { connect } from "react-redux";
 import SubjectIcon from '@material-ui/icons/Subject';
 import SearchIcon from '@material-ui/icons/Search';
+import ViewIcon from '@material-ui/icons/RemoveRedEye';
 import SwipeableViews from 'react-swipeable-views';
 import Paper from '@material-ui/core/Paper';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-import { CircularProgress, Grid, Button, Table, TableBody, TableRow, TableCell, FormControl, TextField, Select, MenuItem, Link} from "@material-ui/core";
+import { Grid, Button, Table, TableBody, TableRow, TableCell, FormControl, TextField, Select, MenuItem, Link} from "@material-ui/core";
 
 class LoginHistory extends React.Component {
   /**
@@ -151,11 +152,11 @@ class LoginHistory extends React.Component {
         <Grid container>
           <Grid item md={12} alignItems="center">
             <div className="card mt-20">
-              <Grid container spacing={2} md={8} xs={12}>
+              <Grid container spacing={2} md={8} xs={12} className="align-items-center">
                 <Grid item md={2} xs={12}>
                   <h5>운영자 아이디</h5>
                 </Grid>
-                <Grid item md={5} xs={12}>
+                <Grid item md={6} xs={12}>
                   <TextField
                       fullWidth
                       label="아이디"
@@ -166,7 +167,7 @@ class LoginHistory extends React.Component {
               </Grid>
 
               <Grid container spacing={2} md={12} xs={12}>
-                <Grid container md={6} xs={12} style={{paddingLeft: "8px"}}>
+                <Grid container md={6} xs={12} style={{paddingLeft: "8px"}} className="align-items-center">
                   <Grid item md={2} xs={12}>
                     <h5>검색기간</h5>
                   </Grid>
@@ -193,7 +194,7 @@ class LoginHistory extends React.Component {
                   </Grid>
                 </Grid>
 
-                <Grid container md={4} xs={12}>
+                <Grid container md={4} xs={12} className="align-items-center">
                   <Grid item md={2} xs={12}>
                     <Button
                         fullWidth
@@ -203,7 +204,7 @@ class LoginHistory extends React.Component {
                     >오늘
                     </Button>
                   </Grid>
-                  <Grid item md={2} xs={12}>
+                  <Grid item md={2} xs={12} style={{paddingLeft: "5px"}}>
                     <Button
                         fullWidth
                         size="medium"
@@ -212,7 +213,7 @@ class LoginHistory extends React.Component {
                     >1주일
                     </Button>
                   </Grid>
-                  <Grid item md={2} xs={12}>
+                  <Grid item md={2} xs={12} style={{paddingLeft: "5px"}}>
                     <Button
                         fullWidth
                         size="medium"
@@ -221,7 +222,7 @@ class LoginHistory extends React.Component {
                     >15일
                     </Button>
                   </Grid>
-                  <Grid item md={2} xs={12}>
+                  <Grid item md={2} xs={12} style={{paddingLeft: "5px"}}>
                     <Button
                         fullWidth
                         size="medium"
@@ -230,7 +231,7 @@ class LoginHistory extends React.Component {
                     >1개월
                     </Button>
                   </Grid>
-                  <Grid item md={2} xs={12}>
+                  <Grid item md={2} xs={12} style={{paddingLeft: "5px"}}>
                     <Button
                         fullWidth
                         size="medium"
@@ -239,7 +240,7 @@ class LoginHistory extends React.Component {
                     >3개월
                     </Button>
                   </Grid>
-                  <Grid item md={2} xs={12}>
+                  <Grid item md={2} xs={12} style={{paddingLeft: "5px"}}>
                     <Button
                         fullWidth
                         size="medium"
@@ -250,7 +251,7 @@ class LoginHistory extends React.Component {
                   </Grid>
                 </Grid>
                 
-                <Grid item md={2} xs={12} className="text-center">
+                <Grid item md={2} xs={12} className="align-items-center text-center">
                     <Button
                       size="medium"
                       variant="contained"
@@ -283,7 +284,7 @@ class LoginHistory extends React.Component {
                           <TableCell className="text-center">운영자 아이디</TableCell>
                           <TableCell className="text-center">메뉴구분</TableCell>
                           <TableCell className="text-center">접속페이지(개인정보관련)</TableCell>
-                          <TableCell className="text-center">수행업무</TableCell>
+                          <TableCell className="text-center" width="10%">수행업무</TableCell>
                         </TableRow>
                         <TableRow>
                           <TableCell>2021-02-18 16:10:22</TableCell>
@@ -291,7 +292,14 @@ class LoginHistory extends React.Component {
                           <TableCell>ceo001</TableCell>
                           <TableCell>회원</TableCell>
                           <TableCell>회원리스트</TableCell>
-                          <TableCell><Link>조회</Link></TableCell>
+                          <TableCell>
+                            <Button
+                                fullWidth
+                                size="medium"
+                                variant="contained"  
+                                color="primary"
+                                startIcon={<ViewIcon/>}>조회</Button>
+                          </TableCell>
                         </TableRow>
                       </TableBody>
                     </Table>
@@ -304,14 +312,21 @@ class LoginHistory extends React.Component {
                           <TableCell className="text-center">접속IP</TableCell>
                           <TableCell className="text-center">운영자 아이디</TableCell>
                           <TableCell className="text-center">접속페이지(개인정보관련)</TableCell>
-                          <TableCell className="text-center">수행업무</TableCell>
+                          <TableCell className="text-center" width="10%">수행업무</TableCell>
                         </TableRow>
                         <TableRow>
                           <TableCell>2021-02-18 16:10:22</TableCell>
                           <TableCell>000.000.00.000</TableCell>
                           <TableCell>ceo002</TableCell>
                           <TableCell>회원리스트</TableCell>
-                          <TableCell><Link>조회</Link></TableCell>
+                          <TableCell>
+                            <Button
+                                fullWidth
+                                size="medium"
+                                variant="contained"  
+                                color="primary"
+                                startIcon={<ViewIcon/>}>조회</Button>
+                          </TableCell>
                         </TableRow>
                       </TableBody>
                     </Table>
@@ -323,13 +338,20 @@ class LoginHistory extends React.Component {
                           <TableCell className="text-center">접속일시</TableCell>
                           <TableCell className="text-center">접속IP</TableCell>
                           <TableCell className="text-center">운영자 아이디</TableCell>
-                          <TableCell className="text-center">수행업무</TableCell>
+                          <TableCell className="text-center" width="10%">수행업무</TableCell>
                         </TableRow>
                         <TableRow>
                           <TableCell>2021-02-18 16:10:22</TableCell>
                           <TableCell>000.000.00.000</TableCell>
                           <TableCell>ceo002</TableCell>
-                          <TableCell><Link>조회</Link></TableCell>
+                          <TableCell>
+                            <Button
+                                fullWidth
+                                size="medium"
+                                variant="contained"  
+                                color="primary"
+                                startIcon={<ViewIcon/>}>조회</Button>
+                          </TableCell>
                         </TableRow>
                       </TableBody>
                     </Table>

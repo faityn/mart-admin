@@ -137,7 +137,7 @@ const Print = ({ history }) => {
                       </p>
                       <p className="sellerName">
                         <strong>Seller name</strong>
-                        <br /> Khandid
+                        <br /> Aniborsso
                       </p>
                     </div>
                     <div className="paymentInfo">

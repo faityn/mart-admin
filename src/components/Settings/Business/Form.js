@@ -397,7 +397,8 @@ class Form extends React.Component {
                           label="주소"
                           size="small"
                           variant="outlined"
-                          name="address1"      
+                          name="address1"  
+                          style={{marginTop: "10px"}}    
                         />
                       </Grid>
                     </Grid>                    
@@ -416,6 +417,7 @@ class Form extends React.Component {
                         size="small"
                         variant="outlined"
                         name="address2"     
+                        style={{marginTop: "10px"}}    
                       />
                     </Grid>
                   </Grid>
@@ -490,14 +492,14 @@ class Form extends React.Component {
                       </label>
                     </Grid>
                     <Grid item md={8} xs={12}>
-                      <h5>가로x세로 74픽셀, jpg/png/gif만 가능  등록된 인감 이미지는 "일반 세금계산서, 간이영수증, 거래명세서" 등에 사용.</h5>
+                      <h5>가로x세로 74픽셀, jpg/png/gif만 가능<br/>등록된 인감 이미지는 "일반 세금계산서, 간이영수증, 거래명세서" 등에 사용.</h5>
                     </Grid>
                   </Grid>
                 </Grid>
                 
                 <Grid container spacing={2} className="align-items-center">
                   <Grid item md={2} xs={12}>
-                    <h5>현금영수증 가맹점로고 하단 footer노출여부</h5>
+                    <h5>현금영수증 가맹점<br/>로고 하단 footer<br/>노출여부</h5>
                   </Grid>
                   
                   <Grid container spacing={2} md={10} xs={12} style={{paddingLeft: "8px"}}>

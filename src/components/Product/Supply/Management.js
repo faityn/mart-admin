@@ -29,7 +29,7 @@ class Management extends React.Component {
 
                 <div className="card mt-20">
                     <Grid container spacing={3} md={10} xs={12} className="align-items-center">
-                        <Grid item md={10} xs={12} className="text-left"><InputLabel>신규 마트<i style={{ color: "#ff0000" }}><strong> 0 </strong></i>건</InputLabel></Grid>
+                        <Grid item md={10} xs={12} className="text-left"><InputLabel>신규 마트<i style={{ color: "#ff0000", fontStyle: "normal"}}><strong> 0 </strong></i>건</InputLabel></Grid>
                     </Grid>
 
                     <Grid container spacing={3} md={10} xs={12}>
@@ -92,7 +92,7 @@ class Management extends React.Component {
                         <Grid item md={10} xs={12}>
                             <Grid container>
                                 <Grid item md={2} xs={12} className="align-items-center">
-                                    <h5>마트 목록 (총<i style={{ color: "#ff0000" }}><strong> 0 </strong></i>개)</h5>
+                                    <h5>마트 목록 (총<i style={{ color: "#ff0000", fontStyle: "normal"}}><strong> 0 </strong></i>개)</h5>
                                 </Grid>
 
                                 <Grid item md={10} xs={12} className="align-items-center">

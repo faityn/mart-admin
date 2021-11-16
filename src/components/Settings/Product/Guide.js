@@ -129,106 +129,115 @@ class ProductGuide extends React.Component {
         <Grid container>
           <Grid item md={12}>
             <div className="card mt-20">
-            <Grid container spacing={2} md={12} xs={12}>
-              <Grid item md={4} xs={12} className="align-items-center">
-                  <h5>상품 상세 이용안내</h5>
+              <Grid container spacing={2} md={12} xs={12}>
+                <Grid item md={4} xs={12} className="align-items-center">
+                    <h5>상품 상세 이용안내</h5>
+                </Grid>
+                <Grid item md={8} xs={12} className="align-items-center" style={{paddingLeft: "55%"}}>
+                  <Button
+                      fullWidth
+                      size="width"
+                      variant="contained"
+                      color="primary"
+                      startIcon={<CreateIcon/>}
+                  >사용자 추가</Button>
+                </Grid> 
               </Grid>
-              <Grid item md={8} xs={12} className="align-items-center" style={{paddingLeft: "55%"}}>
-                <Button
-                    fullWidth
-                    size="small"
-                    variant="contained"
-                    color="primary"
-                    startIcon={<CreateIcon/>}
-                >사용자 추가</Button>
-              </Grid> 
-            </Grid>
 
-            <Divider />
+              <Divider />
 
-            <Grid item md={12} xs={12} className="mt-20">
-              <Table className="order_table">
-                <TableBody>
-                  <TableRow>
-                    <TableCell align="center">선택</TableCell>
-                    <TableCell align="center">번호</TableCell>
-                    <TableCell align="center">이용안내 코드</TableCell>
-                    <TableCell align="center">이용안내 종류</TableCell>
-                    <TableCell align="center">이용안내 제목</TableCell>
-                    <TableCell align="center">등록일</TableCell>
-                    <TableCell align="center">수정</TableCell>
-                  </TableRow>
+              <Grid item md={12} xs={12} className="mt-20">
+                <Table className="order_table">
+                  <TableBody>
+                    <TableRow>
+                      <TableCell align="center" width="5%">선택</TableCell>
+                      <TableCell align="center">번호</TableCell>
+                      <TableCell align="center">이용안내 코드</TableCell>
+                      <TableCell align="center">이용안내 종류</TableCell>
+                      <TableCell align="center">이용안내 제목</TableCell>
+                      <TableCell align="center">등록일</TableCell>
+                      <TableCell align="center">수정</TableCell>
+                    </TableRow>
 
-                  <TableRow>
-                    <TableCell align="center">
-                      <FormControlLabel
-                        control={
-                          <Checkbox
-                            name="active"
+                    <TableRow>
+                      <TableCell align="center">
+                        <FormControlLabel
+                          control={
+                            <Checkbox
+                              name="active"
+                              color="primary"
+                              value={true}
+                            />
+                          }
+                          style={{marginLeft: "18%"}}
+                        /></TableCell>
+                      <TableCell align="center">4</TableCell>
+                      <TableCell align="center">002001</TableCell>
+                      <TableCell align="center">[배송안내]</TableCell>
+                      <TableCell align="center">배송안내 - 기본(기본설정)</TableCell>
+                      <TableCell align="center">2021-03-01</TableCell>
+                      <TableCell align="center">
+                        <Button
+                            size="small"
+                            variant="contained"
                             color="primary"
-                            value={true}
-                          />
-                        }
-                      /></TableCell>
-                    <TableCell align="center">4</TableCell>
-                    <TableCell align="center">002001</TableCell>
-                    <TableCell align="center">[배송안내]</TableCell>
-                    <TableCell align="center">배송안내 - 기본(기본설정)</TableCell>
-                    <TableCell align="center">2021-03-01</TableCell>
-                    <TableCell align="center">
-                      <Button
-                          size="small"
-                          variant="contained"
-                          color="primary"
-                          startIcon={<EditIcon/>}
-                      >수정</Button>
-                    </TableCell>
-                  </TableRow>
+                            startIcon={<EditIcon/>}
+                        >수정</Button>
+                      </TableCell>
+                    </TableRow>
 
-                  <TableRow>
-                    <TableCell align="center">
-                      <FormControlLabel
-                        control={
-                          <Checkbox
-                            name="active"
+                    <TableRow>
+                      <TableCell align="center">
+                        <FormControlLabel
+                          control={
+                            <Checkbox
+                              name="active"
+                              color="primary"
+                              value={true}
+                            />
+                          }
+                          style={{marginLeft: "18%"}}
+                        /></TableCell>
+                      <TableCell align="center">3</TableCell>
+                      <TableCell align="center">003001</TableCell>
+                      <TableCell align="center">[AS안내]</TableCell>
+                      <TableCell align="center">AS안내 - 기본(기본설정)</TableCell>
+                      <TableCell align="center">2021-03-01</TableCell>
+                      <TableCell align="center">
+                        <Button
+                            size="small"
+                            variant="contained"
                             color="primary"
-                            value={true}
-                          />
-                        }
-                      /></TableCell>
-                    <TableCell align="center">3</TableCell>
-                    <TableCell align="center">003001</TableCell>
-                    <TableCell align="center">[AS안내]</TableCell>
-                    <TableCell align="center">AS안내 - 기본(기본설정)</TableCell>
-                    <TableCell align="center">2021-03-01</TableCell>
-                    <TableCell align="center">
-                      <Button
-                          size="small"
-                          variant="contained"
-                          color="primary"
-                          startIcon={<EditIcon/>}
-                      >수정</Button>
-                    </TableCell>
-                  </TableRow>
-                </TableBody>
-                <TableFooter>
-                  <Button
-                      size="small"
-                      variant="contained"
-                      color="primary"
-                      startIcon={<CopyIcon/>}
-                      style={{marginTop: "10px"}}
-                  >선택 이용안내 복사</Button>
-                  <Button
-                      size="small"
-                      variant="contained"
-                      color="primary"
-                      style={{marginTop: "10px", marginLeft: "10px"}}
-                      startIcon={<DeleteIcon/>}
-                  >선택 이용안내 삭제</Button>
-                </TableFooter>
-              </Table>
-            </Grid>
+                            startIcon={<EditIcon/>}
+                        >수정</Button>
+                      </TableCell>
+                    </TableRow>
+                  </TableBody>
+                </Table>
+              </Grid>
+              <Grid item spacing={2} md={12} xs={12}>
+                <Grid container>
+                  <Grid item md={3} xs={12} class="mt-20">
+                    <Button
+                        fullWidth
+                        size="width"
+                        variant="contained"
+                        color="primary"
+                        startIcon={<CopyIcon/>}
+                        style={{marginTop: "10px"}}
+                    >선택 이용안내 복사</Button>
+                  </Grid>
+                  <Grid item md={3} xs={12} class="mt-20" style={{marginLeft: "10px"}}>
+                    <Button
+                        size="width"
+                        variant="contained"
+                        color="primary"
+                        style={{marginTop: "10px", marginLeft: "10px"}}
+                        startIcon={<DeleteIcon/>}
+                    >선택 이용안내 삭제</Button>
+                  </Grid>
+                </Grid>
+              </Grid>
             </div>
           </Grid>
         </Grid>

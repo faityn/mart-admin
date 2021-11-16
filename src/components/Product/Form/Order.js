@@ -84,7 +84,7 @@ class Order extends React.Component {
                 <div className="card mt-20">
                     <Grid container spacing={3} md={10} xs={12} className="align-items-center">
                         <Grid item md={2} xs={12}><h5>배송 진행</h5></Grid>
-                        <Grid item md={10} xs={12} className="text-left"><InputLabel>배송 중 문제<i style={{ color: "#ff0000" }}><strong> 0 </strong></i>건 | 구매확정<i style={{ color: "#ff0000" }}><strong> 0 </strong></i>건 | 내일 출발 할 배송<i style={{ color: "#ff0000" }}><strong> 0 </strong></i>건</InputLabel></Grid>
+                        <Grid item md={10} xs={12} className="text-left"><InputLabel>배송 중 문제<i style={{ color: "#ff0000", fontStyle: "normal"}}><strong> 0 </strong></i>건 | 구매확정<i style={{ color: "#ff0000", fontStyle: "normal"}}><strong> 0 </strong></i>건 | 내일 출발 할 배송<i style={{ color: "#ff0000", fontStyle: "normal"}}><strong> 0 </strong></i>건</InputLabel></Grid>
                     </Grid>
 
                     <Grid container spacing={3} md={10} xs={12}>
@@ -158,7 +158,7 @@ class Order extends React.Component {
                                         name="startDate"
                                     />
                                 </Grid>
-                                <Grid item md={1} xs={12} className="text-center" className="align-items-center">
+                                <Grid item md={1} xs={12} className="text-center" className="align-items-center" style={{ paddingLeft: "1rem" }}>
                                     <h5>~</h5>
                                 </Grid>
                                 <Grid item md={5} xs={12} className="align-items-center">
@@ -209,7 +209,7 @@ class Order extends React.Component {
 
                     <Grid container spacing={3} md={12} xs={12}>
                         <Grid item md={1} xs={12} className="align-items-center">
-                            <h5>목록 (총<i style={{ color: "#ff0000" }}><strong> 0 </strong></i>개)</h5>
+                            <h5>목록 (총<i style={{ color: "#ff0000", fontStyle: "normal"}}><strong> 0 </strong></i>개)</h5>
                         </Grid>
 
                         <Grid item md={11} xs={12} className="align-items-center">

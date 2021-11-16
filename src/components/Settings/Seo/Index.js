@@ -7,10 +7,13 @@ import SwipeableViews from 'react-swipeable-views';
 import Paper from '@material-ui/core/Paper';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
+import { CircularProgress, Grid, Button, Table, TableBody, TableRow, TableCell, FormControl, FormControlLabel, TextField, Checkbox, CardContent} from "@material-ui/core";
+import CKEditor from "ckeditor4-react";
+import EditIcon from '@material-ui/icons/Edit';
+import AddIcon from '@material-ui/icons/Add';
+import DeleteIcon from '@material-ui/icons/Delete';
 import SaveIcon from "@material-ui/icons/Save";
 import SubjectIcon from '@material-ui/icons/Subject';
-import { CircularProgress, Grid, Button, Table, TableBody, TableRow, TableCell, FormControl, FormControlLabel, TextField, Checkbox, Link} from "@material-ui/core";
-import CKEditor from "ckeditor4-react";
 
 class Seo extends React.Component {
   /**
@@ -155,16 +158,36 @@ class Seo extends React.Component {
           <Grid item md={12}>
             <div className="card mt-20">
               <form id="form-submit" onSubmit={this.onHandleSubmit}>
-              
-                <Grid container spacing={2} md={12} xs={12}>
-                  <Grid item md={12} xs={12}>
-                    <h4>검색로봇 정보수집 설정</h4>
+                <Grid item spacing={2} md={12} xs={12}>
+                  <Grid container>
+                    <Grid item md={4} xs={12}>
+                      <h4>검색로봇 정보수집 설정</h4>
+                    </Grid>
+                    <Grid item md={8} xs={12} style={{textAlign: "right"}}>
+                      <Button
+                        form="form-submit"
+                        variant="contained"
+                        size="medium"
+                        color="primary"
+                        type="submit"
+                        disabled={this.state.isProcessing}
+                        startIcon={
+                          this.state.isProcessing ? (
+                            <CircularProgress color="white" size="1rem" />
+                          ) : (
+                            <SaveIcon fontSize="small" className="mr-10" />
+                          )
+                        }
+                      >
+                        저장
+                      </Button>
+                    </Grid>
                   </Grid>
                   <Table className="mail_table">
                     <TableBody>
                       <TableRow>
                           <TableCell>검색로봇 정보</TableCell>
-                          <TableCell>검색로봇 접근제어상세설정(robots.txt)</TableCell>
+                          <TableCell>검색로봇 접근제어<br/>상세설정<br/>(robots.txt)</TableCell>
                           <TableCell>
                             <Grid spacing={2} item md={12} xs={12} className="mt-20">
                               <Grid item md={12} xs={12}>
@@ -226,169 +249,181 @@ class Seo extends React.Component {
                       index={this.state.value}
                     > 
                       <div value={this.state.value} index={0} className="mt-20">
-                        <form id="form-submit" onSubmit={this.onHandleSubmit}>
-                          <Grid container spacing={2} className="mt-20">
-                            <Grid item md={2} xs={12}>
-                              <h5>타이틀(Title)</h5>
+                        <CardContent>
+                          <form id="form-submit" onSubmit={this.onHandleSubmit}>
+                            <Grid container spacing={2} className="align-items-center mt-20" md={10}>
+                              <Grid item md={2} xs={12}>
+                                <h5>타이틀(Title)</h5>
+                              </Grid>
+                              <Grid item md={10} xs={12}>
+                                <TextField
+                                  fullWidth
+                                  id="name-basic"
+                                  label="Title"
+                                  size="small"
+                                  variant="outlined"
+                                  name="title"/>
+                              </Grid>
                             </Grid>
-                            <Grid item md={10} xs={12}>
-                              <TextField
-                                fullWidth
-                                id="name-basic"
-                                label="Title"
-                                size="small"
-                                variant="outlined"
-                                name="title"/>
+                            <Grid container spacing={2} className="align-items-center mt-20" md={10}>
+                              <Grid item md={2} xs={12}>
+                                <h5>메타태그 작성자(Author)</h5>
+                              </Grid>
+                              <Grid item md={10} xs={12}>
+                                <TextField
+                                  fullWidth
+                                  id="name-basic"
+                                  label="Author"
+                                  size="small"
+                                  variant="outlined"
+                                  name="author"/>
+                              </Grid>
                             </Grid>
-                          </Grid>
-                          <Grid container spacing={2} className="mt-20">
-                            <Grid item md={2} xs={12}>
-                              <h5>메타태그 작성자(Author)</h5>
+                            <Grid container spacing={2} className="align-items-center mt-20" md={10}>
+                              <Grid item md={2} xs={12}>
+                                <h5>메타태그 설명(Description)</h5>
+                              </Grid>
+                              <Grid item md={10} xs={12}>
+                                <TextField
+                                  fullWidth
+                                  id="name-basic"
+                                  label="Description"
+                                  size="small"
+                                  variant="outlined"
+                                  name="description"/>
+                              </Grid>
                             </Grid>
-                            <Grid item md={10} xs={12}>
-                              <TextField
-                                fullWidth
-                                id="name-basic"
-                                label="Author"
-                                size="small"
-                                variant="outlined"
-                                name="author"/>
+                            <Grid container spacing={2} className="align-items-center mt-20" md={10}>
+                              <Grid item md={2} xs={12}>
+                                <h5>메타태그 키워드(Keywords)</h5>
+                              </Grid>
+                              <Grid item md={10} xs={12}>
+                                <TextField
+                                  fullWidth
+                                  id="name-basic"
+                                  label="Keywords"
+                                  size="small"
+                                  variant="outlined"
+                                  name="keywords"/>
+                              </Grid>
                             </Grid>
-                          </Grid>
-                          <Grid container spacing={2} className="mt-20">
-                            <Grid item md={2} xs={12}>
-                              <h5>메타태그 설명(Description)</h5>
-                            </Grid>
-                            <Grid item md={10} xs={12}>
-                              <TextField
-                                fullWidth
-                                id="name-basic"
-                                label="Description"
-                                size="small"
-                                variant="outlined"
-                                name="description"/>
-                            </Grid>
-                          </Grid>
-                          <Grid container spacing={2} className="mt-20">
-                            <Grid item md={2} xs={12}>
-                              <h5>메타태그 키워드(Keywords)</h5>
-                            </Grid>
-                            <Grid item md={10} xs={12}>
-                              <TextField
-                                fullWidth
-                                id="name-basic"
-                                label="Keywords"
-                                size="small"
-                                variant="outlined"
-                                name="keywords"/>
-                            </Grid>
-                          </Grid>
-                        </form>
+                          </form>
+                        </CardContent>
                       </div>
                       <div value={this.state.value} index={1} className="mt-20">
-                        <form id="form-submit" onSubmit={this.onHandleSubmit}>
-                          <Grid container spacing={3} className="mt-20">
-                            <Grid item md={2} xs={12}>
-                              <h5>약관내용</h5>
+                        <CardContent>
+                          <form id="form-submit" onSubmit={this.onHandleSubmit}>
+                            <Grid container spacing={3} className="align-items-center mt-20" md={12}>
+                              <Grid item md={2} xs={12}>
+                                <h5>약관내용</h5>
+                              </Grid>
+                              <Grid item md={10} xs={12}>
+                                <FormControl fullWidth>
+                                  <CKEditor
+                                    type="classic"
+                                    name="financial_term"
+                                  />
+                                  <textarea
+                                    name="financial_term"
+                                    style={{ display: "none" }}
+                                  />
+                                </FormControl>
+                              </Grid>
                             </Grid>
-                            <Grid item md={10} xs={12}>
-                              <FormControl fullWidth>
-                                <CKEditor
-                                  type="classic"
-                                  name="financial_term"
-                                />
-                                <textarea
-                                  name="financial_term"
-                                  style={{ display: "none" }}
-                                />
-                              </FormControl>
-                            </Grid>
-                          </Grid>
-                        </form>
+                          </form>
+                        </CardContent>
                       </div>
                       <div value={this.state.value} index={2} className="mt-20">
-                        <form id="form-submit" onSubmit={this.onHandleSubmit}>
-                          <Grid container spacing={3} className="mt-20">
-                            <Grid item md={2} xs={12}>
-                              <h5>약관내용</h5>
+                        <CardContent>
+                          <form id="form-submit" onSubmit={this.onHandleSubmit}>
+                            <Grid container spacing={3} className="align-items-center mt-20" md={12}>
+                              <Grid item md={2} xs={12}>
+                                <h5>약관내용</h5>
+                              </Grid>
+                              <Grid item md={10} xs={12}>
+                                <FormControl fullWidth>
+                                  <CKEditor
+                                    type="classic"
+                                    name="financial_term"
+                                  />
+                                  <textarea
+                                    name="financial_term"
+                                    style={{ display: "none" }}
+                                  />
+                                </FormControl>
+                              </Grid>
                             </Grid>
-                            <Grid item md={10} xs={12}>
-                              <FormControl fullWidth>
-                                <CKEditor
-                                  type="classic"
-                                  name="financial_term"
-                                />
-                                <textarea
-                                  name="financial_term"
-                                  style={{ display: "none" }}
-                                />
-                              </FormControl>
-                            </Grid>
-                          </Grid>
-                        </form>
+                          </form>
+                        </CardContent>
                       </div>
                       <div value={this.state.value} index={3} className="mt-20">
-                        <form id="form-submit" onSubmit={this.onHandleSubmit}>
-                          <Grid container spacing={3} className="mt-20">
-                            <Grid item md={2} xs={12}>
-                              <h5>약관내용</h5>
+                        <CardContent>
+                          <form id="form-submit" onSubmit={this.onHandleSubmit}>
+                            <Grid container spacing={3} className="align-items-center mt-20" md={12}>
+                              <Grid item md={2} xs={12}>
+                                <h5>약관내용</h5>
+                              </Grid>
+                              <Grid item md={10} xs={12}>
+                                <FormControl fullWidth>
+                                  <CKEditor
+                                    type="classic"
+                                    name="financial_term"
+                                  />
+                                  <textarea
+                                    name="financial_term"
+                                    style={{ display: "none" }}
+                                  />
+                                </FormControl>
+                              </Grid>
                             </Grid>
-                            <Grid item md={10} xs={12}>
-                              <FormControl fullWidth>
-                                <CKEditor
-                                  type="classic"
-                                  name="financial_term"
-                                />
-                                <textarea
-                                  name="financial_term"
-                                  style={{ display: "none" }}
-                                />
-                              </FormControl>
-                            </Grid>
-                          </Grid>
-                        </form>
+                          </form>
+                        </CardContent>
                       </div>
                       <div value={this.state.value} index={4} className="mt-20">
-                        <form id="form-submit" onSubmit={this.onHandleSubmit}>
-                          <Grid container spacing={3} className="mt-20">
-                            <Grid item md={2} xs={12}>
-                              <h5>약관내용</h5>
+                        <CardContent>
+                          <form id="form-submit" onSubmit={this.onHandleSubmit}>
+                            <Grid container spacing={3} className="align-items-center mt-20" md={12}>
+                              <Grid item md={2} xs={12}>
+                                <h5>약관내용</h5>
+                              </Grid>
+                              <Grid item md={10} xs={12}>
+                                <FormControl fullWidth>
+                                  <CKEditor
+                                    type="classic"
+                                    name="financial_term"
+                                  />
+                                  <textarea
+                                    name="financial_term"
+                                    style={{ display: "none" }}
+                                  />
+                                </FormControl>
+                              </Grid>
                             </Grid>
-                            <Grid item md={10} xs={12}>
-                              <FormControl fullWidth>
-                                <CKEditor
-                                  type="classic"
-                                  name="financial_term"
-                                />
-                                <textarea
-                                  name="financial_term"
-                                  style={{ display: "none" }}
-                                />
-                              </FormControl>
-                            </Grid>
-                          </Grid>
-                        </form>
+                          </form>
+                        </CardContent>
                       </div>
                       <div value={this.state.value} index={5} className="mt-20">
-                        <form id="form-submit" onSubmit={this.onHandleSubmit}>
-                          <Grid container spacing={3} className="mt-20">
-                            <Grid item md={2} xs={12}>
-                              <h5>약관내용</h5>
+                        <CardContent>
+                          <form id="form-submit" onSubmit={this.onHandleSubmit}>
+                            <Grid container spacing={3} className="align-items-center mt-20" md={12}>
+                              <Grid item md={2} xs={12}>
+                                <h5>약관내용</h5>
+                              </Grid>
+                              <Grid item md={10} xs={12}>
+                                <FormControl fullWidth>
+                                  <CKEditor
+                                    type="classic"
+                                    name="financial_term"
+                                  />
+                                  <textarea
+                                    name="financial_term"
+                                    style={{ display: "none" }}
+                                  />
+                                </FormControl>
+                              </Grid>
                             </Grid>
-                            <Grid item md={10} xs={12}>
-                              <FormControl fullWidth>
-                                <CKEditor
-                                  type="classic"
-                                  name="financial_term"
-                                />
-                                <textarea
-                                  name="financial_term"
-                                  style={{ display: "none" }}
-                                />
-                              </FormControl>
-                            </Grid>
-                          </Grid>
-                        </form>
+                          </form>
+                        </CardContent>
                       </div>
                     </SwipeableViews>
                   </Grid>
@@ -403,16 +438,16 @@ class Seo extends React.Component {
                             <TableCell>대표 이미지</TableCell>
                             <TableCell>
                               <Grid container md={12} xs={12}>
-                                <Grid item md={2} xs={12}>
+                                <Grid item md={1} xs={12}>
                                   <Button
                                     variant="contained"
-                                    size="small"
+                                    size="medium"
                                     color="primary"
                                   >
                                     찾아보기
                                   </Button>
                                 </Grid>
-                                <Grid item md={10} xs={12}>
+                                <Grid item md={6} xs={12}>
                                   <TextField
                                     fullWidth
                                     label="이미지"
@@ -429,7 +464,7 @@ class Seo extends React.Component {
                         <TableRow>
                           <TableCell>대표 제목(og:title, twitter:title)</TableCell>
                           <TableCell>
-                            <Grid item md={12} xs={12}>
+                            <Grid item md={7} xs={12}>
                                 <TextField
                                   fullWidth
                                   label="제목"
@@ -442,7 +477,7 @@ class Seo extends React.Component {
                         <TableRow>
                           <TableCell>대표 설명(og:description, twitter:description)</TableCell>
                           <TableCell>
-                            <Grid item md={12} xs={12}>
+                            <Grid item md={7} xs={12}>
                                 <TextField
                                   fullWidth
                                   label="설명"
@@ -486,13 +521,13 @@ class Seo extends React.Component {
                                 <p>설정한 경로로 연결</p>
                               </Grid>
                               <Grid container md={12} xs={12}>
-                                <Grid item md={2} xs={12}>
+                                <Grid item md={1} xs={12}>
                                   <p>모바일 쇼핑몰</p>
                                 </Grid>                        
                                 <Grid item md={2} xs={12}>
                                   <p>https://xxxxxxxxxxx.com/</p>
                                 </Grid>       
-                                <Grid item md={8} xs={12}>                            
+                                <Grid item md={6} xs={12}>                            
                                   <TextField
                                   fullWidth
                                   label="설명"
@@ -517,7 +552,7 @@ class Seo extends React.Component {
                             <TableCell>연관채널 1</TableCell>
                             <TableCell>
                               <Grid container md={12} xs={12}>
-                                <Grid item md={10} xs={12}>                   
+                                <Grid item md={6} xs={12}>                   
                                   <TextField
                                   fullWidth
                                   label="예: https://www.facebook.com"
@@ -528,12 +563,12 @@ class Seo extends React.Component {
                                 <Grid item md={2} xs={12}>
                                   <Button
                                     variant="contained"
-                                    size="small"
+                                    size="medium"
                                     color="primary"
                                     className="ml-20"
-                                  >
-                                    + 추가
-                                  </Button>
+                                    startIcon={<AddIcon/>}
+                                  >추가</
+                                  Button>
                                 </Grid>
                               </Grid>
                             </TableCell>
@@ -549,12 +584,12 @@ class Seo extends React.Component {
                     <Table className="mail_table">
                       <TableBody>
                         <TableRow>
-                          <TableCell align="center">선택</TableCell>
+                          <TableCell align="center" width="5%">선택</TableCell>
                           <TableCell align="center">번호</TableCell>
                           <TableCell align="center">페이지 경로</TableCell>
                           <TableCell align="center">타이틀</TableCell>
                           <TableCell align="center">메타태그 설명</TableCell>
-                          <TableCell align="center">수정</TableCell>
+                          <TableCell align="center" width="10%">수정</TableCell>
                         </TableRow>
 
                         <TableRow>
@@ -573,7 +608,14 @@ class Seo extends React.Component {
                           <TableCell align="center"></TableCell>
                           <TableCell align="center"></TableCell>
                           <TableCell align="center"></TableCell>
-                          <TableCell align="center"><Link>수정</Link></TableCell>
+                          <TableCell align="center">
+                            <Button
+                                fullWidth
+                                size="medium"
+                                variant="contained"  
+                                color="primary"
+                                startIcon={<EditIcon/>}>수정</Button>
+                          </TableCell>
                         </TableRow>
                         
                         <TableRow>
@@ -592,7 +634,14 @@ class Seo extends React.Component {
                           <TableCell align="center"></TableCell>
                           <TableCell align="center"></TableCell>
                           <TableCell align="center"></TableCell>
-                          <TableCell align="center"><Link>수정</Link></TableCell>
+                          <TableCell align="center">
+                            <Button
+                                fullWidth
+                                size="medium"
+                                variant="contained"  
+                                color="primary"
+                                startIcon={<EditIcon/>}>수정</Button>
+                          </TableCell>
                         </TableRow>
                         
                         <TableRow>
@@ -611,58 +660,39 @@ class Seo extends React.Component {
                           <TableCell align="center"></TableCell>
                           <TableCell align="center"></TableCell>
                           <TableCell align="center"></TableCell>
-                          <TableCell align="center"><Link>수정</Link></TableCell>
-                        </TableRow>
-                        
-                        <TableRow>
-                          <TableCell>
+                          <TableCell align="center">
                             <Button
-                              variant="contained"
-                              size="small"
-                              color="primary"
-                            >
-                              선택 삭제
-                            </Button>
-                          </TableCell>
-                          <TableCell></TableCell>
-                          <TableCell></TableCell>
-                          <TableCell></TableCell>
-                          <TableCell></TableCell>
-                          <TableCell>
-                            <Button
-                              variant="contained"
-                              size="small"
-                              color="primary"
-                            >
-                              페이지 추가
-                            </Button>
+                                fullWidth
+                                size="medium"
+                                variant="contained"  
+                                color="primary"
+                                startIcon={<EditIcon/>}>수정</Button>
                           </TableCell>
                         </TableRow>
                       </TableBody>
                     </Table>
                   </Grid>
                 </Grid>
-
-                <Grid container spacing={3} className="mt-20">
-                  <Grid item md={12} xs={12}>
-                    <Button
-                      form="form-submit"
-                      variant="contained"
-                      size="small"
-                      color="primary"
-                      type="submit"
-                      disabled={this.state.isProcessing}
-                      startIcon={
-                        this.state.isProcessing ? (
-                          <CircularProgress color="white" size="1rem" />
-                        ) : (
-                          <SaveIcon fontSize="small" className="mr-10" />
-                        )
-                      }
-                    >
-                      저장
-                    </Button>
-                  </Grid>
+                    
+                <Grid container spacing={3} md={12} xs={12} className="mt-20">
+                    <Grid item md={1} xs={12}>
+                        <Button 
+                            fullWidth
+                            size="medium"
+                            variant="contained"
+                            color="primary"
+                            startIcon={<DeleteIcon/>}
+                            style={{backgroundColor: "#FF0000", color: "#fff", fontStyle: "normal"}}>선택삭제</Button>
+                    </Grid>
+                    <Grid item md={9} xs={12} className="align-items-center"></Grid>
+                    <Grid item md={2} xs={12} className="align-items-center">
+                        <Button
+                            fullWidth
+                            size="medium"
+                            variant="contained"     
+                            style={{backgroundColor: "#0eb906", color: "#fff"}}
+                            startIcon={<AddIcon/>}>페이지 추가</Button>
+                    </Grid>
                 </Grid>
               </form>
             </div>

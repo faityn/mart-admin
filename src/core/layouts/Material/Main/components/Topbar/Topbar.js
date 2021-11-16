@@ -53,11 +53,12 @@ const Topbar = props => {
       <Toolbar>
         <RouterLink to="/">
           <Typography variant="h3" component="h2" className={classes.white}>
-            Khandid
+            Aniborsso
           </Typography>
         </RouterLink>
         <div className={classes.flexGrow} />
         <Hidden mdDown>
+          {/*
           <IconButton color="inherit">
             <Badge
               badgeContent={notifications.length}
@@ -66,7 +67,7 @@ const Topbar = props => {
             >
               <NotificationsIcon />
             </Badge>
-          </IconButton>
+          </IconButton>*/}
           <IconButton
             className={classes.signOutButton}
             color="inherit"

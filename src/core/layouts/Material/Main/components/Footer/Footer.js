@@ -39,9 +39,9 @@ const Footer = props => {
           href="https://Khandid.com"
           target="_blank"
         >
-          Khandid
+          Aniborsso
         </Link>
-        {' '} 2020 - 2020
+        {' '} 2021 - 2022
       </Typography>
     </div>
   );
