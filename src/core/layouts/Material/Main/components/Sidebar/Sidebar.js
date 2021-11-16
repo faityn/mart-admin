@@ -7,62 +7,22 @@ import { Divider, Drawer } from "@material-ui/core";
 import DashboardIcon from "@material-ui/icons/Dashboard";
 import CategoryIcon from "@material-ui/icons/Category";
 import GroupIcon from "@material-ui/icons/Group";
-import LoyaltyIcon from "@material-ui/icons/Loyalty";
 import { Profile } from "./components";
-import LocalPrintshopIcon from "@material-ui/icons/LocalPrintshop";
 import TreeView from "@material-ui/lab/TreeView";
 import TreeItem from "@material-ui/lab/TreeItem";
 import Typography from "@material-ui/core/Typography";
-import MailIcon from "@material-ui/icons/Mail";
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
 import ArrowRightIcon from "@material-ui/icons/ArrowRight";
 import { Link } from "react-router-dom";
 import PublishIcon from "@material-ui/icons/Publish";
 import SettingsIcon from "@material-ui/icons/Settings";
-import LocalShippingIcon from "@material-ui/icons/LocalShipping";
-import ConfirmationNumberIcon from "@material-ui/icons/ConfirmationNumber";
-import AlarmIcon from "@material-ui/icons/Alarm";
-import MoneyIcon from "@material-ui/icons/Money";
 import RecentActorsIcon from "@material-ui/icons/RecentActors";
-import LowPriorityIcon from "@material-ui/icons/LowPriority";
-import PublicIcon from "@material-ui/icons/Public";
 import MenuIcon from "@material-ui/icons/Menu";
 import FastfoodIcon from "@material-ui/icons/Fastfood";
-import MonetizationOnIcon from "@material-ui/icons/MonetizationOn";
-import InfoIcon from "@material-ui/icons/Info";
-import EventIcon from "@material-ui/icons/Event";
-import ViewCarouselIcon from "@material-ui/icons/ViewCarousel";
 import BusinessIcon from "@material-ui/icons/Business";
-import ReceiptIcon from "@material-ui/icons/Receipt";
-import PhotoAlbumIcon from "@material-ui/icons/PhotoAlbum";
-import RedeemIcon from "@material-ui/icons/Redeem";
 import SubjectIcon from "@material-ui/icons/Subject";
-import TouchAppIcon from "@material-ui/icons/TouchApp";
-import VideoLabelIcon from "@material-ui/icons/VideoLabel";
-import EmojiSymbolsIcon from "@material-ui/icons/EmojiSymbols";
-import ForumIcon from "@material-ui/icons/Forum";
-import ArrowBackIcon from "@material-ui/icons/ArrowBack";
-import NotificationsIcon from "@material-ui/icons/Notifications";
-import LocalAtmIcon from "@material-ui/icons/LocalAtm";
-import HistoryIcon from "@material-ui/icons/History";
-import PersonIcon from "@material-ui/icons/Person";
-import StorefrontIcon from "@material-ui/icons/Storefront";
-import EqualizerIcon from "@material-ui/icons/Equalizer";
-import TimelineIcon from "@material-ui/icons/Timeline";
-import AppsIcon from "@material-ui/icons/Apps";
-import AvTimerIcon from "@material-ui/icons/AvTimer";
-import RefreshIcon from "@material-ui/icons/Refresh";
 import SearchIcon from "@material-ui/icons/Search";
 import PasswordIcon from "@material-ui/icons/Security";
-import {
-    CompareTwoTone,
-    Equalizer,
-    PieChart,
-    PieChartTwoTone,
-    ShowChart,
-    TableChartRounded,
-} from "@material-ui/icons";
-import { Timeline } from "@material-ui/lab";
 
 /**
  * @template useStyles
@@ -521,116 +481,6 @@ const Sidebar = (props) => {
                                 />
                             </Link>
                         </StyledTreeItem>
-                    </TreeView>
-                </div>
-            </Drawer>
-        );
-
-    if (loggedUser === "ROLE_SELLER")
-        return (
-            <Drawer
-                anchor="left"
-                classes={{ paper: classes.drawer }}
-                onClose={onClose}
-                open={open}
-                variant={variant}
-            >
-                <div {...rest} className={clsx(classes.root, className)}>
-                    <Profile />
-                    <Divider className={classes.divider} />
-
-                    <TreeView
-                        className="menu-svgIcon"
-                        // defaultExpanded={['3']}
-                        defaultCollapseIcon={<ArrowDropDownIcon />}
-                        defaultExpandIcon={<ArrowRightIcon />}
-                        defaultEndIcon={<div style={{ width: 200 }} />}
-                    >
-                        <Link to="/dashboard">
-                            <StyledTreeItem
-                                nodeId="1"
-                                labelText="Dashboard"
-                                labelIcon={DashboardIcon}
-                            />
-                        </Link>
-                        <Link to="/partner-information">
-                            <StyledTreeItem
-                                nodeId="2"
-                                labelText="Partner 정보"
-                                labelIcon={PersonIcon}
-                            />
-                        </Link>
-                        <Link to="/product/create">
-                            <StyledTreeItem
-                                nodeId="3"
-                                // labelText="Product registration"
-                                labelText="Partner 상품 등록"
-                                labelIcon={StorefrontIcon}
-                            />
-                        </Link>
-                        <StyledTreeItem
-                            nodeId="4"
-                            // labelText="Product management"
-                            labelText="Partner 상품 관리"
-                            labelIcon={FastfoodIcon}
-                        >
-                            <Link to="/partner/product-management/registration-status">
-                                <StyledTreeItem
-                                    nodeId="5"
-                                    // labelText="Registration status"
-                                    labelText="상품 등록 현황"
-                                    labelIcon={TimelineIcon}
-                                    color="#1a73e8"
-                                    bgColor="#e8f0fe"
-                                />
-                            </Link>
-                            <Link to="/partner/product-management/warehousing-application">
-                                <StyledTreeItem
-                                    nodeId="6"
-                                    // labelText="Warehousing application"
-                                    labelText="창고 관리"
-                                    labelIcon={AppsIcon}
-                                    color="#1a73e8"
-                                    bgColor="#e8f0fe"
-                                />
-                            </Link>
-                            <Link to="/partner/product-management/warehousing-status">
-                                <StyledTreeItem
-                                    nodeId="7"
-                                    // labelText="Warehousing status"
-                                    labelText="창고 현황"
-                                    labelIcon={AvTimerIcon}
-                                    color="#1a73e8"
-                                    bgColor="#e8f0fe"
-                                />
-                            </Link>
-                            <Link to="/partner/product-management/restock-application">
-                                <StyledTreeItem
-                                    nodeId="8"
-                                    // labelText="Restock application"
-                                    labelText="재입고 관리"
-                                    labelIcon={RefreshIcon}
-                                    color="#1a73e8"
-                                    bgColor="#e8f0fe"
-                                />
-                            </Link>
-                        </StyledTreeItem>
-                        <Link to="/partner/sales-status">
-                            <StyledTreeItem
-                                nodeId="9"
-                                // labelText="Sales status and settlement"
-                                labelText="판매 현황 및 정산"
-                                labelIcon={EqualizerIcon}
-                            />
-                        </Link>
-                        <Link to="/partner/history">
-                            <StyledTreeItem
-                                nodeId="10"
-                                // labelText="Histroy"
-                                labelText="정산 목록"
-                                labelIcon={EqualizerIcon}
-                            />
-                        </Link>
                     </TreeView>
                 </div>
             </Drawer>
