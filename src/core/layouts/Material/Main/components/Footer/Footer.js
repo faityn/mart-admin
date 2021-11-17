@@ -39,7 +39,7 @@ const Footer = props => {
           href="https://Khandid.com"
           target="_blank"
         >
-          Aniborsso
+          아니벌써
         </Link>
         {' '} 2021 - 2022
       </Typography>

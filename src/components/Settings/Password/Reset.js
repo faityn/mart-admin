@@ -212,7 +212,7 @@ class PassReset extends React.Component {
                                     <Grid item md={2} xs={12}>
                                       <h5>+ 비밀번호 최종 변경일 기준.</h5>
                                     </Grid>
-                                    <Grid container md={2} xs={12} className="alignItems-center">
+                                    <Grid container md={2} xs={12} className="align-items-center">
                                       <Grid item md={6} xs={12} className="text-center">
                                         <FormControl
                                             size="small"
@@ -255,7 +255,7 @@ class PassReset extends React.Component {
                                 <TableCell>비밀번호 변경 재 안내 주기</TableCell>
                                 <TableCell alignItems="center" >
                                   <Grid container md={12} xs={12}>
-                                    <Grid container md={2} xs={12} className="alignItems-center">
+                                    <Grid container md={2} xs={12} className="align-items-center">
                                       <Grid item md={6} xs={12} className="text-center">
                                         <FormControl
                                             size="small"

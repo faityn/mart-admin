@@ -538,7 +538,7 @@ const SignIn = (props) => {
                                     color="textSecondary"
                                     variant="body1"
                                 >
-                                    Aniborsso 계정이 없으세요?{" "}
+                                    아니벌써 계정이 없으세요?{" "}
                                     <Link to="/signup" variant="h6">
                                         회원가입
                                     </Link>

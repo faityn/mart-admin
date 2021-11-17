@@ -136,10 +136,10 @@ class OrderConfig extends React.Component {
                         <Table className="mail_table">
                           <TableBody>
                             <TableRow>
-                              <TableCell>결제페이지청약의사 재확인 설정</TableCell>
+                              <TableCell>결제페이지<br/>청약의사 재확인 설정</TableCell>
                               <TableCell>
                                 <Grid container md={12} xs={12}>
-                                  <Grid item md={3} xs={12}>
+                                  <Grid item md={1} xs={12}>
                                     <FormControlLabel
                                       control={
                                         <Checkbox
@@ -152,7 +152,7 @@ class OrderConfig extends React.Component {
                                       label="사용함"
                                     />
                                   </Grid>
-                                  <Grid item md={4} xs={12}>
+                                  <Grid item md={2} xs={12}>
                                     <FormControlLabel
                                       control={
                                         <Checkbox
@@ -172,7 +172,7 @@ class OrderConfig extends React.Component {
                               <TableCell>자동배송완료</TableCell>
                               <TableCell>
                                 <Grid container md={12} xs={12}>
-                                  <Grid item md={6} xs={12}>
+                                  <Grid item md={5} xs={12}>
                                     <FormControlLabel
                                       control={
                                         <Checkbox
@@ -185,7 +185,7 @@ class OrderConfig extends React.Component {
                                       label="’배송 중’ 으로 주문상태 변경한 뒤  [ 1 ]일 후 ‘배송완료’로 자동 주문상태 변경"
                                     />
                                   </Grid>
-                                  <Grid item md={4} xs={12}>
+                                  <Grid item md={2} xs={12}>
                                     <FormControlLabel
                                       control={
                                         <Checkbox
@@ -205,7 +205,7 @@ class OrderConfig extends React.Component {
                               <TableCell>자동구매확정</TableCell>
                               <TableCell>
                                 <Grid container md={12} xs={12}>
-                                  <Grid item md={6} xs={12}>
+                                  <Grid item md={5} xs={12}>
                                     <FormControlLabel
                                       control={
                                         <Checkbox
@@ -218,7 +218,7 @@ class OrderConfig extends React.Component {
                                       label="’배송완료’로 주문상태 변경한 뒤  [ 3 ]일 후 '구매확인'으로 자동 주문상태 변경"
                                     />
                                   </Grid>
-                                  <Grid item md={4} xs={12}>
+                                  <Grid item md={2} xs={12}>
                                     <FormControlLabel
                                       control={
                                         <Checkbox
@@ -235,10 +235,10 @@ class OrderConfig extends React.Component {
                             </TableRow>
                             
                             <TableRow>
-                              <TableCell>환불 진행 재확인사용설정</TableCell>
+                              <TableCell>환불 진행 재확인<br/>사용설정</TableCell>
                               <TableCell>
                                 <Grid container md={12} xs={12}>
-                                  <Grid item md={3} xs={12}>
+                                  <Grid item md={1} xs={12}>
                                     <FormControlLabel
                                       control={
                                         <Checkbox
@@ -251,7 +251,7 @@ class OrderConfig extends React.Component {
                                       label="사용함"
                                     />
                                   </Grid>
-                                  <Grid item md={4} xs={12}>
+                                  <Grid item md={2} xs={12}>
                                     <FormControlLabel
                                       control={
                                         <Checkbox
@@ -329,7 +329,7 @@ class OrderConfig extends React.Component {
                               <TableCell>자동환불 사용설정</TableCell>
                               <TableCell>
                                 <Grid container md={12} xs={12}>
-                                  <Grid item md={3} xs={12}>
+                                  <Grid item md={1} xs={12}>
                                     <FormControlLabel
                                       control={
                                         <Checkbox
@@ -342,7 +342,7 @@ class OrderConfig extends React.Component {
                                       label="사용함"
                                     />
                                   </Grid>
-                                  <Grid item md={4} xs={12}>
+                                  <Grid item md={2} xs={12}>
                                     <FormControlLabel
                                       control={
                                         <Checkbox
@@ -368,7 +368,7 @@ class OrderConfig extends React.Component {
                               <TableCell>자동환불 상품범위</TableCell>
                               <TableCell>
                                 <Grid container md={12} xs={12}>
-                                  <Grid item md={3} xs={12}>
+                                  <Grid item md={1} xs={12}>
                                     <FormControlLabel
                                       control={
                                         <Checkbox
@@ -381,7 +381,7 @@ class OrderConfig extends React.Component {
                                       label="제한 없음"
                                     />
                                   </Grid>
-                                  <Grid item md={4} xs={12}>
+                                  <Grid item md={2} xs={12}>
                                     <FormControlLabel
                                       control={
                                         <Checkbox
@@ -432,10 +432,10 @@ class OrderConfig extends React.Component {
                               <TableCell>자동환불 추가설정</TableCell>
                               <TableCell>
                                 <Grid container md={12} xs={12}>
-                                  <Grid item md={2} xs={12} className="text-right">
+                                  <Grid item md={2} xs={12}>
                                     <h5>재고 수량 복원 설정: </h5>
                                   </Grid>
-                                  <Grid item md={1} xs={12}>
+                                  <Grid item md={1} xs={12} className="align-items-center">
                                     <FormControlLabel
                                       control={
                                         <Checkbox
@@ -448,7 +448,7 @@ class OrderConfig extends React.Component {
                                       label="복원함"
                                     />
                                   </Grid>
-                                  <Grid item md={1} xs={12}>
+                                  <Grid item md={1} xs={12} className="align-items-center">
                                     <FormControlLabel
                                       control={
                                         <Checkbox
@@ -462,10 +462,10 @@ class OrderConfig extends React.Component {
                                   </Grid>
                                 </Grid>
                                 <Grid container md={12} xs={12}>
-                                  <Grid item md={2} xs={12} className="text-right">
+                                  <Grid item md={2} xs={12}>
                                     <h5>쿠폰 복원 설정: </h5>
                                   </Grid>
-                                  <Grid item md={1} xs={12}>
+                                  <Grid item md={1} xs={12} className="align-items-center">
                                     <FormControlLabel
                                       control={
                                         <Checkbox
@@ -478,7 +478,7 @@ class OrderConfig extends React.Component {
                                       label="복원함"
                                     />
                                   </Grid>
-                                  <Grid item md={1} xs={12}>
+                                  <Grid item md={1} xs={12} className="align-items-center">
                                     <FormControlLabel
                                       control={
                                         <Checkbox
@@ -498,10 +498,10 @@ class OrderConfig extends React.Component {
                               <TableCell>관리자 주문취소 시</TableCell>
                               <TableCell>
                                 <Grid container md={12} xs={12}>
-                                  <Grid item md={2} xs={12} className="text-right">
+                                  <Grid item md={2} xs={12}>
                                     <h5>재고 수량 복원 설정: </h5>
                                   </Grid>
-                                  <Grid item md={1} xs={12}>
+                                  <Grid item md={1} xs={12} className="align-items-center">
                                     <FormControlLabel
                                       control={
                                         <Checkbox
@@ -514,7 +514,7 @@ class OrderConfig extends React.Component {
                                       label="복원함"
                                     />
                                   </Grid>
-                                  <Grid item md={1} xs={12}>
+                                  <Grid item md={1} xs={12} className="align-items-center">
                                     <FormControlLabel
                                       control={
                                         <Checkbox
@@ -528,10 +528,10 @@ class OrderConfig extends React.Component {
                                   </Grid>
                                 </Grid>
                                 <Grid container md={12} xs={12}>
-                                  <Grid item md={2} xs={12} className="text-right">
+                                  <Grid item md={2} xs={12}>
                                     <h5>쿠폰 복원 설정: </h5>
                                   </Grid>
-                                  <Grid item md={1} xs={12}>
+                                  <Grid item md={1} xs={12} className="align-items-center">
                                     <FormControlLabel
                                       control={
                                         <Checkbox
@@ -544,7 +544,7 @@ class OrderConfig extends React.Component {
                                       label="복원함"
                                     />
                                   </Grid>
-                                  <Grid item md={1} xs={12}>
+                                  <Grid item md={1} xs={12} className="align-items-center">
                                     <FormControlLabel
                                       control={
                                         <Checkbox
@@ -558,10 +558,10 @@ class OrderConfig extends React.Component {
                                   </Grid>
                                 </Grid>
                                 <Grid container md={12} xs={12}>
-                                  <Grid item md={2} xs={12} className="text-right">
+                                  <Grid item md={2} xs={12}>
                                     <h5>사은품 지급 설정: </h5>
                                   </Grid>
-                                  <Grid item md={1} xs={12}>
+                                  <Grid item md={1} xs={12} className="align-items-center">
                                     <FormControlLabel
                                       control={
                                         <Checkbox
@@ -574,7 +574,7 @@ class OrderConfig extends React.Component {
                                       label="복원함"
                                     />
                                   </Grid>
-                                  <Grid item md={1} xs={12}>
+                                  <Grid item md={1} xs={12} className="align-items-center">
                                     <FormControlLabel
                                       control={
                                         <Checkbox
@@ -594,10 +594,10 @@ class OrderConfig extends React.Component {
                               <TableCell>관리자 교환접수 시</TableCell>
                               <TableCell>
                                 <Grid container md={12} xs={12}>
-                                  <Grid item md={4} xs={12} className="text-right">
+                                  <Grid item md={3} xs={12}>
                                     <h5>교환취소 상품에 사용한 쿠폰 복원 여부: </h5>
                                   </Grid>
-                                  <Grid item md={1} xs={12}>
+                                  <Grid item md={1} xs={12} className="align-items-center">
                                     <FormControlLabel
                                       control={
                                         <Checkbox
@@ -609,7 +609,7 @@ class OrderConfig extends React.Component {
                                       label="복원함"
                                     />
                                   </Grid>
-                                  <Grid item md={1} xs={12}>
+                                  <Grid item md={1} xs={12} className="align-items-center">
                                     <FormControlLabel
                                       control={
                                         <Checkbox
@@ -624,10 +624,10 @@ class OrderConfig extends React.Component {
                                   </Grid>
                                 </Grid>
                                 <Grid container md={12} xs={12}>
-                                  <Grid item md={4} xs={12} className="text-right">
+                                  <Grid item md={3} xs={12}>
                                     <h5>교환취소 상품의 사은품 지급여부: </h5>
                                   </Grid>
-                                  <Grid item md={1} xs={12}>
+                                  <Grid item md={1} xs={12} className="align-items-center">
                                     <FormControlLabel
                                       control={
                                         <Checkbox
@@ -640,7 +640,7 @@ class OrderConfig extends React.Component {
                                       label="복원함"
                                     />
                                   </Grid>
-                                  <Grid item md={1} xs={12}>
+                                  <Grid item md={1} xs={12} className="align-items-center">
                                     <FormControlLabel
                                       control={
                                         <Checkbox
@@ -654,10 +654,10 @@ class OrderConfig extends React.Component {
                                   </Grid>
                                 </Grid>
                                 <Grid container md={12} xs={12}>
-                                  <Grid item md={4} xs={12} className="text-right">
+                                  <Grid item md={3} xs={12}>
                                     <h5>교환추가 상품에 적용된 마일리지 지급 여부: </h5>
                                   </Grid>
-                                  <Grid item md={1} xs={12}>
+                                  <Grid item md={1} xs={12} className="align-items-center">
                                     <FormControlLabel
                                       control={
                                         <Checkbox
@@ -670,7 +670,7 @@ class OrderConfig extends React.Component {
                                       label="복원함"
                                     />
                                   </Grid>
-                                  <Grid item md={1} xs={12}>
+                                  <Grid item md={1} xs={12} className="align-items-center">
                                     <FormControlLabel
                                       control={
                                         <Checkbox
@@ -684,10 +684,10 @@ class OrderConfig extends React.Component {
                                   </Grid>
                                 </Grid>
                                 <Grid container md={12} xs={12}>
-                                  <Grid item md={4} xs={12} className="text-right">
+                                  <Grid item md={3} xs={12}>
                                     <h5>교환추가 상품에 적용된 쿠폰 마일리지 지급 여부: </h5>
                                   </Grid>
-                                  <Grid item md={1} xs={12}>
+                                  <Grid item md={1} xs={12} className="align-items-center">
                                     <FormControlLabel
                                       control={
                                         <Checkbox
@@ -700,7 +700,7 @@ class OrderConfig extends React.Component {
                                       label="복원함"
                                     />
                                   </Grid>
-                                  <Grid item md={1} xs={12}>
+                                  <Grid item md={1} xs={12} className="align-items-center">
                                     <FormControlLabel
                                       control={
                                         <Checkbox
@@ -720,10 +720,10 @@ class OrderConfig extends React.Component {
                               <TableCell>관리자 환불완료 시</TableCell>
                               <TableCell>
                                 <Grid container md={12} xs={12}>
-                                  <Grid item md={2} xs={12} className="text-right">
+                                  <Grid item md={2} xs={12}>
                                     <h5>재고 수량 복원 설정: </h5>
                                   </Grid>
-                                  <Grid item md={1} xs={12}>
+                                  <Grid item md={1} xs={12} className="align-items-center">
                                     <FormControlLabel
                                       control={
                                         <Checkbox
@@ -735,7 +735,7 @@ class OrderConfig extends React.Component {
                                       label="복원함"
                                     />
                                   </Grid>
-                                  <Grid item md={1} xs={12}>
+                                  <Grid item md={1} xs={12} className="align-items-center">
                                     <FormControlLabel
                                       control={
                                         <Checkbox
@@ -750,10 +750,10 @@ class OrderConfig extends React.Component {
                                   </Grid>
                                 </Grid>
                                 <Grid container md={12} xs={12}>
-                                  <Grid item md={2} xs={12} className="text-right">
+                                  <Grid item md={2} xs={12}>
                                     <h5>쿠폰 복원 설정: </h5>
                                   </Grid>
-                                  <Grid item md={1} xs={12}>
+                                  <Grid item md={1} xs={12} className="align-items-center">
                                     <FormControlLabel
                                       control={
                                         <Checkbox
@@ -765,7 +765,7 @@ class OrderConfig extends React.Component {
                                       label="복원함"
                                     />
                                   </Grid>
-                                  <Grid item md={1} xs={12}>
+                                  <Grid item md={1} xs={12} className="align-items-center">
                                     <FormControlLabel
                                       control={
                                         <Checkbox

@@ -218,7 +218,7 @@ class OperatorRole extends React.Component {
                 <Grid item md={2} xs={12} className="ml-20">
                   <Button
                       fullWidth
-                      size="small"
+                      size="medium"
                       variant="contained"
                       color="primary"
                       startIcon={<SearchIcon/>}
@@ -229,7 +229,7 @@ class OperatorRole extends React.Component {
 
             <Grid item md={12} xs={12} alignItems="right" className="mt-20">
               <Button
-                  size="small"
+                  size="medium"
                   variant="contained"
                   color="primary"
                   startIcon={<CreateIcon/>}
@@ -284,7 +284,7 @@ class OperatorRole extends React.Component {
                     </TableCell>
                     <TableCell align="center">
                       <Button
-                          size="small"
+                          size="medium"
                           variant="contained"
                           color="primary"
                           startIcon={<EditIcon/>}

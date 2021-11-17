@@ -431,7 +431,7 @@ class SignUp extends React.Component {
         return this.state.messageType === "success" ? (
             <form className={classes.form}>
                 <Alert variant="outlined" severity="success">
-                Aniborsso 세계를 만나세요! <br />
+                아니벌써 세계를 만나세요! <br />
                     먼저 이메일 인증을 해주세요. 등록하신 이메일 주소로 인증
                     링크를 보냈습니다. 확인 후 로그인하세요.
                 </Alert>
@@ -462,7 +462,7 @@ class SignUp extends React.Component {
                 </Typography>
                 <Typography color="textSecondary" gutterBottom>
                     {/* Use your email to create new account */}
-                    이메일을 사용하여 Aniborsso Partner 가입하기
+                    이메일을 사용하여 아니벌써 Partner 가입하기
                 </Typography>
                 <TextField
                     className={classes.textField}
@@ -686,7 +686,7 @@ class SignUp extends React.Component {
                     회원가입
                 </Button>
                 <Typography color="textSecondary" variant="body1">
-                    이미 Aniborsso 계정이 있으세요?{" "}
+                    이미 아니벌써 계정이 있으세요?{" "}
                     <Link component={RouterLink} to="/signin" variant="h6">
                         로그인
                     </Link>
