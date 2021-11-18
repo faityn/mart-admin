@@ -238,7 +238,7 @@ class Detail extends React.Component {
                         <h5>성인상품</h5>
                     </Grid>
                     <Grid container md={6} xs={12}>
-                        <Grid item md={2} xs={12}>
+                        <Grid item md={1} xs={12}>
                             <FormControlLabel
                                 control={
                                     <Checkbox

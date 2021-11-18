@@ -5,10 +5,9 @@ import Detail from "./Detail";
 import Option from "./Option";
 import Condition from "./Condition";
 import Search from "./Search";
+import SampleForm from './sample.xlsx';
 import Confirmation from "./Confirmation";
 import PageTitle from "../../../core/common/Partials/PageTitle";
-import StorefrontIcon from "@material-ui/icons/Storefront";
-import SaveIcon from "@material-ui/icons/Save";
 import { SAVE_PRODUCT, PRODUCT } from "../../Queries/Product";
 import { GET_SELLER_POLICY } from "../../Settings/Seller/Queries";
 import {
@@ -25,13 +24,20 @@ import {
     Select,
     MenuItem,
     Radio,
-    RadioGroup
+    RadioGroup,
+    Input,
 } from "@material-ui/core";
 import Fade from "@material-ui/core/Fade";
 import { withSnackbar } from "notistack";
 import validate from "validate.js";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+import StorefrontIcon from "@material-ui/icons/Storefront";
+import SaveIcon from "@material-ui/icons/Save";
+import TableIcon from "@material-ui/icons/ViewModule";
+import CodeIcon from "@material-ui/icons/List";
+import UploadIcon from "@material-ui/icons/CloudUpload";
+import SearchIcon from "@material-ui/icons/Search";
+import ResetIcon from "@material-ui/icons/Refresh";
 
 /**
  * @summary Product form
@@ -65,10 +71,9 @@ class Form extends React.Component {
         this.onProcessStart = this.onProcessStart.bind(this);
         this.onProcessEnd = this.onProcessEnd.bind(this);
         this.hasError = this.hasError.bind(this);
-        this.onChangeQuillDescription =
-            this.onChangeQuillDescription.bind(this);
+        this.onChangeQuillDescription = this.onChangeQuillDescription.bind(this);
         this.onChangeToSingleProduct = this.onChangeToSingleProduct.bind(this);    
-        this.onChangeToMultipleProduct = this.onChangeToMultipleProduct.bind(this);    
+        this.onChangeToMultipleProduct = this.onChangeToMultipleProduct.bind(this);   
 
         this._isMounted = false;
     }
@@ -659,10 +664,7 @@ class Form extends React.Component {
             description: value,
         });
     }
-
-    /**
-     * @override
-     */
+      
     render() {
         let isShowForm = !this.state.id || this.state.product;
 
@@ -890,7 +892,67 @@ class Form extends React.Component {
                                 </SwipeableViews>
                             </React.Fragment>) : (
                             <React.Fragment>
-                                
+                                <Grid container md={12} xs={12} className="align-items-center mt-20">
+                                    <Grid item md={2} xs={12}>
+                                        <InputLabel>엑셀 대량등록</InputLabel>
+                                    </Grid>
+                                    <Grid item md={2} xs={12}>
+                                        <a href={SampleForm} download="샘플양식.xlsx" target='_blank'>
+                                            <Button
+                                                fullWidth
+                                                size="medium"
+                                                variant="contained"
+                                                style={{border: "1px solid #0eb906", color: "#0eb906"}}
+                                                startIcon={<TableIcon/>}
+                                            >샘플양식 다운로드</Button>
+                                        </a>
+                                    </Grid>
+                                    <Grid item md={2} xs={12} style={{marginLeft: "1rem"}}>
+                                        <Button
+                                            fullWidth   
+                                            size="medium"
+                                            variant="contained"
+                                            style={{border: "1px solid #0b81d8", color: "#0b81d8"}}
+                                            startIcon={<CodeIcon/>}
+                                        >카테고리 코드 다운로드</Button>
+                                    </Grid>
+                                </Grid>
+                                <Grid container md={12} xs={12} className="mt-20 align-items-center">
+                                    <Grid item md={2} xs={12}>
+                                        <InputLabel>엑셀 업로드</InputLabel>
+                                    </Grid>
+                                    <Grid item md={1} xs={12}>
+                                        <label>
+                                            <Input accept=".xlsx, .xls" type="file" style={{display: "none"}} />
+                                            <Button 
+                                                fullWidth
+                                                component="span"
+                                                size="medium"
+                                                variant="contained"
+                                                style={{border: "1px solid #0eb906", color: "#0eb906"}}
+                                                startIcon={<SearchIcon/>}
+                                            >파일 찾기</Button>
+                                        </label>
+                                    </Grid>
+                                    <Grid item md={2} xs={12} style={{marginLeft: "1rem"}}>
+                                        <Button
+                                            fullWidth
+                                            size="medium"
+                                            variant="contained"
+                                            style={{border: "1px solid #0b81d8", color: "#0b81d8"}}
+                                            startIcon={<ResetIcon/>}
+                                        >업로드 파일 초기화</Button>
+                                    </Grid>
+                                    <Grid item md={2} xs={12} style={{marginLeft: "1rem"}}>
+                                        <Button
+                                            fullWidth
+                                            size="medium"
+                                            variant="contained"
+                                            color="primary"
+                                            startIcon={<UploadIcon/>}
+                                        >업로드 하기</Button>
+                                    </Grid>
+                                </Grid> 
                             </React.Fragment>
                             )} 
                                              

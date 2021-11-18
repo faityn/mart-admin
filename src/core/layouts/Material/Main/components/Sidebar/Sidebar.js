@@ -392,24 +392,6 @@ const Sidebar = (props) => {
                                     bgColor="#e8f0fe"
                                 />
                             </Link>
-                            <Link to="/supply-management">
-                                <StyledTreeItem
-                                    nodeId="215"
-                                    labelText="공급사(마트) 관리"
-                                    labelIcon={MenuIcon}
-                                    color="#1a73e8"
-                                    bgColor="#e8f0fe"
-                                />
-                            </Link>
-                            <Link to="/product-management">
-                                <StyledTreeItem
-                                    nodeId="216"
-                                    labelText="상품관리"
-                                    labelIcon={MenuIcon}
-                                    color="#1a73e8"
-                                    bgColor="#e8f0fe"
-                                />
-                            </Link>
                         </StyledTreeItem>
                         
                         <StyledTreeItem
@@ -441,7 +423,35 @@ const Sidebar = (props) => {
                             nodeId="4"
                             labelText="마트관리"
                             labelIcon={ShopIcon}
-                        />
+                        >
+                            <Link to="/supply-management">
+                                <StyledTreeItem
+                                    nodeId="411"
+                                    labelText="공급사(마트) 관리"
+                                    labelIcon={MenuIcon}
+                                    color="#1a73e8"
+                                    bgColor="#e8f0fe"
+                                />
+                            </Link>
+                            <Link to="/product-management">
+                                <StyledTreeItem
+                                    nodeId="412"
+                                    labelText="상품관리"
+                                    labelIcon={MenuIcon}
+                                    color="#1a73e8"
+                                    bgColor="#e8f0fe"
+                                />
+                            </Link>
+                            <Link to="/product-notice">
+                                <StyledTreeItem
+                                    nodeId="413"
+                                    labelText="상품문의"
+                                    labelIcon={MenuIcon}
+                                    color="#1a73e8"
+                                    bgColor="#e8f0fe"
+                                />
+                            </Link>
+                        </StyledTreeItem>
                         
                         <StyledTreeItem
                             nodeId="5"
@@ -473,20 +483,6 @@ const Sidebar = (props) => {
                             labelText="회원관리"
                             labelIcon={GroupIcon}
                         >
-                            <Link to="/user-question">
-                                <StyledTreeItem
-                                    nodeId="611"
-                                    labelText="상품문의"
-                                    labelIcon={GroupIcon}
-                                />
-                            </Link>
-                            <Link to="/user-review">
-                                <StyledTreeItem
-                                    nodeId="612"
-                                    labelText="리뷰관리"
-                                    labelIcon={GroupIcon}
-                                />
-                            </Link>
                         </StyledTreeItem>
                         
                         <StyledTreeItem
@@ -494,33 +490,31 @@ const Sidebar = (props) => {
                             labelText="고객 게시판"
                             labelIcon={NoticeIcon}
                         >
-                            <Link to="/user-notice">
+                            <Link to="/user-question">
                                 <StyledTreeItem
                                     nodeId="711"
+                                    labelText="상품문의"
+                                    labelIcon={GroupIcon}
+                                />
+                            </Link>
+                            <Link to="/user-review">
+                                <StyledTreeItem
+                                    nodeId="712"
+                                    labelText="리뷰관리"
+                                    labelIcon={GroupIcon}
+                                />
+                            </Link>
+                            <Link to="/user-notice">
+                                <StyledTreeItem
+                                    nodeId="713"
                                     labelText="게시판 리스트"
                                     labelIcon={NoticeIcon}
                                 />
                             </Link>
 
-                            <StyledTreeItem
-                                nodeId="712"
-                                labelText="고객문의사항"
-                                labelIcon={NoticeIcon}
-                            >
-                                <Link to="/product-notice">
-                                    <StyledTreeItem
-                                        nodeId="7121"
-                                        labelText="상품문의"
-                                        labelIcon={MenuIcon}
-                                        color="#1a73e8"
-                                        bgColor="#e8f0fe"
-                                    />
-                                </Link>
-                            </StyledTreeItem>
-
                             <Link to="/user-faq">
                                 <StyledTreeItem
-                                    nodeId="713"
+                                    nodeId="714"
                                     labelText="게시판 FAQ 관리"
                                     labelIcon={QuestionIcon}
                                 />

@@ -2,10 +2,6 @@ import React from "react";
 import Tree from "./Tree";
 import Form from "../Form/Form";
 import PageTitle from "../../../core/common/Partials/PageTitle";
-import MenuIcon from '@material-ui/icons/Menu';
-import UpIcon from '@material-ui/icons/ArrowUpward';
-import DownIcon from '@material-ui/icons/ArrowDownward';
-import DeleteIcon from '@material-ui/icons/Delete'
 import { connect } from "react-redux";
 import { withSnackbar } from "notistack";
 import { Grid, Button, CircularProgress, Divider } from "@material-ui/core";
@@ -13,6 +9,11 @@ import SaveIcon from "@material-ui/icons/Save";
 import { GET_CATEGORIES, SAVE_CATEGORY, CATEGORY } from "../Queries";
 import { DropzoneDialog } from "material-ui-dropzone";
 import validate from "validate.js";
+import MenuIcon from '@material-ui/icons/Menu';
+import UpIcon from '@material-ui/icons/ArrowUpward';
+import DownIcon from '@material-ui/icons/ArrowDownward';
+import DeleteIcon from '@material-ui/icons/Delete';
+import ExpandIcon from '@material-ui/icons/AllOut';
 
 /**
  * @summary Category Management
@@ -322,29 +323,26 @@ class Index extends React.Component {
           {/* Title section */}
           <Grid item xs={6}>
             <PageTitle
-              menuName="Category"
-              title="Category management"
+              menuName="카테고리 설정"
+              title="카테고리 설정"
               icon={<MenuIcon />}
             />
           </Grid>
-          {/* Title section */}
           <Grid item xs={6} className="text-right"></Grid>
         </Grid>
 
         <div className="card mt-20">
           <Grid container>
-            {/* Tree section */}
             <Grid item md={2} xs={12}>
               <Grid container>
                 <Grid item md={12} xs={12}>
                   <Button
-                    size="small"
+                    size="medium"
                     variant="contained"
                     color="primary"
                     onClick={this.onExpandAll.bind(this)}
-                  >
-                    Expand all
-                  </Button>
+                    startIcon={<ExpandIcon/>}
+                  >모두 펼치기</Button>
                 </Grid>
               </Grid>
 
@@ -360,43 +358,36 @@ class Index extends React.Component {
                 </Grid>
               </Grid>
 
-              <Grid container md={12} xs={12}>
-                <Grid item md={4} xs={12}>
+              <Grid container md={12} xs={12} className="mt-20">
+                <Grid item md={2} xs={12}>
                   <Button
                     size="small"
                     variant="contained"
                     color="primary"
-                    className="mt-20"
                     startIcon={<UpIcon/>}
                     style={{textAlign: "center"}}
                   ></Button>
                 </Grid>
-                <Grid item md={4} xs={12}>
+                <Grid item md={2} xs={12} style={{marginLeft: "10px"}}>
                   <Button
                     size="small"
                     variant="contained"
                     color="primary"
-                    className="mt-20"
-                    style={{textAlign: "center"}}
                     startIcon={<DownIcon/>}
                   ></Button>
                 </Grid>
-                <Grid item md={4} xs={12}>
+                <Grid item md={2} xs={12} style={{marginLeft: "10px"}}>
                   <Button
                     size="small"
                     variant="contained"
-                    className="mt-20"
-                    style={{backgroundColor: "#ff0000", color: "#fff", textAlign: "center"}}
+                    style={{backgroundColor: "#ff0000", color: "#fff"}}
                     startIcon={<DeleteIcon/>}
                   ></Button>
                 </Grid>
-                <Grid item md={4} xs={12}></Grid>
-                <Grid item md={4} xs={12}></Grid>
               </Grid>
             </Grid>
 
-            {/* Management section */}
-            <Grid item md={10} xs={12}>
+            <Grid item md={9} xs={12} style={{paddingLeft: "20px"}}>
               <form id="my-form-managemnt" onSubmit={this.onHandleSubmit}>
                 <Form
                   id={this.state.id}
@@ -418,7 +409,7 @@ class Index extends React.Component {
               <Button
                 form="my-form-managemnt"
                 variant="contained"
-                size="small"
+                size="medium"
                 color="primary"
                 type="submit"
                 disabled={this.state.isProcessing}
@@ -429,9 +420,7 @@ class Index extends React.Component {
                     <SaveIcon fontSize="small" className="mr-10" />
                   )
                 }
-              >
-                SAVE
-              </Button>
+              >저장</Button>
             </Grid>
           </Grid>
         </div>

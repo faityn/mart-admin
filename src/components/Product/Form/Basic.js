@@ -1,6 +1,6 @@
 import React from "react";
-import { Button, Grid, TextField, FormControlLabel, Checkbox, FormControl, InputLabel, Select, MenuItem, CardContent, Radio, RadioGroup, FormHelperText, Table,  TableBody, TableRow, TableCell, InputAdornment
-} from "@material-ui/core";
+import { Button, Grid, TextField, FormControlLabel, Checkbox, FormControl, InputLabel, Select, MenuItem, CardContent, Radio, 
+        RadioGroup, FormHelperText, Table,  TableBody, TableRow, TableCell, InputAdornment} from "@material-ui/core";
 import MuiAlert from "@material-ui/lab/Alert";
 import { DropzoneArea } from "material-ui-dropzone";
 import { GET_CATEGORIES, GET_PREMIUM_SERVICE } from "../Queries";
@@ -398,7 +398,7 @@ render() {
                     <TextField
                         fullWidth
                         id="name-basic"
-                        label="상품명"
+                        label="브랜드+스펙+크기+용량"
                         size="small"
                         variant="outlined"
                         placeholder="브랜드+스펙+크기+용량"
@@ -488,7 +488,7 @@ render() {
                 </Grid>
             </Grid>
 
-            {/* Delivery price container */}
+            {/*
             <Grid container spacing={3} className="align-items-center">
                 <Grid item md={2} xs={12}>
                     <h5>상품별 배송비</h5>
@@ -538,9 +538,9 @@ render() {
                 <Grid item md={2} xs={12} style={{textAlign: "left"}}>
                     <h5>이상 무료</h5>
                 </Grid>
-            </Grid>
+            </Grid> */}
             
-            {/* PrePaid container */}
+            {/* PrePaid container 
             <Grid container spacing={3} className="align-items-center">
                 <Grid item md={2} xs={12}>
                     <h5>결제방식</h5>
@@ -557,10 +557,10 @@ render() {
                         label="선결제"
                     />
                 </Grid>
-            </Grid>
+            </Grid>*/}
             
             {/* Refund/exchange container */}
-            <Grid container spacing={3} className="align-items-center">
+            <Grid container spacing={3} className="align-items-center mt-20">
                 <Grid item md={2} xs={12}>
                     <h5>반품/교환</h5>
                 </Grid>

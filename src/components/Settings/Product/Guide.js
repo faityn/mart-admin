@@ -2,13 +2,15 @@ import React from "react";
 import PageTitle from "../../../core/common/Partials/PageTitle";
 import { withSnackbar } from "notistack";
 import { connect } from "react-redux";
+import {Grid, Button, Table, TableBody, TableRow, TableCell, FormControl, TextField, Select, MenuItem, InputLabel, FormControlLabel, Checkbox,
+  Dialog, DialogTitle, DialogContent, DialogActions, Divider, TextareaAutosize} from "@material-ui/core";
 import SubjectIcon from '@material-ui/icons/Subject';
 import CreateIcon from '@material-ui/icons/Add';
 import CopyIcon from '@material-ui/icons/FileCopy';
 import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
-import { CircularProgress, Grid, Button, Table, TableBody, TableRow, TableCell, FormControl, TextField, Select, MenuItem, InputLabel, FormControlLabel, Checkbox, Switch,
-  Dialog, DialogTitle, DialogContent, DialogActions, Divider, TableFooter} from "@material-ui/core";
+import SaveIcon from '@material-ui/icons/Save';
+import CancelIcon from '@material-ui/icons/Cancel';
 
 class ProductGuide extends React.Component {
   /**
@@ -21,12 +23,32 @@ class ProductGuide extends React.Component {
     this.state = {
       isProcessing: false,
       text: null,
+      isOpenModal: false,
     };
 
     // Events
     this.onHandleSubmit = this.onHandleSubmit.bind(this);
+    this.onOpenModal = this.onOpenModal.bind(this);
 
     this._isMounted = false;
+  }
+
+  /**
+   * @summary Open box
+   * @param {event}
+   */
+  onOpenModal(e) {
+      this.setState({
+          isOpenModal: true,
+      });
+  }
+
+  /**
+   * @summary Close box
+   * @param {event}
+   */
+  onCloseModal() {
+      this.setState({ isOpenModal: false });
   }
 
   /**
@@ -114,10 +136,8 @@ class ProductGuide extends React.Component {
   render() {
     return (
       <React.Fragment>
-        {/* Title section */}
         <Grid container>
           <Grid item>
-            {/* Title */}
             <PageTitle
               menuName="상품 상세 이용안내 관리"
               title="상품 상세 이용안내 관리"
@@ -139,24 +159,35 @@ class ProductGuide extends React.Component {
                       size="width"
                       variant="contained"
                       color="primary"
+                      onClick={this.onOpenModal.bind(this)}
                       startIcon={<CreateIcon/>}
                   >사용자 추가</Button>
                 </Grid> 
               </Grid>
 
               <Divider />
+                    
+              <Grid container spacing={3} md={12} xs={12} style={{marginTop: "15px"}}>
+                  <Grid item md={12} xs={12} className="align-items-center">
+                      <Grid container>
+                          <Grid item md={2} xs={12}>
+                              <InputLabel>전체 <i style={{color: "#FF0000", fontStyle: "normal"}}><strong>0</strong></i> 개</InputLabel>
+                          </Grid>
+                      </Grid>
+                  </Grid>
+              </Grid>
 
               <Grid item md={12} xs={12} className="mt-20">
                 <Table className="order_table">
                   <TableBody>
                     <TableRow>
                       <TableCell align="center" width="5%">선택</TableCell>
-                      <TableCell align="center">번호</TableCell>
+                      <TableCell align="center" width="5%">번호</TableCell>
                       <TableCell align="center">이용안내 코드</TableCell>
                       <TableCell align="center">이용안내 종류</TableCell>
                       <TableCell align="center">이용안내 제목</TableCell>
                       <TableCell align="center">등록일</TableCell>
-                      <TableCell align="center">수정</TableCell>
+                      <TableCell align="center" width="10%">수정</TableCell>
                     </TableRow>
 
                     <TableRow>
@@ -217,22 +248,20 @@ class ProductGuide extends React.Component {
               </Grid>
               <Grid item spacing={2} md={12} xs={12}>
                 <Grid container>
-                  <Grid item md={3} xs={12} class="mt-20">
+                  <Grid item md={3} xs={12} class="mt-20 align-items-center">
                     <Button
                         fullWidth
                         size="width"
                         variant="contained"
-                        color="primary"
+                        style={{backgroundColor: "#0eb906", color: "#fff"}}
                         startIcon={<CopyIcon/>}
-                        style={{marginTop: "10px"}}
                     >선택 이용안내 복사</Button>
                   </Grid>
-                  <Grid item md={3} xs={12} class="mt-20" style={{marginLeft: "10px"}}>
+                  <Grid item md={3} xs={12} class="mt-20 align-items-center" style={{marginLeft: "10px"}}>
                     <Button
                         size="width"
                         variant="contained"
-                        color="primary"
-                        style={{marginTop: "10px", marginLeft: "10px"}}
+                        style={{backgroundColor: "#ff0000", color: "#fff"}}
                         startIcon={<DeleteIcon/>}
                     >선택 이용안내 삭제</Button>
                   </Grid>
@@ -241,6 +270,91 @@ class ProductGuide extends React.Component {
             </div>
           </Grid>
         </Grid>
+      
+        <Dialog open={this.state.isOpenModal} maxWidth="sm">
+            <DialogTitle>
+                <h4>이용안내 등록</h4>
+            </DialogTitle>
+
+            <Divider />
+
+            <DialogContent>
+              <Grid container>
+                <Grid container spacing={2} md={12} xs={12}>
+                  <Grid item md={3} xs={12} className="align-items-center">
+                    <h5>이용안내 코드</h5>
+                  </Grid>
+                  <Grid item md={9} xs={12} className="align-items-center">
+                    <TextField
+                        fullWidth
+                        size="small"
+                        variant="outlined"
+                    />
+                  </Grid>
+                </Grid>
+
+                <Grid spacing={2} container md={12} xs={12} className="mt-12"> 
+                  <Grid item md={3} xs={12} className="align-items-center">
+                    <h5>이용아내 종류</h5>
+                  </Grid>
+                  <Grid item md={9} xs={12} className="align-items-center">
+                    <FormControl
+                        size="small"
+                        fullWidth
+                        variant="outlined"
+                    >
+                      <InputLabel>이용아내 종류</InputLabel>
+                      <Select>
+                          <MenuItem value="">...</MenuItem>
+                      </Select>
+                    </FormControl>
+                  </Grid>
+                </Grid>
+
+                <Grid container spacing={2} md={12} xs={12} className="mt-12">
+                  <Grid item md={3} xs={12} className="align-items-center">
+                    <h5>이용안내 제목</h5>
+                  </Grid>
+                  <Grid item md={9} xs={12} className="align-items-center">
+                    <TextField
+                        fullWidth
+                        size="small"
+                        variant="outlined"
+                    />
+                  </Grid>
+                </Grid>
+
+                <Grid container spacing={2} md={12} xs={12} className="mt-12">
+                  <Grid item md={2} xs={12} className="align-items-center">
+                    <h5>내용</h5>
+                  </Grid>
+                  <Grid item md={12} xs={12} className="align-items-center">
+                    <TextareaAutosize minRows={10} style={{width: "100%"}} placeholder="내용" />
+                  </Grid>
+                </Grid>
+              </Grid>
+            </DialogContent>
+
+            <Divider />
+
+            <DialogActions>
+              <Button
+                  size="medium"
+                  variant="contained"
+                  color="primary"
+                  startIcon={<SaveIcon/>}
+                  style={{marginRight: "5px"}}
+              >저장</Button>
+              <Button
+                  size="medium"
+                  variant="outlined"
+                  style={{backgroundColor: "#fff", color: "#000"}}
+                  startIcon={<CancelIcon/>}
+                  style={{marginLeft: "5px"}}
+                  onClick={this.onCloseModal.bind(this)}
+              >취소</Button>
+            </DialogActions>
+        </Dialog>
       </React.Fragment>
     );
   }

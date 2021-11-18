@@ -2,12 +2,14 @@ import React from "react";
 import PageTitle from "../../../core/common/Partials/PageTitle";
 import { withSnackbar } from "notistack";
 import { connect } from "react-redux";
+import { Grid, Button, Table, TableBody, TableRow, TableCell, FormControl, TextField, Select, MenuItem, InputLabel, FormControlLabel, Checkbox, Switch,
+  Dialog, DialogTitle, DialogContent, DialogActions, Divider} from "@material-ui/core";
 import SubjectIcon from '@material-ui/icons/Subject';
 import CreateIcon from '@material-ui/icons/Add';
 import SearchIcon from '@material-ui/icons/Search';
 import EditIcon from '@material-ui/icons/Edit';
-import { CircularProgress, Grid, Button, Table, TableBody, TableRow, TableCell, FormControl, TextField, Select, MenuItem, InputLabel, FormControlLabel, Checkbox, Switch,
-  Dialog, DialogTitle, DialogContent, DialogActions, Divider} from "@material-ui/core";
+import CancelIcon from '@material-ui/icons/Cancel';
+import SaveIcon from '@material-ui/icons/Save';
 
 class Operator extends React.Component {
   /**
@@ -178,9 +180,8 @@ class Operator extends React.Component {
                       size="small"
                       fullWidth
                       variant="outlined"
-                      defaultValue=""
                   >
-                    <InputLabel>고른</InputLabel>
+                    <InputLabel>사용함</InputLabel>
                     <Select>
                         <MenuItem value="1">사용함</MenuItem>
                         <MenuItem value="0">사용 안함</MenuItem>
@@ -193,7 +194,7 @@ class Operator extends React.Component {
                 <Grid item md={2} xs={12} className="align-items-center">
                     <h5>검색</h5>
                 </Grid>
-                <Grid item md={2} sm={4} xs={12}>
+                <Grid item md={3} sm={4} xs={12}>
                   <FormControl
                       size="small"
                       fullWidth
@@ -215,10 +216,10 @@ class Operator extends React.Component {
                         variant="outlined"
                     />
                 </Grid>
-                <Grid item md={2} xs={12} className="ml-20">
+                <Grid item md={2} xs={12} style={{paddingLeft: "10px"}}>
                   <Button
                       fullWidth
-                      size="small"
+                      size="medium"
                       variant="contained"
                       color="primary"
                       startIcon={<SearchIcon/>}
@@ -229,7 +230,7 @@ class Operator extends React.Component {
 
             <Grid item md={12} xs={12} alignItems="right" className="mt-20">
               <Button
-                  size="small"
+                  size="medium"
                   variant="contained"
                   color="primary"
                   startIcon={<CreateIcon/>}
@@ -241,8 +242,8 @@ class Operator extends React.Component {
               <Table className="order_table">
                 <TableBody>
                   <TableRow>
-                    <TableCell align="center">No.</TableCell>
-                    <TableCell align="center">선택</TableCell>
+                    <TableCell align="center" width="5%">No.</TableCell>
+                    <TableCell align="center" width="5%">선택</TableCell>
                     <TableCell align="center">사용자등급</TableCell>
                     <TableCell align="center">소속</TableCell>
                     <TableCell align="center">사용자명</TableCell>
@@ -250,7 +251,7 @@ class Operator extends React.Component {
                     <TableCell align="center">연락처</TableCell>
                     <TableCell align="center">휴대폰</TableCell>
                     <TableCell align="center">상태</TableCell>
-                    <TableCell align="center">관리</TableCell>
+                    <TableCell align="center" width="10%">관리</TableCell>
                   </TableRow>
 
                   <TableRow>
@@ -264,6 +265,7 @@ class Operator extends React.Component {
                             value={true}
                           />
                         }
+                        style={{marginLeft: "18%"}}
                       /></TableCell>
                     <TableCell align="center">최고운영자</TableCell>
                     <TableCell align="center">아니벌써</TableCell>
@@ -427,17 +429,24 @@ class Operator extends React.Component {
                 <DialogActions>
                     <Button
                         autoFocus
-                        onClick={this.onCloseModal.bind(this)}
+                        size="small"
+                        variant="contained"
+                        color="primary"
+                        form="product-form"
+                        type="submit"
+                        startIcon={<SaveIcon/>}
                     >
-                        닫기
+                        저장
                     </Button>
                     <Button
                         autoFocus
-                        form="product-form"
-                        type="submit"
-                        color="primary"
+                        size="small"
+                        variant="contained"
+                        style={{ border: "1px solid #cccbcb" }}
+                        startIcon={<CancelIcon/>}
+                        onClick={this.onCloseModal.bind(this)}
                     >
-                        저장
+                        닫기
                     </Button>
                 </DialogActions>
             </Dialog>

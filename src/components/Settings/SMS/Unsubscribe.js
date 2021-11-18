@@ -126,36 +126,38 @@ class OperatorRole extends React.Component {
         <Grid container>
           <Grid item md={12}>
             <div className="card mt-20">
-            <Grid container spacing={2} md={12} xs={12}>
-              <Grid container spacing={2} alignItems="center" md={8} xs={12}>
-                <Grid item md={2} xs={12} className="align-items-center">
-                    <h5>수신거부 번호</h5>
-                </Grid>
-                <Grid item md={6} sm={4} xs={12}>
-                  <TextField
-                      fullWidth
-                      label="번호"
-                      size="small"
-                      variant="outlined"
-                  />
-                </Grid>
-              </Grid> 
-              <Grid item md={1} xs={12} style={{textAlign: "center"}}>
-                <Button
-                    size="medium"
-                    variant="contained"
-                    color="primary"
-                    startIcon={<SearchIcon/>}
-                >검색</Button>
-              </Grid>  
-              <Grid item md={2} xs={12} style={{textAlign: "center"}}>
-                <Button
-                    size="medium"
-                    variant="contained"
-                    color="primary"
-                    startIcon={<FilterIcon/>}
-                >수동동기화</Button>
-              </Grid> 
+            <Grid item spacing={2} md={12} xs={12}>
+              <Grid container>
+                <Grid container spacing={2} md={8} xs={12} className="align-items-center">
+                  <Grid item md={2} xs={12}>
+                      <h5>수신거부 번호</h5>
+                  </Grid>
+                  <Grid item md={6} sm={4} xs={12}>
+                    <TextField
+                        fullWidth
+                        label="번호"
+                        size="small"
+                        variant="outlined"
+                    />
+                  </Grid>
+                  <Grid item md={2} xs={12} style={{marginLeft: "10px"}}>
+                    <Button
+                        size="medium"
+                        variant="contained"
+                        color="primary"
+                        startIcon={<SearchIcon/>}
+                    >검색</Button>
+                  </Grid>  
+                </Grid> 
+                <Grid item md={2} xs={12}></Grid>
+                <Grid item md={2} xs={12} style={{textAlign: "right"}} className="align-items-center">
+                  <Button
+                      size="medium"
+                      variant="contained"
+                      color="primary"
+                      startIcon={<FilterIcon/>}>수동동기화</Button>
+                </Grid> 
+              </Grid>
             </Grid>
 
             <Grid item md={12} xs={12} className="mt-20">

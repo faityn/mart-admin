@@ -9,7 +9,8 @@ import SwipeableViews from 'react-swipeable-views';
 import Paper from '@material-ui/core/Paper';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-import { Grid, Button, Table, TableBody, TableRow, TableCell, FormControl, TextField, Select, MenuItem, Link} from "@material-ui/core";
+import { Grid, Button, Table, TableBody, TableRow, TableCell, TextField, CardContent} from "@material-ui/core";
+import PaginationMaterial from '@material-ui/lab/Pagination';
 
 class LoginHistory extends React.Component {
   /**
@@ -275,86 +276,116 @@ class LoginHistory extends React.Component {
                   </Tabs> 
                 </Paper>
                 <SwipeableViews index={this.state.value}> 
-                  <div value={this.state.value} index={0} className="mt-20">
-                    <Table className="order_table">
-                      <TableBody>
-                        <TableRow>
-                          <TableCell className="text-center">접속일시</TableCell>
-                          <TableCell className="text-center">접속IP</TableCell>
-                          <TableCell className="text-center">운영자 아이디</TableCell>
-                          <TableCell className="text-center">메뉴구분</TableCell>
-                          <TableCell className="text-center">접속페이지(개인정보관련)</TableCell>
-                          <TableCell className="text-center" width="10%">수행업무</TableCell>
-                        </TableRow>
-                        <TableRow>
-                          <TableCell>2021-02-18 16:10:22</TableCell>
-                          <TableCell>000.000.00.000</TableCell>
-                          <TableCell>ceo001</TableCell>
-                          <TableCell>회원</TableCell>
-                          <TableCell>회원리스트</TableCell>
-                          <TableCell>
-                            <Button
-                                fullWidth
-                                size="medium"
-                                variant="contained"  
-                                color="primary"
-                                startIcon={<ViewIcon/>}>조회</Button>
-                          </TableCell>
-                        </TableRow>
-                      </TableBody>
-                    </Table>
+                  <div value={this.state.value} index={0}>
+                    <CardContent>
+                      <Grid container spacing={3} md={12} xs={12} className="mt-20">
+                        <Table className="order_table">
+                          <TableBody>
+                            <TableRow>
+                              <TableCell className="text-center">접속일시</TableCell>
+                              <TableCell className="text-center">접속IP</TableCell>
+                              <TableCell className="text-center">운영자 아이디</TableCell>
+                              <TableCell className="text-center">메뉴구분</TableCell>
+                              <TableCell className="text-center">접속페이지(개인정보관련)</TableCell>
+                              <TableCell className="text-center" width="10%">수행업무</TableCell>
+                            </TableRow>
+                            <TableRow>
+                              <TableCell>2021-02-18 16:10:22</TableCell>
+                              <TableCell>000.000.00.000</TableCell>
+                              <TableCell>ceo001</TableCell>
+                              <TableCell>회원</TableCell>
+                              <TableCell>회원리스트</TableCell>
+                              <TableCell>
+                                <Button
+                                    fullWidth
+                                    size="medium"
+                                    variant="contained"  
+                                    color="primary"
+                                    startIcon={<ViewIcon/>}>조회</Button>
+                              </TableCell>
+                            </TableRow>
+                          </TableBody>
+                        </Table>
+                      </Grid>
+
+                      <Grid container spacing={3} md={12} xs={12} className="mt-20">
+                          <Grid item md={12} xs={12} className="align-items-center text-center">
+                              <PaginationMaterial count={10} color="primary" />
+                          </Grid>
+                      </Grid>
+                    </CardContent>
                   </div>
-                  <div value={this.state.value} index={1} className="mt-20">
-                    <Table className="order_table">
-                      <TableBody>
-                        <TableRow>
-                          <TableCell className="text-center">접속일시</TableCell>
-                          <TableCell className="text-center">접속IP</TableCell>
-                          <TableCell className="text-center">운영자 아이디</TableCell>
-                          <TableCell className="text-center">접속페이지(개인정보관련)</TableCell>
-                          <TableCell className="text-center" width="10%">수행업무</TableCell>
-                        </TableRow>
-                        <TableRow>
-                          <TableCell>2021-02-18 16:10:22</TableCell>
-                          <TableCell>000.000.00.000</TableCell>
-                          <TableCell>ceo002</TableCell>
-                          <TableCell>회원리스트</TableCell>
-                          <TableCell>
-                            <Button
-                                fullWidth
-                                size="medium"
-                                variant="contained"  
-                                color="primary"
-                                startIcon={<ViewIcon/>}>조회</Button>
-                          </TableCell>
-                        </TableRow>
-                      </TableBody>
-                    </Table>
+                  <div value={this.state.value} index={1}>
+                    <CardContent>
+                      <Grid container spacing={3} md={12} xs={12} className="mt-20">
+                        <Table className="order_table">
+                          <TableBody>
+                            <TableRow>
+                              <TableCell className="text-center">접속일시</TableCell>
+                              <TableCell className="text-center">접속IP</TableCell>
+                              <TableCell className="text-center">운영자 아이디</TableCell>
+                              <TableCell className="text-center">접속페이지(개인정보관련)</TableCell>
+                              <TableCell className="text-center" width="10%">수행업무</TableCell>
+                            </TableRow>
+                            <TableRow>
+                              <TableCell>2021-02-18 16:10:22</TableCell>
+                              <TableCell>000.000.00.000</TableCell>
+                              <TableCell>ceo002</TableCell>
+                              <TableCell>회원리스트</TableCell>
+                              <TableCell>
+                                <Button
+                                    fullWidth
+                                    size="medium"
+                                    variant="contained"  
+                                    color="primary"
+                                    startIcon={<ViewIcon/>}>조회</Button>
+                              </TableCell>
+                            </TableRow>
+                          </TableBody>
+                        </Table>
+                      </Grid>
+
+                      <Grid container spacing={3} md={12} xs={12} className="mt-20">
+                          <Grid item md={12} xs={12} className="align-items-center text-center">
+                              <PaginationMaterial count={10} color="primary" />
+                          </Grid>
+                      </Grid>
+                    </CardContent>
                   </div>  
-                  <div value={this.state.value} index={2} className="mt-20">
-                    <Table className="order_table">
-                      <TableBody>
-                        <TableRow>
-                          <TableCell className="text-center">접속일시</TableCell>
-                          <TableCell className="text-center">접속IP</TableCell>
-                          <TableCell className="text-center">운영자 아이디</TableCell>
-                          <TableCell className="text-center" width="10%">수행업무</TableCell>
-                        </TableRow>
-                        <TableRow>
-                          <TableCell>2021-02-18 16:10:22</TableCell>
-                          <TableCell>000.000.00.000</TableCell>
-                          <TableCell>ceo002</TableCell>
-                          <TableCell>
-                            <Button
-                                fullWidth
-                                size="medium"
-                                variant="contained"  
-                                color="primary"
-                                startIcon={<ViewIcon/>}>조회</Button>
-                          </TableCell>
-                        </TableRow>
-                      </TableBody>
-                    </Table>
+                  <div value={this.state.value} index={2}>
+                    <CardContent>
+                      <Grid container spacing={3} md={12} xs={12} className="mt-20">
+                        <Table className="order_table">
+                          <TableBody>
+                            <TableRow>
+                              <TableCell className="text-center">접속일시</TableCell>
+                              <TableCell className="text-center">접속IP</TableCell>
+                              <TableCell className="text-center">운영자 아이디</TableCell>
+                              <TableCell className="text-center" width="10%">수행업무</TableCell>
+                            </TableRow>
+                            <TableRow>
+                              <TableCell>2021-02-18 16:10:22</TableCell>
+                              <TableCell>000.000.00.000</TableCell>
+                              <TableCell>ceo002</TableCell>
+                              <TableCell>
+                                <Button
+                                    fullWidth
+                                    size="medium"
+                                    variant="contained"  
+                                    color="primary"
+                                    startIcon={<ViewIcon/>}>조회</Button>
+                              </TableCell>
+                            </TableRow>
+                          </TableBody>
+                        </Table>
+                      </Grid>
+
+                      <Grid container spacing={3} md={12} xs={12} className="mt-20">
+                          <Grid item md={12} xs={12} className="align-items-center text-center">
+                              <PaginationMaterial count={10} color="primary" />
+                          </Grid>
+                      </Grid>
+                    </CardContent>
                   </div>
                 </SwipeableViews>
               </Grid>        

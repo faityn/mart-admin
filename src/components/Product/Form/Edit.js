@@ -2,7 +2,7 @@ import React from "react";
 import { withSnackbar } from "notistack";
 import { connect } from "react-redux";
 import PageTitle from "../../../core/common/Partials/PageTitle";
-import { Grid, TextField, Button, FormControl, Select, MenuItem, InputLabel, InputAdornment, Table, TableBody, TableRow, TableCell, Link, FormControlLabel, Checkbox} from "@material-ui/core";
+import { Grid, TextField, Button, FormControl, Select, MenuItem, InputLabel, InputAdornment, Table, TableBody, TableRow, TableCell, Link, FormControlLabel, Checkbox, IconButton} from "@material-ui/core";
 import PaginationMaterial from "@material-ui/lab/Pagination";
 import SubjectIcon from '@material-ui/icons/Subject';
 import SearchIcon from '@material-ui/icons/Search';
@@ -11,6 +11,7 @@ import UpIcon from '@material-ui/icons/ArrowUpward';
 import DownloadIcon from '@material-ui/icons/CloudDownload';
 import EditIcon from '@material-ui/icons/Edit';
 import CopyIcon from '@material-ui/icons/FileCopy';
+import DeleteIcon from '@material-ui/icons/Delete';
 import { GET_CATEGORIES } from "../Queries";
 
 class Edit extends React.Component {
@@ -461,7 +462,7 @@ class Edit extends React.Component {
                             <h5>자료 수 : 총<i style={{color: "#ff0000", fontStyle: "normal"}}><strong> 0 </strong></i>건</h5>
                         </Grid>
                             
-                        <Grid item md={11} xs={12} className="align-items-center">
+                        <Grid item md={10} xs={12} className="align-items-center">
                             <Grid container>
                                 <Grid item md={2} xs={12} className="align-items-center">
                                     <FormControl size="small" fullWidth variant="outlined">
@@ -471,22 +472,23 @@ class Edit extends React.Component {
                                         </Select>
                                     </FormControl>
                                 </Grid>
-                                <Grid item md={1} xs={12} className="align-items-center">
+                                <Grid item md={1} xs={12} className="align-items-center" style={{marginLeft: "10px"}}>
                                     <FormControl size="small" fullWidth variant="outlined">
                                         <InputLabel>100개</InputLabel>
-                                        <Select>
+                                        <Select>    
                                             <MenuItem value="">...</MenuItem>
                                         </Select>
                                     </FormControl>
                                 </Grid>
-                                <Grid item md={1} xs={12} className="align-items-center">
+                                <Grid item md={2} xs={12} className="align-items-center" style={{marginLeft: "10px"}}>
                                     <Button
                                         fullWidth
                                         size="medium"
                                         variant="contained" 
-                                        style={{border: "1px solid #cccbcb"}}
+                                        style={{border: "1px solid #0eb906", color: "#0eb906"}}
                                         startIcon={<DownloadIcon/>}>엑셀다운</Button>
                                 </Grid>
+                                {/*
                                 <Grid item md={1} xs={12} className="align-items-center">
                                     <Button
                                         fullWidth
@@ -538,7 +540,7 @@ class Edit extends React.Component {
                                         size="medium"
                                         variant="contained" 
                                         color="primary">수정저장</Button>
-                                </Grid>
+                                </Grid> */}
                             </Grid>
                         </Grid>                                                        
                     </Grid>
@@ -549,20 +551,22 @@ class Edit extends React.Component {
                                 <TableBody>
                                     <TableRow>
                                         <TableCell className="text-center" width="3%"><strong>No.</strong></TableCell>
-                                        <TableCell className="text-center" width="3%"><strong>선택</strong></TableCell>
-                                        <TableCell className="text-center" width="3%"><strong>수정</strong></TableCell>
-                                        <TableCell className="text-center" width="3%"><strong>복사</strong></TableCell>
-                                        <TableCell className="text-center" width="4%"><strong>상품번호</strong></TableCell>
-                                        <TableCell className="text-center" width="4%"><strong>상품 바코드</strong></TableCell>
-                                        <TableCell className="text-center" width="4%"><strong>카테고리</strong></TableCell>
+                                        <TableCell className="text-center" width="2%"><strong>선택</strong></TableCell>
+                                        <TableCell className="text-center" width="5%"><strong>복사</strong></TableCell>
+                                        <TableCell className="text-center" width="6%"><strong>상품번호</strong></TableCell>
+                                        <TableCell className="text-center" width="6%"><strong>상품 바코드</strong></TableCell>
+                                        <TableCell className="text-center" width="10%"><strong>카테고리</strong></TableCell>
                                         <TableCell className="text-center" width="10%"><strong>상품명</strong></TableCell>
-                                        <TableCell className="text-center" width="4%"><strong>판매상태</strong></TableCell>
-                                        <TableCell className="text-center" width="4%"><strong>판매가</strong></TableCell>
-                                        <TableCell className="text-center" width="4%"><strong>가이드판매가</strong></TableCell>
-                                        <TableCell className="text-center" width="4%"><strong>할인가</strong></TableCell>
-                                        <TableCell className="text-center" width="4%"><strong>수수료(%)</strong></TableCell>
-                                        <TableCell className="text-center" width="4%"><strong>재고수량</strong></TableCell>
-                                        <TableCell className="text-center" width="4%"><strong>상세설명</strong></TableCell>
+                                        <TableCell className="text-center" width="6%"><strong>브랜드명</strong></TableCell>
+                                        <TableCell className="text-center" width="7%"><strong>판매상태</strong></TableCell>
+                                        <TableCell className="text-center" width="6%"><strong>판매가</strong></TableCell>
+                                        <TableCell className="text-center" width="8%"><strong>가이드판매가</strong></TableCell>
+                                        <TableCell className="text-center" width="7%"><strong>할인가</strong></TableCell>
+                                        <TableCell className="text-center" width="7%"><strong>수수료(%)</strong></TableCell>
+                                        <TableCell className="text-center" width="7%"><strong>재고수량</strong></TableCell>
+                                        <TableCell className="text-center" width="5%"><strong>상품등록일</strong></TableCell>
+                                        <TableCell className="text-center" width="5%"><strong>최종수정일</strong></TableCell>
+                                        <TableCell className="text-center" width="3%"><strong>행위</strong></TableCell>
                                     </TableRow>
 
                                     <TableRow>
@@ -583,27 +587,24 @@ class Edit extends React.Component {
                                                 size="small"
                                                 variant="contained"
                                                 color="primary"
-                                                startIcon={<EditIcon />}
-                                            >수정</Button></TableCell>
-                                        <TableCell className="text-center">
-                                            <Button
-                                                size="small"
-                                                variant="contained"
-                                                color="primary"
-                                                startIcon={<CopyIcon />}
-                                            >복사</Button></TableCell>
+                                                startIcon={<CopyIcon />}>복사</Button></TableCell>
                                         <TableCell className="text-center">2020102548</TableCell>
                                         <TableCell className="text-center">8808945190</TableCell>
                                         <TableCell className="text-center">식품&gt;면류&gt;라면</TableCell>
                                         <TableCell className="text-center">신라면 20개입 1박스..</TableCell>
+                                        <TableCell className="text-center">농심</TableCell>
                                         <TableCell className="text-center">판매 중</TableCell>
                                         <TableCell className="text-center">20,000</TableCell>
                                         <TableCell className="text-center">17,500</TableCell>
                                         <TableCell className="text-center"></TableCell>
                                         <TableCell className="text-center">9</TableCell>
                                         <TableCell className="text-center">50</TableCell>
+                                        <TableCell className="text-center">2021.01.01 10:00:23</TableCell>
+                                        <TableCell className="text-center">2021.02.01 14:23:58</TableCell>
                                         <TableCell className="text-center">
-                                            <Link>상세보기</Link></TableCell>
+                                            <IconButton color="primary"><EditIcon /></IconButton>
+                                            <IconButton style={{color: "#ff0000"}}><DeleteIcon /></IconButton>
+                                        </TableCell>
                                     </TableRow>
 
                                     <TableRow>
@@ -624,27 +625,25 @@ class Edit extends React.Component {
                                                 size="small"
                                                 variant="contained"
                                                 color="primary"
-                                                startIcon={<EditIcon />}
-                                            >수정</Button></TableCell>
-                                        <TableCell className="text-center">
-                                            <Button
-                                                size="small"
-                                                variant="contained"
-                                                color="primary"
                                                 startIcon={<CopyIcon />}
                                             >복사</Button></TableCell>
                                         <TableCell className="text-center">2020109488</TableCell>
                                         <TableCell className="text-center">8841414587</TableCell>
                                         <TableCell className="text-center">식품&gt;면류&gt;라면</TableCell>
                                         <TableCell className="text-center">신라면 50개입 1박스..</TableCell>
+                                        <TableCell className="text-center">농심</TableCell>
                                         <TableCell className="text-center">판매 중</TableCell>
                                         <TableCell className="text-center">20,000</TableCell>
                                         <TableCell className="text-center">18,500</TableCell>
                                         <TableCell className="text-center"></TableCell>
                                         <TableCell className="text-center">9</TableCell>
                                         <TableCell className="text-center">150</TableCell>
+                                        <TableCell className="text-center">2021.01.01 10:00:23</TableCell>
+                                        <TableCell className="text-center">2021.02.01 14:23:58</TableCell>
                                         <TableCell className="text-center">
-                                            <Link>상세보기</Link></TableCell>
+                                            <IconButton color="primary"><EditIcon /></IconButton>
+                                            <IconButton style={{color: "#ff0000"}}><DeleteIcon /></IconButton>
+                                        </TableCell>
                                     </TableRow>
                                 </TableBody>
                             </Table>

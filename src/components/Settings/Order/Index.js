@@ -2,9 +2,9 @@ import React from "react";
 import PageTitle from "../../../core/common/Partials/PageTitle";
 import { withSnackbar } from "notistack";
 import { connect } from "react-redux";
+import { CircularProgress, Grid, Button, Table, TableBody, TableRow, TableCell, FormControlLabel, Checkbox} from "@material-ui/core";
 import SaveIcon from "@material-ui/icons/Save";
 import SubjectIcon from '@material-ui/icons/Subject';
-import { CircularProgress, Grid, Button, Table, TableBody, TableRow, TableCell, TextField, FormControlLabel, Checkbox, Radio} from "@material-ui/core";
 
 class OrderConfig extends React.Component {
   /**
@@ -131,6 +131,7 @@ class OrderConfig extends React.Component {
                     <Grid item md={12} xs={12}>
                       <h5>주문 기본 설정</h5>
                     </Grid>
+                    {/*
                     <Grid container spacing={3}>
                       <Grid item md={12} xs={12}>
                         <Table className="mail_table">
@@ -788,6 +789,47 @@ class OrderConfig extends React.Component {
                             <h5>* 주문 클레임 처리 시 재고, 쿠폰복원 등 처리방안의 기본 선택 값을 설정할 수 있으며, 클레임 처리 화면 접근 시 설정한 값이 기본으로 선택되어 노출.</h5>
                           </Grid>
                         </Grid>
+                      </Grid>
+                    </Grid>*/}
+
+<Grid container spacing={3}>
+                      <Grid item md={12} xs={12}>
+                        <Table className="mail_table">
+                          <TableBody>
+                            <TableRow>
+                              <TableCell>자동구매확정</TableCell>
+                              <TableCell>
+                                <Grid container md={12} xs={12}>
+                                  <Grid item md={5} xs={12}>
+                                    <FormControlLabel
+                                      control={
+                                        <Checkbox
+                                          name="active"
+                                          color="primary"
+                                          value={true}
+                                          defaultChecked={true}
+                                        />
+                                      }
+                                      label="’배송완료’로 주문상태 변경한 뒤  [ 3 ]일 후 '구매확인'으로 자동 주문상태 변경"
+                                    />
+                                  </Grid>
+                                  <Grid item md={2} xs={12}>
+                                    <FormControlLabel
+                                      control={
+                                        <Checkbox
+                                          name="active"
+                                          color="primary"
+                                          value={false}
+                                        />
+                                      }
+                                      label="사용 안함"
+                                    />
+                                  </Grid>
+                                </Grid>
+                              </TableCell>
+                            </TableRow>
+                          </TableBody>
+                        </Table>
                       </Grid>
                     </Grid>
                 </Grid>

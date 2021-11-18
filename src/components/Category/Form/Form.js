@@ -1,21 +1,20 @@
 import React from "react";
 import {
-  Avatar,
   Grid,
-  Badge,
   CardContent,
   FormControlLabel,
   FormControl,
   InputLabel,
   Checkbox,
   Select,
+  MenuItem,
   Button,
   TextField,
   LinearProgress,
   Card,
   CardHeader,
   IconButton,
-  FormHelperText,
+  FormHelperText
 } from "@material-ui/core";
 import DeleteForeverIcon from "@material-ui/icons/DeleteForever";
 import ImageIcon from '@material-ui/icons/Image';
@@ -321,16 +320,15 @@ class Form extends React.Component {
       <CardContent key={data.id}>
         <input type="hidden" name="id" value={data.id} />
         <input type="hidden" name="image" value={data.imageUrl} />
-        {/* Container */}
         <Grid container spacing={1} className="align-items-center">
           <Grid item md={2} xs={12}>
-            <h5>Category name</h5>
+            <h5>카테고리명</h5>
           </Grid>
           <Grid item md={7} xs={12}>
             <TextField
               fullWidth
               id="name-basic"
-              label="Name is here"
+              placeholder="카테고리명"
               size="small"
               variant="outlined"
               name="name"
@@ -353,59 +351,59 @@ class Form extends React.Component {
                   defaultChecked={data.active === true ? false : true}
                 />
               }
-              label="Category hidden"
+              label="카테고리 숨김"
             />
           </Grid>
         </Grid>
 
-        {/* Container */}
-        <Grid container spacing={1} className="mt-20 align-items-center">
+        <Grid container spacing={1} className="align-items-center">
           <Grid item md={2} xs={12}>
-            <h5>Classification location</h5>
+            <h5>카테고리 위치</h5>
+          </Grid>
+          
+          <Grid container md={10} xs={12}>
+            <Grid item md={4} xs={12}>
+                <FormControl size="small" fullWidth variant="outlined">
+                    <InputLabel>1차 카테고리</InputLabel>
+                    <Select label="1차 카테고리" name="firstCategory">
+                        <MenuItem value="">...</MenuItem>
+                    </Select>
+                </FormControl>
+            </Grid>
+            
+            <Grid item md={4} xs={12} style={{paddingLeft: "10px"}}>
+                <FormControl size="small" fullWidth variant="outlined">
+                    <InputLabel>2차 카테고리</InputLabel>
+                    <Select label="2차 카테고리" name="secondCategory">
+                        <MenuItem value="">...</MenuItem>
+                    </Select>
+                </FormControl>
+            </Grid>
+            
+            <Grid item md={4} xs={12} style={{paddingLeft: "10px"}}>
+                <FormControl size="small" fullWidth variant="outlined">
+                    <InputLabel>3차 카테고리</InputLabel>
+                    <Select label="3차 카테고리" name="thirdCategory">
+                        <MenuItem value="">...</MenuItem>
+                    </Select>
+                </FormControl>
+            </Grid>
+          </Grid>
+        </Grid>
+
+        <Grid container spacing={1} className="align-items-center">
+          <Grid item md={2} xs={12}>
+            <h5>페이지 주소(외부)</h5>
           </Grid>
           <Grid item md={7} xs={12}>
-            <FormControl size="small" fullWidth variant="outlined">
-              <InputLabel id="grouped-native-select">Select</InputLabel>
-              <Select
-                native
-                labelId="grouped-native-select"
-                id="demo-simple-select-outlined"
-                label="Select"
-                name="parentId"
-                onChange={this.onChangeCategory}
-                defaultValue={data.parentId}
-              >
-                <option aria-label="None" value="0">
-                  None
-                </option>
-
-                <optgroup label="Category 1">
-                  {(categories.first || []).map((category, index) => {
-                    return (
-                      <option key={index} value={category.id}>
-                        {category.name}
-                      </option>
-                    );
-                  })}
-                </optgroup>
-                <optgroup label="Category 2">
-                  {(categories.second || []).map((category, index) => {
-                    return (
-                      <option key={index} value={category.id}>
-                        {category.name}
-                      </option>
-                    );
-                  })}
-                </optgroup>
-              </Select>
-            </FormControl>
+            <InputLabel>http://www.naver.co.kr/?pn=product.list&cuid=206 </InputLabel>
           </Grid>
         </Grid>
 
         <Grid container className="mt-20 align-items-center">
           <input type="hidden" name="icon" value={this.state.icon} />
           <Grid item md={2} xs={12}>
-            <h5>Icon image</h5>
+            <h5>아이콘</h5>
           </Grid>
           <Grid item md={10} xs={12}>
             <Grid container>
@@ -458,7 +456,7 @@ class Form extends React.Component {
             </Grid>
           </Grid>
         </Grid>
-
+        {/*
         {this.state.images.map((image, index) => (
           <Grid container className="mt-20 align-items-center">
             <Grid item md={2} xs={12}>
@@ -560,7 +558,7 @@ class Form extends React.Component {
               Add Image
             </Button>
           </Grid>
-        </Grid>
+        </Grid> */}
       </CardContent>
     );
   }

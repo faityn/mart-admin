@@ -4,13 +4,15 @@ import { connect } from "react-redux";
 import PageTitle from "../../../core/common/Partials/PageTitle";
 import SwipeableViews from "react-swipeable-views";
 import { Grid, TextField, Button, FormControl, Select, MenuItem, InputLabel, Table, TableBody, TableRow, TableCell, FormControlLabel, Checkbox, Link,
-        Dialog, DialogTitle, DialogActions, Divider, Tabs, Tab} from "@material-ui/core";
-import SubjectIcon from '@material-ui/icons/Subject';
+        Dialog, DialogTitle, DialogContent, DialogActions, Tabs, Tab, TextareaAutosize} from "@material-ui/core";
+import SubjectIcon from '@material-ui/icons/Subject';   
 import SearchIcon from '@material-ui/icons/Search';
 import RefreshIcon from '@material-ui/icons/Refresh';
 import AddIcon from '@material-ui/icons/Add';
 import EditIcon from '@material-ui/icons/Edit';
+import CancelIcon from '@material-ui/icons/Cancel';
 import DeleteIcon from '@material-ui/icons/Delete';
+import SaveIcon from '@material-ui/icons/Save';
 
 class ProductNotice extends React.Component {
     constructor(props) {
@@ -19,10 +21,12 @@ class ProductNotice extends React.Component {
         this.state = {
             tabIndex: 0,
             isOpenModal: false,
+            isOpenModal2: false,
         };
 
         this.onChangeTab = this.onChangeTab.bind(this);
         this.onOpenModal = this.onOpenModal.bind(this);
+        this.onOpenModal2 = this.onOpenModal2.bind(this);
     }
 
     /**
@@ -42,6 +46,25 @@ class ProductNotice extends React.Component {
      */
     onCloseModal() {
         this.setState({ isOpenModal: false });
+    }
+
+    /**
+     * @summary Open box
+     * @param {event}
+     */
+    onOpenModal2(e, index) {
+        this.setState({
+            index: index,
+            isOpenModal2: true,
+        });
+    }
+
+    /**
+     * @summary Close box
+     * @param {event}
+     */
+    onCloseModal2() {
+        this.setState({ isOpenModal2: false });
     }
 
     /**
@@ -112,6 +135,7 @@ class ProductNotice extends React.Component {
                                     variant="contained"
                                     style={{backgroundColor: "#30b10d", color: "#fff"}}
                                     startIcon={<AddIcon/>}
+                                    onClick={this.onOpenModal.bind(this)}
                                 >새 공지사항 등록</Button>
                             </Grid>
                         </Grid>
@@ -405,7 +429,7 @@ class ProductNotice extends React.Component {
                                                 <TableCell className="text-center">2021.05.05 10:00:00</TableCell>
                                                 <TableCell className="text-center">2021.05.05 10:00:00</TableCell>
                                                 <TableCell className="text-center">2021.05.05 10:00:00</TableCell>
-                                                <TableCell className="text-center"><Link>답변</Link></TableCell>
+                                                <TableCell className="text-center"><Link component="button" onClick={this.onOpenModal2.bind(this)}>답변 완료</Link></TableCell>
                                             </TableRow>
 
                                             <TableRow>
@@ -434,7 +458,7 @@ class ProductNotice extends React.Component {
                                                 <TableCell className="text-center">2021.05.05 10:00:00</TableCell>
                                                 <TableCell className="text-center">2021.05.05 10:00:00</TableCell>
                                                 <TableCell className="text-center">2021.05.05 10:00:00</TableCell>
-                                                <TableCell className="text-center"><Link>답변</Link></TableCell>
+                                                <TableCell className="text-center"><Link component="button" onClick={this.onOpenModal2.bind(this)}>답변</Link></TableCell>
                                             </TableRow>
 
                                             <TableRow>
@@ -463,7 +487,7 @@ class ProductNotice extends React.Component {
                                                 <TableCell className="text-center">2021.05.05 10:00:00</TableCell>
                                                 <TableCell className="text-center">2021.05.05 10:00:00</TableCell>
                                                 <TableCell className="text-center">2021.05.05 10:00:00</TableCell>
-                                                <TableCell className="text-center"><Link>답변</Link></TableCell>
+                                                <TableCell className="text-center"><Link component="button" onClick={this.onOpenModal2.bind(this)}>답변</Link></TableCell>
                                             </TableRow>
                                         </TableBody>
                                     </Table>
@@ -481,15 +505,217 @@ class ProductNotice extends React.Component {
                         </Grid>
                     </Grid>
 
-                    <Dialog open={this.state.isOpenModal}
-                        aria-labelledby="responsive-dialog-title"
-                        maxWidth="lg">
+                    <Dialog open={this.state.isOpenModal} aria-labelledby="responsive-dialog-title" maxWidth="sm" fullWidth>
                         <DialogTitle id="responsive-dialog-title">
-                            <h2>제품 정보</h2>
+                            <h2>새 공지사항 등록</h2>
                         </DialogTitle>
-                        <Divider />
+                        
+                        <DialogContent>
+                            <Grid container spacing={2} md={12} xs={12}>
+                                <Grid item md={3} xs={12} className="align-items-center">
+                                    <h5>번호</h5>
+                                </Grid>
+                                <Grid item md={9} xs={12} className="align-items-center">
+                                    <TextField
+                                        fullWidth
+                                        size="small"
+                                        variant="outlined"
+                                    />
+                                </Grid>
+                            </Grid>
+
+                            <Grid spacing={2} container md={12} xs={12} className="mt-12"> 
+                                <Grid item md={3} xs={12} className="align-items-center">
+                                    <h5>분류</h5>
+                                </Grid>
+                                <Grid item md={9} xs={12} className="align-items-center">
+                                    <FormControl
+                                        size="small"
+                                        fullWidth
+                                        variant="outlined"
+                                    >
+                                        <InputLabel>분류</InputLabel>
+                                        <Select>
+                                            <MenuItem value="">...</MenuItem>
+                                        </Select>
+                                    </FormControl>
+                                </Grid>
+                            </Grid>
+
+                            <Grid spacing={2} container md={12} xs={12} className="mt-12"> 
+                                <Grid item md={3} xs={12} className="align-items-center">
+                                    <h5>전시상태</h5>
+                                </Grid>
+                                <Grid item md={9} xs={12} className="align-items-center">
+                                    <FormControl
+                                        size="small"
+                                        fullWidth
+                                        variant="outlined"
+                                    >
+                                        <InputLabel>전시상태</InputLabel>
+                                        <Select>
+                                            <MenuItem value="">...</MenuItem>
+                                        </Select>
+                                    </FormControl>
+                                </Grid>
+                            </Grid>
+
+                            <Grid container spacing={2} md={12} xs={12} className="mt-12">
+                                <Grid item md={3} xs={12} className="align-items-center">
+                                    <h5>공지사항 제목</h5>
+                                </Grid>
+                                <Grid item md={9} xs={12} className="align-items-center">
+                                    <TextField
+                                        fullWidth
+                                        size="small"
+                                        variant="outlined"
+                                    />
+                                </Grid>
+                            </Grid>
+
+                            <Grid item spacing={2} md={12} xs={12} className="mt-12">
+                                <Grid container>
+                                    <Grid item md={3} xs={12} className="align-items-center">
+                                        <h5>공지기간</h5>
+                                    </Grid>
+                                    <Grid container md={9} xs={12} className="align-items-center">
+                                        <Grid item md={5} xs={12}>
+                                            <TextField
+                                                fullWidth
+                                                size="small"  
+                                                variant="outlined"
+                                                type="date"
+                                                name="startDate"
+                                            />
+                                        </Grid>
+                                        <Grid item md={1} xs={12} className="text-center" style={{paddingTop: "7px", paddingLeft: "0.6rem"}}>
+                                            <h5>~</h5>
+                                        </Grid>
+                                        <Grid item md={5} xs={12} style={{marginLeft: "10px"}}>
+                                            <TextField
+                                                fullWidth
+                                                size="small"
+                                                variant="outlined"
+                                                type="date"
+                                                name="endDate"
+                                            />
+                                        </Grid>
+                                    </Grid>
+                                </Grid>
+                            </Grid>
+
+                            <Grid container spacing={2} md={12} xs={12} className="mt-12">
+                                <Grid item md={3} xs={12} className="align-items-center">
+                                    <h5>내용</h5>
+                                </Grid>
+                                <Grid item md={9} xs={12} className="align-items-center mt-12">
+                                    <TextareaAutosize minRows={15} style={{width: "100%", borderRadius: "5px"}} placeholder="내용" />
+                                </Grid>
+                            </Grid>
+                        </DialogContent>
+                        
                         <DialogActions>
-                            <Button autoFocus onClick={this.onCloseModal.bind(this)} color="primary">닫다</Button>
+                            <Button
+                                size="medium"
+                                variant="contained"
+                                color="primary"
+                                startIcon={<SaveIcon/>}
+                                style={{marginRight: "5px"}}
+                            >저장</Button>
+                            <Button
+                                size="medium"
+                                variant="outlined"
+                                style={{backgroundColor: "#fff", color: "#000"}}
+                                startIcon={<CancelIcon/>}
+                                style={{marginLeft: "5px"}}
+                                onClick={this.onCloseModal.bind(this)}
+                            >취소</Button>
+                        </DialogActions>
+                    </Dialog>
+
+                    <Dialog open={this.state.isOpenModal2} aria-labelledby="responsive-dialog-title" maxWidth="sm" fullWidth>
+                        <DialogTitle id="responsive-dialog-title">
+                            <h2>1:1 문의</h2>
+                        </DialogTitle>
+                        
+                        <DialogContent>
+                            <Grid container spacing={2} md={12} xs={12}>
+                                <Grid item md={3} xs={12} className="align-items-center">
+                                    <h5>번호</h5>
+                                </Grid>
+                                <Grid item md={9} xs={12} className="align-items-center">
+                                    <TextField
+                                        fullWidth
+                                        size="small"
+                                        variant="outlined"
+                                        placeholder="00000000"
+                                    />
+                                </Grid>
+                            </Grid>
+
+                            <Grid spacing={2} container md={12} xs={12} className="mt-12"> 
+                                <Grid item md={3} xs={12} className="align-items-center">
+                                    <h5>분류</h5>
+                                </Grid>
+                                <Grid item md={9} xs={12} className="align-items-center">
+                                    <TextField
+                                        fullWidth
+                                        size="small"
+                                        variant="outlined"
+                                        placeholder="배송 관련"
+                                    />
+                                </Grid>
+                            </Grid>
+
+                            <Grid spacing={2} container md={12} xs={12} className="mt-12"> 
+                                <Grid item md={3} xs={12} className="align-items-center">
+                                    <h5>제목</h5>
+                                </Grid>
+                                <Grid item md={9} xs={12} className="align-items-center">
+                                    <TextField
+                                        fullWidth
+                                        size="small"
+                                        variant="outlined"
+                                        placeholder="공휴일관련하여 배송안내"
+                                    />
+                                </Grid>
+                            </Grid>
+
+                            <Grid container spacing={2} md={12} xs={12} className="mt-12">
+                                <Grid item md={3} xs={12} className="align-items-center">
+                                    <h5>내용</h5>
+                                </Grid>
+                                <Grid item md={9} xs={12} className="align-items-center mt-12">
+                                    <TextareaAutosize minRows={10} style={{width: "100%", borderRadius: "5px"}} placeholder="시스템 업데이트를 위한 서버점검..." />
+                                </Grid>
+                            </Grid>
+
+                            <Grid container spacing={2} md={12} xs={12} className="mt-12">
+                                <Grid item md={3} xs={12} className="align-items-center">
+                                    <h5>답변</h5>
+                                </Grid>
+                                <Grid item md={9} xs={12} className="align-items-center mt-12">
+                                    <TextareaAutosize minRows={10} style={{width: "100%", borderRadius: "5px"}} placeholder="답변" />
+                                </Grid>
+                            </Grid>
+                        </DialogContent>
+                        
+                        <DialogActions>
+                            <Button
+                                size="medium"
+                                variant="contained"
+                                color="primary"
+                                startIcon={<SaveIcon/>}
+                                style={{marginRight: "5px"}}
+                            >저장</Button>
+                            <Button
+                                size="medium"
+                                variant="outlined"
+                                style={{backgroundColor: "#fff", color: "#000"}}
+                                startIcon={<CancelIcon/>}
+                                style={{marginLeft: "5px"}}
+                                onClick={this.onCloseModal2.bind(this)}
+                            >취소</Button>
                         </DialogActions>
                     </Dialog>
                 </div>

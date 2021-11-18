@@ -99,16 +99,16 @@ class CustomizedTreeView extends React.Component {
                 </StyledTreeItem>
                 }
               })}
-                <StyledTreeItem icon={<PostAddIcon />} label="Create" onClick={(e) => this.props.onCategoryAdd(e, second.id)}></StyledTreeItem>
+                <StyledTreeItem icon={<PostAddIcon />} label="추가" onClick={(e) => this.props.onCategoryAdd(e, second.id)}></StyledTreeItem>
 
               </StyledTreeItem>
             }
           })}
-          <StyledTreeItem icon={<PostAddIcon />} label="Create" onClick={(e) => this.props.onCategoryAdd(e, first.id)}></StyledTreeItem>
+          <StyledTreeItem icon={<PostAddIcon />} label="추가" onClick={(e) => this.props.onCategoryAdd(e, first.id)}></StyledTreeItem>
           </StyledTreeItem>
           </React.Fragment>
         })}
-        <StyledTreeItem icon={<PostAddIcon />} label="Create" onClick={(e) => this.props.onCategoryAdd(e, 0)}></StyledTreeItem>
+        <StyledTreeItem icon={<PostAddIcon />} label="추가" onClick={(e) => this.props.onCategoryAdd(e, 0)}></StyledTreeItem>
 
       </TreeView>
 

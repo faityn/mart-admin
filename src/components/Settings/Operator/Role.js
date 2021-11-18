@@ -3,10 +3,12 @@ import PageTitle from "../../../core/common/Partials/PageTitle";
 import { withSnackbar } from "notistack";
 import { connect } from "react-redux";
 import SubjectIcon from '@material-ui/icons/Subject';
-import CreateIcon from '@material-ui/icons/Add';
+import ViewIcon from '@material-ui/icons/RemoveRedEye';
 import SearchIcon from '@material-ui/icons/Search';
 import EditIcon from '@material-ui/icons/Edit';
-import { CircularProgress, Grid, Button, Table, TableBody, TableRow, TableCell, FormControl, TextField, Select, MenuItem, InputLabel, FormControlLabel, Checkbox, Switch,
+import ResetIcon from '@material-ui/icons/Refresh';
+import SaveIcon from '@material-ui/icons/Save';
+import {Grid, Button, Table, TableBody, TableRow, TableCell, FormControl, TextField, Select, MenuItem, InputLabel, FormControlLabel, Checkbox, RadioGroup, Radio,
   Dialog, DialogTitle, DialogContent, DialogActions, Divider} from "@material-ui/core";
 
 class OperatorRole extends React.Component {
@@ -133,13 +135,11 @@ class OperatorRole extends React.Component {
   render() {
     return (
       <React.Fragment>
-        {/* Title section */}
         <Grid container>
           <Grid item>
-            {/* Title */}
             <PageTitle
-              menuName="운영자 관리"
-              title="운영자 관리"
+              menuName="운영자 권한 설정"
+              title="운영자 권한 설정"
               icon={<SubjectIcon />}
             />
           </Grid>
@@ -148,154 +148,591 @@ class OperatorRole extends React.Component {
         <Grid container>
           <Grid item md={12}>
             <div className="card mt-20">
-            <Grid container spacing={2} md={12} xs={12}>
-              <Grid container spacing={3} alignItems="center" md={3} xs={12}>
-                <Grid item md={3} xs={12} className="align-items-center">
-                    <h5>등급선택</h5>
+            <Grid container spacing={3} md={12} xs={12}>
+              <Grid container md={6} xs={12}>
+                <Grid container md={12} xs={12}>
+                  <Grid item md={2} xs={12} className="align-items-center">
+                      <h5>운영자 검색</h5>
+                  </Grid>
                 </Grid>
-                <Grid item md={6} sm={4} xs={12}>
-                  <FormControl
-                      size="small"
-                      fullWidth
-                      variant="outlined"
-                      defaultValue=""
-                  >
-                    <InputLabel>고른</InputLabel>
-                    <Select>
-                        <MenuItem value="general">최고운영자</MenuItem>
-                        <MenuItem value="simple">일반운영자</MenuItem>
-                    </Select>
-                  </FormControl>
+                <Grid container md={12} xs={12}>
+                  <Table className="member_table">
+                    <TableBody>
+                      <TableRow>
+                        <TableCell align="center" width="10%"><strong>검색어</strong></TableCell>
+                        <TableCell align="center">
+                          <Grid container md={12} xs={12}>
+                            <Grid item md={3} sm={4} xs={12} className="align-items-center">
+                              <FormControl
+                                  size="small"
+                                  fullWidth
+                                  variant="outlined"
+                                  defaultValue=""
+                              >
+                                <InputLabel>통합검색</InputLabel>
+                                <Select>
+                                    <MenuItem value="name">관리자명</MenuItem>
+                                    <MenuItem value="id">사용자ID </MenuItem>
+                                </Select>
+                              </FormControl>
+                            </Grid>
+                            <Grid item md={6} xs={12} className="align-items-center" style={{paddingLeft: "10px"}}> 
+                                <TextField
+                                    fullWidth
+                                    size="small"
+                                    variant="outlined"
+                                />
+                            </Grid>
+                            <Grid item md={3} xs={12} style={{paddingLeft: "10px"}} className="align-items-center">
+                              <Button
+                                  fullWidth
+                                  size="medium"
+                                  variant="contained"
+                                  color="primary"
+                                  startIcon={<SearchIcon/>}
+                              >검색</Button>
+                            </Grid>
+                          </Grid>
+                        </TableCell>
+                      </TableRow>
+                    </TableBody>
+                  </Table>
                 </Grid>
-              </Grid>   
-              
-              <Grid container spacing={3} alignItems="center" md={3} xs={12}>
-                <Grid item md={3} xs={12} className="align-items-center">
-                    <h5>사용여부</h5>
-                </Grid>
-                <Grid item md={6} sm={4} xs={12}>
-                  <FormControl
-                      size="small"
-                      fullWidth
-                      variant="outlined"
-                      defaultValue=""
-                  >
-                    <InputLabel>고른</InputLabel>
-                    <Select>
-                        <MenuItem value="1">사용함</MenuItem>
-                        <MenuItem value="0">사용 안함</MenuItem>
-                    </Select>
-                  </FormControl>
+                <Grid container md={12} xs={12} className="mt-20">
+                  <Table className="order_table">
+                    <TableBody>
+                      <TableRow>
+                        <TableCell align="center" width="10%"><strong>번호</strong></TableCell>
+                        <TableCell align="center" width="10%"><strong>선택</strong></TableCell>
+                        <TableCell align="center"><strong>관리자구분</strong></TableCell>
+                        <TableCell align="center"><strong>관리자명</strong></TableCell>
+                        <TableCell align="center"><strong>사용자ID</strong></TableCell>
+                        <TableCell align="center" width="20%"><strong>개별수정</strong></TableCell>
+                      </TableRow>
+
+                      <TableRow>
+                        <TableCell align="center">1</TableCell>
+                        <TableCell align="center">
+                          <FormControlLabel
+                            control={
+                              <Checkbox
+                                name="active"
+                                color="primary"
+                                value={true}
+                              />
+                            }
+                            style={{marginLeft: "18%"}}
+                          /></TableCell>
+                        <TableCell align="center">총괄책임자</TableCell>
+                        <TableCell align="center">ceo</TableCell>
+                        <TableCell align="center">홍길동</TableCell>
+                        <TableCell align="center">
+                          <Button
+                              size="small"
+                              variant="contained"
+                              color="primary"
+                              startIcon={<EditIcon/>}
+                          >권한보기</Button>
+                        </TableCell>
+                      </TableRow>
+                      
+                      <TableRow>
+                        <TableCell align="center">2</TableCell>
+                        <TableCell align="center">
+                          <FormControlLabel
+                            control={
+                              <Checkbox
+                                name="active"
+                                color="primary"
+                                value={true}
+                              />
+                            }
+                            style={{marginLeft: "18%"}}
+                          /></TableCell>
+                        <TableCell align="center">총괄책임자</TableCell>
+                        <TableCell align="center">ceo</TableCell>
+                        <TableCell align="center">홍길동</TableCell>
+                        <TableCell align="center">
+                          <Button
+                              size="small"
+                              variant="contained"
+                              color="primary"
+                              startIcon={<EditIcon/>}
+                          >권한보기</Button>
+                        </TableCell>
+                      </TableRow>
+                      
+                      <TableRow>
+                        <TableCell align="center">3</TableCell>
+                        <TableCell align="center">
+                          <FormControlLabel
+                            control={
+                              <Checkbox
+                                name="active"
+                                color="primary"
+                                value={true}
+                              />
+                            }
+                            style={{marginLeft: "18%"}}
+                          /></TableCell>
+                        <TableCell align="center">총괄책임자</TableCell>
+                        <TableCell align="center">ceo</TableCell>
+                        <TableCell align="center">홍길동</TableCell>
+                        <TableCell align="center">
+                          <Button
+                              size="small"
+                              variant="contained"
+                              color="primary"
+                              startIcon={<EditIcon/>}
+                          >권한보기</Button>
+                        </TableCell>
+                      </TableRow>
+                      
+                      <TableRow>
+                        <TableCell align="center">4</TableCell>
+                        <TableCell align="center">
+                          <FormControlLabel
+                            control={
+                              <Checkbox
+                                name="active"
+                                color="primary"
+                                value={true}
+                              />
+                            }
+                            style={{marginLeft: "18%"}}
+                          /></TableCell>
+                        <TableCell align="center">총괄책임자</TableCell>
+                        <TableCell align="center">ceo</TableCell>
+                        <TableCell align="center">홍길동</TableCell>
+                        <TableCell align="center">
+                          <Button
+                              size="small"
+                              variant="contained"
+                              color="primary"
+                              startIcon={<EditIcon/>}
+                          >권한보기</Button>
+                        </TableCell>
+                      </TableRow>
+                      
+                      <TableRow>
+                        <TableCell align="center">5</TableCell>
+                        <TableCell align="center">
+                          <FormControlLabel
+                            control={
+                              <Checkbox
+                                name="active"
+                                color="primary"
+                                value={true}
+                              />
+                            }
+                            style={{marginLeft: "18%"}}
+                          /></TableCell>
+                        <TableCell align="center">총괄책임자</TableCell>
+                        <TableCell align="center">ceo</TableCell>
+                        <TableCell align="center">홍길동</TableCell>
+                        <TableCell align="center">
+                          <Button
+                              size="small"
+                              variant="contained"
+                              color="primary"
+                              startIcon={<EditIcon/>}
+                          >권한보기</Button>
+                        </TableCell>
+                      </TableRow>
+                      
+                      <TableRow>
+                        <TableCell align="center">6</TableCell>
+                        <TableCell align="center">
+                          <FormControlLabel
+                            control={
+                              <Checkbox
+                                name="active"
+                                color="primary"
+                                value={true}
+                              />
+                            }
+                            style={{marginLeft: "18%"}}
+                          /></TableCell>
+                        <TableCell align="center">총괄책임자</TableCell>
+                        <TableCell align="center">ceo</TableCell>
+                        <TableCell align="center">홍길동</TableCell>
+                        <TableCell align="center">
+                          <Button
+                              size="small"
+                              variant="contained"
+                              color="primary"
+                              startIcon={<EditIcon/>}
+                          >권한보기</Button>
+                        </TableCell>
+                      </TableRow>
+                    </TableBody>
+                  </Table>
                 </Grid>
               </Grid> 
-              
-              <Grid container spacing={3} alignItems="center" md={5} xs={12}>
-                <Grid item md={2} xs={12} className="align-items-center">
-                    <h5>검색</h5>
+              <Grid container md={6} xs={12} style={{paddingLeft: "10px"}}>
+                <Grid container md={12} xs={12}>
+                  <Grid item md={2} xs={12} className="align-items-center">
+                      <h5>메뉴 권한 설정</h5>
+                  </Grid>
                 </Grid>
-                <Grid item md={2} sm={4} xs={12}>
-                  <FormControl
-                      size="small"
-                      fullWidth
-                      variant="outlined"
-                      defaultValue=""
-                  >
-                    <InputLabel>고른</InputLabel>
-                    <Select>
-                        <MenuItem value="id">사용자ID </MenuItem>
-                        <MenuItem value="name">사용자명</MenuItem>
-                        <MenuItem value="region">소속</MenuItem>
-                    </Select>
-                  </FormControl>
+                <Grid container md={12} xs={12}>
+                  <Table className="member_table">
+                    <TableBody>
+                      <TableRow>
+                        <TableCell align="center" width="10%"><strong>권한 범위</strong></TableCell>
+                        <TableCell align="center">
+                          <Grid container md={12} xs={12}>
+                            <Grid item md={3} xs={12}>
+                                <RadioGroup aria-label="file" name="file">
+                                    <FormControlLabel
+                                        value="true"
+                                        control={<Radio />}
+                                        label="전체권한"
+                                    />
+                                </RadioGroup>
+                            </Grid>
+                            <Grid item md={3} xs={12}>
+                                <RadioGroup aria-label="file" name="file">
+                                    <FormControlLabel
+                                        value="false"
+                                        control={<Radio />}
+                                        label="선택권한"
+                                    />
+                                </RadioGroup>
+                            </Grid>
+                          </Grid>
+                        </TableCell>
+                      </TableRow>
+                    </TableBody>
+                  </Table>
                 </Grid>
-                <Grid item md={5} xs={12}>
-                    <TextField
-                        fullWidth
+                <Grid container md={12} xs={12} className="mt-20">
+                  <Grid item md={3} xs={12}>
+                    <Button
+                        size="medium"
+                        variant="contained"
+                        color="primary"
+                        startIcon={<ResetIcon/>}
+                    >권한 초기화</Button>
+                  </Grid>
+                  <Grid item md={4} xs={12}>
+                    <FormControl
                         size="small"
+                        fullWidth
                         variant="outlined"
-                    />
+                        defaultValue=""
+                    >
+                      <InputLabel>노출 메뉴 선택</InputLabel>
+                      <Select>
+                        <MenuItem value="1">전체 메뉴</MenuItem>
+                        <MenuItem value="2">환경설정</MenuItem>
+                        <MenuItem value="3">기본정보</MenuItem>
+                        <MenuItem value="4">상품관리</MenuItem>
+                        <MenuItem value="5">주문관리</MenuItem>
+                        <MenuItem value="6">공급자(마트)관리</MenuItem>
+                        <MenuItem value="7">앱 상점</MenuItem>
+                        <MenuItem value="8">회원관리</MenuItem>
+                      </Select>
+                    </FormControl>
+                  </Grid>
+                  <Grid item md={5} xs={12} style={{paddingLeft: "10px"}}>
+                    <FormControl
+                        size="small"
+                        fullWidth
+                        variant="outlined"
+                        defaultValue=""
+                    >
+                      <InputLabel>1차 메뉴 기준으로 보기</InputLabel>
+                      <Select>
+                        <MenuItem value="1">1차 메뉴 기준으로 보기</MenuItem>
+                        <MenuItem value="2">2차 메뉴 기준으로 보기</MenuItem>
+                        <MenuItem value="3">3차 메뉴 기준으로 보기</MenuItem>
+                      </Select>
+                    </FormControl>
+                  </Grid>
                 </Grid>
-                <Grid item md={2} xs={12} className="ml-20">
-                  <Button
-                      fullWidth
-                      size="medium"
-                      variant="contained"
-                      color="primary"
-                      startIcon={<SearchIcon/>}
-                  >검색</Button>
+                <Grid container md={12} xs={12} className="mt-20">
+                  <Table className="order_table">
+                    <TableBody>
+                      <TableRow>
+                        <TableCell align="center" width="10%"><strong>선택</strong></TableCell>
+                        <TableCell align="center" width="40%"><strong>메뉴명</strong></TableCell>
+                        <TableCell align="center" width="30%"><strong>권한설정</strong></TableCell>
+                        <TableCell align="center" width="20%"><strong>추가설정</strong></TableCell>
+                      </TableRow>
+
+                      <TableRow>
+                        <TableCell align="center">
+                          <FormControlLabel
+                            control={
+                              <Checkbox
+                                name="active"
+                                color="primary"
+                                value={true}
+                              />
+                            }
+                            style={{marginLeft: "18%"}}
+                          />
+                        </TableCell>
+                        <TableCell align="center">환경설정</TableCell>
+                        <TableCell align="center">
+                          <FormControl
+                              size="small"
+                              fullWidth
+                              variant="outlined"
+                              defaultValue=""
+                          >
+                            <InputLabel>권한 없음</InputLabel>
+                            <Select>
+                              <MenuItem value="1">권한 없음</MenuItem>
+                              <MenuItem value="2">보기</MenuItem>
+                              <MenuItem value="3">보기 + 작성</MenuItem>
+                            </Select>
+                          </FormControl>
+                        </TableCell>
+                        <TableCell align="center">
+                          <Button
+                              size="small"
+                              variant="contained"
+                              color="primary"
+                              startIcon={<ViewIcon/>}
+                          >보기</Button>
+                        </TableCell>
+                      </TableRow>
+
+                      <TableRow>
+                        <TableCell align="center">
+                          <FormControlLabel
+                            control={
+                              <Checkbox
+                                name="active"
+                                color="primary"
+                                value={true}
+                              />
+                            }
+                            style={{marginLeft: "18%"}}
+                          />
+                        </TableCell>
+                        <TableCell align="left">기본정보</TableCell>
+                        <TableCell align="center">
+                          <FormControl
+                              size="small"
+                              fullWidth
+                              variant="outlined"
+                              defaultValue=""
+                          >
+                            <InputLabel>권한 없음</InputLabel>
+                            <Select>
+                              <MenuItem value="1">권한 없음</MenuItem>
+                              <MenuItem value="2">보기</MenuItem>
+                              <MenuItem value="3">보기 + 작성</MenuItem>
+                            </Select>
+                          </FormControl>
+                        </TableCell>
+                        <TableCell align="center"></TableCell>
+                      </TableRow>
+
+                      <TableRow>
+                        <TableCell align="center">
+                          <FormControlLabel
+                            control={
+                              <Checkbox
+                                name="active"
+                                color="primary"
+                                value={true}
+                              />
+                            }
+                            style={{marginLeft: "18%"}}
+                          />
+                        </TableCell>
+                        <TableCell align="left">아니벌써 기본정보</TableCell>
+                        <TableCell align="center">
+                          <FormControl
+                              size="small"
+                              fullWidth
+                              variant="outlined"
+                              defaultValue=""
+                          >
+                            <InputLabel>권한 없음</InputLabel>
+                            <Select>
+                              <MenuItem value="1">권한 없음</MenuItem>
+                              <MenuItem value="2">보기</MenuItem>
+                              <MenuItem value="3">보기 + 작성</MenuItem>
+                            </Select>
+                          </FormControl>
+                        </TableCell>
+                        <TableCell align="center"></TableCell>
+                      </TableRow>
+
+                      <TableRow>
+                        <TableCell align="center">
+                          <FormControlLabel
+                            control={
+                              <Checkbox
+                                name="active"
+                                color="primary"
+                                value={true}
+                              />
+                            }
+                            style={{marginLeft: "18%"}}
+                          />
+                        </TableCell>
+                        <TableCell align="left">상품관리</TableCell>
+                        <TableCell align="center">
+                          <FormControl
+                              size="small"
+                              fullWidth
+                              variant="outlined"
+                              defaultValue=""
+                          >
+                            <InputLabel>권한 없음</InputLabel>
+                            <Select>
+                              <MenuItem value="1">권한 없음</MenuItem>
+                              <MenuItem value="2">보기</MenuItem>
+                              <MenuItem value="3">보기 + 작성</MenuItem>
+                            </Select>
+                          </FormControl>
+                        </TableCell>
+                        <TableCell align="center">
+                          <Button
+                              size="small"
+                              variant="contained"
+                              color="primary"
+                              startIcon={<ViewIcon/>}
+                          >보기</Button>
+                        </TableCell>
+                      </TableRow>
+
+                      <TableRow>
+                        <TableCell align="center">
+                          <FormControlLabel
+                            control={
+                              <Checkbox
+                                name="active"
+                                color="primary"
+                                value={true}
+                              />
+                            }
+                            style={{marginLeft: "18%"}}
+                          />
+                        </TableCell>
+                        <TableCell align="left">주문관리</TableCell>
+                        <TableCell align="center">
+                          <FormControl
+                              size="small"
+                              fullWidth
+                              variant="outlined"
+                              defaultValue=""
+                          >
+                            <InputLabel>권한 없음</InputLabel>
+                            <Select>
+                              <MenuItem value="1">권한 없음</MenuItem>
+                              <MenuItem value="2">보기</MenuItem>
+                              <MenuItem value="3">보기 + 작성</MenuItem>
+                            </Select>
+                          </FormControl>
+                        </TableCell>
+                        <TableCell align="center">
+                          <Button
+                              size="small"
+                              variant="contained"
+                              color="primary"
+                              startIcon={<ViewIcon/>}
+                          >보기</Button>
+                        </TableCell>
+                      </TableRow>
+
+                      <TableRow>
+                        <TableCell align="center">
+                          <FormControlLabel
+                            control={
+                              <Checkbox
+                                name="active"
+                                color="primary"
+                                value={true}
+                              />
+                            }
+                            style={{marginLeft: "18%"}}
+                          />
+                        </TableCell>
+                        <TableCell align="left">공급자(마트) 관리</TableCell>
+                        <TableCell align="center">
+                          <FormControl
+                              size="small"
+                              fullWidth
+                              variant="outlined"
+                              defaultValue=""
+                          >
+                            <InputLabel>권한 없음</InputLabel>
+                            <Select>
+                              <MenuItem value="1">권한 없음</MenuItem>
+                              <MenuItem value="2">보기</MenuItem>
+                              <MenuItem value="3">보기 + 작성</MenuItem>
+                            </Select>
+                          </FormControl>
+                        </TableCell>
+                        <TableCell align="center">
+                          <Button
+                              size="small"
+                              variant="contained"
+                              color="primary"
+                              startIcon={<ViewIcon/>}
+                          >보기</Button>
+                        </TableCell>
+                      </TableRow>
+
+                      <TableRow>
+                        <TableCell align="center">
+                          <FormControlLabel
+                            control={
+                              <Checkbox
+                                name="active"
+                                color="primary"
+                                value={true}
+                              />
+                            }
+                            style={{marginLeft: "18%"}}
+                          />
+                        </TableCell>
+                        <TableCell align="left">앱 상점</TableCell>
+                        <TableCell align="center">
+                          <FormControl
+                              size="small"
+                              fullWidth
+                              variant="outlined"
+                              defaultValue=""
+                          >
+                            <InputLabel>권한 없음</InputLabel>
+                            <Select>
+                              <MenuItem value="1">권한 없음</MenuItem>
+                              <MenuItem value="2">보기</MenuItem>
+                              <MenuItem value="3">보기 + 작성</MenuItem>
+                            </Select>
+                          </FormControl>
+                        </TableCell>
+                        <TableCell align="center">
+                          <Button
+                              size="small"
+                              variant="contained"
+                              color="primary"
+                              startIcon={<ViewIcon/>}
+                          >보기</Button>
+                        </TableCell>
+                      </TableRow>
+                    </TableBody>
+                  </Table>
                 </Grid>
-              </Grid> 
+              </Grid>
+              <Grid item md={12} xs={12} className="mt-20" style={{textAlign: "center"}}>
+                <Button
+                    size="medium"
+                    variant="contained"
+                    color="primary"
+                    startIcon={<SaveIcon/>}
+                >저장</Button>
+              </Grid>
             </Grid>
 
-            <Grid item md={12} xs={12} alignItems="right" className="mt-20">
-              <Button
-                  size="medium"
-                  variant="contained"
-                  color="primary"
-                  startIcon={<CreateIcon/>}
-                  onClick={this.onOpenModal.bind(this)}
-              >사용자 추가</Button>
-            </Grid>
-
-            <Grid item md={12} xs={12} className="mt-20">
-              <Table className="order_table">
-                <TableBody>
-                  <TableRow>
-                    <TableCell align="center">No.</TableCell>
-                    <TableCell align="center">선택</TableCell>
-                    <TableCell align="center">사용자등급</TableCell>
-                    <TableCell align="center">소속</TableCell>
-                    <TableCell align="center">사용자명</TableCell>
-                    <TableCell align="center">사용자ID</TableCell>
-                    <TableCell align="center">연락처</TableCell>
-                    <TableCell align="center">휴대폰</TableCell>
-                    <TableCell align="center">상태</TableCell>
-                    <TableCell align="center">관리</TableCell>
-                  </TableRow>
-
-                  <TableRow>
-                    <TableCell align="center">1</TableCell>
-                    <TableCell align="center">
-                      <FormControlLabel
-                        control={
-                          <Checkbox
-                            name="active"
-                            color="primary"
-                            value={true}
-                          />
-                        }
-                      /></TableCell>
-                    <TableCell align="center">최고운영자</TableCell>
-                    <TableCell align="center">아니벌써</TableCell>
-                    <TableCell align="center">최고 관리자</TableCell>
-                    <TableCell align="center">Admin</TableCell>
-                    <TableCell align="center">000-0000-0000</TableCell>
-                    <TableCell align="center">010-0000-0000</TableCell>
-                    <TableCell align="center">
-                      <FormControlLabel
-                        control={
-                          <Switch
-                            name="checkedB"
-                            color="primary"
-                          />
-                        }
-                        label="On/Off"
-                      />
-                    </TableCell>
-                    <TableCell align="center">
-                      <Button
-                          size="medium"
-                          variant="contained"
-                          color="primary"
-                          startIcon={<EditIcon/>}
-                          onClick={this.onOpenModal.bind(this)}
-                      >수정</Button>
-                    </TableCell>
-                  </TableRow>
-                </TableBody>
-              </Table>
-            </Grid>
-            
             <Dialog
                 open={this.state.isOpenModal}
                 aria-labelledby="responsive-dialog-title"

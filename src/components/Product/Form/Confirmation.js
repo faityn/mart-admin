@@ -317,11 +317,10 @@ class Confirmation extends React.Component {
                 </Grid>
 
                 <Dialog open={this.state.isOpenModal}
-                    aria-labelledby="responsive-dialog-title"
-                    maxWidth="lg">
+                    aria-labelledby="responsive-dialog-title" maxWidth="lg">
                     <DialogContent>
                         <form id="product-form">
-                            <Grid container spacing={3} className="align-items-center">
+                            <Grid container spacing={3} className="align-items-center" md={12} xs={12} >
                                 <Grid item md={12} xs={12}>
                                     <Table className="member_table" style={{alignItems: "center"}}>
                                         <TableBody>
@@ -348,8 +347,8 @@ class Confirmation extends React.Component {
                                                                 variant="outlined"
                                                             />
                                                         </Grid>
-                                                        <Grid item md={1} xs={12} style={{marginLeft: "5px"}}>
-                                                            <Button size="medium" variant="contained" color="primary" startIcon={<SearchIcon/>}></Button>
+                                                        <Grid item md={4} xs={12} style={{paddingLeft: "5px"}}>
+                                                            <Button size="medium" variant="contained" color="primary">검색</Button>
                                                         </Grid>
                                                     </Grid>
                                                 </TableCell>
@@ -360,7 +359,7 @@ class Confirmation extends React.Component {
                             </Grid>
                             <Grid container spacing={3} className="align-items-center mt-20">
                                 <Grid item md={12} xs={12} className="text-right">
-                                    <Button size="small" variant="contained" color="primary" startIcon={<AddIcon/>} onClick={this.onSecondModal.bind(this)}>신규등록</Button>
+                                    <Button size="medium" variant="contained" color="primary" startIcon={<AddIcon/>} onClick={this.onSecondModal.bind(this)}>신규등록</Button>
                                 </Grid>
                             </Grid>
                             <Grid container spacing={3} className="align-items-center mt-20">
@@ -449,20 +448,23 @@ class Confirmation extends React.Component {
                         </form>
                     </DialogContent>
 
-                    <Divider />
-
                     <DialogActions>
-                        <Button autoFocus onClick={this.onCloseModal.bind(this)} color="primary">닫다</Button>
-                        {/*}
-                        <Button autoFocus form="product-form" type="submit" color="primary">
-                        Confirm
-                        </Button>*/}
+                        <Button
+                            autoFocus
+                            size="small"
+                            variant="contained"
+                            style={{ border: "1px solid #cccbcb" }}
+                            startIcon={<CancelIcon/>}
+                            onClick={this.onCloseModal.bind(this)}
+                        >
+                            닫기
+                        </Button>
                     </DialogActions>
                 </Dialog>
 
                 <Dialog open={this.state.isSecondModal}
                     aria-labelledby="responsive-dialog-title"
-                    maxWidth="xl">
+                    maxWidth="lg">
                     <DialogContent>
                         <form id="product-form">
                             <Grid container spacing={3} className="align-items-center">
@@ -473,14 +475,14 @@ class Confirmation extends React.Component {
                                                 <TableCell style={{textAlign: "right"}} width="35%"><strong>템플릿명</strong></TableCell>
                                                 <TableCell className="text-center">
                                                     <Grid container md={12} xs={12}>
-                                                        <Grid item md={8} xs={12}>
+                                                        <Grid item md={7} xs={12}>
                                                             <TextField
                                                                 fullWidth
                                                                 size="small"
                                                                 variant="outlined"
                                                             />
                                                         </Grid>
-                                                        <Grid item md={4} xs={12}>
+                                                        <Grid item md={5} xs={12}>
                                                             <Button fullwidth size="medium" variant="contained" color="primary">템플릿 관리</Button>
                                                         </Grid>
                                                     </Grid>
@@ -697,31 +699,27 @@ class Confirmation extends React.Component {
                                         </TableBody>
                                     </Table>
                                 </Grid>
-                                
-                                <Grid container md={12} xs={12} className="mt-12">
-                                    <Grid item md={6} xs={12} className="text-right">
-                                        <Button
-                                            size="medium"
-                                            variant="contained"
-                                            color="primary"
-                                            startIcon={<SaveIcon/>}
-                                            style={{marginRight: "5px"}}
-                                        >저장</Button>
-                                    </Grid>
-                                    <Grid item md={6} xs={12} className="text-left">
-                                        <Button
-                                            size="medium"
-                                            variant="outlined"
-                                            style={{backgroundColor: "#fff", color: "#000"}}
-                                            startIcon={<CancelIcon/>}
-                                            style={{marginLeft: "5px"}}
-                                            onClick={this.onCloseSecondModal.bind(this)}
-                                        >취소</Button>
-                                    </Grid>
-                                </Grid>
                             </Grid>
                         </form>
                     </DialogContent>
+
+                    <DialogActions>
+                        <Button
+                            size="medium"
+                            variant="contained"
+                            color="primary"
+                            startIcon={<SaveIcon/>}
+                            style={{marginRight: "5px"}}
+                        >저장</Button>
+                        <Button
+                            size="medium"
+                            variant="outlined"
+                            style={{backgroundColor: "#fff", color: "#000"}}
+                            startIcon={<CancelIcon/>}
+                            style={{marginLeft: "5px"}}
+                            onClick={this.onCloseSecondModal.bind(this)}
+                        >취소</Button>
+                    </DialogActions>
                 </Dialog>
             </CardContent>
         );

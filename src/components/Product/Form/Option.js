@@ -1,11 +1,12 @@
 import React from 'react';
 import { 
   Grid, CardContent, TextField, Table, TableBody, TableRow, Checkbox, FormControlLabel,
-  TableCell, Button, Dialog, DialogContent, Divider, DialogTitle, DialogActions, InputLabel
-  } from '@material-ui/core';
+  TableCell, Button, Dialog, DialogContent, Divider, DialogTitle, DialogActions, InputLabel, InputAdornment} from '@material-ui/core';
 import SettingsIcon from '@material-ui/icons/Settings';
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
+import CancelIcon from '@material-ui/icons/Cancel';
+import SaveIcon from '@material-ui/icons/Save';
 
 /**
  * @summary Option
@@ -127,67 +128,61 @@ class Option extends React.Component {
                   <TableBody>
                     <TableRow>
                       <TableCell className="text-center" width="33%">
-                        <Grid container md={12} xs={12}>
+                        <Grid container md={12} xs={12} className="align-items-center">
                           <Grid item md={2} xs={12} style={{paddingTop: "15px"}}>
                             <InputLabel>추가가격</InputLabel>
                           </Grid>
-                          <Grid item md={6} xs={12}>
+                          <Grid item md={6} xs={12} style={{marginLeft: "10px"}}>
                             <TextField
                                 fullWidth
                                 size="small"
                                 variant="outlined"
                                 name="refund_delivery_price"
                                 placeholder="1000"
+                                InputProps={{ endAdornment: (<InputAdornment position="end">원</InputAdornment>),}}
                             />
                           </Grid>
-                          <Grid item md={1} xs={12} style={{paddingTop: "15px"}}>
-                            <InputLabel>원</InputLabel>
-                          </Grid>
-                          <Grid item md={2} xs={12}>
+                          <Grid item md={2} xs={12} style={{marginLeft: "10px"}}>
                             <Button size="medium" variant="contained" color="primary">입력</Button>
                           </Grid>
                         </Grid>
                       </TableCell>
                       <TableCell className="text-center" width="33%">
-                        <Grid container md={12} xs={12}>
+                        <Grid container md={12} xs={12} className="align-items-center">
                           <Grid item md={2} xs={12} style={{paddingTop: "15px"}}>
                             <InputLabel>공급가</InputLabel>
                           </Grid>
-                          <Grid item md={6} xs={12}>
+                          <Grid item md={6} xs={12} style={{marginLeft: "10px"}}>
                             <TextField
                                 fullWidth
                                 size="small"
                                 variant="outlined"
                                 name="refund_delivery_price"
                                 placeholder="800"
+                                InputProps={{ endAdornment: (<InputAdornment position="end">원</InputAdornment>),}}
                             />
                           </Grid>
-                          <Grid item md={1} xs={12} style={{paddingTop: "15px"}}>
-                            <InputLabel>원</InputLabel>
-                          </Grid>
-                          <Grid item md={2} xs={12}>
+                          <Grid item md={2} xs={12} style={{marginLeft: "10px"}}>
                             <Button size="medium" variant="contained" color="primary">입력</Button>
                           </Grid>
                         </Grid>
                       </TableCell>
                       <TableCell className="text-center" width="33%">
-                        <Grid container md={12} xs={12}>
+                        <Grid container md={12} xs={12} className="align-items-center">
                           <Grid item md={2} xs={12} style={{paddingTop: "15px"}}>
                             <InputLabel>수량</InputLabel>
                           </Grid>
-                          <Grid item md={6} xs={12}>
+                          <Grid item md={6} xs={12} style={{marginLeft: "10px"}}>
                             <TextField
                                 fullWidth
                                 size="small"
                                 variant="outlined"
                                 name="refund_delivery_price"
                                 placeholder="100"
+                                InputProps={{ endAdornment: (<InputAdornment position="end">개</InputAdornment>),}}
                             />
                           </Grid>
-                          <Grid item md={1} xs={12} style={{paddingTop: "15px"}}>
-                            <InputLabel>개</InputLabel>
-                          </Grid>
-                          <Grid item md={2} xs={12}>
+                          <Grid item md={2} xs={12} style={{marginLeft: "10px"}}>
                             <Button size="medium" variant="contained" color="primary">입력</Button>
                           </Grid>
                         </Grid>
@@ -255,6 +250,8 @@ class Option extends React.Component {
                       </TableCell>
                       <TableCell className="text-center">
                         <Button 
+                          size="small"
+                          variant="contained"
                           color="primary" 
                           startIcon={<EditIcon />}
                         >닫다</Button>
@@ -307,6 +304,8 @@ class Option extends React.Component {
                       </TableCell>
                       <TableCell className="text-center">
                         <Button 
+                          size="small"
+                          variant="contained"
                           color="primary" 
                           startIcon={<EditIcon />}
                         >닫다</Button>
@@ -315,6 +314,8 @@ class Option extends React.Component {
                     <TableRow>
                       <TableCell className="text-left" colspan={5}>
                         <Button 
+                          size="small"
+                          variant="contained"
                           style={{backgroundColor: "#ff0000", color: "#fff"}}
                           startIcon={<DeleteIcon />}
                         >일괄삭제</Button>
@@ -331,11 +332,27 @@ class Option extends React.Component {
 
           <Divider />
           <DialogActions>
-            <Button autoFocus onClick={this.onCloseModal.bind(this)} color="primary">닫다</Button>
-            {/*}
-            <Button autoFocus form="product-form" type="submit" color="primary">
-              Confirm
-            </Button>*/}
+            <Button
+                autoFocus
+                size="small"
+                variant="contained"
+                color="primary"
+                form="product-form"
+                type="submit"
+                startIcon={<SaveIcon/>}
+            >
+                저장
+            </Button>
+            <Button
+                autoFocus
+                size="small"
+                variant="contained"
+                style={{ border: "1px solid #cccbcb" }}
+                startIcon={<CancelIcon/>}
+                onClick={this.onCloseModal.bind(this)}
+            >
+                닫기
+            </Button>
           </DialogActions>
         </Dialog>
     </CardContent>

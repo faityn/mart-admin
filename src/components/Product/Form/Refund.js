@@ -9,6 +9,7 @@ import PaginationMaterial from "@material-ui/lab/Pagination";
 import SubjectIcon from '@material-ui/icons/Subject';
 import SearchIcon from '@material-ui/icons/Search';
 import MailIcon from '@material-ui/icons/Message';
+import DownloadIcon from '@material-ui/icons/CloudDownload';
 
 class Refund extends React.Component {
     constructor(props) {
@@ -187,6 +188,7 @@ class Refund extends React.Component {
                                 </Grid>
 
                                 <Grid item md={10} xs={12} className="align-items-center">
+                                    {/*
                                     <Grid container>
                                         <Grid item md={2} xs={12} className="align-items-center">
                                             <Button
@@ -230,17 +232,19 @@ class Refund extends React.Component {
                                                 variant="contained"
                                                 style={{ border: "1px solid #cccbcb" }}>교환 거부</Button>
                                         </Grid>
-                                    </Grid>
+                                    </Grid>*/}
                                 </Grid>
                             </Grid>
                         </Grid>
                         <Grid item md={2} xs={12} className="align-items-center text-right">
-                            <Grid item md={6} xs={12} style={{marginLeft: "9rem"}}>
+                            <Grid item md={6} xs={12}></Grid>
+                            <Grid item md={6} xs={12}>
                                 <Button
                                     fullWidth
                                     size="medium"
-                                    variant="contained"
-                                    style={{ border: "1px solid #cccbcb" }}>엑셀다운</Button>
+                                    variant="contained" 
+                                    style={{backgroundColor: "#0eb906", color: "#fff"}}
+                                    startIcon={<DownloadIcon/>}>엑셀다운</Button>
                             </Grid>
                         </Grid>
                     </Grid>

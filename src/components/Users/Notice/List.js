@@ -2,8 +2,9 @@ import React from "react";
 import { withSnackbar } from "notistack";
 import { connect } from "react-redux";
 import PageTitle from "../../../core/common/Partials/PageTitle";
+import PaginationMaterial from "@material-ui/lab/Pagination";
 import { Grid, TextField, Button, FormControl, Select, MenuItem, InputLabel, Table, TableBody, TableRow, TableCell, FormControlLabel, Link,
-        Dialog, DialogTitle, DialogActions, Divider, RadioGroup, Radio, Checkbox} from "@material-ui/core";
+        Dialog, DialogTitle, DialogContent, DialogActions, RadioGroup, Radio, Checkbox, TextareaAutosize} from "@material-ui/core";
 import SubjectIcon from '@material-ui/icons/Subject';
 import AddIcon from '@material-ui/icons/Add';
 import SearchIcon from '@material-ui/icons/Search';
@@ -11,7 +12,8 @@ import EditIcon from '@material-ui/icons/Edit';
 import ViewIcon from '@material-ui/icons/RemoveRedEye';
 import ManageIcon from '@material-ui/icons/ListAlt';
 import DeleteIcon from '@material-ui/icons/Delete';
-import PaginationMaterial from "@material-ui/lab/Pagination";
+import CancelIcon from '@material-ui/icons/Cancel';
+import SaveIcon from '@material-ui/icons/Save';
 
 class NoticeList extends React.Component {
     constructor(props) {
@@ -230,6 +232,7 @@ class NoticeList extends React.Component {
                                                 size="medium"
                                                 variant="contained"  
                                                 style={{ border: "1px solid #cccbcb" }}
+                                                onClick={this.onOpenModal.bind(this)}
                                                 startIcon={<EditIcon/>}>수정</Button>
                                         </TableCell>
                                     </TableRow>
@@ -276,6 +279,7 @@ class NoticeList extends React.Component {
                                                 size="medium"
                                                 variant="contained"  
                                                 style={{ border: "1px solid #cccbcb" }}
+                                                onClick={this.onOpenModal.bind(this)}
                                                 startIcon={<EditIcon/>}>수정</Button>
                                         </TableCell>
                                     </TableRow>
@@ -322,6 +326,7 @@ class NoticeList extends React.Component {
                                                 size="medium"
                                                 variant="contained"  
                                                 style={{ border: "1px solid #cccbcb" }}
+                                                onClick={this.onOpenModal.bind(this)}
                                                 startIcon={<EditIcon/>}>수정</Button>
                                         </TableCell>
                                     </TableRow>
@@ -368,6 +373,7 @@ class NoticeList extends React.Component {
                                                 size="medium"
                                                 variant="contained"  
                                                 style={{ border: "1px solid #cccbcb" }}
+                                                onClick={this.onOpenModal.bind(this)}
                                                 startIcon={<EditIcon/>}>수정</Button>
                                         </TableCell>
                                     </TableRow>
@@ -414,6 +420,7 @@ class NoticeList extends React.Component {
                                                 size="medium"
                                                 variant="contained"  
                                                 style={{ border: "1px solid #cccbcb" }}
+                                                onClick={this.onOpenModal.bind(this)}
                                                 startIcon={<EditIcon/>}>수정</Button>
                                         </TableCell>
                                     </TableRow>
@@ -460,6 +467,7 @@ class NoticeList extends React.Component {
                                                 size="medium"
                                                 variant="contained"  
                                                 style={{ border: "1px solid #cccbcb" }}
+                                                onClick={this.onOpenModal.bind(this)}
                                                 startIcon={<EditIcon/>}>수정</Button>
                                         </TableCell>
                                     </TableRow>
@@ -483,15 +491,110 @@ class NoticeList extends React.Component {
                         </Grid>
                     </Grid>
 
-                    <Dialog open={this.state.isOpenModal}
-                        aria-labelledby="responsive-dialog-title"
-                        maxWidth="lg">
+                    <Dialog open={this.state.isOpenModal} aria-labelledby="responsive-dialog-title" maxWidth="sm" fullWidth>
                         <DialogTitle id="responsive-dialog-title">
                             <h2>게시판 만들기</h2>
                         </DialogTitle>
-                        <Divider />
+                        
+                        <DialogContent>
+                            <Grid spacing={2} container md={12} xs={12}> 
+                                <Grid item md={3} xs={12} className="align-items-center">
+                                    <h5>아이디</h5>
+                                </Grid>
+                                <Grid item md={9} xs={12} className="align-items-center">
+                                    <FormControl
+                                        size="small"
+                                        fullWidth
+                                        variant="outlined"
+                                    >
+                                        <InputLabel>아이디</InputLabel>
+                                        <Select>
+                                            <MenuItem value="">...</MenuItem>
+                                        </Select>
+                                    </FormControl>
+                                </Grid>
+                            </Grid>
+
+                            <Grid spacing={2} container md={12} xs={12} className="mt-12"> 
+                                <Grid item md={3} xs={12} className="align-items-center">
+                                    <h5>분류(이름)</h5>
+                                </Grid>
+                                <Grid item md={9} xs={12} className="align-items-center">
+                                    <FormControl
+                                        size="small"
+                                        fullWidth
+                                        variant="outlined"
+                                    >
+                                        <InputLabel>분류(이름)</InputLabel>
+                                        <Select>
+                                            <MenuItem value="">...</MenuItem>
+                                        </Select>
+                                    </FormControl>
+                                </Grid>
+                            </Grid>
+
+                            <Grid spacing={2} container md={12} xs={12} className="mt-12"> 
+                                <Grid item md={3} xs={12} className="align-items-center">
+                                    <h5>구분</h5>
+                                </Grid>
+                                <Grid item md={9} xs={12} className="align-items-center">
+                                    <FormControl
+                                        size="small"
+                                        fullWidth
+                                        variant="outlined"
+                                    >
+                                        <InputLabel>고객용/ 마트용</InputLabel>
+                                        <Select>
+                                            <MenuItem value="">...</MenuItem>
+                                        </Select>
+                                    </FormControl>
+                                </Grid>
+                            </Grid>
+
+                            <Grid spacing={2} container md={12} xs={12} className="mt-12"> 
+                                <Grid item md={3} xs={12} className="align-items-center">
+                                    <h5>유형</h5>
+                                </Grid>
+                                <Grid item md={9} xs={12} className="align-items-center">
+                                    <FormControl
+                                        size="small"
+                                        fullWidth
+                                        variant="outlined"
+                                    >
+                                        <InputLabel>유형</InputLabel>
+                                        <Select>
+                                            <MenuItem value="">...</MenuItem>
+                                        </Select>
+                                    </FormControl>
+                                </Grid>
+                            </Grid>
+
+                            <Grid container spacing={2} md={12} xs={12} className="mt-12">
+                                <Grid item md={3} xs={12} className="align-items-center">
+                                    <h5>내용</h5>
+                                </Grid>
+                                <Grid item md={9} xs={12} className="align-items-center mt-12">
+                                    <TextareaAutosize minRows={15} style={{width: "100%", borderRadius: "5px"}} placeholder="내용" />
+                                </Grid>
+                            </Grid>
+                        </DialogContent>
+                        
                         <DialogActions>
-                            <Button autoFocus onClick={this.onCloseModal.bind(this)} color="primary">닫다</Button>
+                            <Button
+                                size="medium"
+                                variant="contained"
+                                color="primary"
+                                startIcon={<SaveIcon/>}
+                                style={{marginRight: "5px"}}
+                            >저장</Button>
+                            <Button
+                                size="medium"
+                                variant="outlined"
+                                style={{backgroundColor: "#fff", color: "#000"}}
+                                startIcon={<CancelIcon/>}
+                                style={{marginLeft: "5px"}}
+                                onClick={this.onCloseModal.bind(this)}
+                            >취소</Button>
                         </DialogActions>
                     </Dialog>
                 </div>

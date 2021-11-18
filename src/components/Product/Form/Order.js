@@ -3,14 +3,17 @@ import { withSnackbar } from "notistack";
 import { connect } from "react-redux";
 import PageTitle from "../../../core/common/Partials/PageTitle";
 import SwipeableViews from "react-swipeable-views";
-import {
-    Grid, TextField, Button, FormControl, Select, MenuItem, InputLabel, Table, TableBody, TableRow, TableCell, FormControlLabel, Checkbox,
-    Dialog, DialogContent, Divider, DialogTitle, DialogActions, TextareaAutosize, Tabs, Tab, Link
-} from "@material-ui/core";
+import {Grid, TextField, Button, FormControl, Select, MenuItem, InputLabel, Table, TableBody, TableRow, TableCell, FormControlLabel, Checkbox,
+    Dialog, DialogContent, Divider, DialogTitle, DialogActions, TextareaAutosize, Tabs, Tab, Link} from "@material-ui/core";
 import PaginationMaterial from "@material-ui/lab/Pagination";
 import SubjectIcon from '@material-ui/icons/Subject';
 import SearchIcon from '@material-ui/icons/Search';
 import MailIcon from '@material-ui/icons/Message';
+import DownloadIcon from '@material-ui/icons/CloudDownload';
+import CancelIcon from '@material-ui/icons/Cancel';
+import SendIcon from '@material-ui/icons/Send';
+import SaveIcon from '@material-ui/icons/Save';
+import AddIcon from '@material-ui/icons/Add';
 
 class Order extends React.Component {
     constructor(props) {
@@ -188,22 +191,54 @@ class Order extends React.Component {
                                     </Select>
                                 </FormControl>
                             </Grid>
-                            <Grid item md={5} xs={12} className="align-items-center text-center" style={{ marginLeft: "10px" }}>
+                            <Grid item md={6} xs={12} className="align-items-center text-center" style={{ marginLeft: "10px" }}>
                                 <TextField
                                     fullWidth
                                     size="small"
                                     variant="outlined"
                                 />
                             </Grid>
-                            <Grid item md={1} xs={12} className="align-items-center text-center" style={{ marginLeft: "10px" }}>
-                                <Button
-                                    fullWidth
-                                    size="medium"
-                                    variant="contained"
-                                    color="primary"
-                                    startIcon={<SearchIcon />}
-                                >검색</Button>
-                            </Grid>
+                        </Grid>
+                    </Grid>
+
+                    <Grid container spacing={3} md={10} xs={12}>
+                        <Grid item md={2} xs={12}>
+                            <h5>주문상태</h5>
+                        </Grid>
+
+                        <Grid item md={3} xs={12} className="align-items-center">
+                            <FormControl size="small" fullWidth variant="outlined">
+                                <InputLabel>전체</InputLabel>
+                                <Select>
+                                    <MenuItem value="1">신규주문</MenuItem>
+                                    <MenuItem value="2">상품준비</MenuItem>
+                                    <MenuItem value="3">당일 배송 주문 마감</MenuItem>
+                                </Select>
+                            </FormControl>
+                        </Grid>
+
+                        <Grid item md={1} xs={12} style={{textAlign: "center"}}>
+                            <h5>배송상태</h5>
+                        </Grid>
+
+                        <Grid item md={3} xs={12} className="align-items-center">
+                            <FormControl size="small" fullWidth variant="outlined">
+                                <InputLabel>전체</InputLabel>
+                                <Select>
+                                    <MenuItem value="1">배송 중</MenuItem>
+                                    <MenuItem value="2">배송완료</MenuItem>
+                                </Select>
+                            </FormControl>
+                        </Grid>
+
+                        <Grid item md={1} xs={12} className="align-items-center text-center" style={{ marginLeft: "10px" }}>
+                            <Button
+                                fullWidth
+                                size="medium"
+                                variant="contained"
+                                color="primary"
+                                startIcon={<SearchIcon />}
+                            >검색</Button>
                         </Grid>
                     </Grid>
 
@@ -214,6 +249,7 @@ class Order extends React.Component {
 
                         <Grid item md={11} xs={12} className="align-items-center">
                             <Grid container>
+                                {/*
                                 <Grid item md={2} xs={12} className="align-items-center">
                                     <Button
                                         fullWidth
@@ -259,8 +295,9 @@ class Order extends React.Component {
                                             <MenuItem value="">...</MenuItem>
                                         </Select>
                                     </FormControl>
-                                </Grid>
-                                <Grid item md={1} xs={12} className="align-items-center" style={{ marginLeft: "5px" }}>
+                                </Grid> */}
+                                <Grid item md={8} xs={12} className="align-items-center"></Grid>
+                                <Grid item md={2} xs={12} className="align-items-center">
                                     <FormControl size="small" fullWidth variant="outlined">
                                         <InputLabel>50개씩 보기</InputLabel>
                                         <Select>
@@ -268,19 +305,21 @@ class Order extends React.Component {
                                         </Select>
                                     </FormControl>
                                 </Grid>
+                                {/*
                                 <Grid item md={2} xs={12} className="align-items-center" style={{ marginLeft: "5px" }}>
                                     <Button
                                         fullWidth
                                         size="medium"
                                         variant="contained"
                                         style={{ border: "1px solid #cccbcb" }}>조회항목 설정</Button>
-                                </Grid>
-                                <Grid item md={1} xs={12} className="align-items-center" style={{ marginLeft: "5px" }}>
+                                </Grid> */}
+                                <Grid item md={2} xs={12} className="align-items-center" style={{paddingLeft: "5px" }}>
                                     <Button
                                         fullWidth
                                         size="medium"
-                                        variant="contained"
-                                        style={{ border: "1px solid #cccbcb" }}>엑셀다운</Button>
+                                        variant="contained" 
+                                        style={{backgroundColor: "#0eb906", color: "#fff"}}
+                                        startIcon={<DownloadIcon/>}>엑셀다운</Button>
                                 </Grid>
                             </Grid>
                         </Grid>
@@ -292,38 +331,22 @@ class Order extends React.Component {
                                 <TableBody>
                                     <TableRow>
                                         <TableCell className="text-center" width="3%"><strong>No.</strong></TableCell>
-                                        <TableCell className="text-center" width="3%"><strong>선택</strong></TableCell>
-                                        <TableCell className="text-center" width="3%"><strong>상태</strong></TableCell>
-                                        <TableCell className="text-center" width="4%"><strong>상품주문번호</strong></TableCell>
-                                        <TableCell className="text-center" width="4%"><strong>상품 바코드</strong></TableCell>
-                                        <TableCell className="text-center" width="10%"><strong>상품명</strong></TableCell>
-                                        <TableCell className="text-center" width="3%"><strong>수량</strong></TableCell>
-                                        <TableCell className="text-center" width="4%"><strong>배송할 마트</strong></TableCell>
-                                        <TableCell className="text-center" width="4%"><strong>주문자명</strong></TableCell>
-                                        <TableCell className="text-center" width="4%"><strong>수취인명</strong></TableCell>
-                                        <TableCell className="text-center" width="4%"><strong>주문상태</strong></TableCell>
-                                        <TableCell className="text-center" width="4%"><strong>배송상태</strong></TableCell>
-                                        <TableCell className="text-center" width="4%"><strong>주문자 휴대폰</strong></TableCell>
+                                        <TableCell className="text-center" width="5%"><strong>상태</strong></TableCell>
+                                        <TableCell className="text-center" width="10%"><strong>상품주문번호</strong></TableCell>
+                                        <TableCell className="text-center" width="8%"><strong>상품 바코드</strong></TableCell>
+                                        <TableCell className="text-center" width="20%"><strong>상품명</strong></TableCell>
+                                        <TableCell className="text-center" width="5%"><strong>수량</strong></TableCell>
+                                        <TableCell className="text-center" width="8%"><strong>배송할 마트</strong></TableCell>
+                                        <TableCell className="text-center" width="8%"><strong>주문자명</strong></TableCell>
+                                        <TableCell className="text-center" width="8%"><strong>수취인명</strong></TableCell>
+                                        <TableCell className="text-center" width="8%"><strong>주문상태</strong></TableCell>
+                                        <TableCell className="text-center" width="8%"><strong>배송상태</strong></TableCell>
+                                        <TableCell className="text-center" width="9%"><strong>주문자 휴대폰</strong></TableCell>
                                     </TableRow>
 
                                     <TableRow>
                                         <TableCell className="text-center">1</TableCell>
-                                        <TableCell className="text-center">
-                                            <FormControlLabel
-                                                control={
-                                                    <Checkbox
-                                                        color="primary"
-                                                        value={true}
-                                                    />
-                                                }
-                                            />
-                                        </TableCell>
-                                        <TableCell className="text-center">
-                                            <Button
-                                                size="small"
-                                                variant="contained"
-                                            >단품</Button>
-                                        </TableCell>
+                                        <TableCell className="text-center">단품</TableCell>
                                         <TableCell className="text-center">2021091013130</TableCell>
                                         <TableCell className="text-center">88545458990</TableCell>
                                         <TableCell className="text-center">맥심커피믹스 250T X 1박스</TableCell>
@@ -349,29 +372,112 @@ class Order extends React.Component {
 
                                     <TableRow>
                                         <TableCell className="text-center">2</TableCell>
-                                        <TableCell className="text-center">
-                                            <FormControlLabel
-                                                control={
-                                                    <Checkbox
-                                                        color="primary"
-                                                        value={true}
-                                                    />
-                                                }
-                                            />
-                                        </TableCell>
-                                        <TableCell className="text-center">
-                                            <Button
-                                                size="small"
-                                                variant="contained"
-                                            >묶음</Button>
-                                        </TableCell>
-                                        <TableCell className="text-center">2021091059540</TableCell>
+                                        <TableCell className="text-center" rowSpan={4}><Link>묶음</Link></TableCell>
+                                        <TableCell className="text-center" rowSpan={4}>2021091059540</TableCell>
                                         <TableCell className="text-center">88777848540</TableCell>
                                         <TableCell className="text-center">맥심커피믹스 250T X 1박스</TableCell>
                                         <TableCell className="text-center">1</TableCell>
-                                        <TableCell className="text-center">영구 마트</TableCell>
+                                        <TableCell className="text-center">땡땡 마트</TableCell>
                                         <TableCell className="text-center">이도령</TableCell>
                                         <TableCell className="text-center">춘향이</TableCell>
+                                        <TableCell className="text-center">신규주문</TableCell>
+                                        <TableCell className="text-center">배송 준비중</TableCell>
+                                        <TableCell className="text-center">
+                                            <Grid item md={12} xs={12} className="text-center">010-0000-0000</Grid>
+                                            <Grid item md={12} xs={12} className="text-center">
+                                                <Button
+                                                    size="small"
+                                                    variant="contained"
+                                                    color="primary"
+                                                    onClick={this.onOpenModal.bind(this)}
+                                                    startIcon={<MailIcon />}
+                                                >SMS</Button>
+                                            </Grid>
+                                        </TableCell>
+                                    </TableRow>
+
+                                    <TableRow>
+                                        <TableCell className="text-center">3</TableCell>
+                                        <TableCell className="text-center">88777848560</TableCell>
+                                        <TableCell className="text-center">농심 신라면 4팩 X 1박스</TableCell>
+                                        <TableCell className="text-center">1</TableCell>
+                                        <TableCell className="text-center">땡땡 마트</TableCell>
+                                        <TableCell className="text-center">이도령</TableCell>
+                                        <TableCell className="text-center">춘향이</TableCell>
+                                        <TableCell className="text-center">신규주문</TableCell>
+                                        <TableCell className="text-center">배송 준비중</TableCell>
+                                        <TableCell className="text-center">
+                                            <Grid item md={12} xs={12} className="text-center">010-0000-0000</Grid>
+                                            <Grid item md={12} xs={12} className="text-center">
+                                                <Button
+                                                    size="small"
+                                                    variant="contained"
+                                                    color="primary"
+                                                    onClick={this.onOpenModal.bind(this)}
+                                                    startIcon={<MailIcon />}
+                                                >SMS</Button>
+                                            </Grid>
+                                        </TableCell>
+                                    </TableRow>
+
+                                    <TableRow>
+                                        <TableCell className="text-center">4</TableCell>
+                                        <TableCell className="text-center">88777844570</TableCell>
+                                        <TableCell className="text-center">에비앙 생수 500ml x 24개(1박스)</TableCell>
+                                        <TableCell className="text-center">1</TableCell>
+                                        <TableCell className="text-center">땡땡 마트</TableCell>
+                                        <TableCell className="text-center">이도령</TableCell>
+                                        <TableCell className="text-center">춘향이</TableCell>
+                                        <TableCell className="text-center">신규주문</TableCell>
+                                        <TableCell className="text-center">배송 준비중</TableCell>
+                                        <TableCell className="text-center">
+                                            <Grid item md={12} xs={12} className="text-center">010-0000-0000</Grid>
+                                            <Grid item md={12} xs={12} className="text-center">
+                                                <Button
+                                                    size="small"
+                                                    variant="contained"
+                                                    color="primary"
+                                                    onClick={this.onOpenModal.bind(this)}
+                                                    startIcon={<MailIcon />}
+                                                >SMS</Button>
+                                            </Grid>
+                                        </TableCell>
+                                    </TableRow>
+
+                                    <TableRow>
+                                        <TableCell className="text-center">5</TableCell>
+                                        <TableCell className="text-center">88995416540</TableCell>
+                                        <TableCell className="text-center">농심 카프리썬 오렌지 200ml 40개</TableCell>
+                                        <TableCell className="text-center">1</TableCell>
+                                        <TableCell className="text-center">땡땡 마트</TableCell>
+                                        <TableCell className="text-center">이도령</TableCell>
+                                        <TableCell className="text-center">춘향이</TableCell>
+                                        <TableCell className="text-center">신규주문</TableCell>
+                                        <TableCell className="text-center">취소요청</TableCell>
+                                        <TableCell className="text-center">
+                                            <Grid item md={12} xs={12} className="text-center">010-0000-0000</Grid>
+                                            <Grid item md={12} xs={12} className="text-center">
+                                                <Button
+                                                    size="small"
+                                                    variant="contained"
+                                                    color="primary"
+                                                    onClick={this.onOpenModal.bind(this)}
+                                                    startIcon={<MailIcon />}
+                                                >SMS</Button>
+                                            </Grid>
+                                        </TableCell>
+                                    </TableRow>
+
+                                    <TableRow>
+                                        <TableCell className="text-center">6</TableCell>
+                                        <TableCell className="text-center">단품</TableCell>
+                                        <TableCell className="text-center">2020050610350</TableCell>
+                                        <TableCell className="text-center">88121245780</TableCell>
+                                        <TableCell className="text-center">맥심커피믹스 250T X 1박스</TableCell>
+                                        <TableCell className="text-center">5</TableCell>
+                                        <TableCell className="text-center">스마트 마트</TableCell>
+                                        <TableCell className="text-center">김순이</TableCell>
+                                        <TableCell className="text-center">김순이</TableCell>
                                         <TableCell className="text-center">신규주문</TableCell>
                                         <TableCell className="text-center">배송 준비중</TableCell>
                                         <TableCell className="text-center">
@@ -535,14 +641,16 @@ class Order extends React.Component {
                                                     fullWidth
                                                     size="medium"
                                                     variant="contained"
-                                                    color="primary">상용구 저장</Button>
+                                                    color="primary"
+                                                    startIcon={<SaveIcon/>}>상용구 저장</Button>
                                             </Grid>
                                             <Grid item md={5} xs={12} style={{ marginLeft: "5px" }}>
                                                 <Button
                                                     fullWidth
                                                     size="medium"
                                                     variant="contained"
-                                                    color="primary">새로 쓰기</Button>
+                                                    color="primary"
+                                                    startIcon={<AddIcon/>}>새로 쓰기</Button>
                                             </Grid>
                                         </Grid>
                                     </Grid>
@@ -854,12 +962,13 @@ class Order extends React.Component {
                                         <Grid item md={1} xs={12} className="align-items-center" style={{paddingLeft: "2.5rem"}}>
                                             <InputLabel>분</InputLabel>
                                         </Grid>
-                                        <Grid item md={1} xs={12} className="align-items-center">
+                                        <Grid item md={2} xs={12} className="align-items-center">
                                             <Button
                                                 fullWidth
                                                 size="medium"
                                                 variant="contained"
-                                                color="primary">보내기</Button>
+                                                color="primary"
+                                                startIcon={<SendIcon/>}>보내기</Button>
                                         </Grid>
                                     </Grid>
                                 </Grid>
@@ -867,8 +976,15 @@ class Order extends React.Component {
                         </DialogContent>
 
                         <Divider />
+
                         <DialogActions>
-                            <Button autoFocus onClick={this.onCloseModal.bind(this)} color="primary">닫다</Button>
+                            <Button
+                                size="medium"
+                                variant="outlined"
+                                style={{backgroundColor: "#fff", color: "#000"}}
+                                startIcon={<CancelIcon/>}
+                                onClick={this.onCloseModal.bind(this)}
+                            >취소</Button>
                         </DialogActions>
                     </Dialog>
                 </div>
