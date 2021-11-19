@@ -28,9 +28,7 @@ class PageTitle extends React.Component {
       <div>
         <Typography variant="h2" component="h3" color="textPrimary"> {this.props.icon} {this.props.menuName}</Typography>
         <Breadcrumbs aria-label="breadcrumb">
-          <Link to="/">
-            Dashboard
-          </Link>
+          <Link to="/">대시보드</Link>
           {(this.props.links || []).map((link, index) => {
             return <Link to={link.href} key={index}>
               {link.name}

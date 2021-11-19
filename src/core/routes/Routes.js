@@ -31,6 +31,7 @@ import AllPaymentManagementView from "../../components/Product/Payment/AllManage
 import PaymentManagementView from "../../components/Product/Payment/Management";
 import UserNoticeView from "../../components/Users/Notice/List";
 import UserQuestionView from "../../components/Users/Question/List";
+import UserListView from "../../components/Users/List";
 import UserFAQView from "../../components/Users/Question/FAQ";
 import UserReviewView from "../../components/Users/Review/List";
 import SetProductListView from "../../components/SetProduct/Index/List";
@@ -782,6 +783,13 @@ class Routes extends React.Component {
                         exact
                         layout={MainLayout}
                         path="/user-faq"
+                    />
+
+                    <RouteWithLayout
+                        component={UserListView}
+                        exact
+                        layout={MainLayout}
+                        path="/user-list"
                     />
 
                     <RouteWithLayout

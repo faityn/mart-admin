@@ -350,7 +350,7 @@ const Sidebar = (props) => {
                             <Link to="/products">
                                 <StyledTreeItem
                                     nodeId="210"
-                                    labelText="Products"
+                                    labelText="상품"
                                     labelIcon={FastfoodIcon}
                                     color="#1a73e8"
                                     bgColor="#e8f0fe"
@@ -483,6 +483,13 @@ const Sidebar = (props) => {
                             labelText="회원관리"
                             labelIcon={GroupIcon}
                         >
+                            <Link to="/user-list">
+                                <StyledTreeItem
+                                    nodeId="611"
+                                    labelText="회원리스트"
+                                    labelIcon={GroupIcon}
+                                />
+                            </Link>
                         </StyledTreeItem>
                         
                         <StyledTreeItem

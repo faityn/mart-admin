@@ -288,15 +288,15 @@ class List extends BaseList {
           {/* Title section */}
           <Grid item xs={6}>
             <PageTitle
-              menuName="Products"
-              title="Product list"
+              menuName="상품"
+              title="상품"
               icon={<FastfoodIcon />}
             />
           </Grid>
 
           {/* Button section */}
           <Grid item xs={6} className="text-right">
-            {/* Display on/off */}
+            {/*
             <FormControlLabel
               control={
                 <Switch
@@ -306,7 +306,7 @@ class List extends BaseList {
                 />
               }
               label="Display On/Off"
-            />
+            /> */}
 
             {/* Search */}
             <Button
@@ -317,9 +317,7 @@ class List extends BaseList {
                 this.state.isShowSearchPanel ? <ZoomOutIcon /> : <ZoomInIcon />
               }
               onClick={this.toggleSearchPanel}
-            >
-              Search
-            </Button>
+            >추가</Button>
 
             {/* Create */}
             <Link to="/product/create">
@@ -329,9 +327,7 @@ class List extends BaseList {
                 size="small"
                 startIcon={<AddIcon />}
                 className="ml-20"
-              >
-                New Product
-              </Button>
+              >새 제품 추가</Button>
             </Link>
           </Grid>
         </Grid>

@@ -680,11 +680,11 @@ class Form extends React.Component {
                     <Grid item xs={6}>
                         {/* Title */}
                         <PageTitle
-                            menuName="Products"
+                            menuName="상품"
                             links={[
-                                { name: "Product list", href: "/products" },
+                                { name: "상품", href: "/products" },
                             ]}
-                            title="Product"
+                            title="상품등록"
                             icon={<StorefrontIcon />}
                         />
                     </Grid>
