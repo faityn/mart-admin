@@ -163,17 +163,24 @@ class ProductGuide extends React.Component {
                       startIcon={<CreateIcon/>}
                   >사용자 추가</Button>
                 </Grid> 
-              </Grid>
+              </Grid>            
 
               <Divider />
                     
-              <Grid container spacing={3} md={12} xs={12} style={{marginTop: "15px"}}>
-                  <Grid item md={12} xs={12} className="align-items-center">
-                      <Grid container>
-                          <Grid item md={2} xs={12}>
-                              <InputLabel>전체 <i style={{color: "#FF0000", fontStyle: "normal"}}><strong>0</strong></i> 개</InputLabel>
-                          </Grid>
-                      </Grid>
+              <Grid container spacing={2} md={12} xs={12} className="mt-20">
+                  <Grid item md={2} xs={12}>
+                      <InputLabel>전체 <i style={{color: "#FF0000", fontStyle: "normal"}}><strong>0</strong></i> 개</InputLabel>
+                  </Grid>
+                  <Grid item md={9} xs={12} className="align-items-center"></Grid>
+                  <Grid item md={1} xs={12} className="align-items-center">
+                      <FormControl size="small" fullWidth variant="outlined">
+                          <InputLabel>10개</InputLabel>
+                          <Select>
+                              <MenuItem value="10">10개</MenuItem>
+                              <MenuItem value="30">30개</MenuItem>
+                              <MenuItem value="50">50개</MenuItem>
+                          </Select>
+                      </FormControl>
                   </Grid>
               </Grid>
 
@@ -213,7 +220,7 @@ class ProductGuide extends React.Component {
                             variant="contained"
                             color="primary"
                             startIcon={<EditIcon/>}
-                        >수정</Button>
+                            onClick={this.onOpenModal.bind(this)}>수정</Button>
                       </TableCell>
                     </TableRow>
 
@@ -240,7 +247,7 @@ class ProductGuide extends React.Component {
                             variant="contained"
                             color="primary"
                             startIcon={<EditIcon/>}
-                        >수정</Button>
+                            onClick={this.onOpenModal.bind(this)}>수정</Button>
                       </TableCell>
                     </TableRow>
                   </TableBody>

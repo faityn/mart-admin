@@ -162,7 +162,7 @@ class Operator extends React.Component {
                       variant="outlined"
                       defaultValue=""
                   >
-                    <InputLabel>고른</InputLabel>
+                    <InputLabel>등급선택</InputLabel>
                     <Select>
                         <MenuItem value="general">최고운영자</MenuItem>
                         <MenuItem value="simple">일반운영자</MenuItem>
@@ -173,7 +173,7 @@ class Operator extends React.Component {
               
               <Grid container spacing={3} alignItems="center" md={3} xs={12}>
                 <Grid item md={3} xs={12} className="align-items-center">
-                    <h5>사용여부</h5>
+                    <h5>상태</h5>
                 </Grid>
                 <Grid item md={6} sm={4} xs={12}>
                   <FormControl
@@ -181,7 +181,7 @@ class Operator extends React.Component {
                       fullWidth
                       variant="outlined"
                   >
-                    <InputLabel>사용함</InputLabel>
+                    <InputLabel>사용여부</InputLabel>
                     <Select>
                         <MenuItem value="1">사용함</MenuItem>
                         <MenuItem value="0">사용 안함</MenuItem>
@@ -201,7 +201,7 @@ class Operator extends React.Component {
                       variant="outlined"
                       defaultValue=""
                   >
-                    <InputLabel>고른</InputLabel>
+                    <InputLabel>관리자ID</InputLabel>
                     <Select>
                         <MenuItem value="id">사용자ID </MenuItem>
                         <MenuItem value="name">사용자명</MenuItem>

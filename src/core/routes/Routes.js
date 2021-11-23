@@ -24,9 +24,11 @@ import ProductForm from "../../components/Product/Form/Form";
 import EditProductView from "../../components/Product/Form/Edit";
 import ProductOrderView from "../../components/Product/Form/Order";
 import ProductRefundView from "../../components/Product/Form/Refund";
+import ProductDeliveryView from "../../components/Product/Delivery/Index";
 import SupplyManagementView from "../../components/Product/Supply/Management";
 import ProductManagementView from "../../components/Product/Form/Management";
 import ProductNoticeView from "../../components/Product/Form/Notice";
+import ProductQAView from "../../components/Product/QA/Index";
 import AllPaymentManagementView from "../../components/Product/Payment/AllManagement";
 import PaymentManagementView from "../../components/Product/Payment/Management";
 import UserNoticeView from "../../components/Users/Notice/List";
@@ -748,6 +750,20 @@ class Routes extends React.Component {
                         exact
                         layout={MainLayout}
                         path="/product-notice"
+                    />
+
+                    <RouteWithLayout
+                        component={ProductQAView}
+                        exact
+                        layout={MainLayout}
+                        path="/product-qa"
+                    />
+
+                    <RouteWithLayout
+                        component={ProductDeliveryView}
+                        exact
+                        layout={MainLayout}
+                        path="/product-delivery"
                     />
 
                     <RouteWithLayout

@@ -9,7 +9,7 @@ import SwipeableViews from 'react-swipeable-views';
 import Paper from '@material-ui/core/Paper';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-import { Grid, Button, Table, TableBody, TableRow, TableCell, TextField, CardContent} from "@material-ui/core";
+import { Grid, Button, Table, TableBody, TableRow, TableCell, TextField, CardContent, FormControl, Select, MenuItem, InputLabel} from "@material-ui/core";
 import PaginationMaterial from '@material-ui/lab/Pagination';
 
 class LoginHistory extends React.Component {
@@ -279,6 +279,21 @@ class LoginHistory extends React.Component {
                   <div value={this.state.value} index={0}>
                     <CardContent>
                       <Grid container spacing={3} md={12} xs={12} className="mt-20">
+                          <Grid container>
+                              <Grid item md={11} xs={12} className="align-items-center"></Grid>
+                              <Grid item md={1} xs={12} className="align-items-center">
+                                  <FormControl size="small" fullWidth variant="outlined">
+                                      <InputLabel>10개</InputLabel>
+                                      <Select>
+                                          <MenuItem value="10">10개</MenuItem>
+                                          <MenuItem value="30">30개</MenuItem>
+                                          <MenuItem value="50">50개</MenuItem>
+                                      </Select>
+                                  </FormControl>
+                              </Grid>
+                          </Grid>
+                      </Grid>
+                      <Grid container spacing={3} md={12} xs={12} className="mt-20">
                         <Table className="order_table">
                           <TableBody>
                             <TableRow>
@@ -317,6 +332,21 @@ class LoginHistory extends React.Component {
                   </div>
                   <div value={this.state.value} index={1}>
                     <CardContent>
+                      <Grid item md={12} xs={12} className="align-items-center">
+                          <Grid container>
+                              <Grid item md={11} xs={12} className="align-items-center"></Grid>
+                              <Grid item md={1} xs={12} className="align-items-center">
+                                  <FormControl size="small" fullWidth variant="outlined">
+                                      <InputLabel>10개</InputLabel>
+                                      <Select>
+                                          <MenuItem value="10">10개</MenuItem>
+                                          <MenuItem value="30">30개</MenuItem>
+                                          <MenuItem value="50">50개</MenuItem>
+                                      </Select>
+                                  </FormControl>
+                              </Grid>
+                          </Grid>
+                      </Grid>
                       <Grid container spacing={3} md={12} xs={12} className="mt-20">
                         <Table className="order_table">
                           <TableBody>
@@ -354,6 +384,21 @@ class LoginHistory extends React.Component {
                   </div>  
                   <div value={this.state.value} index={2}>
                     <CardContent>
+                      <Grid item md={12} xs={12} className="align-items-center">
+                          <Grid container>
+                              <Grid item md={11} xs={12} className="align-items-center"></Grid>
+                              <Grid item md={1} xs={12} className="align-items-center">
+                                  <FormControl size="small" fullWidth variant="outlined">
+                                      <InputLabel>10개</InputLabel>
+                                      <Select>
+                                          <MenuItem value="10">10개</MenuItem>
+                                          <MenuItem value="30">30개</MenuItem>
+                                          <MenuItem value="50">50개</MenuItem>
+                                      </Select>
+                                  </FormControl>
+                              </Grid>
+                          </Grid>
+                      </Grid>
                       <Grid container spacing={3} md={12} xs={12} className="mt-20">
                         <Table className="order_table">
                           <TableBody>

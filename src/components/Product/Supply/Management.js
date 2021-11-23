@@ -174,6 +174,7 @@ class Management extends React.Component {
                                 <TableBody>
                                     <TableRow>
                                         <TableCell className="text-center" width="3%"><strong>선택</strong></TableCell>
+                                        <TableCell className="text-center" width="3%"><strong>상태</strong></TableCell>
                                         <TableCell className="text-center" width="10%"><strong>상호명</strong></TableCell>
                                         <TableCell className="text-center"><strong>사업자등록번호</strong></TableCell>
                                         <TableCell className="text-center"><strong>법인번호</strong></TableCell>
@@ -212,6 +213,7 @@ class Management extends React.Component {
                                                 style={{marginLeft: "18%"}}
                                             />
                                         </TableCell>
+                                        <TableCell className="text-center"><InputLabel style={{backroundColor: "#9eecf7", padding: "5px", borderRadius: "5px"}}>신규</InputLabel></TableCell>
                                         <TableCell className="text-center"><Link component="button" onClick={this.onOpenModal.bind(this)}>우리 마트</Link></TableCell>
                                         <TableCell className="text-center"></TableCell>
                                         <TableCell className="text-center"></TableCell>
@@ -250,6 +252,7 @@ class Management extends React.Component {
                                                 style={{marginLeft: "18%"}}
                                             />
                                         </TableCell>
+                                        <TableCell className="text-center"><InputLabel style={{backroundColor: "#DAF7A6", padding: "5px", borderRadius: "5px"}}>입점</InputLabel></TableCell>
                                         <TableCell className="text-center"><Link>꼬끼오</Link></TableCell>
                                         <TableCell className="text-center"></TableCell>
                                         <TableCell className="text-center"></TableCell>

@@ -226,7 +226,12 @@ class ProductManagement extends React.Component {
                                     <FormControl size="small" fullWidth variant="outlined">
                                         <InputLabel>전체</InputLabel>
                                         <Select>
-                                            <MenuItem value="">...</MenuItem>
+                                            <MenuItem value="">전체</MenuItem>
+                                            <MenuItem value="">상품명</MenuItem>
+                                            <MenuItem value="">상품번호</MenuItem>
+                                            <MenuItem value="">상품 바코드</MenuItem>
+                                            <MenuItem value="">판매상태</MenuItem>
+                                            <MenuItem value="">브랜드명</MenuItem>
                                         </Select>
                                     </FormControl>
                                 </Grid>
@@ -412,15 +417,18 @@ class ProductManagement extends React.Component {
                                     <FormControl size="small" fullWidth variant="outlined">
                                         <InputLabel>상품등록일순</InputLabel>
                                         <Select>
-                                            <MenuItem value="">...</MenuItem>
+                                            <MenuItem value="1">등록일</MenuItem>
+                                            <MenuItem value="2">최종수정일</MenuItem>
                                         </Select>
                                     </FormControl>
                                 </Grid>
                                 <Grid item md={1} xs={12} className="align-items-center" style={{marginLeft: "5px"}}>
                                     <FormControl size="small" fullWidth variant="outlined">
-                                        <InputLabel>50개</InputLabel>
+                                        <InputLabel>10개</InputLabel>
                                         <Select>
-                                            <MenuItem value="">...</MenuItem>
+                                            <MenuItem value="10">10개</MenuItem>
+                                            <MenuItem value="30">30개</MenuItem>
+                                            <MenuItem value="50">50개</MenuItem>
                                         </Select>
                                     </FormControl>
                                 </Grid>

@@ -196,11 +196,22 @@ class Order extends React.Component {
                                     fullWidth
                                     size="small"
                                     variant="outlined"
+                                    placeholder="배송한 마트 / 주문자명 / 수취인명"
                                 />
+                            </Grid>
+                            <Grid item md={3} xs={12}></Grid>
+                            <Grid item md={1} xs={12} className="align-items-center text-center" style={{ marginLeft: "10px" }}>
+                                <Button
+                                    fullWidth
+                                    size="medium"
+                                    variant="contained"
+                                    color="primary"
+                                    startIcon={<SearchIcon />}
+                                >검색</Button>
                             </Grid>
                         </Grid>
                     </Grid>
-
+                    {/*
                     <Grid container spacing={3} md={10} xs={12}>
                         <Grid item md={2} xs={12}>
                             <h5>주문상태</h5>
@@ -230,17 +241,7 @@ class Order extends React.Component {
                                 </Select>
                             </FormControl>
                         </Grid>
-
-                        <Grid item md={1} xs={12} className="align-items-center text-center" style={{ marginLeft: "10px" }}>
-                            <Button
-                                fullWidth
-                                size="medium"
-                                variant="contained"
-                                color="primary"
-                                startIcon={<SearchIcon />}
-                            >검색</Button>
-                        </Grid>
-                    </Grid>
+                    </Grid> */}
 
                     <Grid container spacing={3} md={12} xs={12}>
                         <Grid item md={1} xs={12} className="align-items-center">

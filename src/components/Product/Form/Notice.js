@@ -275,7 +275,20 @@ class ProductNotice extends React.Component {
                             </Tabs>
                             <SwipeableViews index={this.state.tabIndex}>
                                 <div index={0} className="mt-20">
-                                    <Table className="order_table">
+                                    <Grid container spacing={3} md={12} xs={12}>
+                                        <Grid item md={11} xs={12} className="align-items-center"></Grid>
+                                        <Grid item md={1} xs={12} className="align-items-center">
+                                            <FormControl size="small" fullWidth variant="outlined">
+                                                <InputLabel>10개</InputLabel>
+                                                <Select>
+                                                    <MenuItem value="10">10개</MenuItem>
+                                                    <MenuItem value="30">30개</MenuItem>
+                                                    <MenuItem value="50">50개</MenuItem>
+                                                </Select>
+                                            </FormControl>
+                                        </Grid>
+                                    </Grid>
+                                    <Table className="order_table mt-20">
                                         <TableBody>
                                             <TableRow>
                                                 <TableCell className="text-center" width="5%"><strong>선택</strong></TableCell>
@@ -389,7 +402,20 @@ class ProductNotice extends React.Component {
                                 </div>
 
                                 <div index={1} className="mt-20">
-                                    <Table className="order_table">
+                                    <Grid container spacing={3} md={12} xs={12}>
+                                        <Grid item md={11} xs={12} className="align-items-center"></Grid>
+                                        <Grid item md={1} xs={12} className="align-items-center">
+                                            <FormControl size="small" fullWidth variant="outlined">
+                                                <InputLabel>10개</InputLabel>
+                                                <Select>
+                                                    <MenuItem value="10">10개</MenuItem>
+                                                    <MenuItem value="30">30개</MenuItem>
+                                                    <MenuItem value="50">50개</MenuItem>
+                                                </Select>
+                                            </FormControl>
+                                        </Grid>
+                                    </Grid>
+                                    <Table className="order_table mt-20">
                                         <TableBody>
                                             <TableRow>
                                                 <TableCell className="text-center" width="5%"><strong>선택</strong></TableCell>

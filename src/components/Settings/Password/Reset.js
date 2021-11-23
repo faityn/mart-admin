@@ -4,7 +4,7 @@ import { withSnackbar } from "notistack";
 import { connect } from "react-redux";
 import SaveIcon from "@material-ui/icons/Save";
 import SubjectIcon from '@material-ui/icons/Subject';
-import { CircularProgress, Grid, Button, Table, TableBody, TableRow, TableCell, TextField, FormControlLabel, Checkbox, Select, MenuItem, FormControl} from "@material-ui/core";
+import { CircularProgress, Grid, Button, Table, TableBody, TableRow, TableCell, TextField, FormControlLabel, Checkbox, Select, MenuItem, FormControl, InputLabel} from "@material-ui/core";
 
 class PassReset extends React.Component {
   /**
@@ -145,7 +145,6 @@ class PassReset extends React.Component {
                                           name="active"
                                           color="primary"
                                           value={true}
-                                          defaultChecked={true}
                                         />
                                       }
                                       label="사용함"
@@ -158,6 +157,7 @@ class PassReset extends React.Component {
                                           name="active"
                                           color="primary"
                                           value={false}
+                                          defaultChecked={true}
                                         />
                                       }
                                       label="사용 안함"
@@ -165,7 +165,7 @@ class PassReset extends React.Component {
                                   </Grid>
                                   <Grid spacing={2} item md={12} xs={12} className="mt-20">
                                     <Grid item md={12} xs={12}>
-                                      <h5>+ 장기간 비밀번호를 변경하지 않은 관리자가 관리자 화면 로그인 시 비밀번호 변경을 안내.</h5>
+                                      <h5>장기간 비밀번호를 변경하지 않은 관리자가 관리자 화면 로그인 시 비밀번호 변경을 안내</h5>
                                     </Grid>
                                   </Grid>
                                 </TableCell>
@@ -180,7 +180,6 @@ class PassReset extends React.Component {
                                           name="active"
                                           color="primary"
                                           value={true}
-                                          defaultChecked={true}
                                         />
                                       }
                                       label="사용함"
@@ -192,6 +191,7 @@ class PassReset extends React.Component {
                                         <Checkbox
                                           name="active"
                                           color="primary"
+                                          defaultChecked={true}
                                           value={false}
                                         />
                                       }
@@ -200,7 +200,7 @@ class PassReset extends React.Component {
                                   </Grid>
                                   <Grid spacing={2} item md={12} xs={12} className="mt-20">
                                     <Grid item md={12} xs={12}>
-                                      <h5>+ 장기간 비밀번호를 변경하지 않은 회원이 쇼핑몰 화면 로그인 시 비밀번호 변경을 안내.</h5>
+                                      <h5>장기간 비밀번호를 변경하지 않은 회원이 쇼핑몰 화면 로그인 시 비밀번호 변경을 안내</h5>
                                     </Grid>
                                   </Grid>
                                 </TableCell>
@@ -208,45 +208,27 @@ class PassReset extends React.Component {
                             <TableRow>
                                 <TableCell>비밀번호 변경 안내 주기</TableCell>
                                 <TableCell>
-                                  <Grid container md={12} xs={12}>
+                                  <Grid container md={10} xs={12}>
                                     <Grid item md={2} xs={12}>
-                                      <h5>+ 비밀번호 최종 변경일 기준.</h5>
+                                      <h5>비밀번호 최종 변경일 기준 </h5>
                                     </Grid>
-                                    <Grid container md={2} xs={12} className="align-items-center">
-                                      <Grid item md={6} xs={12} className="text-center">
+                                    <Grid container md={1} xs={12} className="align-items-center">
                                         <FormControl
                                             size="small"
                                             fullWidth
                                             variant="outlined"
-                                            defaultValue=""
                                         >
+                                          <InputLabel>12월</InputLabel>
                                           <Select>
-                                              <MenuItem value="1">1</MenuItem>
-                                              <MenuItem value="2">2</MenuItem>
-                                              <MenuItem value="3">3</MenuItem>
-                                              <MenuItem value="4">4</MenuItem>
-                                              <MenuItem value="5">5</MenuItem>
-                                              <MenuItem value="6">6</MenuItem>
-                                              <MenuItem value="7">7</MenuItem>
-                                              <MenuItem value="8">8</MenuItem>
-                                              <MenuItem value="9">9</MenuItem>
-                                              <MenuItem value="10">10</MenuItem>
-                                              <MenuItem value="11">11</MenuItem>
-                                              <MenuItem value="12">12</MenuItem>
+                                              <MenuItem value="6">6월</MenuItem>
+                                              <MenuItem value="12">12월</MenuItem>
+                                              <MenuItem value="18">18월</MenuItem>
+                                              <MenuItem value="24">24월</MenuItem>
                                           </Select>
                                         </FormControl>
                                       </Grid>
-                                      <Grid item md={6} xs={12} className="text-center">
-                                        <TextField
-                                            fullWidth
-                                            size="small"
-                                            variant="outlined"
-                                            label="12 개월"
-                                        />
-                                      </Grid>
-                                    </Grid>
                                     <Grid item md={2} xs={12} className="text-center">
-                                      <h5>+ 마다 로그인 시 안내.</h5>
+                                      <h5> 개월 마다 로그인 시 안내</h5>
                                     </Grid>
                                   </Grid>
                                 </TableCell>
@@ -254,47 +236,29 @@ class PassReset extends React.Component {
                             <TableRow>
                                 <TableCell>비밀번호 변경 재 안내 주기</TableCell>
                                 <TableCell alignItems="center" >
-                                  <Grid container md={12} xs={12}>
-                                    <Grid container md={2} xs={12} className="align-items-center">
-                                      <Grid item md={6} xs={12} className="text-center">
-                                        <FormControl
-                                            size="small"
-                                            fullWidth
-                                            variant="outlined"
-                                            defaultValue=""
-                                        >
-                                          <Select>
-                                              <MenuItem value="1">1</MenuItem>
-                                              <MenuItem value="2">2</MenuItem>
-                                              <MenuItem value="3">3</MenuItem>
-                                              <MenuItem value="4">4</MenuItem>
-                                              <MenuItem value="5">5</MenuItem>
-                                              <MenuItem value="6">6</MenuItem>
-                                              <MenuItem value="7">7</MenuItem>
-                                              <MenuItem value="8">8</MenuItem>
-                                              <MenuItem value="9">9</MenuItem>
-                                              <MenuItem value="10">10</MenuItem>
-                                              <MenuItem value="11">11</MenuItem>
-                                              <MenuItem value="12">12</MenuItem>
-                                          </Select>
-                                        </FormControl>
-                                      </Grid>
-                                      <Grid item md={6} xs={12} className="text-center">
-                                        <TextField
-                                            fullWidth
-                                            size="small"
-                                            variant="outlined"
-                                            label="12 개월"
-                                        />
-                                      </Grid>
+                                  <Grid container md={10} xs={12}>
+                                    <Grid item md={1} xs={12} className="text-center align-items-center">
+                                      <FormControl
+                                          size="small"
+                                          fullWidth
+                                          variant="outlined"
+                                      >
+                                        <InputLabel>12월</InputLabel>
+                                        <Select>
+                                            <MenuItem value="3">3월</MenuItem>
+                                            <MenuItem value="6">6월</MenuItem>
+                                            <MenuItem value="12">12월</MenuItem>
+                                            <MenuItem value="24">24월</MenuItem>
+                                        </Select>
+                                      </FormControl>
                                     </Grid>
                                     <Grid item md={2} xs={12} className="text-center">
-                                        <h5> 마다 로그인 시 재 안내</h5>
+                                        <h5> 개월 마다 로그인 시 재 안내</h5>
                                     </Grid>
                                   </Grid>
                                   <Grid spacing={2} item md={12} xs={12} className="mt-20">
                                     <Grid item md={12} xs={12}>
-                                      <h5>+ 비밀번호 변경안내 화면에서 [다음에 변경하기] 선택 시 다시 안내 할 기간을 설정.</h5>
+                                      <h5>비밀번호 변경안내 화면에서 [다음에 변경하기] 선택 시 다시 안내 할 기간을 설정</h5>
                                     </Grid>
                                   </Grid>
                                 </TableCell>

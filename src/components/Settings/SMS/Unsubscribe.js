@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import SubjectIcon from '@material-ui/icons/Subject';
 import SearchIcon from '@material-ui/icons/Search';
 import FilterIcon from '@material-ui/icons/FilterList';
-import { CircularProgress, Grid, Button, Table, TableBody, TableRow, TableCell, TextField} from "@material-ui/core";
+import { Grid, Button, Table, TableBody, TableRow, TableCell, TextField, FormControl, Select, MenuItem, InputLabel, } from "@material-ui/core";
 
 class OperatorRole extends React.Component {
   /**
@@ -149,8 +149,8 @@ class OperatorRole extends React.Component {
                     >검색</Button>
                   </Grid>  
                 </Grid> 
-                <Grid item md={2} xs={12}></Grid>
-                <Grid item md={2} xs={12} style={{textAlign: "right"}} className="align-items-center">
+                <Grid item md={3} xs={12}></Grid>
+                <Grid item md={1} xs={12} className="align-items-center">
                   <Button
                       size="medium"
                       variant="contained"
@@ -158,6 +158,23 @@ class OperatorRole extends React.Component {
                       startIcon={<FilterIcon/>}>수동동기화</Button>
                 </Grid> 
               </Grid>
+            </Grid>
+                    
+            <Grid container spacing={2} md={12} xs={12} className="mt-20">
+                <Grid item md={2} xs={12}>
+                    <InputLabel>전체 <i style={{color: "#FF0000", fontStyle: "normal"}}><strong>0</strong></i> 개</InputLabel>
+                </Grid>
+                <Grid item md={9} xs={12} className="align-items-center"></Grid>
+                <Grid item md={1} xs={12} className="align-items-center">
+                    <FormControl size="small" fullWidth variant="outlined">
+                        <InputLabel>10개</InputLabel>
+                        <Select>
+                            <MenuItem value="10">10개</MenuItem>
+                            <MenuItem value="30">30개</MenuItem>
+                            <MenuItem value="50">50개</MenuItem>
+                        </Select>
+                    </FormControl>
+                </Grid>
             </Grid>
 
             <Grid item md={12} xs={12} className="mt-20">

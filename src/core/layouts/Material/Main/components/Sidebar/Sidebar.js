@@ -451,6 +451,24 @@ const Sidebar = (props) => {
                                     bgColor="#e8f0fe"
                                 />
                             </Link>
+                            <Link to="/product-delivery">
+                                <StyledTreeItem
+                                    nodeId="414"
+                                    labelText="배송 지역"
+                                    labelIcon={MenuIcon}
+                                    color="#1a73e8"
+                                    bgColor="#e8f0fe"
+                                />
+                            </Link>
+                            <Link to="/product-qa">
+                                <StyledTreeItem
+                                    nodeId="415"
+                                    labelText="Q&A 문의"
+                                    labelIcon={MenuIcon}
+                                    color="#1a73e8"
+                                    bgColor="#e8f0fe"
+                                />
+                            </Link>
                         </StyledTreeItem>
                         
                         <StyledTreeItem
