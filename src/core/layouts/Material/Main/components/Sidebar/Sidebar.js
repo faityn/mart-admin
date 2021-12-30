@@ -4,39 +4,28 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { Profile } from "./components";
 import { makeStyles, createStyles } from "@material-ui/core/styles";
-import { Divider, Drawer, ListItemIcon } from "@material-ui/core";
+import { Divider, Drawer } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import DashboardIcon from "@material-ui/icons/Dashboard";
-import CategoryIcon from "@material-ui/icons/Category";
 import OrderIcon from "@material-ui/icons/FormatListBulleted";
-import ShopIcon from "@material-ui/icons/Storefront";
-import PaymentIcon from "@material-ui/icons/AccountBalanceWallet";
+import CalculateIcon from "@material-ui/icons/SquareFoot";
 import NoticeIcon from "@material-ui/icons/Announcement";
-import GroupIcon from "@material-ui/icons/Group";
 import TreeView from "@material-ui/lab/TreeView";
 import TreeItem from "@material-ui/lab/TreeItem";
 import Typography from "@material-ui/core/Typography";
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
 import ArrowRightIcon from "@material-ui/icons/ArrowRight";
-import PublishIcon from "@material-ui/icons/Publish";
 import SettingsIcon from "@material-ui/icons/Settings";
-import RecentActorsIcon from "@material-ui/icons/RecentActors";
 import MenuIcon from "@material-ui/icons/Menu";
 import ProductIcon from "@material-ui/icons/ViewComfy";
-import FastfoodIcon from "@material-ui/icons/Fastfood";
-import BusinessIcon from "@material-ui/icons/Business";
-import SubjectIcon from "@material-ui/icons/Subject";
-import SearchIcon from "@material-ui/icons/Search";
-import PasswordIcon from "@material-ui/icons/Security";
-import ListIcon from "@material-ui/icons/ViewList";
-import QuestionIcon from "@material-ui/icons/QuestionAnswer"
+import MartRegistrationIcon from "@material-ui/icons/Storefront";
 
 /**
  * @template useStyles
  */
 const useStyles = makeStyles((theme) => ({
     drawer: {
-        width: 240,
+        width: 320,
         [theme.breakpoints.up("lg")]: {
             marginTop: 64,
             height: "calc(100% - 64px)",
@@ -138,12 +127,6 @@ function StyledTreeItem(props) {
     );
 }
 
-/**
- * @const Sidebar
- * @version 0.1
- * @author Tuguldur Unurtsetseg
- * @package core/layouts/main/components
- */
 const Sidebar = (props) => {
     const { open, variant, onClose, className, ...rest } = props;
 
@@ -185,161 +168,62 @@ const Sidebar = (props) => {
                         
                         <StyledTreeItem
                             nodeId="1"
-                            labelText="환경설정"
+                            labelText="기본설정"
                             labelIcon={SettingsIcon}
                         >
-                            {/* Business  */}
-                            <Link to="/settings-business">
-                                <StyledTreeItem
-                                    nodeId="110"
-                                    labelText="아니벌써 기본정보"
-                                    labelIcon={BusinessIcon}
-                                    color="#1a73e8"
-                                    bgColor="#e8f0fe"
-                                />
-                            </Link>
-                            {/* Term basic settings */}
-                            <Link to="/settings-term">
-                                <StyledTreeItem
-                                    nodeId="112"
-                                    labelText="환경설정"
-                                    labelIcon={SubjectIcon}
-                                    color="#1a73e8"
-                                    bgColor="#e8f0fe"
-                                />
-                            </Link>
+                            <StyledTreeItem
+                                nodeId="111"
+                                labelText="기본설정"
+                                labelIcon={SettingsIcon}
+                            >
+                                {/* General information */}
+                                <Link to="/general-information">
+                                    <StyledTreeItem
+                                        nodeId="1111"
+                                        labelText="기본 정보 설정"
+                                        labelIcon={MenuIcon}
+                                        color="#1a73e8"
+                                        bgColor="#e8f0fe"
+                                    />
+                                </Link>
+                            </StyledTreeItem>
 
-                            {/* Privacy basic settings */}
-                            <Link to="/settings-privacy">
-                                <StyledTreeItem
-                                    nodeId="113"
-                                    labelText="부가세율 설정"
-                                    labelIcon={SubjectIcon}
-                                    color="#1a73e8"
-                                    bgColor="#e8f0fe"
-                                />
-                            </Link>
+                            <StyledTreeItem
+                                nodeId="122"
+                                labelText="관리정책"
+                                labelIcon={SettingsIcon}
+                            >
+                                <Link to="/user-list">
+                                    <StyledTreeItem
+                                        nodeId="1221"
+                                        labelText="운영자 관리"
+                                        labelIcon={MenuIcon}
+                                        color="#1a73e8"
+                                        bgColor="#e8f0fe"
+                                    />
+                                </Link>
 
-                            {/* User  basic settings */}
-                            <Link to="/settings-user">
-                                <StyledTreeItem
-                                    nodeId="114"
-                                    labelText="이용/탈퇴 안내"
-                                    labelIcon={SubjectIcon}
-                                    color="#1a73e8"
-                                    bgColor="#e8f0fe"
-                                />
-                            </Link>
-
-                            {/* SEO  basic settings */}
-                            <Link to="/settings-seo">
-                                <StyledTreeItem
-                                    nodeId="115"
-                                    labelText="검색엔진 최적화(SEO) 설정"
-                                    labelIcon={SearchIcon}
-                                    color="#1a73e8"
-                                    bgColor="#e8f0fe"
-                                />
-                            </Link>
-
-                            {/* Operator management basic settings */}
-                            <Link to="/settings-operator">
-                                <StyledTreeItem
-                                    nodeId="116"
-                                    labelText="운영자 관리"
-                                    labelIcon={RecentActorsIcon}
-                                    color="#1a73e8"
-                                    bgColor="#e8f0fe"
-                                />
-                            </Link>                 
-
-                            {/* Operator role basic settings */}
-                            <Link to="/settings-operator-role">
-                                <StyledTreeItem
-                                    nodeId="117"
-                                    labelText="운영자 권한 설정"
-                                    labelIcon={RecentActorsIcon}
-                                    color="#1a73e8"
-                                    bgColor="#e8f0fe"
-                                />
-                            </Link>               
-
-                            {/* Password search basic settings */}
-                            <Link to="/settings-password-search">
-                                <StyledTreeItem
-                                    nodeId="118"
-                                    labelText="비밀번호 찾기 설정"
-                                    labelIcon={SearchIcon}
-                                    color="#1a73e8"
-                                    bgColor="#e8f0fe"
-                                />
-                            </Link>         
-
-                            {/* Password reset basic settings */}
-                            <Link to="/settings-password-reset">
-                                <StyledTreeItem
-                                    nodeId="119"
-                                    labelText="비밀번호 변경안내 설정"
-                                    labelIcon={PasswordIcon}
-                                    color="#1a73e8"
-                                    bgColor="#e8f0fe"
-                                />
-                            </Link> 
-
-                            {/* Login history list */}
-                            <Link to="/login-history">
-                                <StyledTreeItem
-                                    nodeId="120"
-                                    labelText="개인정보접속기록 조회"
-                                    labelIcon={SubjectIcon}
-                                    color="#1a73e8"
-                                    bgColor="#e8f0fe"
-                                />
-                            </Link>  
-
-                            {/* Product usage guide */}
-                            <Link to="/product-usage-guide">
-                                <StyledTreeItem
-                                    nodeId="121"
-                                    labelText="상품 상세 이용안내 관리"
-                                    labelIcon={SubjectIcon}
-                                    color="#1a73e8"
-                                    bgColor="#e8f0fe"
-                                />
-                            </Link>    
-
-                            {/* Order configuration */}
-                            <Link to="/order-config">
-                                <StyledTreeItem
-                                    nodeId="122"
-                                    labelText="주문 기본 설정"
-                                    labelIcon={SettingsIcon}
-                                    color="#1a73e8"
-                                    bgColor="#e8f0fe"
-                                />
-                            </Link>  
-
-                            {/* SMS configuration */}
-                            <Link to="/sms-config">
-                                <StyledTreeItem
-                                    nodeId="123"
-                                    labelText="SMS 설정"
-                                    labelIcon={SettingsIcon}
-                                    color="#1a73e8"
-                                    bgColor="#e8f0fe"
-                                />
-                            </Link>  
-
-                            {/* 080 unsubcribe list */}
-                            <Link to="/unsubscribe-list">
-                                <StyledTreeItem
-                                    nodeId="124"
-                                    labelText="080 수신거부 리스트"
-                                    labelIcon={SubjectIcon}
-                                    color="#1a73e8"
-                                    bgColor="#e8f0fe"
-                                />
-                            </Link>  
+                                <Link to="/operator-role">
+                                    <StyledTreeItem
+                                        nodeId="1222"
+                                        labelText="운영자 권한 설정"
+                                        labelIcon={MenuIcon}
+                                        color="#1a73e8"
+                                        bgColor="#e8f0fe"
+                                    />
+                                </Link>
+                                {/* 
+                                <Link>
+                                    <StyledTreeItem
+                                        nodeId="1223"
+                                        labelText="비밀번호 찾기/변경"
+                                        labelIcon={MenuIcon}
+                                        color="#1a73e8"
+                                        bgColor="#e8f0fe"
+                                    />
+                                </Link>
+                                */}
+                            </StyledTreeItem>
                         </StyledTreeItem>
 
                         <StyledTreeItem
@@ -347,47 +231,38 @@ const Sidebar = (props) => {
                             labelText="상품관리"
                             labelIcon={ProductIcon}
                         >
-                            <Link to="/products">
+                            <StyledTreeItem
+                                nodeId="211"
+                                labelText="상품 리스트"
+                                labelIcon={ProductIcon}
+                                color="#1a73e8"
+                                bgColor="#e8f0fe"
+                            >
+                                <Link to="/product-management">
+                                    <StyledTreeItem
+                                        nodeId="2111"
+                                        labelText="마스터 상품 리스트"
+                                        labelIcon={MenuIcon}
+                                        color="#1a73e8"
+                                        bgColor="#e8f0fe"
+                                    />
+                                </Link>
+                                <Link to="/edit-product">
+                                    <StyledTreeItem
+                                        nodeId="2112"
+                                        labelText="마스터 상품 불러오기/수정"
+                                        labelIcon={MenuIcon}
+                                        color="#1a73e8"
+                                        bgColor="#e8f0fe"
+                                    />
+                                </Link>
+                            </StyledTreeItem>
+
+                            <Link>
                                 <StyledTreeItem
-                                    nodeId="210"
-                                    labelText="상품"
-                                    labelIcon={FastfoodIcon}
-                                    color="#1a73e8"
-                                    bgColor="#e8f0fe"
-                                />
-                            </Link>
-                            <Link to="/setproduct">
-                                <StyledTreeItem
-                                    nodeId="211"
-                                    labelText="Set Product"
-                                    labelIcon={CategoryIcon}
-                                    color="#1a73e8"
-                                    bgColor="#e8f0fe"
-                                />
-                            </Link>
-                            <Link to="/category">
-                                <StyledTreeItem
-                                    nodeId="212"
-                                    labelText="카테고리 설정"
-                                    labelIcon={CategoryIcon}
-                                    color="#1a73e8"
-                                    bgColor="#e8f0fe"
-                                />
-                            </Link>
-                            <Link to="/excel-product">
-                                <StyledTreeItem
-                                    nodeId="213"
-                                    labelText="Product batch"
-                                    labelIcon={PublishIcon}
-                                    color="#1a73e8"
-                                    bgColor="#e8f0fe"
-                                />
-                            </Link>
-                            <Link to="/edit-product">
-                                <StyledTreeItem
-                                    nodeId="214"
-                                    labelText="마스터 상품(조회/수정"
-                                    labelIcon={MenuIcon}
+                                    nodeId="222"
+                                    labelText="상품 노출관리"
+                                    labelIcon={ProductIcon}
                                     color="#1a73e8"
                                     bgColor="#e8f0fe"
                                 />
@@ -396,155 +271,226 @@ const Sidebar = (props) => {
                         
                         <StyledTreeItem
                             nodeId="3"
-                            labelText="주문관리"
+                            labelText="주문/배송"
                             labelIcon={OrderIcon}
                         >
-                            <Link to="/product-order">
-                                <StyledTreeItem
-                                    nodeId="311"
-                                    labelText="주문/배송현황"
-                                    labelIcon={MenuIcon}
-                                    color="#1a73e8"
-                                    bgColor="#e8f0fe"
-                                />
-                            </Link>
-                            <Link to="/product-refund">
-                                <StyledTreeItem
-                                    nodeId="312"
-                                    labelText="취소/반품/교환/환불 관리"
-                                    labelIcon={MenuIcon}
-                                    color="#1a73e8"
-                                    bgColor="#e8f0fe"
-                                />
-                            </Link>
+                            <StyledTreeItem
+                                nodeId="311"
+                                labelText="주문관리"
+                                labelIcon={OrderIcon}
+                                color="#1a73e8"
+                                bgColor="#e8f0fe"
+                            >
+                                <Link to="/product-order-all">
+                                    <StyledTreeItem
+                                        nodeId="3111"
+                                        labelText="주문통합리스트"
+                                        labelIcon={MenuIcon}
+                                        color="#1a73e8"
+                                        bgColor="#e8f0fe"
+                                    />
+                                </Link>
+                                <Link to="/product-order-new">
+                                    <StyledTreeItem
+                                        nodeId="3112"
+                                        labelText="신규주문"
+                                        labelIcon={MenuIcon}
+                                        color="#1a73e8"
+                                        bgColor="#e8f0fe"
+                                    />
+                                </Link>
+                                <Link to="/product-order-prepare">
+                                    <StyledTreeItem
+                                        nodeId="3113"
+                                        labelText="상품 준비중"
+                                        labelIcon={MenuIcon}
+                                        color="#1a73e8"
+                                        bgColor="#e8f0fe"
+                                    />
+                                </Link>
+                                <Link to="/product-order-shipping">
+                                    <StyledTreeItem
+                                        nodeId="3114"
+                                        labelText="배송중"
+                                        labelIcon={MenuIcon}
+                                        color="#1a73e8"
+                                        bgColor="#e8f0fe"
+                                    />
+                                </Link>
+                                <Link to="/product-order-delivered">
+                                    <StyledTreeItem
+                                        nodeId="3115"
+                                        labelText="배송완료"
+                                        labelIcon={MenuIcon}
+                                        color="#1a73e8"
+                                        bgColor="#e8f0fe"
+                                    />
+                                </Link>
+                                <Link to="/product-order-purchased">
+                                    <StyledTreeItem
+                                        nodeId="3116"
+                                        labelText="구매확정"
+                                        labelIcon={MenuIcon}
+                                        color="#1a73e8"
+                                        bgColor="#e8f0fe"
+                                    />
+                                </Link>
+                            </StyledTreeItem>
+
+                            <StyledTreeItem
+                                nodeId="322"
+                                labelText="교환/반품/환불관리"
+                                labelIcon={OrderIcon}
+                                color="#1a73e8"
+                                bgColor="#e8f0fe"
+                            >
+                                <Link to="/product-order-exchanged">
+                                    <StyledTreeItem
+                                        nodeId="3221"
+                                        labelText="교환 리스트"
+                                        labelIcon={MenuIcon}
+                                        color="#1a73e8"
+                                        bgColor="#e8f0fe"
+                                    />
+                                </Link>
+                                <Link to="/product-order-returned">
+                                    <StyledTreeItem
+                                        nodeId="3222"
+                                        labelText="반품 리스트"
+                                        labelIcon={MenuIcon}
+                                        color="#1a73e8"
+                                        bgColor="#e8f0fe"
+                                    />
+                                </Link>
+                                <Link to="/product-order-refunded">
+                                    <StyledTreeItem
+                                        nodeId="3223"
+                                        labelText="환불 리스트"
+                                        labelIcon={MenuIcon}
+                                        color="#1a73e8"
+                                        bgColor="#e8f0fe"
+                                    />
+                                </Link>
+                            </StyledTreeItem>
                         </StyledTreeItem>
                         
                         <StyledTreeItem
                             nodeId="4"
-                            labelText="마트관리"
-                            labelIcon={ShopIcon}
+                            labelText="게시글"
+                            labelIcon={NoticeIcon}
                         >
-                            <Link to="/supply-management">
+                            <Link to="/notice-list">
                                 <StyledTreeItem
                                     nodeId="411"
-                                    labelText="공급사(마트) 관리"
+                                    labelText="공지사항 보기"
                                     labelIcon={MenuIcon}
-                                    color="#1a73e8"
-                                    bgColor="#e8f0fe"
                                 />
                             </Link>
-                            <Link to="/product-management">
+                            <Link to="/one-to-one">
                                 <StyledTreeItem
-                                    nodeId="412"
-                                    labelText="상품관리"
+                                    nodeId="422"
+                                    labelText="1:1 문의하기"
                                     labelIcon={MenuIcon}
-                                    color="#1a73e8"
-                                    bgColor="#e8f0fe"
-                                />
-                            </Link>
-                            <Link to="/product-notice">
-                                <StyledTreeItem
-                                    nodeId="413"
-                                    labelText="상품문의"
-                                    labelIcon={MenuIcon}
-                                    color="#1a73e8"
-                                    bgColor="#e8f0fe"
-                                />
-                            </Link>
-                            <Link to="/product-delivery">
-                                <StyledTreeItem
-                                    nodeId="414"
-                                    labelText="배송 지역"
-                                    labelIcon={MenuIcon}
-                                    color="#1a73e8"
-                                    bgColor="#e8f0fe"
-                                />
-                            </Link>
-                            <Link to="/product-qa">
-                                <StyledTreeItem
-                                    nodeId="415"
-                                    labelText="Q&A 문의"
-                                    labelIcon={MenuIcon}
-                                    color="#1a73e8"
-                                    bgColor="#e8f0fe"
                                 />
                             </Link>
                         </StyledTreeItem>
                         
                         <StyledTreeItem
                             nodeId="5"
-                            labelText="마트 정산"
-                            labelIcon={PaymentIcon}
+                            labelText="정산"
+                            labelIcon={CalculateIcon}
                         >
-                            <Link to="/payment-management-all">
-                                <StyledTreeItem
-                                    nodeId="511"
-                                    labelText="통합정산관리"
-                                    labelIcon={ListIcon}
-                                    color="#1a73e8"
-                                    bgColor="#e8f0fe"
-                                />
-                            </Link>
-                            <Link to="/payment-management">
-                                <StyledTreeItem
-                                    nodeId="512"
-                                    labelText="정산관리"
-                                    labelIcon={PaymentIcon}
-                                    color="#1a73e8"
-                                    bgColor="#e8f0fe"
-                                />
-                            </Link>
+                            <StyledTreeItem
+                                nodeId="511"
+                                labelText="정산관리"
+                                labelIcon={CalculateIcon}
+                                color="#1a73e8"
+                                bgColor="#e8f0fe"
+                            >
+                                <Link>
+                                    <StyledTreeItem
+                                        nodeId="5111"
+                                        labelText="정산 현황"
+                                        labelIcon={MenuIcon}
+                                    />
+                                </Link>
+                                <Link>
+                                    <StyledTreeItem
+                                        nodeId="5112"
+                                        labelText="수기 정산 요청"
+                                        labelIcon={MenuIcon}
+                                    />
+                                </Link>
+                                <Link>
+                                    <StyledTreeItem
+                                        nodeId="5113"
+                                        labelText="주문 상품 정산 요청"
+                                        labelIcon={MenuIcon}
+                                    />
+                                </Link>
+                                <Link>
+                                    <StyledTreeItem
+                                        nodeId="5114"
+                                        labelText="배송비 정산 요청"
+                                        labelIcon={MenuIcon}
+                                    />
+                                </Link>
+                                <Link>
+                                    <StyledTreeItem
+                                        nodeId="5115"
+                                        labelText="부가세신고 내역"
+                                        labelIcon={MenuIcon}
+                                    />
+                                </Link>
+                            </StyledTreeItem>
+                            
+                            <StyledTreeItem
+                                nodeId="522"
+                                labelText="정산 후 환불"
+                                labelIcon={CalculateIcon}
+                                color="#1a73e8"
+                                bgColor="#e8f0fe"
+                            >
+                                <Link to="/product-refund">
+                                    <StyledTreeItem
+                                        nodeId="5221"
+                                        labelText="정산 후 주문 상품 환불 정산"
+                                        labelIcon={MenuIcon}
+                                    />
+                                </Link>
+                                <Link to="/shipping-refund">
+                                    <StyledTreeItem
+                                        nodeId="5222"
+                                        labelText="정산 후 배송비 환불 정산"
+                                        labelIcon={MenuIcon}
+                                    />
+                                </Link>
+                            </StyledTreeItem>
+                            
+                            <StyledTreeItem
+                                nodeId="533"
+                                labelText="전자세금계산서"
+                                labelIcon={CalculateIcon}
+                                color="#1a73e8"
+                                bgColor="#e8f0fe"
+                            >
+                                <Link to="/tax-invoice">
+                                    <StyledTreeItem
+                                        nodeId="5331"
+                                        labelText="발행내역 리스트"
+                                        labelIcon={MenuIcon}
+                                    />
+                                </Link>
+                            </StyledTreeItem>
                         </StyledTreeItem>
-                        
-                        <StyledTreeItem
-                            nodeId="6"
-                            labelText="회원관리"
-                            labelIcon={GroupIcon}
-                        >
-                            <Link to="/user-list">
-                                <StyledTreeItem
-                                    nodeId="611"
-                                    labelText="회원리스트"
-                                    labelIcon={GroupIcon}
-                                />
-                            </Link>
-                        </StyledTreeItem>
-                        
-                        <StyledTreeItem
-                            nodeId="7"
-                            labelText="고객 게시판"
-                            labelIcon={NoticeIcon}
-                        >
-                            <Link to="/user-question">
-                                <StyledTreeItem
-                                    nodeId="711"
-                                    labelText="상품문의"
-                                    labelIcon={GroupIcon}
-                                />
-                            </Link>
-                            <Link to="/user-review">
-                                <StyledTreeItem
-                                    nodeId="712"
-                                    labelText="리뷰관리"
-                                    labelIcon={GroupIcon}
-                                />
-                            </Link>
-                            <Link to="/user-notice">
-                                <StyledTreeItem
-                                    nodeId="713"
-                                    labelText="게시판 리스트"
-                                    labelIcon={NoticeIcon}
-                                />
-                            </Link>
 
-                            <Link to="/user-faq">
-                                <StyledTreeItem
-                                    nodeId="714"
-                                    labelText="게시판 FAQ 관리"
-                                    labelIcon={QuestionIcon}
-                                />
-                            </Link>
-                        </StyledTreeItem>
+                        <Link to="/register-mart">
+                            <StyledTreeItem
+                                nodeId="6"
+                                labelText="마트 등록"
+                                labelIcon={MartRegistrationIcon}
+                            />
+                        </Link>
                     </TreeView>
                 </div>
             </Drawer>

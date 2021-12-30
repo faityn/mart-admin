@@ -9,7 +9,7 @@ import EditIcon from '@material-ui/icons/Edit';
 import ResetIcon from '@material-ui/icons/Refresh';
 import SaveIcon from '@material-ui/icons/Save';
 import {Grid, Button, Table, TableBody, TableRow, TableCell, FormControl, TextField, Select, MenuItem, InputLabel, FormControlLabel, Checkbox, RadioGroup, Radio,
-  Dialog, DialogTitle, DialogContent, DialogActions, Divider} from "@material-ui/core";
+  Dialog, DialogTitle, DialogContent, DialogActions, Divider, Link} from "@material-ui/core";
 
 class OperatorRole extends React.Component {
   /**
@@ -26,10 +26,7 @@ class OperatorRole extends React.Component {
     };
 
     // Events
-    this.onHandleSubmit = this.onHandleSubmit.bind(this);
     this.onOpenModal = this.onOpenModal.bind(this);
-
-    this._isMounted = false;
   }
 
   /**
@@ -48,88 +45,6 @@ class OperatorRole extends React.Component {
    */
   onCloseModal() {
       this.setState({ isOpenModal: false });
-  }
-
-  /**
-   * @override
-   */
-  async componentDidMount() {
-    this._isMounted = true;
-
-    await this.props.apolloClient.httpClient
-      .query({
-        query: GET_PRIVACY,
-      })
-      .then((result) => {
-        this.setState({
-          text: result.data.getPrivacy,
-        });
-      })
-      .catch((error) => {
-        this.props.enqueueSnackbar(
-          "Sorry, there is an error occurred while fetching data.",
-          { variant: "error" }
-        );
-      });
-  }
-
-  /**
-   * @summary Handle submit form
-   * @param {MouseEvent} event
-   */
-  async onHandleSubmit(event) {
-    event.preventDefault();
-
-    if (this.state.isProcessing) return;
-
-    // Form data
-    const formData = new FormData(event.target);
-
-    // Form data to object
-    let privacyInput = {
-      text: formData.get("text"),
-    };
-
-    this.setState({
-      isProcessing: true,
-    });
-
-    this.props.enqueueSnackbar("The saving process is being started ...", {
-      variant: "info",
-    });
-
-    // Mutate
-    await this.props.apolloClient.httpClient
-      .mutate({
-        mutation: SAVE_PRIVACY,
-        variables: {
-          privacyInput: privacyInput,
-        },
-      })
-      .then((result) => {
-        if (result.data.savePrivacy.statusCode === 200) {
-          this.props.enqueueSnackbar(
-            "Privacy Policy has been successfully updated.",
-            { variant: "success" }
-          );
-        } else {
-          this.props.enqueueSnackbar(
-            "Sorry, there is an error occurred while saving data.",
-            { variant: "error" }
-          );
-        }
-      })
-      .catch((error) => {
-        this.props.enqueueSnackbar(
-          "Sorry, there is an error occurred while saving data.",
-          { variant: "error" }
-        );
-      });
-
-    this._isMounted &&
-      this.setState({
-        isProcessing: false,
-      });
   }
 
   render() {
@@ -160,9 +75,9 @@ class OperatorRole extends React.Component {
                     <TableBody>
                       <TableRow>
                         <TableCell align="center" width="10%"><strong>검색어</strong></TableCell>
-                        <TableCell align="center">
+                        <TableCell align="center" width="90%">
                           <Grid container md={12} xs={12}>
-                            <Grid item md={3} sm={4} xs={12} className="align-items-center">
+                            <Grid item md={3} xs={12} className="align-items-center">
                               <FormControl
                                   size="small"
                                   fullWidth
@@ -172,18 +87,18 @@ class OperatorRole extends React.Component {
                                 <InputLabel>통합검색</InputLabel>
                                 <Select>
                                     <MenuItem value="name">관리자명</MenuItem>
-                                    <MenuItem value="id">사용자ID </MenuItem>
+                                    <MenuItem value="id">사용자ID</MenuItem>
                                 </Select>
                               </FormControl>
                             </Grid>
-                            <Grid item md={6} xs={12} className="align-items-center" style={{paddingLeft: "10px"}}> 
+                            <Grid item md={7} xs={12} className="align-items-center" style={{paddingLeft: "10px"}}> 
                                 <TextField
                                     fullWidth
                                     size="small"
                                     variant="outlined"
                                 />
                             </Grid>
-                            <Grid item md={3} xs={12} style={{paddingLeft: "10px"}} className="align-items-center">
+                            <Grid item md={2} xs={12} style={{paddingLeft: "10px"}} className="align-items-center">
                               <Button
                                   fullWidth
                                   size="medium"
@@ -223,8 +138,8 @@ class OperatorRole extends React.Component {
                             }
                             style={{marginLeft: "18%"}}
                           /></TableCell>
-                        <TableCell align="center">총괄책임자</TableCell>
-                        <TableCell align="center">ceo</TableCell>
+                        <TableCell align="center">모닝 마트</TableCell>
+                        <TableCell align="center">Morning<br/><Link>(대표운영자)</Link></TableCell>
                         <TableCell align="center">홍길동</TableCell>
                         <TableCell align="center">
                           <Button
@@ -235,7 +150,7 @@ class OperatorRole extends React.Component {
                           >권한보기</Button>
                         </TableCell>
                       </TableRow>
-                      
+
                       <TableRow>
                         <TableCell align="center">2</TableCell>
                         <TableCell align="center">
@@ -249,8 +164,8 @@ class OperatorRole extends React.Component {
                             }
                             style={{marginLeft: "18%"}}
                           /></TableCell>
-                        <TableCell align="center">총괄책임자</TableCell>
-                        <TableCell align="center">ceo</TableCell>
+                        <TableCell align="center">모닝 마트</TableCell>
+                        <TableCell align="center">Morning<br/><Link>(대표운영자)</Link></TableCell>
                         <TableCell align="center">홍길동</TableCell>
                         <TableCell align="center">
                           <Button
@@ -261,7 +176,7 @@ class OperatorRole extends React.Component {
                           >권한보기</Button>
                         </TableCell>
                       </TableRow>
-                      
+
                       <TableRow>
                         <TableCell align="center">3</TableCell>
                         <TableCell align="center">
@@ -275,8 +190,8 @@ class OperatorRole extends React.Component {
                             }
                             style={{marginLeft: "18%"}}
                           /></TableCell>
-                        <TableCell align="center">총괄책임자</TableCell>
-                        <TableCell align="center">ceo</TableCell>
+                        <TableCell align="center">모닝 마트</TableCell>
+                        <TableCell align="center">Morning<br/><Link>(대표운영자)</Link></TableCell>
                         <TableCell align="center">홍길동</TableCell>
                         <TableCell align="center">
                           <Button
@@ -287,7 +202,7 @@ class OperatorRole extends React.Component {
                           >권한보기</Button>
                         </TableCell>
                       </TableRow>
-                      
+
                       <TableRow>
                         <TableCell align="center">4</TableCell>
                         <TableCell align="center">
@@ -301,8 +216,8 @@ class OperatorRole extends React.Component {
                             }
                             style={{marginLeft: "18%"}}
                           /></TableCell>
-                        <TableCell align="center">총괄책임자</TableCell>
-                        <TableCell align="center">ceo</TableCell>
+                        <TableCell align="center">모닝 마트</TableCell>
+                        <TableCell align="center">Morning<br/><Link>(대표운영자)</Link></TableCell>
                         <TableCell align="center">홍길동</TableCell>
                         <TableCell align="center">
                           <Button
@@ -313,7 +228,7 @@ class OperatorRole extends React.Component {
                           >권한보기</Button>
                         </TableCell>
                       </TableRow>
-                      
+
                       <TableRow>
                         <TableCell align="center">5</TableCell>
                         <TableCell align="center">
@@ -327,8 +242,8 @@ class OperatorRole extends React.Component {
                             }
                             style={{marginLeft: "18%"}}
                           /></TableCell>
-                        <TableCell align="center">총괄책임자</TableCell>
-                        <TableCell align="center">ceo</TableCell>
+                        <TableCell align="center">모닝 마트</TableCell>
+                        <TableCell align="center">Morning<br/><Link>(대표운영자)</Link></TableCell>
                         <TableCell align="center">홍길동</TableCell>
                         <TableCell align="center">
                           <Button
@@ -339,7 +254,7 @@ class OperatorRole extends React.Component {
                           >권한보기</Button>
                         </TableCell>
                       </TableRow>
-                      
+
                       <TableRow>
                         <TableCell align="center">6</TableCell>
                         <TableCell align="center">
@@ -353,8 +268,34 @@ class OperatorRole extends React.Component {
                             }
                             style={{marginLeft: "18%"}}
                           /></TableCell>
-                        <TableCell align="center">총괄책임자</TableCell>
-                        <TableCell align="center">ceo</TableCell>
+                        <TableCell align="center">모닝 마트</TableCell>
+                        <TableCell align="center">Morning<br/><Link>(대표운영자)</Link></TableCell>
+                        <TableCell align="center">홍길동</TableCell>
+                        <TableCell align="center">
+                          <Button
+                              size="small"
+                              variant="contained"
+                              color="primary"
+                              startIcon={<EditIcon/>}
+                          >권한보기</Button>
+                        </TableCell>
+                      </TableRow>
+
+                      <TableRow>
+                        <TableCell align="center">7</TableCell>
+                        <TableCell align="center">
+                          <FormControlLabel
+                            control={
+                              <Checkbox
+                                name="active"
+                                color="primary"
+                                value={true}
+                              />
+                            }
+                            style={{marginLeft: "18%"}}
+                          /></TableCell>
+                        <TableCell align="center">모닝 마트</TableCell>
+                        <TableCell align="center">Morning<br/><Link>(대표운영자)</Link></TableCell>
                         <TableCell align="center">홍길동</TableCell>
                         <TableCell align="center">
                           <Button
@@ -379,9 +320,9 @@ class OperatorRole extends React.Component {
                   <Table className="member_table">
                     <TableBody>
                       <TableRow>
-                        <TableCell align="center" width="10%"><strong>권한 범위</strong></TableCell>
-                        <TableCell align="center">
-                          <Grid container md={12} xs={12}>
+                        <TableCell align="center" width="15%"><strong>권한 범위</strong></TableCell>
+                        <TableCell align="center" width="85%">
+                          <Grid container md={9} xs={12}>
                             <Grid item md={3} xs={12}>
                                 <RadioGroup aria-label="file" name="file">
                                     <FormControlLabel
@@ -406,8 +347,9 @@ class OperatorRole extends React.Component {
                     </TableBody>
                   </Table>
                 </Grid>
+
                 <Grid container md={12} xs={12} className="mt-20">
-                  <Grid item md={3} xs={12}>
+                  <Grid item md={3} xs={12} className="align-items-center">
                     <Button
                         size="medium"
                         variant="contained"
@@ -415,7 +357,8 @@ class OperatorRole extends React.Component {
                         startIcon={<ResetIcon/>}
                     >권한 초기화</Button>
                   </Grid>
-                  <Grid item md={4} xs={12}>
+                  <Grid item md={2} xs={12}></Grid>
+                  <Grid item md={3} xs={12}>
                     <FormControl
                         size="small"
                         fullWidth
@@ -435,7 +378,7 @@ class OperatorRole extends React.Component {
                       </Select>
                     </FormControl>
                   </Grid>
-                  <Grid item md={5} xs={12} style={{paddingLeft: "10px"}}>
+                  <Grid item md={4} xs={12} style={{paddingLeft: "10px"}}>
                     <FormControl
                         size="small"
                         fullWidth
@@ -451,6 +394,37 @@ class OperatorRole extends React.Component {
                     </FormControl>
                   </Grid>
                 </Grid>
+                
+                <Grid container md={12} xs={12} className="mt-20">
+                  <Grid item md={4} xs={12} className="align-items-center"></Grid>
+                  <Grid item md={2} xs={12} className="align-items-center">
+                    <InputLabel>선택한 메뉴에</InputLabel>
+                  </Grid>
+                  <Grid item md={4} xs={12}>
+                    <FormControl
+                        size="small"
+                        fullWidth
+                        variant="outlined"
+                        defaultValue=""
+                    >
+                      <InputLabel>권한선택</InputLabel>
+                      <Select>
+                        <MenuItem value="1">권한 없음</MenuItem>
+                        <MenuItem value="2">보기</MenuItem>
+                        <MenuItem value="3">보기 + 작성</MenuItem>
+                      </Select>
+                    </FormControl>
+                  </Grid>
+                  <Grid item md={2} xs={12} style={{paddingLeft: "10px"}}>
+                    <Button
+                        fullWidth
+                        size="medium"
+                        variant="contained"
+                        color="primary"
+                    >일괄적용</Button>
+                  </Grid>
+                </Grid>
+
                 <Grid container md={12} xs={12} className="mt-20">
                   <Table className="order_table">
                     <TableBody>
@@ -458,7 +432,6 @@ class OperatorRole extends React.Component {
                         <TableCell align="center" width="10%"><strong>선택</strong></TableCell>
                         <TableCell align="center" width="40%"><strong>메뉴명</strong></TableCell>
                         <TableCell align="center" width="30%"><strong>권한설정</strong></TableCell>
-                        <TableCell align="center" width="20%"><strong>추가설정</strong></TableCell>
                       </TableRow>
 
                       <TableRow>
@@ -489,14 +462,6 @@ class OperatorRole extends React.Component {
                               <MenuItem value="3">보기 + 작성</MenuItem>
                             </Select>
                           </FormControl>
-                        </TableCell>
-                        <TableCell align="center">
-                          <Button
-                              size="small"
-                              variant="contained"
-                              color="primary"
-                              startIcon={<ViewIcon/>}
-                          >보기</Button>
                         </TableCell>
                       </TableRow>
 
@@ -529,7 +494,6 @@ class OperatorRole extends React.Component {
                             </Select>
                           </FormControl>
                         </TableCell>
-                        <TableCell align="center"></TableCell>
                       </TableRow>
 
                       <TableRow>
@@ -561,7 +525,6 @@ class OperatorRole extends React.Component {
                             </Select>
                           </FormControl>
                         </TableCell>
-                        <TableCell align="center"></TableCell>
                       </TableRow>
 
                       <TableRow>
@@ -592,14 +555,6 @@ class OperatorRole extends React.Component {
                               <MenuItem value="3">보기 + 작성</MenuItem>
                             </Select>
                           </FormControl>
-                        </TableCell>
-                        <TableCell align="center">
-                          <Button
-                              size="small"
-                              variant="contained"
-                              color="primary"
-                              startIcon={<ViewIcon/>}
-                          >보기</Button>
                         </TableCell>
                       </TableRow>
 
@@ -632,14 +587,6 @@ class OperatorRole extends React.Component {
                             </Select>
                           </FormControl>
                         </TableCell>
-                        <TableCell align="center">
-                          <Button
-                              size="small"
-                              variant="contained"
-                              color="primary"
-                              startIcon={<ViewIcon/>}
-                          >보기</Button>
-                        </TableCell>
                       </TableRow>
 
                       <TableRow>
@@ -671,14 +618,6 @@ class OperatorRole extends React.Component {
                             </Select>
                           </FormControl>
                         </TableCell>
-                        <TableCell align="center">
-                          <Button
-                              size="small"
-                              variant="contained"
-                              color="primary"
-                              startIcon={<ViewIcon/>}
-                          >보기</Button>
-                        </TableCell>
                       </TableRow>
 
                       <TableRow>
@@ -709,14 +648,6 @@ class OperatorRole extends React.Component {
                               <MenuItem value="3">보기 + 작성</MenuItem>
                             </Select>
                           </FormControl>
-                        </TableCell>
-                        <TableCell align="center">
-                          <Button
-                              size="small"
-                              variant="contained"
-                              color="primary"
-                              startIcon={<ViewIcon/>}
-                          >보기</Button>
                         </TableCell>
                       </TableRow>
                     </TableBody>

@@ -2,27 +2,25 @@ import React from "react";
 import { withSnackbar } from "notistack";
 import { connect } from "react-redux";
 import PageTitle from "../../../core/common/Partials/PageTitle";
-import { Grid, TextField, Button, FormControl, Select, MenuItem, InputLabel, InputAdornment, Table, TableBody, TableRow, TableCell, Link, FormControlLabel, Checkbox, IconButton} from "@material-ui/core";
+import { Grid, TextField, Button, FormControl, Select, MenuItem, InputLabel, Table, TableBody, TableRow, TableCell, FormControlLabel, Checkbox, CardMedia, Link,
+        Dialog, DialogTitle, DialogActions, Divider, RadioGroup, Radio} from "@material-ui/core";
 import PaginationMaterial from "@material-ui/lab/Pagination";
 import SubjectIcon from '@material-ui/icons/Subject';
 import SearchIcon from '@material-ui/icons/Search';
 import DownIcon from '@material-ui/icons/ArrowDownward';
 import UpIcon from '@material-ui/icons/ArrowUpward';
-import DownloadIcon from '@material-ui/icons/CloudDownload';
-import EditIcon from '@material-ui/icons/Edit';
-import CopyIcon from '@material-ui/icons/FileCopy';
-import DeleteIcon from '@material-ui/icons/Delete';
+import RefreshIcon from '@material-ui/icons/Refresh';
 import { GET_CATEGORIES } from "../Queries";
 
-class Edit extends React.Component {
+class EditProduct extends React.Component {
     constructor(props) {
         super(props);
 
         let info = this.props.product ? this.props.product.info : {};
 
         this.state = {
+            isOpenModal: false,
             isShowSearchPanel: false,
-            isShowSearchPanel2: false,
             selectedCategories: {
                 firstId: info ? info.firstCategory : "",
                 secondId: info ? info.secondCategory : "",
@@ -35,9 +33,28 @@ class Edit extends React.Component {
             },
         };
 
+        this.onOpenModal = this.onOpenModal.bind(this);
         this.toggleSearchPanel = this.toggleSearchPanel.bind(this);
-        this.toggleSearchPanel2 = this.toggleSearchPanel2.bind(this);
         this.onChangeCategory = this.onChangeCategory.bind(this);
+    }
+
+    /**
+     * @summary Open box
+     * @param {event}
+     */
+    onOpenModal(e, index) {
+        this.setState({
+            index: index,
+            isOpenModal: true,
+        });
+    }
+
+    /**
+     * @summary Close box
+     * @param {event}
+     */
+    onCloseModal() {
+        this.setState({ isOpenModal: false });
     }
 
     /**
@@ -48,13 +65,6 @@ class Edit extends React.Component {
             isShowSearchPanel: !this.state.isShowSearchPanel,
         });
     }
-
-    toggleSearchPanel2() {
-        this.setState({
-            isShowSearchPanel2: !this.state.isShowSearchPanel2,
-        });
-    }
-
     async componentDidMount() {
         const { data } = await this.props.apolloClient.httpClient.query({
             query: GET_CATEGORIES,
@@ -109,21 +119,30 @@ class Edit extends React.Component {
                 <Grid container>
                     <Grid item>
                         <PageTitle
-                        menuName="마스터 상품(조회/수정)"
-                        title="마스터 상품(조회/수정)"
+                        menuName="상품 불러오기 / 수정"
+                        title="상품 불러오기 / 수정"
                         icon={<SubjectIcon />}
                         />
                     </Grid>
                 </Grid> 
                 
                 <div className="card mt-20">
-                    <Grid container spacing={3} md={10} xs={12}>
+                    <Grid container spacing={3} md={12} xs={12}>
                         <Grid item md={2} xs={12} className="align-items-center">
-                            <h5>등록일, 최종수정일</h5>
+                            <h5>일자</h5>
                         </Grid>
 
-                        <Grid item md={10} xs={12} className="align-items-center">
-                            <Grid container md={6} xs={12}>
+                        <Grid item md={10} xs={12} className="align-items-center"> 
+                            <Grid item md={1} xs={12}>
+                                <Button
+                                    fullWidth
+                                    size="medium"
+                                    variant="contained"
+                                    style={{border: "1px solid #cccbcb"}}
+                                >등록일
+                                </Button>
+                            </Grid>
+                            <Grid container md={5} xs={12} style={{marginLeft: "10px"}}>
                                 <Grid item md={5} xs={12} className="align-items-center">
                                     <TextField
                                         fullWidth
@@ -133,7 +152,7 @@ class Edit extends React.Component {
                                         name="startDate"
                                     />
                                 </Grid>
-                                <Grid item md={1} xs={12} className="text-center" className="align-items-center" style={{paddingLeft: "1.2rem"}}>
+                                <Grid item md={1} xs={12} className="text-center" className="align-items-center" style={{paddingTop: "8px", paddingLeft: "1rem"}}>
                                     <h5>~</h5>
                                 </Grid>
                                 <Grid item md={5} xs={12} className="align-items-center">
@@ -146,7 +165,7 @@ class Edit extends React.Component {
                                     />
                                 </Grid>
                             </Grid>
-                            <Grid container md={5} xs={12} className="align-items-center" style={{marginLeft: "10px"}}>
+                            <Grid container md={5} xs={12} className="align-items-center">
                                 <Grid item md={2} xs={12}>
                                     <Button
                                         fullWidth
@@ -156,7 +175,7 @@ class Edit extends React.Component {
                                     >오늘
                                     </Button>
                                 </Grid>
-                                <Grid item md={2} xs={12} style={{marginLeft: "5px"}}>
+                                <Grid item md={2} xs={12} style={{paddingLeft: "5px"}}>
                                     <Button
                                         fullWidth
                                         size="medium"
@@ -165,16 +184,34 @@ class Edit extends React.Component {
                                     >1주일
                                     </Button>
                                 </Grid>
-                                <Grid item md={2} xs={12} style={{marginLeft: "5px"}}>
+                                <Grid item md={2} xs={12} style={{paddingLeft: "5px"}}>
                                     <Button
                                         fullWidth
                                         size="medium"
                                         variant="contained"
                                         style={{border: "1px solid #cccbcb"}}
-                                    >3주일
+                                    >1개월
                                     </Button>
                                 </Grid>
-                                <Grid item md={2} xs={12} style={{marginLeft: "5px"}}>
+                                <Grid item md={2} xs={12} style={{paddingLeft: "5px"}}>
+                                    <Button
+                                        fullWidth
+                                        size="medium"
+                                        variant="contained"
+                                        style={{border: "1px solid #cccbcb"}}
+                                    >3개월
+                                    </Button>
+                                </Grid>
+                                <Grid item md={2} xs={12} style={{paddingLeft: "5px"}}>
+                                    <Button
+                                        fullWidth
+                                        size="medium"
+                                        variant="contained"
+                                        style={{border: "1px solid #cccbcb"}}
+                                    >6개월
+                                    </Button>
+                                </Grid>
+                                <Grid item md={2} xs={12} style={{paddingLeft: "5px"}}>
                                     <Button
                                         fullWidth
                                         size="medium"
@@ -183,20 +220,11 @@ class Edit extends React.Component {
                                     >1년
                                     </Button>
                                 </Grid>
-                                <Grid item md={2} xs={12} style={{marginLeft: "5px"}}>
-                                    <Button
-                                        fullWidth
-                                        size="medium"
-                                        variant="contained"
-                                        style={{border: "1px solid #cccbcb"}}
-                                    >2년
-                                    </Button>
-                                </Grid>
                             </Grid>
                         </Grid>
                     </Grid>
 
-                    <Grid container spacing={3} md={10} xs={12}>
+                    <Grid container spacing={3} md={12} xs={12}>
                         <Grid item md={2} xs={12}>
                             <h5>검색</h5>
                         </Grid>
@@ -205,23 +233,18 @@ class Edit extends React.Component {
                             <Grid container>
                                 <Grid item md={2} xs={12} className="align-items-center">
                                     <FormControl size="small" fullWidth variant="outlined">
-                                        <InputLabel> 전 체</InputLabel>
+                                        <InputLabel>전체</InputLabel>
                                         <Select>
+                                            <MenuItem value="">전체</MenuItem>
                                             <MenuItem value="">상품명</MenuItem>
                                             <MenuItem value="">상품번호</MenuItem>
                                             <MenuItem value="">상품 바코드</MenuItem>
-                                            <MenuItem value="">최종수정일</MenuItem>
-                                            <MenuItem value="">판매 중</MenuItem>
-                                            <MenuItem value="">판매중지</MenuItem>
-                                            <MenuItem value="">품절</MenuItem>
-                                            <MenuItem value="">판매종료</MenuItem>
-                                            <MenuItem value="">제조사명</MenuItem>
-                                            <MenuItem value="">모델명</MenuItem>
+                                            <MenuItem value="">판매상태</MenuItem>
                                             <MenuItem value="">브랜드명</MenuItem>
                                         </Select>
                                     </FormControl>
                                 </Grid>
-                                <Grid item md={5} xs={12} className="align-items-center text-center" style={{marginLeft: "5px"}}>
+                                <Grid item md={3} xs={12} className="align-items-center text-center" style={{marginLeft: "5px"}}>
                                     <TextField
                                         fullWidth
                                         size="small"
@@ -243,7 +266,8 @@ class Edit extends React.Component {
                                         size="medium"
                                         variant="contained"
                                         style={{border: "1px solid #cccbcb"}}
-                                    >처음</Button>
+                                        startIcon={<RefreshIcon/>}
+                                    >초기화</Button>
                                 </Grid>
                                 <Grid item md={2} xs={12} className="align-items-center text-center" style={{marginLeft: "5px"}}>
                                     <Button
@@ -266,7 +290,7 @@ class Edit extends React.Component {
 
                     {this.state.isShowSearchPanel === true ? (
                         <React.Fragment>
-                            <Grid container spacing={3} md={10} xs={12}>
+                            <Grid container spacing={3} md={12} xs={12}>
                                 <Grid item md={2} xs={12}>
                                     <h5>카테고리</h5>
                                 </Grid>
@@ -375,198 +399,137 @@ class Edit extends React.Component {
                                                 </Select>
                                             </FormControl>
                                         </Grid>
-                                        <Grid item md={2} xs={12} className="align-items-center text-center" style={{marginLeft: "10px"}}>
-                                            <Button
-                                                size="medium"
-                                                variant="contained"
-                                                style={{border: "1px solid #008000"}}
-                                                startIcon={
-                                                    this.state.isShowSearchPanel2 ? (
-                                                        <UpIcon />
-                                                    ) : (
-                                                        <DownIcon />
-                                                    )
-                                                }
-                                                onClick={this.toggleSearchPanel2}
-                                            >상세검색</Button>
-                                        </Grid>
                                     </Grid>
                                 </Grid> 
                             </Grid>
+                        </React.Fragment>
+                    ) : null}
                     
-                            {this.state.isShowSearchPanel2 === true ? (
-                                <React.Fragment>
-                                    <Grid container spacing={3} md={10} xs={12}>
-                                        <Grid item md={2} xs={12} className="align-items-center">
-                                            <h5>판매가</h5>
+                    <Grid container spacing={3} md={12} xs={12}>
+                        <Grid item md={2} xs={12}>
+                            <h5>판매상태</h5>
+                        </Grid>
+                        
+                        <Grid item md={10} xs={12}>
+                            <Grid container>
+                                <Grid item md={4} className="align-items-center">
+                                    <Grid container>
+                                        <Grid item md={3} xs={12}>
+                                            <RadioGroup>
+                                                <FormControlLabel
+                                                    value="true"
+                                                    control={<Radio />}
+                                                    label="전체"
+                                                />
+                                            </RadioGroup>
                                         </Grid>
-                                        
-                                        <Grid item md={10} xs={12} className="align-items-center">
-                                            <Grid container md={5} xs={12}>
-                                                <Grid item md={5} xs={12} className="align-items-center">
-                                                    <TextField
-                                                        fullWidth
-                                                        size="small"
-                                                        variant="outlined"
-                                                        InputProps={{
-                                                            endAdornment: 
-                                                            <InputAdornment position="end">원</InputAdornment>,
-                                                        }}/>
-                                                </Grid>
-                                                <Grid item md={1} xs={12} className="align-items-center" style={{paddingTop: "10px", paddingLeft: "1rem"}}><h5>~</h5></Grid>
-                                                <Grid item md={5} xs={12} className="align-items-center text-center">
-                                                    <TextField
-                                                        fullWidth
-                                                        size="small"
-                                                        variant="outlined"
-                                                        InputProps={{
-                                                            endAdornment: 
-                                                            <InputAdornment position="end">원</InputAdornment>,
-                                                        }}/>
-                                                </Grid>
-                                            </Grid>
-                                            <Grid container md={6} xs={12}>
-                                                <Grid item md={1} xs={12} className="align-items-center text-center">
-                                                    <h5>판매가</h5>
-                                                </Grid>
-                                                <Grid item md={5} xs={12} className="align-items-center text-center">
-                                                    <FormControl size="small" fullWidth variant="outlined">
-                                                        <InputLabel>등록일</InputLabel>
-                                                        <Select>
-                                                            <MenuItem value="">등록일</MenuItem>
-                                                            <MenuItem value="">최종수정일</MenuItem>
-                                                        </Select>
-                                                    </FormControl>
-                                                </Grid>
-                                                <Grid item md={5} xs={12} className="align-items-center text-center" style={{marginLeft: "5px"}}>
-                                                    <FormControl size="small" fullWidth variant="outlined">
-                                                        <InputLabel>내림차순</InputLabel>
-                                                        <Select>
-                                                            <MenuItem value="">내림차순</MenuItem>
-                                                            <MenuItem value="">올림차순</MenuItem>
-                                                        </Select>
-                                                    </FormControl>
-                                                </Grid>
-                                            </Grid>
-                                        </Grid> 
+                                        <Grid item md={3} xs={12}>
+                                            <RadioGroup>
+                                                <FormControlLabel
+                                                    value="false"
+                                                    control={<Radio />}
+                                                    label="판매가능"
+                                                />
+                                            </RadioGroup>
+                                        </Grid>
+                                        <Grid item md={3} xs={12}>
+                                            <RadioGroup>
+                                                <FormControlLabel
+                                                    value="false"
+                                                    control={<Radio />}
+                                                    label="판매불가"
+                                                />
+                                            </RadioGroup>
+                                        </Grid>
                                     </Grid>
-                                </React.Fragment>) : null}
-                        </React.Fragment>) : null}
-
-                    <Grid container spacing={3} md={10} xs={12}>
-                        <Grid item md={12} xs={12} className="text-left"><h5>전체 자료<i style={{color: "#ff0000", fontStyle: "normal"}}><strong> 000 </strong></i>건</h5></Grid>
+                                </Grid>
+                                <Grid item md={4}>
+                                    <Grid container className="align-items-center">
+                                        <Grid item md={3} xs={12}>
+                                            <h5>전시상태</h5>
+                                        </Grid>
+                                        <Grid item md={3} xs={12}>
+                                            <RadioGroup>
+                                                <FormControlLabel
+                                                    value="true"
+                                                    control={<Radio />}
+                                                    label="전체"
+                                                />
+                                            </RadioGroup>
+                                        </Grid>
+                                        <Grid item md={3} xs={12}>
+                                            <RadioGroup>
+                                                <FormControlLabel
+                                                    value="false"
+                                                    control={<Radio />}
+                                                    label="전시중"
+                                                />
+                                            </RadioGroup>
+                                        </Grid>
+                                        <Grid item md={3} xs={12}>
+                                            <RadioGroup>
+                                                <FormControlLabel
+                                                    value="false"
+                                                    control={<Radio />}
+                                                    label="전시중지"
+                                                />
+                                            </RadioGroup>
+                                        </Grid>
+                                    </Grid>
+                                </Grid>
+                            </Grid>
+                        </Grid> 
                     </Grid>
 
-                    <Grid container spacing={3} md={12} xs={12}>
-                        <Grid item md={1} xs={12} className="align-items-center">
-                            <h5>자료 수 : 총<i style={{color: "#ff0000", fontStyle: "normal"}}><strong> 0 </strong></i>건</h5>
+                    <Grid container spacing={3} md={10} xs={12} className="mt-20">
+                        <Grid item md={12} xs={12} className="text-left"><InputLabel>전체 자료 : <i style={{color: "#ff0000", fontStyle: "normal"}}><strong>2,000</strong></i> 건 | 판매 가능 상품 : <i style={{color: "#ff0000", fontStyle: "normal"}}><strong>2,000</strong></i> 건</InputLabel></Grid>
+                    </Grid>
+
+                    <Grid container spacing={3} md={12} xs={12} className="mt-20">
+                        <Grid item md={2} xs={12} className="align-items-center">
+                            <h5>자료 수 : 총<i style={{color: "#ff0000", fontStyle: "normal"}}><strong> 3 </strong></i>건</h5>
                         </Grid>
                             
                         <Grid item md={10} xs={12} className="align-items-center">
                             <Grid container>
+                                <Grid item md={10}></Grid>
                                 <Grid item md={2} xs={12} className="align-items-center">
                                     <FormControl size="small" fullWidth variant="outlined">
                                         <InputLabel>상품등록일순</InputLabel>
                                         <Select>
-                                            <MenuItem value="">...</MenuItem>
+                                            <MenuItem value="1">상품등록일순</MenuItem>
+                                            <MenuItem value="2">성품명 순</MenuItem>
+                                            <MenuItem value="3">상품 번호 순</MenuItem>
+                                            <MenuItem value="4">온라인 재고수량 순</MenuItem>
                                         </Select>
                                     </FormControl>
                                 </Grid>
-                                <Grid item md={1} xs={12} className="align-items-center" style={{marginLeft: "10px"}}>
-                                    <FormControl size="small" fullWidth variant="outlined">
-                                        <InputLabel>100개</InputLabel>
-                                        <Select>    
-                                            <MenuItem value="">...</MenuItem>
-                                        </Select>
-                                    </FormControl>
-                                </Grid>
-                                <Grid item md={2} xs={12} className="align-items-center" style={{marginLeft: "10px"}}>
-                                    <Button
-                                        fullWidth
-                                        size="medium"
-                                        variant="contained" 
-                                        style={{border: "1px solid #0eb906", color: "#0eb906"}}
-                                        startIcon={<DownloadIcon/>}>엑셀다운</Button>
-                                </Grid>
-                                {/*
-                                <Grid item md={1} xs={12} className="align-items-center">
-                                    <Button
-                                        fullWidth
-                                        size="medium"
-                                        variant="contained" 
-                                        style={{border: "1px solid #cccbcb"}}>선택삭제</Button>
-                                </Grid>
-                                <Grid item md={1} xs={12} className="align-items-center">
-                                    <FormControl size="small" fullWidth variant="outlined">
-                                        <InputLabel>판매변경</InputLabel>
-                                        <Select>
-                                            <MenuItem value="">...</MenuItem>
-                                        </Select>
-                                    </FormControl>
-                                </Grid>
-                                <Grid item md={2} xs={12} className="align-items-center">
-                                    <Button
-                                        fullWidth
-                                        size="medium"
-                                        variant="contained"                                         
-                                        style={{border: "1px solid #cccbcb"}}>즉시할인설정</Button>
-                                </Grid>
-                                <Grid item md={1} xs={12} className="align-items-center">
-                                    <Button
-                                        fullWidth
-                                        size="medium"
-                                        variant="contained"
-                                        style={{border: "1px solid #cccbcb"}}>판매가 변경</Button>
-                                </Grid>
-                                <Grid item md={1} xs={12} className="align-items-center">
-                                    <FormControl size="small" fullWidth variant="outlined">
-                                        <InputLabel>배송변경</InputLabel>
-                                        <Select>
-                                            <MenuItem value="">...</MenuItem>
-                                        </Select>
-                                    </FormControl>
-                                </Grid>
-                                <Grid item md={1} xs={12} className="align-items-center">
-                                    <FormControl size="small" fullWidth variant="outlined">
-                                        <InputLabel>일괄변경</InputLabel>
-                                        <Select>
-                                            <MenuItem value="">...</MenuItem>
-                                        </Select>
-                                    </FormControl>
-                                </Grid>
-                                <Grid item md={1} xs={12} className="align-items-center">
-                                    <Button
-                                        fullWidth
-                                        size="medium"
-                                        variant="contained" 
-                                        color="primary">수정저장</Button>
-                                </Grid> */}
                             </Grid>
-                        </Grid>                                                        
+                        </Grid>                                                       
                     </Grid>
 
-                    <Grid container spacing={3} md={12} xs={12}>
+                    <Grid container spacing={3} md={12} xs={12} className="mt-20">
                         <Grid item md={12} xs={12}>
                             <Table className="order_table">
                                 <TableBody>
                                     <TableRow>
                                         <TableCell className="text-center" width="3%"><strong>No.</strong></TableCell>
-                                        <TableCell className="text-center" width="2%"><strong>선택</strong></TableCell>
-                                        <TableCell className="text-center" width="5%"><strong>복사</strong></TableCell>
-                                        <TableCell className="text-center" width="6%"><strong>상품번호</strong></TableCell>
-                                        <TableCell className="text-center" width="6%"><strong>상품 바코드</strong></TableCell>
-                                        <TableCell className="text-center" width="10%"><strong>카테고리</strong></TableCell>
+                                        <TableCell className="text-center" width="3%"><strong>선택</strong></TableCell>
+                                        <TableCell className="text-center" width="3%"><strong>상품번호</strong></TableCell>
+                                        <TableCell className="text-center" width="3%"><strong>상품 바코드</strong></TableCell>
+                                        <TableCell className="text-center" width="4%"><strong>이미지</strong></TableCell>
                                         <TableCell className="text-center" width="10%"><strong>상품명</strong></TableCell>
-                                        <TableCell className="text-center" width="6%"><strong>브랜드명</strong></TableCell>
-                                        <TableCell className="text-center" width="7%"><strong>판매상태</strong></TableCell>
-                                        <TableCell className="text-center" width="6%"><strong>판매가</strong></TableCell>
-                                        <TableCell className="text-center" width="8%"><strong>가이드판매가</strong></TableCell>
-                                        <TableCell className="text-center" width="7%"><strong>할인가</strong></TableCell>
-                                        <TableCell className="text-center" width="7%"><strong>수수료(%)</strong></TableCell>
-                                        <TableCell className="text-center" width="7%"><strong>재고수량</strong></TableCell>
-                                        <TableCell className="text-center" width="5%"><strong>상품등록일</strong></TableCell>
-                                        <TableCell className="text-center" width="5%"><strong>최종수정일</strong></TableCell>
-                                        <TableCell className="text-center" width="3%"><strong>행위</strong></TableCell>
+                                        <TableCell className="text-center" width="4%"><strong>수수료(%)</strong></TableCell>
+                                        <TableCell className="text-center" width="4%"><strong>제조사명</strong></TableCell>
+                                        <TableCell className="text-center" width="4%"><strong>모델명</strong></TableCell>
+                                        <TableCell className="text-center" width="4%"><strong>브랜드명</strong></TableCell>
+                                        <TableCell className="text-center" width="4%"><strong>판매상태</strong></TableCell>
+                                        <TableCell className="text-center" width="4%"><strong>판매가</strong></TableCell>
+                                        <TableCell className="text-center" width="4%"><strong>가이드 가격</strong></TableCell>
+                                        <TableCell className="text-center" width="4%"><strong>전시상태</strong></TableCell>
+                                        <TableCell className="text-center" width="4%"><strong>등록일</strong></TableCell>
+                                        <TableCell className="text-center" width="4%"><strong>최종수정일</strong></TableCell>
+                                        <TableCell className="text-center" width="4%"><strong>재고수량</strong></TableCell>
                                     </TableRow>
 
                                     <TableRow>
@@ -582,29 +545,27 @@ class Edit extends React.Component {
                                                 style={{marginLeft: "18%"}}
                                             />
                                         </TableCell>
-                                        <TableCell className="text-center">
-                                            <Button
-                                                size="small"
-                                                variant="contained"
-                                                color="primary"
-                                                startIcon={<CopyIcon />}>복사</Button></TableCell>
                                         <TableCell className="text-center">2020102548</TableCell>
-                                        <TableCell className="text-center">8808945190</TableCell>
-                                        <TableCell className="text-center">식품&gt;면류&gt;라면</TableCell>
-                                        <TableCell className="text-center">신라면 20개입 1박스..</TableCell>
+                                        <TableCell className="text-center">8808945190_A0102</TableCell>
+                                        <TableCell className="text-center">
+                                            <CardMedia
+                                                component="img"
+                                                height="50"
+                                                src="https://source.unsplash.com/user/c_v_r/100x100"
+                                                />
+                                        </TableCell>
+                                        <TableCell className="text-center"><Link onClick={this.onOpenModal.bind(this)}>신라면 20개입 1박스..</Link></TableCell>
+                                        <TableCell className="text-center">9</TableCell>
                                         <TableCell className="text-center">농심</TableCell>
-                                        <TableCell className="text-center">판매 중</TableCell>
+                                        <TableCell className="text-center">99</TableCell>
+                                        <TableCell className="text-center">신라면</TableCell>
+                                        <TableCell className="text-center">판매가능</TableCell>
                                         <TableCell className="text-center">20,000</TableCell>
                                         <TableCell className="text-center">17,500</TableCell>
-                                        <TableCell className="text-center"></TableCell>
-                                        <TableCell className="text-center">9</TableCell>
-                                        <TableCell className="text-center">50</TableCell>
-                                        <TableCell className="text-center">2021.01.01 10:00:23</TableCell>
-                                        <TableCell className="text-center">2021.02.01 14:23:58</TableCell>
-                                        <TableCell className="text-center">
-                                            <IconButton color="primary"><EditIcon /></IconButton>
-                                            <IconButton style={{color: "#ff0000"}}><DeleteIcon /></IconButton>
-                                        </TableCell>
+                                        <TableCell className="text-center">전시중지</TableCell>
+                                        <TableCell className="text-center">2021.01.01</TableCell>
+                                        <TableCell className="text-center">2021.02.01</TableCell>
+                                        <TableCell className="text-center">100</TableCell>
                                     </TableRow>
 
                                     <TableRow>
@@ -620,30 +581,27 @@ class Edit extends React.Component {
                                                 style={{marginLeft: "18%"}}
                                             />
                                         </TableCell>
-                                        <TableCell className="text-center">
-                                            <Button
-                                                size="small"
-                                                variant="contained"
-                                                color="primary"
-                                                startIcon={<CopyIcon />}
-                                            >복사</Button></TableCell>
                                         <TableCell className="text-center">2020109488</TableCell>
-                                        <TableCell className="text-center">8841414587</TableCell>
-                                        <TableCell className="text-center">식품&gt;면류&gt;라면</TableCell>
-                                        <TableCell className="text-center">신라면 50개입 1박스..</TableCell>
-                                        <TableCell className="text-center">농심</TableCell>
-                                        <TableCell className="text-center">판매 중</TableCell>
-                                        <TableCell className="text-center">20,000</TableCell>
-                                        <TableCell className="text-center">18,500</TableCell>
-                                        <TableCell className="text-center"></TableCell>
-                                        <TableCell className="text-center">9</TableCell>
-                                        <TableCell className="text-center">150</TableCell>
-                                        <TableCell className="text-center">2021.01.01 10:00:23</TableCell>
-                                        <TableCell className="text-center">2021.02.01 14:23:58</TableCell>
+                                        <TableCell className="text-center">8841414587_A0102</TableCell>
                                         <TableCell className="text-center">
-                                            <IconButton color="primary"><EditIcon /></IconButton>
-                                            <IconButton style={{color: "#ff0000"}}><DeleteIcon /></IconButton>
+                                            <CardMedia
+                                                component="img"
+                                                height="50"
+                                                src="https://source.unsplash.com/user/c_v_r/100x100"
+                                                />
                                         </TableCell>
+                                        <TableCell className="text-center"><Link onClick={this.onOpenModal.bind(this)}>카누커피 15T X 30개입..</Link></TableCell>
+                                        <TableCell className="text-center">9</TableCell>
+                                        <TableCell className="text-center">맥심</TableCell>
+                                        <TableCell className="text-center">맥심</TableCell>
+                                        <TableCell className="text-center">카누</TableCell>
+                                        <TableCell className="text-center">전시중지</TableCell>
+                                        <TableCell className="text-center">25,000</TableCell>
+                                        <TableCell className="text-center">18,500</TableCell>
+                                        <TableCell className="text-center">전시중</TableCell>
+                                        <TableCell className="text-center">2021.01.01</TableCell>
+                                        <TableCell className="text-center">2021.02.01</TableCell>
+                                        <TableCell className="text-center">100</TableCell>
                                     </TableRow>
                                 </TableBody>
                             </Table>
@@ -658,6 +616,18 @@ class Edit extends React.Component {
                             />
                         </Grid>
                     </Grid>
+
+                    <Dialog open={this.state.isOpenModal}
+                        aria-labelledby="responsive-dialog-title"
+                        maxWidth="lg">
+                        <DialogTitle id="responsive-dialog-title">
+                            <h2>제품 정보</h2>
+                        </DialogTitle>
+                        <Divider />
+                        <DialogActions>
+                            <Button autoFocus onClick={this.onCloseModal.bind(this)} color="primary">닫다</Button>
+                        </DialogActions>
+                    </Dialog>
                 </div>
             </React.Fragment>
         );
@@ -671,4 +641,4 @@ const mapStateToProps = (state) => {
     };
 };
 
-export default withSnackbar(connect(mapStateToProps, null)(Edit));
+export default withSnackbar(connect(mapStateToProps, null)(EditProduct));

@@ -64,6 +64,7 @@
     "react-dnd-html5-backend": "^14.0.0",
     "react-dom": "^16.13.1",
     "react-export-excel": "0.5.3",
+    "react-naver-maps": "^0.0.13",
     "react-page-loading": "^1.0.2",
     "react-perfect-scrollbar": "^1.5.8",
     "react-redux": "^7.2.1",
