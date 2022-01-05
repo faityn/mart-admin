@@ -280,39 +280,31 @@ const SignIn = (props) => {
 
         let promise = await new Promise((resolve) => {
             new axios({
-                baseURL: process.env.REACT_APP_DOMAIN + "/oauth/token",
+                baseURL: process.env.REACT_APP_DOMAIN + "/authenticate",
                 headers: {
                     "Content-Type": "application/json",
+                    "Access-Control-Allow-Origin": "*"
                 },
-                auth: {
-                    username: process.env.REACT_APP_OAUTH_ID,
-                    password: process.env.REACT_APP_OAUTH_PASS,
-                },
-                data: bodyFormData,
+                data: {bodyFormData},
                 method: "POST",
             })
                 .then((response) => {
                     if (
                         response.data &&
-                        response.data.access_token &&
-                        response.data.refresh_token
+                        response.data.token
                     ) {
                         store.dispatch(
                             setToken({
-                                accessToken: response.data.access_token,
-                                refreshToken: response.data.refresh_token,
+                                accessToken: response.data.token,
                             })
                         );
                         // let apolloClient = createApolloClient(response.data.access_token);
                         // store.dispatch(setApolloClient(apolloClient));
                         localStorage.setItem(
                             process.env.REACT_ACCESS_TOKEN_NAME,
-                            response.data.access_token
+                            response.data.token
                         );
-                        localStorage.setItem(
-                            process.env.REACT_REFRESH_TOKEN_NAME,
-                            response.data.refresh_token
-                        );
+                        
 
                         store
                             .getState()

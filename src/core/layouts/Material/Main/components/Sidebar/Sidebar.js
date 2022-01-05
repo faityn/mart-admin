@@ -138,7 +138,7 @@ const Sidebar = (props) => {
 
     if (!loggedUser) return null;
 
-    if (loggedUser === "ROLE_ADMIN")
+    if (loggedUser === "ROLE_MARKET")
         return (
             <Drawer
                 anchor="left"

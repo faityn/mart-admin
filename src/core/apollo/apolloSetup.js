@@ -59,15 +59,15 @@ export const createApolloClient = () => {
   const token = store.getState().token.accessToken ? store.getState().token.accessToken : "";
 
   // WS link
-  const wsLink = new WebSocketLink({
-    uri: process.env.REACT_APP_WS_URL,
-    options: {
-      reconnect: false,
-      connectionParams: {
-        authToken: token ? `Bearer ${token}` : "",
-      },
-    }
-  });
+  // const wsLink = new WebSocketLink({
+  //   uri: process.env.REACT_APP_WS_URL,
+  //   options: {
+  //     reconnect: false,
+  //     connectionParams: {
+  //       authToken: token ? `Bearer ${token}` : "",
+  //     },
+  //   }
+  // });
 
   // API link
   const httpLink = new HttpLink({
@@ -128,7 +128,6 @@ export const createApolloClient = () => {
             definition.operation === 'subscription'
           );
         },
-        wsLink,
         httpLink
       )
     ]),

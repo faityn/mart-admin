@@ -45,7 +45,7 @@ import ShippingRefundView from "../../components/Calculation/ShippingRefund";
 class Routes extends React.Component {
     render() {
         let loggedUser = this.props.loggedUser ? this.props.loggedUser : null;
-
+        
         if (!loggedUser)
             return (
                 <Switch>
@@ -88,7 +88,8 @@ class Routes extends React.Component {
                 </Switch>
             );
 
-        if (loggedUser.roleName === "ROLE_ADMIN")
+        // if (loggedUser.roleName === "ROLE_ADMIN")
+        if (loggedUser.roleName === "ROLE_MARKET")
             return (
                 // <Suspense fallback={<Page loader={"bar"} color={"#A9A9A9"} size={4} />}>
                 <Switch>

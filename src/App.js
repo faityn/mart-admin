@@ -54,7 +54,7 @@ class App extends Component {
 
     // Get token if no exists
     const token = localStorage.getItem(process.env.REACT_ACCESS_TOKEN_NAME);
-
+    
     if (!token) {
       this.setState({
         isAppMounted: true,
@@ -66,19 +66,21 @@ class App extends Component {
     } else {
       this.props.setToken({
         accessToken: localStorage.getItem(process.env.REACT_ACCESS_TOKEN_NAME),
-        refreshToken: localStorage.getItem(
-          process.env.REACT_REFRESH_TOKEN_NAME
-        ),
+        
       });
 
-      const user = localStorage.getItem(process.env.REACT_LOGGED_USER);
-
+      const userid = localStorage.getItem(process.env.REACT_LOGGED_USER_ID);
+      const roleName = localStorage.getItem(process.env.REACT_LOGGED_USER_ROLE);
+      var user = {
+        userid: userid,
+        roleName: roleName
+      };
       this.setState({
         isAppMounted: true,
       });
 
       if (user) {
-        this.props.setLoggedUser(JSON.parse(user));
+        this.props.setLoggedUser(user);
       } else {
         this.props.history.push("/signin");
       }

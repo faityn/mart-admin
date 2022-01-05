@@ -1,5 +1,6 @@
 import React from 'react';
 import MaterialLoginView from './theme/MaterialTheme';
+import MartRegistrationView from "../../../components/SignIn/SignIn";
 /**
  * @summary SignIn
  * @version 0.1
@@ -12,7 +13,7 @@ class SignIn extends React.Component {
    * @override
    */
   render() {
-    return <MaterialLoginView />;
+    return <MartRegistrationView />;
   }
 }
 
