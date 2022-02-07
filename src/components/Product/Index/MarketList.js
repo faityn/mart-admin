@@ -657,17 +657,21 @@ const MarketList = (props) => {
                   </TableCell>
 
                   <TableCell className="text-center" width="25%">
-                    <strong>판매가 </strong>
+                    <strong>판매가</strong>
                   </TableCell>
                 </TableRow>
 
-                {state.sProducts.map((el, index) => (
-                  <SelectedProductItem
-                    el={el}
-                    priceChange={priceChange}
-                    checkedItems={checkedItems}
-                  />
-                ))}
+                {checkedItems.map((a, index) =>
+                  state.sProducts
+                    .filter((b) => b.id === a.productId)
+                    .map((el, index) => (
+                      <SelectedProductItem
+                        el={el}
+                        priceChange={priceChange}
+                        checkedItems={checkedItems}
+                      />
+                    ))
+                )}
               </TableBody>
             </Table>
           </DialogContent>
