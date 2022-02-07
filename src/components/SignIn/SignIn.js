@@ -4,9 +4,16 @@ import BaseSignIn from '../../core/Authentication/SignIn/SignIn';
 import PropTypes from "prop-types";
 import { withSnackbar } from "notistack";
 import { connect } from "react-redux";
-import { store, setLoggedUser, setToken } from "../../core/redux/Redux";
+import { setApolloClient, store, setLoggedUser, setToken } from "../../core/redux/Redux";
+
 import { decodeToken } from 'react-jwt';
 import { Alert } from "@material-ui/lab";
+import {
+  CREATE_NEW_MARKET,
+  SAVE_SELLER,
+  CHECK_MAIL,
+  ACTIVATION,
+} from "../Seller/Queries";
 import {
     Grid,
     TextField,
@@ -83,6 +90,7 @@ import {
         setFormState({ isCodeSent: true });
     };
 
+
     const handleChange = (event) => {
         event.persist();
 
@@ -101,6 +109,56 @@ import {
             },
         }));
     };
+
+    useEffect(() => {
+      
+        var raw = JSON.stringify({
+            "username": process.env.REACT_ANONYMOUS_USERNAME,
+            "password": process.env.REACT_ANONYMOUS_PASSWORD
+          });
+          let promise = new Promise((resolve) => {
+            new axios({
+                baseURL: process.env.REACT_APP_DOMAIN + "/authenticate",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Access-Control-Allow-Origin": "*"
+                },
+                data: raw,
+                method: "POST",
+            })
+            .then((response) => {
+              
+                if (
+                    response.data &&
+                    response.data.token
+                ) {
+                    
+                    var decodedToken = decodeToken(response.data.token);
+                    let apolloClient = createApolloClient(response.data.token);
+                    store.dispatch(setApolloClient(apolloClient));
+                    localStorage.setItem( process.env.REACT_ACCESS_TOKEN_NAME, response.data.token );
+                    localStorage.setItem( process.env.REACT_LOGGED_USER_ID, response.data.id );
+                    localStorage.setItem( process.env.REACT_LOGGED_MARKET_ID, response.data.marketId );
+                    
+                    var user = {
+                      "userid": response.data.id,
+                      "marketid": response.data.marketId,
+                      "roleName": decodedToken.role 
+                    };
+                    store.dispatch(
+                      setLoggedUser(user)
+                    );
+                    //resolve(true);
+                } else {
+                    //resolve(false);
+                }
+            })
+            .catch((error) => {
+                //resolve(false);
+            });
+        });
+    }, []);
+    
   
     const handleSignIn = async (event) => {
         event.preventDefault();
@@ -149,10 +207,12 @@ import {
                         localStorage.setItem( process.env.REACT_LOGGED_USER_ID, response.data.id );
                         localStorage.setItem( process.env.REACT_LOGGED_USER_NAME, response.data.username );
                         localStorage.setItem( process.env.REACT_LOGGED_USER_EMAIL, response.data.email );
+                        localStorage.setItem( process.env.REACT_LOGGED_MARKET_ID, response.data.marketId );
                         localStorage.setItem( process.env.REACT_LOGGED_USER_ROLE, decodedToken.role );
                         
                         var user = {
                           "userid": response.data.id,
+                          "marketid": response.data.marketId,
                           "roleName": decodedToken.role 
                         };
                         store.dispatch(
@@ -182,6 +242,119 @@ import {
     };
     const hasError = (field) =>
     formState.touched[field] && formState.errors[field] ? true : false;
+
+    const onHandleSubmit = async (event) => {
+      event.preventDefault();
+      // setFormState((formState) => ({
+      //     isLoading: true,
+      // }));
+      // console.log(props.apolloClient.httpClient);
+      // Form data
+      const formData = new FormData(event.target);
+
+      // Form data to object
+      let user = {
+          market: {
+            name: formData.get("companyName"),
+            ceoName: formData.get("ceoName"),
+            companyPhone: formData.get("companyPhone"),
+            businessNumber: formData.get("businessNumber"),
+            address1: formData.get("address"),
+            address2: "99",
+            address3: "999",
+            postalCode: "999",
+            openHour: formData.get("openHour"),
+            closeHour: formData.get("closeHour"),
+            deliveryFee: formData.get("deliveryFee"),
+            deliveryFreePrice: formData.get("deliveryFreePrice"),
+          },
+          admin: {
+            userId: formData.get("userId"),
+            username: formData.get("username"),
+            password: formData.get("password"),
+            email: formData.get("email"),
+            phoneNumber: "123456789",
+            allowMarketingMail: false
+          },
+           businessCertificate: null,
+           businessStamp: null,
+          
+      };
+
+      // Validate
+      //if (onValidateSubmit(user)) return;
+
+      //delete user.repeatPassword;
+
+      // Mutate
+      let raw = JSON.stringify({
+        
+          "market": {
+            "name": "aaaa",
+            "ceoName": "aaa",
+            "companyPhone": "123456789",
+            "businessNumber": "123456789",
+            "address1": "999",
+            "address2": "99",
+            "address3": "999",
+            "postalCode": "999",
+            "openHour": "10",
+            "closeHour": "18",
+            "deliveryFee": 200.00,
+            "deliveryFreePrice": 300.00
+          },
+          "admin": {
+            "userId": "aaaa",
+            "username": "aaaaa",
+            "password": "aaaaa",
+            "email": "faitynb@gmail.com",
+            "phoneNumber": "123456789",
+            "allowMarketingMail": false
+          },
+          "businessCertificate": null,
+          "businessStamp": null
+        
+      });
+
+      let promise = await new Promise((resolve) => {
+            new axios({
+                baseURL: process.env.REACT_APP_DOMAIN + "/api/createMarket",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Access-Control-Allow-Origin": "*"
+                },
+                data: raw,
+                method: "POST",
+            })
+            .then((result) => {
+              console.log(result);
+                if (
+                    result &&
+                    result.data &&
+                    result.data.saveUser.statusCode === 200
+                ) {
+                    resolve(true);
+                } else {
+                    resolve(false);
+                }
+            })
+            .catch((error) => {
+                resolve(false);
+            })
+        });
+
+      if (promise) {
+        setFormState({
+              messageType: "success",
+              isLoading: false,
+          });
+      } else {
+        setFormState({
+              messageType: "error",
+              isLoading: false,
+          });
+      }
+  }
     return (
       <React.Fragment>
         <div className="card mt-20">
@@ -298,7 +471,7 @@ import {
             <DialogTitle>
               (주)아니벌써와 함께 비즈니스를 시작하세요!
             </DialogTitle>
-
+            <form onSubmit={onHandleSubmit}>
             <DialogContent>
               <Grid
                 container
@@ -317,7 +490,7 @@ import {
                     <InputLabel>담당자 이름</InputLabel>
                   </Grid>
                   <Grid item md={8} xs={12}>
-                    <TextField fullWidth size="small" variant="outlined" />
+                    <TextField fullWidth size="small" variant="outlined" name="username" />
                   </Grid>
                 </Grid>
 
@@ -331,7 +504,7 @@ import {
                     <InputLabel>아이디</InputLabel>
                   </Grid>
                   <Grid item md={5} xs={12}>
-                    <TextField fullWidth size="small" variant="outlined" />
+                    <TextField fullWidth size="small" variant="outlined" name="userId" />
                   </Grid>
                   <Grid item md={3} xs={12} style={{ paddingLeft: "10px" }}>
                     <Button
@@ -356,7 +529,7 @@ import {
                     <InputLabel>비밀번호</InputLabel>
                   </Grid>
                   <Grid item md={8} xs={12}>
-                    <TextField fullWidth size="small" variant="outlined" />
+                    <TextField type="password" fullWidth size="small" variant="outlined" name="password" />
                   </Grid>
                 </Grid>
 
@@ -370,7 +543,7 @@ import {
                     <InputLabel>비밀번호 확인</InputLabel>
                   </Grid>
                   <Grid item md={8} xs={12}>
-                    <TextField fullWidth size="small" variant="outlined" />
+                    <TextField type="password" fullWidth size="small" variant="outlined" name="passwordConfirm"/>
                   </Grid>
                 </Grid>
 
@@ -384,7 +557,7 @@ import {
                     <InputLabel>상호명</InputLabel>
                   </Grid>
                   <Grid item md={8} xs={12}>
-                    <TextField fullWidth size="small" variant="outlined" />
+                    <TextField fullWidth size="small" variant="outlined" name="companyName" />
                   </Grid>
                 </Grid>
 
@@ -398,7 +571,7 @@ import {
                     <InputLabel>대표자명</InputLabel>
                   </Grid>
                   <Grid item md={8} xs={12}>
-                    <TextField fullWidth size="small" variant="outlined" />
+                    <TextField fullWidth size="small" variant="outlined" name="ceoName" />
                   </Grid>
                 </Grid>
 
@@ -412,7 +585,7 @@ import {
                     <InputLabel>대표 전화번호</InputLabel>
                   </Grid>
                   <Grid item md={8} xs={12}>
-                    <TextField fullWidth size="small" variant="outlined" />
+                    <TextField fullWidth size="small" variant="outlined" name="companyPhone" />
                   </Grid>
                 </Grid>
 
@@ -426,7 +599,7 @@ import {
                     <InputLabel>사업자등록번호</InputLabel>
                   </Grid>
                   <Grid item md={8} xs={12}>
-                    <TextField fullWidth size="small" variant="outlined" />
+                    <TextField fullWidth size="small" variant="outlined" name="businessNumber" />
                   </Grid>
                 </Grid>
 
@@ -506,7 +679,7 @@ import {
                     <InputLabel>주소</InputLabel>
                   </Grid>
                   <Grid item md={5} xs={12}>
-                    <TextField fullWidth size="small" variant="outlined" />
+                    <TextField fullWidth size="small" variant="outlined" name="address"  />
                   </Grid>
                   <Grid item md={3} xs={12} style={{ paddingLeft: "10px" }}>
                     <Button
@@ -541,6 +714,7 @@ import {
                               size="small"
                               variant="outlined"
                               type="time"
+                              name="openHour"
                             />
                           </Grid>
                           <Grid
@@ -559,6 +733,7 @@ import {
                           size="small"
                           variant="outlined"
                           type="time"
+                          name="closeHour"
                         />
                       </Grid>
                     </Grid>
@@ -580,6 +755,7 @@ import {
                       size="small"
                       variant="outlined"
                       type="number"
+                      name="deliveryFee"
                       InputProps={{
                         endAdornment: (
                           <InputAdornment position="end">원</InputAdornment>
@@ -604,6 +780,7 @@ import {
                       size="small"
                       variant="outlined"
                       type="number"
+                      name="deliveryFreePrice"
                       InputProps={{
                         endAdornment: (
                           <InputAdornment position="end">원</InputAdornment>
@@ -626,7 +803,7 @@ import {
                     <InputLabel>담당자 이메일</InputLabel>
                   </Grid>
                   <Grid item md={8} xs={12}>
-                    <TextField fullWidth size="small" variant="outlined" />
+                    <TextField fullWidth size="small" variant="outlined" name="email" />
                   </Grid>
                 </Grid>
 
@@ -640,7 +817,7 @@ import {
                     <InputLabel>휴대폰 번호(인증요청)</InputLabel>
                   </Grid>
                   <Grid item md={5} xs={12}>
-                    <TextField fullWidth size="small" variant="outlined" />
+                    <TextField fullWidth size="small" variant="outlined" name="phoneNumber" />
                   </Grid>
                   <Grid item md={3} xs={12} style={{ paddingLeft: "10px" }}>
                     <Button
@@ -668,7 +845,7 @@ import {
                     <InputLabel>인증번호 입력</InputLabel>
                   </Grid>
                   <Grid item md={5} xs={12}>
-                    <TextField fullWidth size="small" variant="outlined" />
+                    <TextField fullWidth size="small" variant="outlined" name="activateNumber" />
                   </Grid>
                   <Grid item md={3} xs={12} style={{ paddingLeft: "10px" }}>
                     <Button
@@ -692,7 +869,7 @@ import {
                   <Grid item md={4} xs={12}></Grid>
                   <Grid item md={8} xs={12}>
                     <FormControlLabel
-                      control={<Checkbox color="primary" value={true} />}
+                      control={<Checkbox color="primary" value={true} name="terms" />}
                       label="아니벌써 이용약관 동의"
                     />
                   </Grid>
@@ -702,7 +879,7 @@ import {
                   <Grid item md={4} xs={12}></Grid>
                   <Grid item md={8} xs={12}>
                     <FormControlLabel
-                      control={<Checkbox color="primary" value={true} />}
+                      control={<Checkbox color="primary" value={true} name="privacy"  />}
                       label="개인정보 수집 및 이용 동의"
                     />
                   </Grid>
@@ -714,11 +891,12 @@ import {
 
             <DialogActions>
               <Button
+                type="submit"
                 size="medium"
                 variant="outlined"
                 style={{ backgroundColor: "#0eb906", color: "#fff" }}
                 startIcon={<SaveIcon />}
-                onClick={onCloseModal}
+                //onClick={onCloseModal}
               >
                 완료
               </Button>
@@ -732,6 +910,7 @@ import {
                 취소
               </Button>
             </DialogActions>
+            </form>
           </Dialog>
         </div>
       </React.Fragment>
@@ -739,8 +918,14 @@ import {
   
 }
 
-RegisterMart.propTypes = {
-  history: PropTypes.object,
+const mapStateToProps = (state) => {
+  return {
+      apolloClient: state.apolloClient,
+  };
 };
 
-export default withRouter(RegisterMart);
+// RegisterMart.propTypes = {
+//   history: PropTypes.object,
+// };
+
+export default withRouter(connect(mapStateToProps, { setApolloClient })(RegisterMart));

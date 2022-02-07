@@ -9,6 +9,16 @@ export const FORGET_PASSWORD = gql`
   }
 `;
 
+export const CREATE_NEW_MARKET = gql`
+  mutation createNewMarket ($market: MarketCreate!, $admin: AdminCreate!, $businessCertificate: Upload, $businessStamp: Upload) {
+  createNewMarket (market: $market, admin: $admin, businessCertificate: $businessCertificate, businessStamp: $businessStamp) {
+      statusCode
+      message
+      data
+  }
+}
+`;
+
 // CHECK_MAIL
 export const CHECK_MAIL = gql`
   query checkEmail($email: String!) {

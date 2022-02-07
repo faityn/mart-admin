@@ -19,8 +19,9 @@ import UserListView from "../../components/Users/List";
 import SettingsOperatorRoleView from "../../components/Settings/Operator/Role";
 
 // Product
-import ProductManagementView from "../../components/Product/Form/Management";
-import EditProductView from "../../components/Product/Form/Edit";
+import ProductAllList from "../../components/Product/Index/AllList";
+import ProductMarketList from "../../components/Product/Index/MarketList";
+import ProductDetailView from "../../components/Product/Form/Detail";
 import ProductOrderListView from "../../components/Product/Form/Order";
 import ProductNewStatusView from "../../components/Product/Form/StatusNew";
 import ProductPrepareStatusView from "../../components/Product/Form/StatusPrepare";
@@ -41,249 +42,255 @@ import VATReturnView from "../../components/Calculation/VAT";
 import ProductRefundView from "../../components/Calculation/ProductRefund";
 import ShippingRefundView from "../../components/Calculation/ShippingRefund";
 
-
 class Routes extends React.Component {
-    render() {
-        let loggedUser = this.props.loggedUser ? this.props.loggedUser : null;
-        
-        if (!loggedUser)
-            return (
-                <Switch>
-                    <Redirect exact from="/" to="/dashboard" />
-                    <RouteWithLayout
-                        component={SignInView}
-                        exact
-                        layout={MinimalLayout}
-                        path="/signin"
-                    />
-                    <RouteWithLayout
-                        component={SignUpView}
-                        exact
-                        layout={MinimalLayout}
-                        path="/signup"
-                    />
-                    <RouteWithLayout
-                        component={SignUpView}
-                        exact
-                        layout={MinimalLayout}
-                        path="/activation/:token"
-                    />
+  render() {
+    let loggedUser = this.props.loggedUser ? this.props.loggedUser : null;
 
-                    {/* Forget password */}
-                    <RouteWithLayout
-                        component={ForgetPasswordView}
-                        exact
-                        layout={MinimalLayout}
-                        path="/forget-password"
-                    />
+    if (!loggedUser)
+      return (
+        <Switch>
+          <Redirect exact from="/" to="/dashboard" />
+          <RouteWithLayout
+            component={SignInView}
+            exact
+            layout={MinimalLayout}
+            path="/signin"
+          />
+          <RouteWithLayout
+            component={SignUpView}
+            exact
+            layout={MinimalLayout}
+            path="/signup"
+          />
+          <RouteWithLayout
+            component={SignUpView}
+            exact
+            layout={MinimalLayout}
+            path="/activation/:token"
+          />
 
-                    {/* Not Found */}
-                    <RouteWithLayout
-                        component={NotFoundView}
-                        exact
-                        layout={MinimalLayout}
-                        path="/not-found"
-                    />
-                    <Redirect to="/not-found" />
-                </Switch>
-            );
+          {/* Forget password */}
+          <RouteWithLayout
+            component={ForgetPasswordView}
+            exact
+            layout={MinimalLayout}
+            path="/forget-password"
+          />
 
-        // if (loggedUser.roleName === "ROLE_ADMIN")
-        if (loggedUser.roleName === "ROLE_MARKET")
-            return (
-                // <Suspense fallback={<Page loader={"bar"} color={"#A9A9A9"} size={4} />}>
-                <Switch>
-                    <Redirect exact from="/" to="/dashboard" />
-                    <RouteWithLayout
-                        component={DashboardView}
-                        exact
-                        layout={MainLayout}
-                        path="/dashboard"
-                    />
+          {/* Not Found */}
+          <RouteWithLayout
+            component={NotFoundView}
+            exact
+            layout={MinimalLayout}
+            path="/not-found"
+          />
+          <Redirect to="/not-found" />
+        </Switch>
+      );
 
-                    {/* General information */}
-                    <RouteWithLayout
-                        component={GeneralInformationView}
-                        exact
-                        layout={MainLayout}
-                        path="/general-information"
-                    />
+    // if (loggedUser.roleName === "ROLE_ADMIN")
+    if (loggedUser.roleName === "ROLE_MARKET")
+      return (
+        // <Suspense fallback={<Page loader={"bar"} color={"#A9A9A9"} size={4} />}>
+        <Switch>
+          <Redirect exact from="/" to="/dashboard" />
+          <RouteWithLayout
+            component={DashboardView}
+            exact
+            layout={MainLayout}
+            path="/dashboard"
+          />
 
-                    {/* User management */}
-                    <RouteWithLayout
-                        component={UserListView}
-                        exact
-                        layout={MainLayout}
-                        path="/user-list"
-                    />
+          {/* General information */}
+          <RouteWithLayout
+            component={GeneralInformationView}
+            exact
+            layout={MainLayout}
+            path="/general-information"
+          />
 
-                    <RouteWithLayout
-                        component={SettingsOperatorRoleView}
-                        exact
-                        layout={MainLayout}
-                        path="/operator-role"
-                    />                    
+          {/* User management */}
+          <RouteWithLayout
+            component={UserListView}
+            exact
+            layout={MainLayout}
+            path="/user-list"
+          />
 
-                    <RouteWithLayout
-                        component={ProductManagementView}
-                        exact
-                        layout={MainLayout}
-                        path="/product-management"
-                    />         
-                    
-                    <RouteWithLayout
-                        component={EditProductView}
-                        exact
-                        layout={MainLayout}
-                        path="/edit-product"
-                    />
+          <RouteWithLayout
+            component={SettingsOperatorRoleView}
+            exact
+            layout={MainLayout}
+            path="/operator-role"
+          />
 
-                    <RouteWithLayout
-                        component={ProductOrderListView}
-                        exact
-                        layout={MainLayout}
-                        path="/product-order-all"
-                    />
+          <RouteWithLayout
+            component={ProductAllList}
+            exact
+            layout={MainLayout}
+            path="/product-management"
+          />
 
-                    <RouteWithLayout
-                        component={ProductNewStatusView}
-                        exact
-                        layout={MainLayout}
-                        path="/product-order-new"
-                    />
+          <RouteWithLayout
+            component={ProductDetailView}
+            exact
+            layout={MainLayout}
+            path="/product-detail"
+          />
 
-                    <RouteWithLayout
-                        component={ProductPrepareStatusView}
-                        exact
-                        layout={MainLayout}
-                        path="/product-order-prepare"
-                    />
+          <RouteWithLayout
+            component={ProductMarketList}
+            exact
+            layout={MainLayout}
+            path="/market-product"
+          />
 
-                    <RouteWithLayout
-                        component={ProductShippingStatusView}
-                        exact
-                        layout={MainLayout}
-                        path="/product-order-shipping"
-                    />
+          <RouteWithLayout
+            component={ProductOrderListView}
+            exact
+            layout={MainLayout}
+            path="/product-order-all"
+          />
 
-                    <RouteWithLayout
-                        component={ProductDeliveredStatusView}
-                        exact
-                        layout={MainLayout}
-                        path="/product-order-delivered"
-                    />
+          <RouteWithLayout
+            component={ProductNewStatusView}
+            exact
+            layout={MainLayout}
+            path="/product-order-new"
+          />
 
-                    <RouteWithLayout
-                        component={ProductPurchasedStatusView}
-                        exact
-                        layout={MainLayout}
-                        path="/product-order-purchased"
-                    />
+          <RouteWithLayout
+            component={ProductPrepareStatusView}
+            exact
+            layout={MainLayout}
+            path="/product-order-prepare"
+          />
 
-                    <RouteWithLayout
-                        component={ProductExchangedStatusView}
-                        exact
-                        layout={MainLayout}
-                        path="/product-order-exchanged"
-                    />
+          <RouteWithLayout
+            component={ProductShippingStatusView}
+            exact
+            layout={MainLayout}
+            path="/product-order-shipping"
+          />
 
-                    <RouteWithLayout
-                        component={ProductReturnedStatusView}
-                        exact
-                        layout={MainLayout}
-                        path="/product-order-returned"
-                    />
+          <RouteWithLayout
+            component={ProductDeliveredStatusView}
+            exact
+            layout={MainLayout}
+            path="/product-order-delivered"
+          />
 
-                    <RouteWithLayout
-                        component={ProductRefundedStatusView}
-                        exact
-                        layout={MainLayout}
-                        path="/product-order-refunded"
-                    />
+          <RouteWithLayout
+            component={ProductPurchasedStatusView}
+            exact
+            layout={MainLayout}
+            path="/product-order-purchased"
+          />
 
-                    <RouteWithLayout
-                        component={NoticeListView}
-                        exact
-                        layout={MainLayout}
-                        path="/notice-list"
-                    />
+          <RouteWithLayout
+            component={ProductExchangedStatusView}
+            exact
+            layout={MainLayout}
+            path="/product-order-exchanged"
+          />
 
-                    <RouteWithLayout
-                        component={OneToOneListView}
-                        exact
-                        layout={MainLayout}
-                        path="/one-to-one"
-                    />
+          <RouteWithLayout
+            component={ProductReturnedStatusView}
+            exact
+            layout={MainLayout}
+            path="/product-order-returned"
+          />
 
-                    <RouteWithLayout
-                        component={TaxInvoiceListView}
-                        exact
-                        layout={MainLayout}
-                        path="/tax-invoice"
-                    />
+          <RouteWithLayout
+            component={ProductRefundedStatusView}
+            exact
+            layout={MainLayout}
+            path="/product-order-refunded"
+          />
 
-                    <RouteWithLayout
-                        component={VATReturnView}
-                        exact
-                        layout={MainLayout}
-                        path="/vat-return"
-                    />
+          <RouteWithLayout
+            component={NoticeListView}
+            exact
+            layout={MainLayout}
+            path="/notice-list"
+          />
 
-                    <RouteWithLayout
-                        component={ProductRefundView}
-                        exact
-                        layout={MainLayout}
-                        path="/product-refund"
-                    />
+          <RouteWithLayout
+            component={OneToOneListView}
+            exact
+            layout={MainLayout}
+            path="/one-to-one"
+          />
 
-                    <RouteWithLayout
-                        component={ShippingRefundView}
-                        exact
-                        layout={MainLayout}
-                        path="/shipping-refund"
-                    />
+          <RouteWithLayout
+            component={TaxInvoiceListView}
+            exact
+            layout={MainLayout}
+            path="/tax-invoice"
+          />
 
-                    <RouteWithLayout
-                        component={MartRegistrationView}
-                        exact
-                        layout={MainLayout}
-                        path="/register-mart"
-                    />
+          <RouteWithLayout
+            component={VATReturnView}
+            exact
+            layout={MainLayout}
+            path="/vat-return"
+          />
 
-                    <RouteWithLayout
-                        component={SignInView}
-                        exact
-                        layout={MinimalLayout}
-                        path="/signin"
-                    />
+          <RouteWithLayout
+            component={ProductRefundView}
+            exact
+            layout={MainLayout}
+            path="/product-refund"
+          />
 
-                    <RouteWithLayout
-                        component={SignUpView}
-                        exact
-                        layout={MinimalLayout}
-                        path="/signup"
-                    />
+          <RouteWithLayout
+            component={ShippingRefundView}
+            exact
+            layout={MainLayout}
+            path="/shipping-refund"
+          />
 
-                    <RouteWithLayout
-                        component={NotFoundView}
-                        exact
-                        layout={MinimalLayout}
-                        path="/not-found"
-                    />
-                    <Redirect to="/not-found" />
-                </Switch>
-            );
+          <RouteWithLayout
+            component={MartRegistrationView}
+            exact
+            layout={MainLayout}
+            path="/register-mart"
+          />
 
-        return null;
-    }
+          <RouteWithLayout
+            component={SignInView}
+            exact
+            layout={MinimalLayout}
+            path="/signin"
+          />
+
+          <RouteWithLayout
+            component={SignUpView}
+            exact
+            layout={MinimalLayout}
+            path="/signup"
+          />
+
+          <RouteWithLayout
+            component={NotFoundView}
+            exact
+            layout={MinimalLayout}
+            path="/not-found"
+          />
+          <Redirect to="/not-found" />
+        </Switch>
+      );
+
+    return null;
+  }
 }
 
 // Redux state to props
 const mapStateToProps = (state) => {
-    return {
-        apolloClient: state.apolloClient,
-        loggedUser: state.loggedUser,
-    };
+  return {
+    apolloClient: state.apolloClient,
+    loggedUser: state.loggedUser,
+  };
 };
 
 export default connect(mapStateToProps, null)(Routes);

@@ -5,6 +5,12 @@ import { types } from "./Types";
  * @param {Object} client
  * @returns {Object}
  */
+
+ export const getUserInfo = (apolloClient) => ({
+    type: types.SET_APOLLO_CLIENT,
+    apolloClient: apolloClient,
+});
+
 export const setApolloClient = (apolloClient) => ({
     type: types.SET_APOLLO_CLIENT,
     apolloClient: apolloClient,

@@ -40,6 +40,9 @@ class App extends Component {
    * @override
    */
   async componentDidMount() {
+    //console.log("BEFORE");
+    //this.props.setApolloClient(createApolloClient());
+    //console.log("BEFORE2");
     if (
       location.pathname === "/signup" ||
       location.pathname.substring(0,11) === "/activation" ||
@@ -70,9 +73,11 @@ class App extends Component {
       });
 
       const userid = localStorage.getItem(process.env.REACT_LOGGED_USER_ID);
+      const marketid = localStorage.getItem(process.env.REACT_LOGGED_MARKET_ID);
       const roleName = localStorage.getItem(process.env.REACT_LOGGED_USER_ROLE);
       var user = {
         userid: userid,
+        marketid: marketid,
         roleName: roleName
       };
       this.setState({

@@ -1,40 +1,143 @@
 import { gql } from "apollo-boost";
 
 // Get product list
-export const GET_PRODUCTS = gql`
-  query getProducts($search: SearchInput, $page: PageInput) {
-    getProducts(search: $search, page: $page) {
+export const GET_MARKET_PRODUCTS = gql`
+  query findProductByMarket($request: ProductRequest!) {
+    findProductByMarket(request: $request) {
       totalElements
-      list {
+      size
+      number
+      content {
         id
-        firstCategory
-        secondCategory
-        thirdCategory
+        code
         name
-        nameEng
-        imageUrl
-        inventory
-        price
-        weight
-        sku
-        registerDate
-        updatedDate
+        barcode
+        categoryName
+        description
+        defaultPrice
+        images
+        taxType
         brand
-        isDisplay
-        isSeller
-        status
-        reqCount
-        shipmentDate
-        reason
+        modelName
+        modelNo
+        isAdultProduct
+        price
+        quantity
+        sale
+        isInPromotion
+        saleYN
+        showYN
+        tax
+        createdDate
+        updatedDate
+      }
+    }
+  }
+`;
+
+export const GET_All_PRODUCTS = gql`
+  query findAllProduct($request: ProductRequest!) {
+    findAllProduct(request: $request) {
+      totalElements
+      size
+      number
+      content {
+        id
+        code
+        name
+        barcode
+        categoryName
+        description
+        defaultPrice
+        deliveryFee
+        deliveryReturnFee
+        deliveryExchangeFee
+        keywords
+        images
+        taxType
+        origin
         manufacturer
-        request {
-          createdDate
-          price
-          tradePrice
-          count
-          shipmentDate
+        brand
+        modelName
+        modelNo
+        manufactoredDate
+        expireDate
+        gender
+        isAdultProduct
+        price
+        sale
+        isInPromotion
+        tax
+        createdDate
+        updatedDate
+      }
+    }
+  }
+`;
+
+export const ADD_MARKET_PRODUCT = gql`
+  mutation addProducts($productIds: [Long]) {
+    addProducts(productIds: $productIds) {
+      statusCode
+      message
+      data
+    }
+  }
+`;
+
+export const SET_PRODUCT = gql`
+  mutation setProducts($products: [MarketProduct]) {
+    setProducts(products: $products) {
+      statusCode
+      message
+      data
+    }
+  }
+`;
+
+export const CHANGE_STATUS = gql`
+  mutation changeView($change: ChangeView) {
+    changeView(change: $change) {
+      statusCode
+      message
+      data
+    }
+  }
+`;
+
+export const GET_TREE = gql`
+  query getTree {
+    getTree {
+      id
+      name
+      icon
+      url
+      banner
+    }
+  }
+`;
+
+export const GET_CATEGORY = gql`
+  query getCategory($id: Long!) {
+    getCategory(id: $id) {
+      id
+      name
+      icon
+      url
+      banner
+      childCategories {
+        id
+        name
+        icon
+        url
+        banner
+        childCategories {
+          id
+          name
+          icon
+          url
+          banner
         }
-        premiumServices
       }
     }
   }
@@ -85,7 +188,7 @@ export const DELETE_PRODUCT = gql`
 
 // Subscribe product
 export const SUBSCRIPTION_PRODUCT = gql`
-  subscription($id: String) {
+  subscription ($id: String) {
     onProductUpdate(id: $id) {
       name
     }

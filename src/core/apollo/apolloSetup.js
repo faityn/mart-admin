@@ -27,7 +27,7 @@ const promiseToObservable = (promise) =>
 const newToken = async () => {
   let bodyFormData = new FormData();
       bodyFormData.set('grant_type', 'refresh_token');
-      bodyFormData.set('refresh_token', localStorage.getItem(process.env.REACT_REFRESH_TOKEN_NAME));
+      bodyFormData.set('refresh_token', localStorage.getItem(process.env.REACT_ACCESS_TOKEN_NAME));
 
   let promise = await new Promise(resolve => { 
     new axios({
@@ -57,17 +57,17 @@ const newToken = async () => {
 export const createApolloClient = () => {
   // Token
   const token = store.getState().token.accessToken ? store.getState().token.accessToken : "";
-
+  console.log(token);
   // WS link
-  // const wsLink = new WebSocketLink({
-  //   uri: process.env.REACT_APP_WS_URL,
-  //   options: {
-  //     reconnect: false,
-  //     connectionParams: {
-  //       authToken: token ? `Bearer ${token}` : "",
-  //     },
-  //   }
-  // });
+  const wsLink = new WebSocketLink({
+    uri: process.env.REACT_APP_WS_URL,
+    options: {
+      reconnect: false,
+      connectionParams: {
+        authToken: token ? `Bearer ${token}` : "",
+      },
+    }
+  });
 
   // API link
   const httpLink = new HttpLink({
@@ -76,42 +76,43 @@ export const createApolloClient = () => {
       authorization: token ? `Bearer ${token}` : "",
     }
   });
+  
 
   // Error link
   const errorLink = onError(({ graphQLErrors, networkError, operation, forward }) => {
     if (networkError) {
       if (networkError.statusCode === 401) {
-        
-        return promiseToObservable(newToken()).flatMap((response) => {
-          const oldHeaders = operation.getContext().headers;
+        console.log(networkError);
+        // return promiseToObservable(newToken()).flatMap((response) => {
+        //   const oldHeaders = operation.getContext().headers;
           
-          if (response && response.status === 200 && response.data && response.data.access_token && response.data.refresh_token) {
-            store.dispatch(setToken({
-              accessToken: response.data.access_token,
-              refreshToken: response.data.refresh_token
-            }));
-            localStorage.setItem(process.env.REACT_ACCESS_TOKEN_NAME, response.data.access_token);
-            localStorage.setItem(process.env.REACT_REFRESH_TOKEN_NAME, response.data.refresh_token);
+        //   if (response && response.status === 200 && response.data && response.data.access_token && response.data.refresh_token) {
+        //     store.dispatch(setToken({
+        //       accessToken: response.data.access_token,
+        //       refreshToken: response.data.refresh_token
+        //     }));
+        //     localStorage.setItem(process.env.REACT_ACCESS_TOKEN_NAME, response.data.access_token);
+        //     localStorage.setItem(process.env.REACT_REFRESH_TOKEN_NAME, response.data.refresh_token);
     
-            operation.setContext({
-              headers: {
-                ...oldHeaders,
-                authorization: `Bearer ${response.data.access_token}`,
-              },
-            });
+        //     operation.setContext({
+        //       headers: {
+        //         ...oldHeaders,
+        //         authorization: `Bearer ${response.data.access_token}`,
+        //       },
+        //     });
           
-            return forward(operation)
-          }
-          else {
-            localStorage.removeItem(process.env.REACT_ACCESS_TOKEN_NAME);
-            localStorage.removeItem(process.env.REACT_REFRESH_TOKEN_NAME);
-            window.location.pathname = "/";
-          }
-        });
+        //     //return forward(operation)
+        //   }
+        //   else {
+        //     // localStorage.removeItem(process.env.REACT_ACCESS_TOKEN_NAME);
+        //     // localStorage.removeItem(process.env.REACT_REFRESH_TOKEN_NAME);
+        //     window.location.pathname = "/";
+        //   }
+        // });
       }
     }
 
-    return forward(operation);
+    //return forward(operation);
   });
 
   // Http client
@@ -128,6 +129,7 @@ export const createApolloClient = () => {
             definition.operation === 'subscription'
           );
         },
+        wsLink,
         httpLink
       )
     ]),
@@ -158,6 +160,7 @@ export const createApolloClient = () => {
         uri: process.env.REACT_APP_API_URL,
         headers: {
           authorization: token ? `Bearer ${token}` : "",
+          "Access-Control-Allow-Origin": "*"
         },
       })
     ]),

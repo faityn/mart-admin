@@ -9,7 +9,13 @@ import {
     FormControl,
     Checkbox,
     InputLabel,
+    Table, TableBody, TableRow, TableCell,
 } from "@material-ui/core";
+
+import PageTitle from "../../../core/common/Partials/PageTitle";
+import SubjectIcon from '@material-ui/icons/Subject';
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import 'react-tabs/style/react-tabs.css';
 /**
  * @summary Detail
  * @version 1.0
@@ -29,33 +35,54 @@ class Detail extends React.Component {
     render() {
         return (
             <CardContent>
-                <Grid container spacing={3} className="align-items-center">
-                    <Grid item md={2} xs={12}>
-                        <h5>상품코드 or 바코드</h5>
-                    </Grid>
-                    <Grid item md={6} xs={12}>
-                        <TextField
-                            fullWidth
-                            placeholder="상품코드 입력(영문/숫자)"
-                            size="small"
-                            variant="outlined"
-                        />
-                    </Grid>
-                </Grid>
+                <div className=" mt-20">
+                    <h1> <SubjectIcon /> 상품 기본정보</h1>
+                        <Tabs>
+                            <TabList>
+                            <Tab>상품 기본정보</Tab>
+                            <Tab>옵션 정보</Tab>
+                            <Tab>상품 부가정보</Tab>
+                            <Tab>구매/혜택 조건</Tab>
+                            <Tab>품목/인증 정보</Tab>
+                            </TabList>
 
-                <Grid container spacing={3} className="align-items-center">
-                    <Grid item md={2} xs={12}>
-                        <h5>상품 키워드</h5>
-                    </Grid>
-                    <Grid item md={6} xs={12}>
-                        <TextField
-                            fullWidth
-                            placeholder="상품 키워드 40자 이내 입력"
-                            size="small"
-                            variant="outlined"
-                        />
-                    </Grid>
-                </Grid>
+                            <TabPanel>
+                            <Table className="member_table">
+                                <TableBody>
+                                    <TableRow>
+                                        <TableCell className="align-items-center text-center" width="20%"><strong>상품명</strong></TableCell>
+                                        <TableCell width="30%"><InputLabel>상품명</InputLabel></TableCell>
+                                        <TableCell className="align-items-center text-center" width="20%"><strong>상품코드</strong></TableCell>
+                                        <TableCell width="30%"><InputLabel>상품코드</InputLabel></TableCell>
+                                    </TableRow>
+                                    
+                                    <TableRow>
+                                        <TableCell className="align-items-center text-center" width="20%"><strong>상품 바코드</strong></TableCell>
+                                        <TableCell width="" colSpan="3"><InputLabel>상품 바코드</InputLabel></TableCell>
+                                    </TableRow>
+                                </TableBody>
+                            </Table>
+                               
+                            </TabPanel>
+                            <TabPanel>
+                            <h2>Any content 2</h2>
+                            </TabPanel>
+                            <TabPanel>
+                            <h2>Any content 3</h2>
+                            </TabPanel>
+                            <TabPanel>
+                            <h2>Any content 4</h2>
+                            </TabPanel>
+                            <TabPanel>
+                            <h2>Any content 5</h2>
+                            </TabPanel>
+                        </Tabs>
+
+                </div>
+                
+                
+
+                
                 
                 <Grid container spacing={3} className="align-items-center">
                     <Grid item md={2} xs={12}>

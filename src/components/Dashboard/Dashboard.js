@@ -43,42 +43,41 @@ const useStyles = makeStyles(theme => ({
 
   async componentDidMount() {
     console.log('load dashboard');
-
-    await this.props.apolloClient.httpClient
-      .query({
-        query: gql`query getDashboard {
-          getDashboard {
-                orderUnshipped
-                orderReady
-                orderCancel
-                msgMembership
-                msgItem
-                msgCancel
-                msgOthers
-                coupons
-                sellerNew
-                sellerRequest
-                sellerWarehousing
-                exhibition
-                affliateRequest
-                affliateClicks
-                affliateOrders
-                timedealStartDate
-                timedealEndDate
-           }
-       }`
-      })
-      .then((result) => {
-        this.setState({
-          dashboard: result.data.getDashboard,
-        });
-      })
-      .catch((error) => {
-        this.props.enqueueSnackbar(
-          "Sorry, there is an error occurred while fetching data.",
-          { variant: "error" }
-        );
-      });
+    // await this.props.apolloClient.httpClient
+    //   .query({
+    //     query: gql`query getDashboard {
+    //       getDashboard {
+    //             orderUnshipped
+    //             orderReady
+    //             orderCancel
+    //             msgMembership
+    //             msgItem
+    //             msgCancel
+    //             msgOthers
+    //             coupons
+    //             sellerNew
+    //             sellerRequest
+    //             sellerWarehousing
+    //             exhibition
+    //             affliateRequest
+    //             affliateClicks
+    //             affliateOrders
+    //             timedealStartDate
+    //             timedealEndDate
+    //        }
+    //    }`
+    //   })
+    //   .then((result) => {
+    //     this.setState({
+    //       dashboard: result.data.getDashboard,
+    //     });
+    //   })
+    //   .catch((error) => {
+    //     this.props.enqueueSnackbar(
+    //       "Sorry, there is an error occurred while fetching data.",
+    //       { variant: "error" }
+    //     );
+    //   });
   }
 
 
